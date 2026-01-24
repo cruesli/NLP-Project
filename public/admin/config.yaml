@@ -1,0 +1,86 @@
+backend:
+  name: git-gateway
+  branch: main
+
+# Where Decap will store uploaded images in your repo:
+media_folder: "public/images/recipes"
+public_folder: "/images/recipes"
+
+# Optional but recommended for local development
+local_backend: true
+
+collections:
+  - name: "recipes"
+    label: "Recipes"
+    folder: "src/content/recipes"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    fields:
+      - { name: "title", label: "Title", widget: "string" }
+      - { name: "cuisine", label: "Cuisine", widget: "string", hint: "e.g. italian, indian" }
+      - { name: "foodType", label: "Food type", widget: "string", required: false }
+      - { name: "tags", label: "Tags", widget: "list", required: false }
+      - { name: "servings", label: "Servings", widget: "number", value_type: "int", required: false, min: 1 }
+      - { name: "totalTimeMinutes", label: "Total time (minutes)", widget: "number", value_type: "int", required: false, min: 1 }
+      - { name: "image", label: "Image", widget: "image", required: false }
+
+      # Recipe body as markdown (keeps your current rendering intact)
+      - { name: "body", label: "Recipe", widget: "markdown" }
+
+  - name: "meal-plans"
+    label: "Meal Plans"
+    files:
+      - label: "Current week"
+        name: "current-week"
+        file: "src/content/meal-plans/current-week.json"
+        format: "json"
+        fields:
+          - { name: "weekStart", label: "Week start (YYYY-MM-DD)", widget: "string" }
+          - name: "days"
+            label: "Days"
+            widget: "object"
+            fields:
+              - name: "monday"
+                label: "Monday"
+                widget: "object"
+                fields:
+                  - { name: "recipeSlug", label: "Recipe slug", widget: "string", required: false }
+                  - { name: "notes", label: "Notes", widget: "string", required: false }
+              - name: "tuesday"
+                label: "Tuesday"
+                widget: "object"
+                fields:
+                  - { name: "recipeSlug", label: "Recipe slug", widget: "string", required: false }
+                  - { name: "notes", label: "Notes", widget: "string", required: false }
+              - name: "wednesday"
+                label: "Wednesday"
+                widget: "object"
+                fields:
+                  - { name: "recipeSlug", label: "Recipe slug", widget: "string", required: false }
+                  - { name: "notes", label: "Notes", widget: "string", required: false }
+              - name: "thursday"
+                label: "Thursday"
+                widget: "object"
+                fields:
+                  - { name: "recipeSlug", label: "Recipe slug", widget: "string", required: false }
+                  - { name: "notes", label: "Notes", widget: "string", required: false }
+              - name: "friday"
+                label: "Friday"
+                widget: "object"
+                fields:
+                  - { name: "recipeSlug", label: "Recipe slug", widget: "string", required: false }
+                  - { name: "notes", label: "Notes", widget: "string", required: false }
+              - name: "saturday"
+                label: "Saturday"
+                widget: "object"
+                fields:
+                  - { name: "recipeSlug", label: "Recipe slug", widget: "string", required: false }
+                  - { name: "notes", label: "Notes", widget: "string", required: false }
+              - name: "sunday"
+                label: "Sunday"
+                widget: "object"
+                fields:
+                  - { name: "recipeSlug", label: "Recipe slug", widget: "string", required: false }
+                  - { name: "notes", label: "Notes", widget: "string", required: false }
