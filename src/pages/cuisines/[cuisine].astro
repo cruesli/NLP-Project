@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
+import { withBase } from "../../utils/withBase";
 
 export async function getStaticPaths() {
   const recipes = await getCollection("recipes");
@@ -23,7 +24,7 @@ recipes.sort((a, b) => a.data.title.localeCompare(b.data.title));
 
   <div class="grid">
     {recipes.map((r) => (
-      <a class="card" href={`/recipes/${r.slug}`}>
+      <a class="card" href={withBase(`/recipes/${r.slug}`)}>
         <h2 style="margin: 0 0 6px 0;">{r.data.title}</h2>
         <div class="badges">
           {r.data.foodType ? <span class="badge">{r.data.foodType}</span> : null}

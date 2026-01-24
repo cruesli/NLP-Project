@@ -1,4 +1,5 @@
 ---
+import { withBase } from "../utils/withBase";
 const { title = "Family Recipes" } = Astro.props;
 ---
 
@@ -8,14 +9,14 @@ const { title = "Family Recipes" } = Astro.props;
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
-    <link rel="stylesheet" href="/styles/global.css" />
+    <link rel="stylesheet" href={withBase("/styles/global.css")} />
   </head>
   <body>
     <header class="container header">
-      <a class="brand" href="/">Family Recipes</a>
+      <a class="brand" href={withBase("/")}>Magnus og Tesserns oppskrifter</a>
       <nav class="nav">
-        <a href="/">Cuisines</a>
-        <a href="/meal-planner">Meal Planner</a>
+        <a href={withBase("/")}>Cuisines</a>
+        <a href={withBase("/meal-planner")}>Meal Planner</a>
       </nav>
     </header>
 
@@ -24,7 +25,7 @@ const { title = "Family Recipes" } = Astro.props;
     </main>
 
     <footer class="container footer">
-      <small>© {new Date().getFullYear()} Family Recipes</small>
+      <small>© {new Date().getFullYear()} Magnus og Tesserns oppskrifter</small>
     </footer>
   </body>
 </html>

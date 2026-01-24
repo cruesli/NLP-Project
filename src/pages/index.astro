@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
+import { withBase } from "../utils/withBase";
 
 const recipes = await getCollection("recipes");
 
@@ -22,7 +23,7 @@ const cuisines = Array.from(cuisineCounts.entries())
 
   <div class="grid">
     {cuisines.map(({ cuisine, count }) => (
-      <a class="card" href={`/cuisines/${cuisine}`}>
+      <a class="card" href={withBase(`/cuisines/${cuisine}`)}>
         <h2 style="margin: 0 0 6px 0; text-transform: capitalize;">{cuisine}</h2>
         <div class="badge">{count} recipe{count === 1 ? "" : "s"}</div>
       </a>
@@ -36,6 +37,6 @@ const cuisines = Array.from(cuisineCounts.entries())
     When we add the CMS, this will link to the editor.
     For now, you create a new recipe by adding a Markdown file under <code>src/content/recipes/</code>.
   </p>
-  <p><a class="card" href="/admin">Go to Admin (later)</a></p>
+  <p><a class="card" href={withBase("/admin")}>Go to Admin (later)</a></p>
 </BaseLayout>
 

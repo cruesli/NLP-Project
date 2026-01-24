@@ -1,7 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
-
+import { withBase } from "../../utils/withBase";
 export async function getStaticPaths() {
   const recipes = await getCollection("recipes");
   return recipes.map((r) => ({ params: { slug: r.slug } }));
@@ -32,7 +32,7 @@ const d = recipe.data;
       {d.tags?.map((t) => <span class="badge">{t}</span>)}
     </div>
 
-    {d.image ? <img src={d.image} alt={d.title} loading="lazy" /> : null}
+    {d.image ? <img src={withBase(d.image)} alt={d.title} loading="lazy" /> : null}
 
     <div style="margin-top: 16px;">
       <Content />

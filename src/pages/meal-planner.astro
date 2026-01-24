@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { getCollection, getEntry } from "astro:content";
+import { withBase } from "../utils/withBase";
 
 const planEntry = await getEntry("meal-plans", "current-week");
 const plan = planEntry.data;
@@ -41,7 +42,7 @@ const orderedDays: Array<[string, string]> = [
             <tr>
               <td style="padding: 8px; border-bottom: 1px solid var(--border);">{label}</td>
               <td style="padding: 8px; border-bottom: 1px solid var(--border);">
-                {recipe ? <a href={`/recipes/${recipe.slug}`}>{recipe.data.title}</a> : <em>—</em>}
+                {recipe ? <a href={withBase(`/recipes/${recipe.slug}`)}>{recipe.data.title}</a> : <em>—</em>}
               </td>
               <td style="padding: 8px; border-bottom: 1px solid var(--border);">
                 {item?.notes ? item.notes : ""}
