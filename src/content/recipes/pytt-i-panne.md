@@ -3,11 +3,21 @@ title: Pytt i Panne
 cuisine: Scandinavian
 foodType: Lazy
 tags:
-  - 'Freezer-friendly'
-  - 'Cabin-food'
+  - Freezer-friendly
+  - Cabin-food
 servings: 1
 totalTimeMinutes: 15
 image: /images/recipes/pytt-i-panne.png
+ingredients: |-
+  \- 2 Sausages
+
+  \- 3 Strips of bacon (optional)
+
+  \- 2 Medium size potatoes
+
+  \- 1 Medium size onion
+
+  \- Ketchup for topping
 ---
 1. Cut the vegetables and sausages into 1cm cubes
 
