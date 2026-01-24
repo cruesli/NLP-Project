@@ -1,22 +1,21 @@
 ---
-title: "Pasta Bolognese"
-cuisine: "italian"
-foodType: "dinner"
-tags: ["family", "freezer-friendly"]
+title: Pasta Bolognese
+cuisine: italian
+foodType: dinner
+tags:
+  - family
+  - freezer-friendly
 servings: 4
 totalTimeMinutes: 60
-image: "/images/recipes/pasta-bolognese.jpg"
+image: /images/recipes/pasta-bolognese.jpg
+ingredients: |-
+  * 500g minced beef
+
+  * 1 onion, diced
+  * 2 cloves garlic, minced
+  * 1 can chopped tomatoes
+  * Salt and pepper
 ---
-
-## Ingredients
-
-- 500g minced beef
-- 1 onion, diced
-- 2 cloves garlic, minced
-- 1 can chopped tomatoes
-- Salt and pepper
-
-## Steps
 
 1. Sauté onion and garlic.
 2. Brown the beef.
