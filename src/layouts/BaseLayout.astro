@@ -9,6 +9,23 @@ const { title = "Family Recipes" } = Astro.props;
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
+    <script>
+        (function () {
+          // Only do this on the Netlify admin site, not on GitHub Pages.
+          if (location.hostname !== "mtrecipes.netlify.app") return;
+      
+          const h = location.hash || "";
+          const isInvite =
+            h.includes("invite_token=") ||
+            h.includes("recovery_token=") ||
+            h.includes("confirmation_token=") ||
+            h.includes("access_token=");
+      
+          if (isInvite) {
+            location.replace("/admin/" + h);
+          }
+        })();
+      </script>
     <link rel="stylesheet" href={withBase("/styles/global.css")} />
   </head>
   <body>
