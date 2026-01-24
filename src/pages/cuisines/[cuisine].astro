@@ -1,16 +1,37 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import { getCollection } from "astro:content";
+import { getCollection, getEntry } from "astro:content";
+import { displayFromSlug } from "../../utils/displayFromSlug";
+import { cuisineLabel } from "../../utils/cuisines";
 import { withBase } from "../../utils/withBase";
 
+/* 1. Generate routes */
 export async function getStaticPaths() {
-  const recipes = await getCollection("recipes");
-  const cuisines = Array.from(new Set(recipes.map(r => r.data.cuisine.toLowerCase())));
-  return cuisines.map((cuisine) => ({ params: { cuisine } }));
+  const cuisinesEntry = await getEntry("meta", "cuisines");
+  if (!cuisinesEntry) return [];
+
+  return cuisinesEntry.data.cuisines.map((c: { slug: string }) => ({
+    params: { cuisine: c.slug },
+  }));
 }
 
+/* 2. Read URL param */
 const { cuisine } = Astro.params;
 
+/* 3. Load cuisines meta */
+const cuisinesEntry = await getEntry("meta", "cuisines");
+const cuisines = cuisinesEntry?.data.cuisines ?? [];
+
+/* 4. Resolve current cuisine + display title */
+const current = cuisines.find(
+  (c: { slug: string }) => c.slug.toLowerCase() === String(cuisine).toLowerCase()
+);
+
+const title = current
+  ? cuisineLabel(current)
+  : displayFromSlug(String(cuisine));
+
+/* 5. Load recipes for this cuisine */
 const recipes = await getCollection("recipes", ({ data }) =>
   data.cuisine.toLowerCase() === String(cuisine).toLowerCase()
 );
@@ -18,20 +39,16 @@ const recipes = await getCollection("recipes", ({ data }) =>
 recipes.sort((a, b) => a.data.title.localeCompare(b.data.title));
 ---
 
-<BaseLayout title={`Cuisine: ${cuisine}`}>
-  <h1 style="text-transform: capitalize;">{cuisine}</h1>
-  <p>{recipes.length} recipe{recipes.length === 1 ? "" : "s"}</p>
 
-  <div class="grid">
-    {recipes.map((r) => (
-      <a class="card" href={withBase(`/recipes/${r.slug}`)}>
-        <h2 style="margin: 0 0 6px 0;">{r.data.title}</h2>
-        <div class="badges">
-          {r.data.foodType ? <span class="badge">{r.data.foodType}</span> : null}
-          {typeof r.data.totalTimeMinutes === "number" ? <span class="badge">{r.data.totalTimeMinutes} min</span> : null}
-          {typeof r.data.servings === "number" ? <span class="badge">{r.data.servings} servings</span> : null}
-        </div>
-      </a>
-    ))}
-  </div>
-</BaseLayout>
+<BaseLayout title={`Cuisine: ${title}`}>
+    <h1>{title}</h1>
+    <p>{recipes.length} recipe{recipes.length === 1 ? "" : "s"}</p>
+  
+    <div class="grid">
+      {recipes.map((r) => (
+        <a class="card" href={withBase(`/recipes/${r.slug}`)}>
+          <h2 style="margin: 0 0 6px 0;">{r.data.title}</h2>
+        </a>
+      ))}
+    </div>
+  </BaseLayout>

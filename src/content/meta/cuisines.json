@@ -1,0 +1,20 @@
+{
+    "cuisines": [
+      { "slug": "italian" },
+      { "slug": "indian" },
+      { "slug": "danish" },
+      { "slug": "scandinavian" },
+      { "slug": "japanese" },
+      { "slug": "mexican" },
+      { "slug": "thai" },
+      { "slug": "vietnamese" },
+      { "slug": "korean" },
+      { "slug": "chinese" },
+      { "slug": "american" },
+      { "slug": "british" },
+      { "slug": "french" },
+      { "slug": "german" },
+      { "slug": "spanish" },
+      { "slug": "other" }
+    ]
+  }

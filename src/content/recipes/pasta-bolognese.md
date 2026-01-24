@@ -32,20 +32,20 @@ ingredients: |-
 
 3. Season with a bit of salt, about 2 pinches
 
-3. Add garlic and sauté for 1 minute.
+4. Add garlic and sauté for 1 minute.
 
-4. Add in the tomato paste and let cook until it deepens in color and starts to stick to the bottom.
+5. Add in the tomato paste and let cook until it deepens in color and starts to stick to the bottom.
 
-5. Deglaze with red wine to stop the tomato paste from burning, and let cook down for a few minutes.
+6. Deglaze with red wine to stop the tomato paste from burning, and let cook down for a few minutes.
 
-6. Add the tomatoes, stock, herbs, and parmesan rind if using, and bring to a light simmer. Once simmering reduce to low, cover with a lid and let cook for at least 1 hour.
+7. Add the tomatoes, stock, herbs, and parmesan rind if using, and bring to a light simmer. Once simmering reduce to low, cover with a lid and let cook for at least 1 hour.
 
-7. At some point remove the lid, take out the herbs and parmesan rind and check the consistency. If it is too thick, add more water, and if it is too thin, let it reduce further without a lid.
+8. At some point remove the lid, take out the herbs and parmesan rind and check the consistency. If it is too thick, add more water, and if it is too thin, let it reduce further without a lid.
 
-8. When the consistency is starting to get good, season with salt and pepper, and boil the pasta (heavily salting the water of course).
+9. When the consistency is starting to get good, season with salt and pepper, and boil the pasta (heavily salting the water of course).
 
-9. Once the pasta is almost al dente, reserve some pasta water and drain the pasta.
+10. Once the pasta is almost al dente, reserve some pasta water and drain the pasta.
 
-10. In a pan or pot add enough sauce for the amount of pasta you are using, and the pasta. Cook together until the pasta is cooked and the sause is really clinging to the pasta. Control for consistency with the pasta water.
+11. In a pan or pot add enough sauce for the amount of pasta you are using, and the pasta. Cook together until the pasta is cooked and the sause is really clinging to the pasta. Control for consistency with the pasta water.
 
-11. Serve and top with parmesan.
+12. Serve and top with parmesan.

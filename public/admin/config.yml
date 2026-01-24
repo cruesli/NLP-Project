@@ -12,6 +12,21 @@ public_folder: "/images/recipes"
 local_backend: true
 
 collections:
+  - name: "meta"
+    label: "Meta"
+    files:
+      - label: "Cuisines"
+        name: "cuisines"
+        file: "src/content/meta/cuisines.json"
+        format: "json"
+        fields:
+          - name: "cuisines"
+            label: "Cuisines"
+            widget: "list"
+            allow_add: true
+            fields:
+              - { name: "slug", label: "Slug", widget: "string", hint: "lowercase + hyphens, e.g. italian, tex-mex, bbq" }
+              - { name: "label", label: "Label (optional)", widget: "string", required: false, hint: "e.g. BBQ, Tex-Mex" }
   - name: "recipes"
     label: "Recipes"
     folder: "src/content/recipes"
@@ -21,7 +36,14 @@ collections:
     format: "frontmatter"
     fields:
       - { name: "title", label: "Title", widget: "string" }
-      - { name: "cuisine", label: "Cuisine", widget: "string", hint: "e.g. italian, indian" }
+      - name: "cuisine"
+        label: "Cuisine"
+        widget: "relation"
+        collection: "meta"
+        file: "cuisines"
+        search_fields: ["cuisines.*.slug", "cuisines.*.label"]
+        value_field: "cuisines.*.slug"
+        display_fields: ["cuisines.*.label", "cuisines.*.slug"]
       - { name: "foodType", label: "Food type", widget: "string", required: false }
       - { name: "tags", label: "Tags", widget: "list", required: false }
       - { name: "servings", label: "Servings", widget: "number", value_type: "int", required: false, min: 1 }
