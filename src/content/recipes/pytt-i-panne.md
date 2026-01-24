@@ -3,8 +3,8 @@ title: Pytt i Panne
 cuisine: Scandinavian
 foodType: Lazy
 tags:
-  - '["Freezer-friendly"'
-  - '"Cabin-food"]'
+  - 'Freezer-friendly'
+  - 'Cabin-food'
 servings: 1
 totalTimeMinutes: 15
 image: /images/recipes/pytt-i-panne.png

@@ -27,7 +27,7 @@ collections:
       - { name: "servings", label: "Servings", widget: "number", value_type: "int", required: false, min: 1 }
       - { name: "totalTimeMinutes", label: "Total time (minutes)", widget: "number", value_type: "int", required: false, min: 1 }
       - { name: "image", label: "Image", widget: "image", required: false }
-
+      - { name: "ingredients", label: "Ingredients", widget: "markdown"}
       # Recipe body as markdown (keeps your current rendering intact)
       - { name: "body", label: "Recipe", widget: "markdown" }
 
