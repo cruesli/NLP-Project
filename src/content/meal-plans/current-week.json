@@ -1,0 +1,13 @@
+{
+    "weekStart": "2026-01-19",
+    "days": {
+      "monday": { "recipeSlug": "spaghetti-bolognese", "notes": "" },
+      "tuesday": { "recipeSlug": null, "notes": "Leftovers" },
+      "wednesday": { "recipeSlug": null, "notes": "" },
+      "thursday": { "recipeSlug": null, "notes": "" },
+      "friday": { "recipeSlug": null, "notes": "" },
+      "saturday": { "recipeSlug": null, "notes": "" },
+      "sunday": { "recipeSlug": null, "notes": "" }
+    }
+  }
+  

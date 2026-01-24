@@ -1,11 +1,41 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const recipes = await getCollection("recipes");
+
+// Build cuisine -> count map
+const cuisineCounts = recipes.reduce((acc, r) => {
+  const c = (r.data.cuisine || "other").toLowerCase();
+  acc.set(c, (acc.get(c) ?? 0) + 1);
+  return acc;
+}, new Map<string, number>());
+
+const cuisines = Array.from(cuisineCounts.entries())
+  .map(([cuisine, count]) => ({ cuisine, count }))
+  .sort((a, b) => a.cuisine.localeCompare(b.cuisine));
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<BaseLayout title="Family Recipes">
+  <h1>Cuisines</h1>
+  <p>Select a cuisine to browse recipes.</p>
+
+  <div class="grid">
+    {cuisines.map(({ cuisine, count }) => (
+      <a class="card" href={`/cuisines/${cuisine}`}>
+        <h2 style="margin: 0 0 6px 0; text-transform: capitalize;">{cuisine}</h2>
+        <div class="badge">{count} recipe{count === 1 ? "" : "s"}</div>
+      </a>
+    ))}
+  </div>
+
+  <hr />
+
+  <h2>Create new recipe</h2>
+  <p>
+    When we add the CMS, this will link to the editor.
+    For now, you create a new recipe by adding a Markdown file under <code>src/content/recipes/</code>.
+  </p>
+  <p><a class="card" href="/admin">Go to Admin (later)</a></p>
+</BaseLayout>
+

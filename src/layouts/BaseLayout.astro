@@ -1,0 +1,30 @@
+---
+const { title = "Family Recipes" } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <link rel="stylesheet" href="/styles/global.css" />
+  </head>
+  <body>
+    <header class="container header">
+      <a class="brand" href="/">Family Recipes</a>
+      <nav class="nav">
+        <a href="/">Cuisines</a>
+        <a href="/meal-planner">Meal Planner</a>
+      </nav>
+    </header>
+
+    <main class="container">
+      <slot />
+    </main>
+
+    <footer class="container footer">
+      <small>© {new Date().getFullYear()} Family Recipes</small>
+    </footer>
+  </body>
+</html>

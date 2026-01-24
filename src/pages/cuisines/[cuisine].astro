@@ -1,0 +1,36 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const recipes = await getCollection("recipes");
+  const cuisines = Array.from(new Set(recipes.map(r => r.data.cuisine.toLowerCase())));
+  return cuisines.map((cuisine) => ({ params: { cuisine } }));
+}
+
+const { cuisine } = Astro.params;
+
+const recipes = await getCollection("recipes", ({ data }) =>
+  data.cuisine.toLowerCase() === String(cuisine).toLowerCase()
+);
+
+recipes.sort((a, b) => a.data.title.localeCompare(b.data.title));
+---
+
+<BaseLayout title={`Cuisine: ${cuisine}`}>
+  <h1 style="text-transform: capitalize;">{cuisine}</h1>
+  <p>{recipes.length} recipe{recipes.length === 1 ? "" : "s"}</p>
+
+  <div class="grid">
+    {recipes.map((r) => (
+      <a class="card" href={`/recipes/${r.slug}`}>
+        <h2 style="margin: 0 0 6px 0;">{r.data.title}</h2>
+        <div class="badges">
+          {r.data.foodType ? <span class="badge">{r.data.foodType}</span> : null}
+          {typeof r.data.totalTimeMinutes === "number" ? <span class="badge">{r.data.totalTimeMinutes} min</span> : null}
+          {typeof r.data.servings === "number" ? <span class="badge">{r.data.servings} servings</span> : null}
+        </div>
+      </a>
+    ))}
+  </div>
+</BaseLayout>

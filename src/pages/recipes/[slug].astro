@@ -1,0 +1,41 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const recipes = await getCollection("recipes");
+  return recipes.map((r) => ({ params: { slug: r.slug } }));
+}
+
+const { slug } = Astro.params;
+
+const recipes = await getCollection("recipes");
+const recipe = recipes.find((r) => r.slug === slug);
+
+if (!recipe) {
+  throw new Error(`Recipe not found: ${slug}`);
+}
+
+const { Content } = await recipe.render();
+const d = recipe.data;
+---
+
+<BaseLayout title={d.title}>
+  <article class="recipe">
+    <h1>{d.title}</h1>
+
+    <div class="badges" style="margin-bottom: 12px;">
+      <span class="badge" style="text-transform: capitalize;">{d.cuisine}</span>
+      {d.foodType ? <span class="badge">{d.foodType}</span> : null}
+      {typeof d.totalTimeMinutes === "number" ? <span class="badge">{d.totalTimeMinutes} min</span> : null}
+      {typeof d.servings === "number" ? <span class="badge">{d.servings} servings</span> : null}
+      {d.tags?.map((t) => <span class="badge">{t}</span>)}
+    </div>
+
+    {d.image ? <img src={d.image} alt={d.title} loading="lazy" /> : null}
+
+    <div style="margin-top: 16px;">
+      <Content />
+    </div>
+  </article>
+</BaseLayout>

@@ -1,0 +1,47 @@
+:root {
+    --max: 980px;
+    --border: rgba(0,0,0,0.12);
+  }
+  
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    line-height: 1.5;
+  }
+  
+  .container { max-width: var(--max); margin: 0 auto; padding: 16px; }
+  .header {
+    display: flex; align-items: center; justify-content: space-between;
+    border-bottom: 1px solid var(--border);
+    gap: 16px;
+  }
+  .brand { font-weight: 700; text-decoration: none; color: inherit; }
+  .nav a { margin-left: 12px; text-decoration: none; color: inherit; opacity: 0.8; }
+  .nav a:hover { opacity: 1; }
+  
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+  .card {
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 12px;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+  .card:hover { border-color: rgba(0,0,0,0.25); }
+  
+  .badges { display: flex; flex-wrap: wrap; gap: 6px; }
+  .badge {
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 2px 10px;
+    font-size: 12px;
+    opacity: 0.9;
+  }
+  
+  .recipe img { width: 100%; max-height: 360px; object-fit: cover; border-radius: 12px; border: 1px solid var(--border); }
+  hr { border: none; border-top: 1px solid var(--border); margin: 16px 0; }
+  
+  .footer { border-top: 1px solid var(--border); opacity: 0.7; padding-top: 20px; }
+  

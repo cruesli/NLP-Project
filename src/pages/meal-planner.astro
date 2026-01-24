@@ -1,0 +1,63 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { getCollection, getEntry } from "astro:content";
+
+const planEntry = await getEntry("meal-plans", "current-week");
+const plan = planEntry.data;
+
+const recipes = await getCollection("recipes");
+const bySlug = new Map(recipes.map(r => [r.slug, r]));
+
+const orderedDays: Array<[string, string]> = [
+  ["monday", "Monday"],
+  ["tuesday", "Tuesday"],
+  ["wednesday", "Wednesday"],
+  ["thursday", "Thursday"],
+  ["friday", "Friday"],
+  ["saturday", "Saturday"],
+  ["sunday", "Sunday"],
+];
+---
+
+<BaseLayout title="Meal Planner">
+  <h1>Meal Planner</h1>
+  <p>Week starting: <strong>{plan.weekStart}</strong></p>
+
+  <div class="card">
+    <table style="width: 100%; border-collapse: collapse;">
+      <thead>
+        <tr>
+          <th style="text-align:left; padding: 8px; border-bottom: 1px solid var(--border);">Day</th>
+          <th style="text-align:left; padding: 8px; border-bottom: 1px solid var(--border);">Dinner</th>
+          <th style="text-align:left; padding: 8px; border-bottom: 1px solid var(--border);">Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        {orderedDays.map(([key, label]) => {
+          const item = plan.days[key];
+          const recipe = item?.recipeSlug ? bySlug.get(item.recipeSlug) : null;
+
+          return (
+            <tr>
+              <td style="padding: 8px; border-bottom: 1px solid var(--border);">{label}</td>
+              <td style="padding: 8px; border-bottom: 1px solid var(--border);">
+                {recipe ? <a href={`/recipes/${recipe.slug}`}>{recipe.data.title}</a> : <em>—</em>}
+              </td>
+              <td style="padding: 8px; border-bottom: 1px solid var(--border);">
+                {item?.notes ? item.notes : ""}
+              </td>
+            </tr>
+          );
+        })}
+      </tbody>
+    </table>
+  </div>
+
+  <hr />
+
+  <h2>Editing the plan</h2>
+  <p>
+    In the static + free setup, the meal plan is stored in <code>src/content/meal-plans/current-week.json</code>.
+    Later, we can add a CMS so you can edit it in a form instead of editing JSON.
+  </p>
+</BaseLayout>
