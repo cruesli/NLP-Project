@@ -1,23 +1,51 @@
 ---
-title: Pasta Bolognese
-cuisine: italian
-foodType: dinner
+title: Pasta Bolognese alla Magnus
+cuisine: Italian
+foodType: Dinner
 tags:
-  - family
-  - freezer-friendly
+  - Family
+  - Freezer-friendly
+  - Pasta
 servings: 4
-totalTimeMinutes: 60
-image: /images/recipes/pasta-bolognese.jpg
+totalTimeMinutes: 120
+image: /images/recipes/bolognese.jpg
 ingredients: |-
-  * 500g minced beef
-
-  * 1 onion, diced
-  * 2 cloves garlic, minced
-  * 1 can chopped tomatoes
-  * Salt and pepper
+  - 700g Minced beef and pork (both or one)
+  - 100g Bacon
+  - 2 Medium onion, finely diced
+  - 2 Large carrots, finely diced
+  - 1 Stalk celery, finely diced
+  - 3 cloves garlic, minced
+  - 3 Tbsp tomato pureé (double concentrated)
+  - 1/3 Bottle red wine (cheap)
+  - 1 can of tomatoes
+  - 500 ml stock (beef or chicken)
+  - Thyme or rosemary
+  - 1 Bay leaf
+  - Salt and pepper
+  - Parmesan rind (Only if you have)
 ---
 
-1. Sauté onion and garlic.
-2. Brown the beef.
-3. Add tomatoes and simmer 30–40 minutes.
-4. Boil pasta and serve.
+1. Brown the meat on high heat.
+
+2. Turn down the heat to medium high, add the carrots, onion and celery, and sauté until softened and glossy.
+
+3. Season with a bit of salt, about 2 pinches
+
+3. Add garlic and sauté for 1 minute.
+
+4. Add in the tomato paste and let cook until it deepens in color and starts to stick to the bottom.
+
+5. Deglaze with red wine to stop the tomato paste from burning, and let cook down for a few minutes.
+
+6. Add the tomatoes, stock, herbs, and parmesan rind if using, and bring to a light simmer. Once simmering reduce to low, cover with a lid and let cook for at least 1 hour.
+
+7. At some point remove the lid, take out the herbs and parmesan rind and check the consistency. If it is too thick, add more water, and if it is too thin, let it reduce further without a lid.
+
+8. When the consistency is starting to get good, season with salt and pepper, and boil the pasta (heavily salting the water of course).
+
+9. Once the pasta is almost al dente, reserve some pasta water and drain the pasta.
+
+10. In a pan or pot add enough sauce for the amount of pasta you are using, and the pasta. Cook together until the pasta is cooked and the sause is really clinging to the pasta. Control for consistency with the pasta water.
+
+11. Serve and top with parmesan.
