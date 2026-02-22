@@ -10,6 +10,18 @@ const recipes = defineCollection({
     servings: z.number().int().positive().optional(),
     totalTimeMinutes: z.number().int().positive().optional(),
     image: z.string().optional(),
+    ingredients: z
+      .union([z.array(z.string()), z.string()])
+      .transform((value) => {
+        if (typeof value === "string") {
+          return value
+            .split(/\r?\n/)
+            .map((line) => line.trim().replace(/^-+\s*/, ""))
+            .filter(Boolean);
+        }
+        return value;
+      })
+      .optional(),
   }),
 });
 

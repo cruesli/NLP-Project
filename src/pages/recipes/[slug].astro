@@ -18,6 +18,16 @@ if (!recipe) {
 
 const { Content } = await recipe.render();
 const d = recipe.data;
+
+const rawIngredients = d.ingredients as unknown;
+const ingredients: string[] = Array.isArray(rawIngredients)
+  ? (rawIngredients as string[])
+  : typeof rawIngredients === "string"
+  ? (rawIngredients as string)
+      .split(/\r?\n/)
+      .map((line: string) => line.trim().replace(/^-+\s*/, ""))
+      .filter(Boolean)
+  : [];
 ---
 
 <BaseLayout title={d.title}>
@@ -33,6 +43,17 @@ const d = recipe.data;
     </div>
 
     {d.image ? <img src={withBase(d.image)} alt={d.title} loading="lazy" /> : null}
+
+    {ingredients.length ? (
+      <section style="margin-top: 16px;">
+        <h2>Ingredients</h2>
+        <ul>
+          {ingredients.map((ingredient: string) => (
+            <li>{ingredient}</li>
+          ))}
+        </ul>
+      </section>
+    ) : null}
 
     <div style="margin-top: 16px;">
       <Content />
