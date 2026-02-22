@@ -1,6 +1,6 @@
 ---
 title: Pasta Bolognese alla Magnus
-cuisine: Italian
+cuisine: italian
 foodType: Dinner
 tags:
   - Family

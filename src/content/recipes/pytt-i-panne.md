@@ -1,6 +1,6 @@
 ---
 title: Pytt i Panne
-cuisine: Scandinavian
+cuisine: scandinavian
 foodType: Lazy
 tags:
   - Freezer-friendly
