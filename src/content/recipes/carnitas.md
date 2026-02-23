@@ -21,17 +21,29 @@ ingredients: |
   - Neutral oil
 ---
 1. Cut Pork into roughly 2-3 cm cubes
+
 2. Heat a big pot (atleast 4L size) on high heat with a good amount of oil.
+
 3. Sear the pork cubes in batches on all sides until well browned (can be skipped if short on time, but you loose some flavour)
+
 4. Put all the meat back in the put and pour over any meat juices
+
 5. Add the salt and water (try to make sure there isn't a mountain of salt anywhere)
+
 6. Squeeze out the juice of the orange/limes and place on top of meat along with the onion. Press them down into the meat a bit so they are not sticking up too much. 
+
 7. Put the garlic, bay leaves and cinnamon stick into crevasses.
+
 8. Add extra water if needed until the meat is almost covered
+
 9. Put the pot in a 160 deg oven and let cook for at least 3 hours
+
 10. The meat is done once it falls apart when you press on it
+
 11. Once the meat is done, take the pot out and fish out the meat pieces into a tray/large frying pan/bowl
+
 12. Shred the meat
+
 13. Finally pour over some cooking liquid for extra flavour and juiciness and serve.
 
 My preferred way of eating this is in tortillas with guac, salsa, white onions mixed with coriander and topped with a squeeze of fresh lime juice.
