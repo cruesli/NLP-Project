@@ -1,6 +1,14 @@
 ---
 import { withBase } from "../utils/withBase";
+import { getCollection } from "astro:content";
+
 const { title = "Family Recipes" } = Astro.props;
+
+const recipes = await getCollection("recipes");
+const cuisineSet = new Set(
+  recipes.map((r) => (r.data.cuisine || "other").toLowerCase())
+);
+const cuisines = Array.from(cuisineSet).sort((a, b) => a.localeCompare(b));
 ---
 
 <!doctype html>
@@ -38,7 +46,21 @@ const { title = "Family Recipes" } = Astro.props;
     </header>
 
     <main class="container">
-      <slot />
+      <div class="layout-sidebar">
+        <aside class="sidebar">
+          <h2>Cuisines</h2>
+          <nav class="sidebar-cuisines">
+            {cuisines.map((cuisine) => (
+              <a class="sidebar-cuisine-link" href={withBase(`/cuisines/${cuisine}`)}>
+                {cuisine}
+              </a>
+            ))}
+          </nav>
+        </aside>
+        <section class="content-main">
+          <slot />
+        </section>
+      </div>
     </main>
 
     <footer class="container footer">
