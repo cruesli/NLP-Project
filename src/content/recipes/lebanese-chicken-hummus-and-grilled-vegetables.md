@@ -1,6 +1,6 @@
 ---
 title: Lebanese chicken, hummus and grilled vegetables
-cuisine: other
+cuisine: middle-eastern
 foodType: Simple
 tags:
   - Easy
