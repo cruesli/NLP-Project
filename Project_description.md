@@ -28,7 +28,7 @@ The existing Astro website acts as the human-facing frontend, consuming the API.
 ## Tools
 
 | Tool / Library | Purpose |
-|---|---|
+| --- | --- |
 | **FastAPI** | Web service and REST API |
 | **Docker** | Containerisation |
 | **spaCy** | Ingredient string parsing / NER |
@@ -44,6 +44,7 @@ The existing Astro website acts as the human-facing frontend, consuming the API.
 ## Data
 
 ### Recipe data (primary)
+
 - Source: Personal recipe collection on the Astro website
 - Format: Markdown files with YAML frontmatter
 - Fields: `title`, `cuisine`, `foodType`, `tags`, `servings`,
@@ -51,6 +52,7 @@ The existing Astro website acts as the human-facing frontend, consuming the API.
 - Example recipe: *Tahini Chicken with Butternut Hummus and Bulgur Salad*
 
 ### Wikidata (semantic enrichment)
+
 - Accessed via SPARQL at `https://query.wikidata.org/sparql`
 - Properties of interest:
   - `P31` (instance of) — food type classification
@@ -59,6 +61,7 @@ The existing Astro website acts as the human-facing frontend, consuming the API.
   - `P1566` (dietary restriction flags, e.g. vegan, halal, kosher)
 
 ### USDA FoodData Central API (nutrition)
+
 - Free public API, no authentication required for basic use
 - Endpoint: `https://api.nal.usda.gov/fdc/v1/foods/search`
 - Returns: protein (g), fat (g), carbohydrates (g), energy (kcal),
@@ -68,7 +71,7 @@ The existing Astro website acts as the human-facing frontend, consuming the API.
 
 ## Architecture
 
-```
+```text
 Recipe Markdown files
         │
         ▼
@@ -92,7 +95,7 @@ Recipe Markdown files
 
 ### Knowledge graph structure (example triples)
 
-```
+```turtle
 ex:recipe_tahini_chicken  rdf:type              ex:Recipe
 ex:recipe_tahini_chicken  ex:hasIngredient      ex:ingredient_chicken_thigh
 ex:recipe_tahini_chicken  ex:cuisine            "middle-eastern"
@@ -122,7 +125,8 @@ Interactive docs available at `/docs` (Swagger) and `/redoc`.
 
 Returns all recipes with basic metadata.
 
-**Example response**
+#### Example response
+
 ```json
 [
   {
@@ -142,12 +146,14 @@ Returns all recipes with basic metadata.
 Returns full recipe data including enriched ingredient knowledge graph nodes
 and aggregated nutrition per serving.
 
-**Example request**
-```
+#### Example request (get single recipe)
+
+```http
 GET /api/v1/recipes/tahini-chicken-with-butternut-hummus-and-bulgur-salad
 ```
 
-**Example response**
+#### Example response (single recipe)
+
 ```json
 {
   "slug": "tahini-chicken-with-butternut-hummus-and-bulgur-salad",
@@ -199,14 +205,16 @@ GET /api/v1/recipes/tahini-chicken-with-butternut-hummus-and-bulgur-salad
 Natural language query over the recipe knowledge graph. An LLM interprets
 the intent and translates it to a structured graph query.
 
-**Example request**
+#### Example request (query)
+
 ```json
 {
   "question": "Show me a high-protein recipe that takes less than 30 minutes"
 }
 ```
 
-**Example response**
+#### Example response (query)
+
 ```json
 {
   "question": "Show me a high-protein recipe that takes less than 30 minutes",
@@ -234,12 +242,14 @@ the intent and translates it to a structured graph query.
 
 Returns nutritional data for a single normalised ingredient name.
 
-**Example request**
-```
+#### Example request (nutrition)
+
+```http
 GET /api/v1/ingredients/chickpeas/nutrition
 ```
 
-**Example response**
+#### Example response (nutrition)
+
 ```json
 {
   "ingredient": "chickpeas",
@@ -260,22 +270,24 @@ GET /api/v1/ingredients/chickpeas/nutrition
 
 Filter recipes by nutritional thresholds and/or semantic properties.
 
-**Query parameters**
+#### Filter query parameters
 
 | Parameter | Type | Description |
-|---|---|---|
+| --- | --- | --- |
 | `min_protein` | float | Minimum protein per serving (g) |
 | `max_kcal` | float | Maximum calories per serving (kcal) |
 | `max_time` | int | Maximum total cook time (minutes) |
 | `cuisine` | string | Cuisine slug (e.g. `middle-eastern`) |
 | `dietary` | string | Dietary flag (e.g. `vegan`, `vegetarian`) |
 
-**Example request**
-```
+#### Filter request
+
+```http
 GET /api/v1/recipes/filter?min_protein=30&max_time=30&cuisine=middle-eastern
 ```
 
-**Example response**
+#### Filter response
+
 ```json
 {
   "filters_applied": {
@@ -301,12 +313,14 @@ GET /api/v1/recipes/filter?min_protein=30&max_time=30&cuisine=middle-eastern
 
 Returns the Wikidata entity and semantic properties for a given ingredient.
 
-**Example request**
-```
+#### Wikidata request
+
+```http
 GET /api/v1/ingredients/tahini/wikidata
 ```
 
-**Example response**
+#### Wikidata response
+
 ```json
 {
   "ingredient": "tahini",
@@ -363,8 +377,8 @@ pytest tests/
 
 ## References
 
-- USDA FoodData Central API: https://fdc.nal.usda.gov/api-guide.html
-- Wikidata Query Service: https://query.wikidata.org
-- RDFLib documentation: https://rdflib.readthedocs.io
-- FastAPI documentation: https://fastapi.tiangolo.com
-- spaCy documentation: https://spacy.io
+- USDA FoodData Central API: <https://fdc.nal.usda.gov/api-guide.html>
+- Wikidata Query Service: <https://query.wikidata.org>
+- RDFLib documentation: <https://rdflib.readthedocs.io>
+- FastAPI documentation: <https://fastapi.tiangolo.com>
+- spaCy documentation: <https://spacy.io>
