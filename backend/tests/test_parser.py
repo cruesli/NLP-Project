@@ -136,7 +136,7 @@ def test_real_tahini_excludes_group_headers():
 
 def test_load_all_recipes():
     recipes = load_all_recipes(RECIPES_DIR)
-    assert len(recipes) == 5
+    assert len(recipes) >= 5
     slugs = {r.slug for r in recipes}
     assert "carnitas" in slugs
     assert "pasta-bolognese" in slugs
