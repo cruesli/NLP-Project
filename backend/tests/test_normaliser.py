@@ -45,3 +45,44 @@ def test_normalise_includes_system_prompt():
     messages = call_kwargs["messages"]
     system_msg = next(m for m in messages if m["role"] == "system")
     assert len(system_msg["content"]) > 0
+
+
+# --- normalise_all ---
+
+from backend.normaliser import normalise_all
+
+
+def test_normalise_all_maps_list():
+    client = MagicMock()
+    responses = ["chicken thigh", "butternut squash", "tahini"]
+    mock_resps = []
+    for text in responses:
+        m = MagicMock()
+        m.choices[0].message.content = text
+        mock_resps.append(m)
+    client.chat.completions.create.side_effect = mock_resps
+
+    result = normalise_all(["400g Chicken thighs", "1 Butternut squash", "Tahini"], client)
+    assert result == ["chicken thigh", "butternut squash", "tahini"]
+
+
+def test_normalise_all_empty_list():
+    client = MagicMock()
+    result = normalise_all([], client)
+    assert result == []
+    client.chat.completions.create.assert_not_called()
+
+
+def test_normalise_all_preserves_order():
+    client = MagicMock()
+    responses = ["egg", "olive oil"]
+    mock_resps = []
+    for text in responses:
+        m = MagicMock()
+        m.choices[0].message.content = text
+        mock_resps.append(m)
+    client.chat.completions.create.side_effect = mock_resps
+
+    result = normalise_all(["2 Eggs", "2 tbsp olive oil"], client)
+    assert result[0] == "egg"
+    assert result[1] == "olive oil"
