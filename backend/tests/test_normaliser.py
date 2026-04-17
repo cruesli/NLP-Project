@@ -86,3 +86,23 @@ def test_normalise_all_preserves_order():
     result = normalise_all(["2 Eggs", "2 tbsp olive oil"], client)
     assert result[0] == "egg"
     assert result[1] == "olive oil"
+
+
+# --- make_client ---
+
+import openai
+
+from backend.normaliser import make_client
+
+
+def test_make_client_returns_openai_client(monkeypatch):
+    monkeypatch.setenv("CAMPUSAI_API_KEY", "test-key")
+    monkeypatch.setenv("CAMPUSAI_BASE_URL", "https://example.com/v1")
+    client = make_client()
+    assert isinstance(client, openai.OpenAI)
+
+
+def test_make_client_raises_without_api_key(monkeypatch):
+    monkeypatch.delenv("CAMPUSAI_API_KEY", raising=False)
+    with pytest.raises(ValueError, match="CAMPUSAI_API_KEY"):
+        make_client()
