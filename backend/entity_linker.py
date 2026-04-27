@@ -26,7 +26,7 @@ def _get(session: requests.Session, url: str, params: dict, max_retries: int = 3
     delay = 1.0
     for attempt in range(max_retries):
         resp = session.get(url, params=params, headers=headers, timeout=10)
-        if resp.status_code in (429, 503):
+        if resp.status_code in (429, 502, 503):
             if attempt == max_retries - 1:
                 raise requests.HTTPError(
                     f"HTTP {resp.status_code} after {max_retries} retries", response=resp
@@ -46,7 +46,7 @@ def search_candidates(ingredient: str, session: requests.Session) -> List[dict]:
         "language": "en",
         "type": "item",
         "format": "json",
-        "limit": 5,
+        "limit": 10,
     })
     return data.get("search", [])
 
@@ -113,9 +113,13 @@ WHERE {{
 
 
 def link_ingredient(ingredient: str, session: requests.Session) -> Optional[WikidataEntity]:
-    candidates = search_candidates(ingredient, session)
-    for candidate in candidates:
-        qid = candidate["id"]
-        if is_food_entity(qid, session):
-            return fetch_properties(qid, candidate.get("label", ingredient), session)
+    # first attempt
+    for candidate in search_candidates(ingredient, session):
+        if is_food_entity(candidate["id"], session):
+            return fetch_properties(candidate["id"], candidate.get("label", ingredient), session)
+    # fallback: retry with "food" appended
+    for candidate in search_candidates(f"{ingredient} food", session):
+        if is_food_entity(candidate["id"], session):
+            return fetch_properties(candidate["id"], candidate.get("label", ingredient), session)
+    return None
     return None
