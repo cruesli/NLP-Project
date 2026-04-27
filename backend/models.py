@@ -72,6 +72,17 @@ class RecipeDetail(_CamelModel):
     nutrition_per_serving: Optional[NutritionPerServing] = None
 
 
+# Internal entity model (pipeline use, no camelCase aliases)
+
+class WikidataEntity(BaseModel):
+    qid: str
+    uri: str
+    label: str
+    food_category: Optional[str] = None
+    origin_country: Optional[str] = None
+    dietary_flags: List[str] = []
+
+
 # Ingredient endpoint response models
 
 class IngredientNutritionResponse(_CamelModel):
