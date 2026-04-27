@@ -53,17 +53,24 @@ from backend.normaliser import normalise_all
 
 
 def test_normalise_all_maps_list():
-    client = MagicMock()
-    responses = ["chicken thigh", "butternut squash", "tahini"]
-    mock_resps = []
-    for text in responses:
-        m = MagicMock()
-        m.choices[0].message.content = text
-        mock_resps.append(m)
-    client.chat.completions.create.side_effect = mock_resps
-
+    client = _mock_client("chicken thigh\nbutternut squash\ntahini")
     result = normalise_all(["400g Chicken thighs", "1 Butternut squash", "Tahini"], client)
     assert result == ["chicken thigh", "butternut squash", "tahini"]
+
+
+def test_normalise_all_single_api_call():
+    client = _mock_client("chicken thigh\nbutternut squash")
+    normalise_all(["400g Chicken thighs", "1 Butternut squash"], client)
+    client.chat.completions.create.assert_called_once()
+
+
+def test_normalise_all_sends_all_ingredients_in_one_message():
+    client = _mock_client("chicken thigh\nbutternut squash")
+    normalise_all(["400g Chicken thighs", "1 Butternut squash"], client)
+    call_kwargs = client.chat.completions.create.call_args.kwargs
+    user_msg = next(m for m in call_kwargs["messages"] if m["role"] == "user")
+    assert "400g Chicken thighs" in user_msg["content"]
+    assert "1 Butternut squash" in user_msg["content"]
 
 
 def test_normalise_all_empty_list():
@@ -74,15 +81,7 @@ def test_normalise_all_empty_list():
 
 
 def test_normalise_all_preserves_order():
-    client = MagicMock()
-    responses = ["egg", "olive oil"]
-    mock_resps = []
-    for text in responses:
-        m = MagicMock()
-        m.choices[0].message.content = text
-        mock_resps.append(m)
-    client.chat.completions.create.side_effect = mock_resps
-
+    client = _mock_client("egg\nolive oil")
     result = normalise_all(["2 Eggs", "2 tbsp olive oil"], client)
     assert result[0] == "egg"
     assert result[1] == "olive oil"
