@@ -32,6 +32,10 @@ class NutritionPer100g(BaseModel):
     carbs_per_100g: float = Field(alias="carbsPer100g")
     kcal_per_100g: float = Field(alias="kcalPer100g")
     fibre_per_100g: Optional[float] = Field(default=None, alias="fibrePer100g")
+    sugar_per_100g: Optional[float] = Field(default=None, alias="sugarPer100g")
+    saturated_fat_per_100g: Optional[float] = Field(default=None, alias="saturatedFatPer100g")
+    sodium_mg_per_100g: Optional[float] = Field(default=None, alias="sodiumMgPer100g")
+    cholesterol_mg_per_100g: Optional[float] = Field(default=None, alias="cholesterolMgPer100g")
 
 
 class NutritionPerServing(_CamelModel):
