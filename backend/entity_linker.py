@@ -25,7 +25,14 @@ def _get(session: requests.Session, url: str, params: dict, max_retries: int = 3
     headers = {"User-Agent": _USER_AGENT, "Accept": "application/json"}
     delay = 1.0
     for attempt in range(max_retries):
-        resp = session.get(url, params=params, headers=headers, timeout=10)
+        try:
+            resp = session.get(url, params=params, headers=headers, timeout=30)
+        except (requests.exceptions.ReadTimeout, requests.exceptions.ConnectionError):
+            if attempt == max_retries - 1:
+                raise
+            time.sleep(delay)
+            delay *= 2
+            continue
         if resp.status_code in (429, 502, 503):
             if attempt == max_retries - 1:
                 raise requests.HTTPError(

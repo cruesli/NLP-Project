@@ -256,7 +256,7 @@ def test_link_ingredient_returns_entity_for_known_food():
 
 
 def test_link_ingredient_returns_none_when_no_candidates():
-    s = _session(_mock_response({"search": []}))
+    s = _session(_mock_response({"search": []}), _mock_response({"search": []}))
     assert link_ingredient("xyzzy", s) is None
 
 
@@ -283,5 +283,23 @@ def test_link_ingredient_returns_none_when_no_candidate_is_food():
         _mock_response(SEARCH_RESPONSE),
         _mock_response(ASK_FALSE),
         _mock_response(ASK_FALSE),
+        _mock_response({"search": []}),  # fallback search with " food" suffix
     )
     assert link_ingredient("chicken thigh", s) is None
+
+
+def test_retries_on_read_timeout_then_succeeds():
+    s = MagicMock(spec=requests.Session)
+    s.get.side_effect = [requests.exceptions.ReadTimeout(), _mock_response(SEARCH_RESPONSE)]
+    with patch("backend.entity_linker.time.sleep"):
+        result = search_candidates("chicken thigh", s)
+    assert s.get.call_count == 2
+    assert len(result) == 2
+
+
+def test_raises_after_max_read_timeout_retries():
+    s = MagicMock(spec=requests.Session)
+    s.get.side_effect = requests.exceptions.ReadTimeout()
+    with patch("backend.entity_linker.time.sleep"):
+        with pytest.raises(requests.exceptions.ReadTimeout):
+            search_candidates("chicken thigh", s)
