@@ -7,12 +7,14 @@ from rdflib import XSD, Graph, Literal, Namespace, RDF, URIRef
 from backend.models import (
     EnrichedIngredient,
     FilterResponse,
+    IngredientNutritionResponse,
     NutritionPer100g,
     NutritionPerServing,
     Recipe,
     RecipeDetail,
     RecipeSummary,
     WikidataEntity,
+    WikidataResponse,
 )
 
 EX = Namespace("http://example.org/recipe-kg/")
@@ -273,6 +275,46 @@ class RecipeKnowledgeGraph:
                 return False
 
         return True
+
+
+    def get_ingredient_nutrition(self, ingredient: str) -> Optional[IngredientNutritionResponse]:
+        for ing_node in self.graph.subjects(EX.normalisedName, Literal(ingredient)):
+            nutr_nodes = list(self.graph.objects(ing_node, EX.hasNutrition))
+            if not nutr_nodes:
+                continue
+            nutrition = self._read_nutrition(nutr_nodes[0])
+            qid_vals = list(self.graph.objects(ing_node, EX.wikidataQid))
+            wikidata_qid = str(qid_vals[0]) if qid_vals else None
+            return IngredientNutritionResponse(
+                ingredient=ingredient,
+                wikidata_qid=wikidata_qid,
+                nutrition=nutrition,
+            )
+        return None
+
+    def get_ingredient_wikidata(self, ingredient: str) -> Optional[WikidataResponse]:
+        for ing_node in self.graph.subjects(EX.normalisedName, Literal(ingredient)):
+            qid_vals = list(self.graph.objects(ing_node, EX.wikidataQid))
+            if not qid_vals:
+                continue
+            qid = str(qid_vals[0])
+            uri_vals = list(self.graph.objects(ing_node, EX.wikidataUri))
+            uri = str(uri_vals[0]) if uri_vals else None
+            cat_vals = list(self.graph.objects(ing_node, EX.foodCategory))
+            food_category = str(cat_vals[0]) if cat_vals else None
+            country_vals = list(self.graph.objects(ing_node, EX.originCountry))
+            origin_country = str(country_vals[0]) if country_vals else None
+            flags = [str(f) for f in self.graph.objects(ing_node, EX.dietaryFlag)]
+            return WikidataResponse(
+                ingredient=ingredient,
+                wikidata_qid=qid,
+                wikidata_uri=uri,
+                label=ingredient,
+                food_category=food_category,
+                origin_country=origin_country,
+                dietary_flags=flags,
+            )
+        return None
 
 
 def save_graph(kg: RecipeKnowledgeGraph, path: Path) -> None:
