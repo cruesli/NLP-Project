@@ -1,6 +1,6 @@
 import time
 from typing import Optional
-
+import os
 import requests
 
 from backend.models import NutritionPer100g
@@ -35,7 +35,11 @@ def fetch_nutrition(ingredient: str, session: Optional[requests.Session] = None)
 
 
 def _search(ingredient: str, session: requests.Session) -> dict:
-    params = {"query": ingredient, "pageSize": 5}
+    params = {
+        "query": ingredient,
+        "pageSize": 5,
+        "api_key": os.getenv("USDA_API_KEY", "DEMO_KEY")  # fallback for testing
+    }
     headers = {"User-Agent": _USER_AGENT}
 
     for attempt in range(_MAX_RETRIES):

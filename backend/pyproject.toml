@@ -8,6 +8,7 @@ dependencies = [
     "openai",
     "python-dotenv",
     "requests",
+    "rdflib>=7.6.0",
 ]
 
 [project.optional-dependencies]
