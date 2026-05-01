@@ -6,7 +6,16 @@ import pytest
 from fastapi.testclient import TestClient
 
 from backend.graph import RecipeKnowledgeGraph
-from backend.main import app, get_kg, get_openai_client
+from backend.main import (
+    _BASE_SYSTEM_PROMPT,
+    _EXAMPLES,
+    _build_prompt,
+    _keyword_overlap,
+    _select_examples,
+    app,
+    get_kg,
+    get_openai_client,
+)
 from backend.models import NutritionPer100g, Recipe, WikidataEntity
 
 # ---------------------------------------------------------------------------
@@ -295,3 +304,92 @@ def test_nl_query_returns_interpreted_filters(client_with_mock_llm):
         "/api/v1/query", json={"question": "Show me middle-eastern recipes"}
     ).json()
     assert data["interpreted_filters"].get("cuisine") == "middle-eastern"
+
+
+# ---------------------------------------------------------------------------
+# _keyword_overlap
+# ---------------------------------------------------------------------------
+
+
+def test_keyword_overlap_counts_shared_content_words():
+    assert _keyword_overlap("high protein recipe", "high protein dinner") == 2
+
+
+def test_keyword_overlap_zero_when_no_shared_words():
+    assert _keyword_overlap("quick meal", "vegan dinner") == 0
+
+
+def test_keyword_overlap_case_insensitive():
+    assert _keyword_overlap("High Protein", "high protein") == 2
+
+
+def test_keyword_overlap_filters_stopwords():
+    # stopwords like "a" should not contribute to overlap
+    overlap = _keyword_overlap("a high protein dish", "a low calorie dish")
+    assert overlap == 1  # only "dish"
+
+
+def test_keyword_overlap_symmetric():
+    assert _keyword_overlap("italian quick dinner", "quick italian") == _keyword_overlap(
+        "quick italian", "italian quick dinner"
+    )
+
+
+# ---------------------------------------------------------------------------
+# _select_examples
+# ---------------------------------------------------------------------------
+
+
+def test_select_examples_returns_k_examples():
+    assert len(_select_examples("high protein recipe", _EXAMPLES, k=2)) == 2
+
+
+def test_select_examples_returns_k_even_without_overlap():
+    assert len(_select_examples("zzz nonsense xyz", _EXAMPLES, k=3)) == 3
+
+
+def test_select_examples_ranks_protein_examples_first_for_protein_query():
+    result = _select_examples("high protein meal", _EXAMPLES, k=3)
+    top_questions = [ex[0] for ex in result]
+    assert any("protein" in q for q in top_questions)
+
+
+def test_select_examples_ranks_cuisine_examples_first_for_cuisine_query():
+    result = _select_examples("italian pasta dinner tonight", _EXAMPLES, k=3)
+    top_questions = [ex[0] for ex in result]
+    assert any("italian" in q for q in top_questions)
+
+
+def test_select_examples_ranks_vegan_example_first_for_vegan_query():
+    result = _select_examples("something vegan and light", _EXAMPLES, k=2)
+    top_questions = [ex[0] for ex in result]
+    assert any("vegan" in q for q in top_questions)
+
+
+# ---------------------------------------------------------------------------
+# _build_prompt
+# ---------------------------------------------------------------------------
+
+
+def test_build_prompt_contains_all_filter_field_names():
+    prompt = _build_prompt("high protein recipe")
+    for field in ("min_protein", "max_kcal", "max_time", "cuisine", "dietary"):
+        assert field in prompt
+
+
+def test_build_prompt_includes_examples_section():
+    assert "Examples:" in _build_prompt("high protein recipe")
+
+
+def test_build_prompt_injects_at_most_3_examples():
+    # each example line contains "->"
+    assert _build_prompt("high protein recipe").count("->") <= 3
+
+
+def test_build_prompt_injects_relevant_example_for_italian_query():
+    assert "italian" in _build_prompt("quick italian dinner").lower()
+
+
+def test_build_prompt_base_prompt_is_short():
+    # base prompt without examples should not contain example arrows
+    assert "->" not in _BASE_SYSTEM_PROMPT

@@ -54,6 +54,7 @@ class EnrichedIngredient(_CamelModel):
     food_category: Optional[str] = None
     origin_country: Optional[str] = None
     nutrition: Optional[NutritionPer100g] = None
+    quantity_g: Optional[float] = None
 
 
 # Recipe response models

@@ -31,6 +31,7 @@ class RecipeKnowledgeGraph:
         normalised_map: Dict[str, str],
         entity_map: Dict[str, WikidataEntity],
         nutrition_map: Dict[str, NutritionPer100g],
+        quantity_map: Optional[Dict[str, Optional[float]]] = None,
     ) -> None:
         r = EX[f"recipe_{recipe.slug}"]
         self.graph.add((r, RDF.type, EX.Recipe))
@@ -47,7 +48,7 @@ class RecipeKnowledgeGraph:
             self.graph.add((r, EX.tag, Literal(tag)))
 
         # ingredients
-        ing_nutritions = []
+        ing_nutritions = []  # list of (NutritionPer100g, Optional[float]) tuples
         for idx, raw in enumerate(recipe.ingredients):
             ing_node = EX[f"ing_{recipe.slug}_{idx}"]
             self.graph.add((r, EX.hasIngredient, ing_node))
@@ -57,6 +58,10 @@ class RecipeKnowledgeGraph:
             normalised = normalised_map.get(raw)
             if normalised:
                 self.graph.add((ing_node, EX.normalisedName, Literal(normalised)))
+
+            quantity_g = quantity_map.get(raw) if quantity_map else None
+            if quantity_g is not None:
+                self.graph.add((ing_node, EX.quantityG, Literal(quantity_g, datatype=XSD.decimal)))
 
             entity = entity_map.get(normalised) if normalised else None
             if entity:
@@ -71,7 +76,7 @@ class RecipeKnowledgeGraph:
 
             nutrition = nutrition_map.get(normalised) if normalised else None
             if nutrition:
-                ing_nutritions.append(nutrition)
+                ing_nutritions.append((nutrition, quantity_g))
                 nutr_node = EX[f"nutr_{recipe.slug}_{idx}"]
                 self.graph.add((ing_node, EX.hasNutrition, nutr_node))
                 self.graph.add((nutr_node, RDF.type, EX.Nutrition))
@@ -80,10 +85,14 @@ class RecipeKnowledgeGraph:
         # approx per-serving nutrition stored on the recipe node for filtering
         if ing_nutritions and recipe.servings:
             s = recipe.servings
-            approx_protein = sum(n.protein_per_100g for n in ing_nutritions) / s
-            approx_kcal = sum(n.kcal_per_100g for n in ing_nutritions) / s
-            self.graph.add((r, EX.approxProteinPerServing, Literal(approx_protein, datatype=XSD.decimal)))
-            self.graph.add((r, EX.approxKcalPerServing, Literal(approx_kcal, datatype=XSD.decimal)))
+            total_protein = 0.0
+            total_kcal = 0.0
+            for n, qty in ing_nutritions:
+                factor = (qty / 100) if qty is not None else 1.0
+                total_protein += factor * n.protein_per_100g
+                total_kcal += factor * n.kcal_per_100g
+            self.graph.add((r, EX.approxProteinPerServing, Literal(total_protein / s, datatype=XSD.decimal)))
+            self.graph.add((r, EX.approxKcalPerServing, Literal(total_kcal / s, datatype=XSD.decimal)))
 
     def _add_nutrition_triples(self, node: URIRef, n: NutritionPer100g) -> None:
         self.graph.add((node, EX.proteinPer100g, Literal(n.protein_per_100g, datatype=XSD.decimal)))
@@ -145,6 +154,9 @@ class RecipeKnowledgeGraph:
             if nutr_nodes:
                 nutrition = self._read_nutrition(nutr_nodes[0])
 
+            qty_vals = list(self.graph.objects(ing_node, EX.quantityG))
+            quantity_g = float(qty_vals[0]) if qty_vals else None
+
             ingredients.append(EnrichedIngredient(
                 raw=raw,
                 normalised=normalised,
@@ -152,19 +164,25 @@ class RecipeKnowledgeGraph:
                 food_category=food_category,
                 origin_country=origin_country,
                 nutrition=nutrition,
+                quantity_g=quantity_g,
             ))
 
         nutrition_per_serving = None
         if servings and any(i.nutrition for i in ingredients):
-            proteins = [i.nutrition.protein_per_100g for i in ingredients if i.nutrition]
-            fats = [i.nutrition.fat_per_100g for i in ingredients if i.nutrition]
-            carbs = [i.nutrition.carbs_per_100g for i in ingredients if i.nutrition]
-            kcals = [i.nutrition.kcal_per_100g for i in ingredients if i.nutrition]
+            total_protein = total_fat = total_carbs = total_kcal = 0.0
+            for i in ingredients:
+                if not i.nutrition:
+                    continue
+                factor = (i.quantity_g / 100) if i.quantity_g is not None else 1.0
+                total_protein += factor * i.nutrition.protein_per_100g
+                total_fat += factor * i.nutrition.fat_per_100g
+                total_carbs += factor * i.nutrition.carbs_per_100g
+                total_kcal += factor * i.nutrition.kcal_per_100g
             nutrition_per_serving = NutritionPerServing(
-                protein_g=sum(proteins) / servings,
-                fat_g=sum(fats) / servings,
-                carbs_g=sum(carbs) / servings,
-                kcal=sum(kcals) / servings,
+                protein_g=total_protein / servings,
+                fat_g=total_fat / servings,
+                carbs_g=total_carbs / servings,
+                kcal=total_kcal / servings,
             )
 
         return RecipeDetail(

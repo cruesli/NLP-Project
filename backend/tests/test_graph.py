@@ -720,3 +720,93 @@ def test_load_graph_preserves_filter_capability(kg_two_recipes, tmp_path):
     result = loaded.filter_recipes(cuisine="middle-eastern")
     assert result.count == 1
     assert result.results[0].slug == "tahini-chicken"
+
+
+# ---------------------------------------------------------------------------
+# quantity_g — storage and weighted nutrition
+# ---------------------------------------------------------------------------
+
+
+@pytest.fixture
+def quantity_map():
+    # 400g chicken, 2 tbsp (30g) tahini
+    return {"400g Chicken thighs": 400.0, "2 tbsp Tahini": 30.0}
+
+
+@pytest.fixture
+def kg_with_quantities(recipe_tahini, normalised_map, entity_map, nutrition_map, quantity_map):
+    g = RecipeKnowledgeGraph()
+    g.add_recipe(recipe_tahini, normalised_map, entity_map, nutrition_map, quantity_map)
+    return g
+
+
+def test_ingredient_has_quantity_g_when_provided(kg_with_quantities):
+    recipe_node = EX["recipe_tahini-chicken"]
+    qtys = set()
+    for ing in kg_with_quantities.graph.objects(recipe_node, EX.hasIngredient):
+        for qty in kg_with_quantities.graph.objects(ing, EX.quantityG):
+            qtys.add(float(qty))
+    assert 400.0 in qtys
+    assert 30.0 in qtys
+
+
+def test_ingredient_has_no_quantity_g_without_map(kg):
+    recipe_node = EX["recipe_tahini-chicken"]
+    for ing in kg.graph.objects(recipe_node, EX.hasIngredient):
+        assert list(kg.graph.objects(ing, EX.quantityG)) == []
+
+
+def test_approx_protein_per_serving_uses_quantity_weight(kg_with_quantities):
+    # chicken: 400g * (17.4/100) = 69.6; tahini: 30g * (17.0/100) = 5.1; total/2 = 37.35
+    recipe_node = EX["recipe_tahini-chicken"]
+    vals = list(kg_with_quantities.graph.objects(recipe_node, EX.approxProteinPerServing))
+    assert float(vals[0]) == pytest.approx(37.35)
+
+
+def test_approx_kcal_per_serving_uses_quantity_weight(kg_with_quantities):
+    # chicken: 400g * (177.0/100) = 708.0; tahini: 30g * (595.0/100) = 178.5; total/2 = 443.25
+    recipe_node = EX["recipe_tahini-chicken"]
+    vals = list(kg_with_quantities.graph.objects(recipe_node, EX.approxKcalPerServing))
+    assert float(vals[0]) == pytest.approx(443.25)
+
+
+def test_approx_protein_fallback_factor_one_without_quantities(kg):
+    # factor=1.0 for both: (17.4 + 17.0) / 2 = 17.2
+    recipe_node = EX["recipe_tahini-chicken"]
+    vals = list(kg.graph.objects(recipe_node, EX.approxProteinPerServing))
+    assert float(vals[0]) == pytest.approx(17.2)
+
+
+def test_get_recipe_by_slug_ingredient_has_quantity_g(kg_with_quantities):
+    result = kg_with_quantities.get_recipe_by_slug("tahini-chicken")
+    chicken = next(i for i in result.ingredients if i.normalised == "chicken thigh")
+    assert chicken.quantity_g == pytest.approx(400.0)
+    tahini = next(i for i in result.ingredients if i.normalised == "tahini")
+    assert tahini.quantity_g == pytest.approx(30.0)
+
+
+def test_get_recipe_by_slug_ingredient_quantity_g_none_without_map(kg):
+    result = kg.get_recipe_by_slug("tahini-chicken")
+    for ing in result.ingredients:
+        assert ing.quantity_g is None
+
+
+def test_get_recipe_by_slug_nutrition_per_serving_uses_quantity_weight(kg_with_quantities):
+    # protein: (400 * 17.4/100 + 30 * 17.0/100) / 2 = (69.6 + 5.1) / 2 = 37.35
+    result = kg_with_quantities.get_recipe_by_slug("tahini-chicken")
+    assert result.nutrition_per_serving.protein_g == pytest.approx(37.35)
+
+
+def test_get_recipe_by_slug_nutrition_per_serving_fallback_without_quantities(kg):
+    # factor=1.0 for both: (17.4 + 17.0) / 2 = 17.2
+    result = kg.get_recipe_by_slug("tahini-chicken")
+    assert result.nutrition_per_serving.protein_g == pytest.approx(17.2)
+
+
+def test_load_graph_preserves_quantity_g(kg_with_quantities, tmp_path):
+    path = tmp_path / "graph.ttl"
+    save_graph(kg_with_quantities, path)
+    loaded = load_graph(path)
+    detail = loaded.get_recipe_by_slug("tahini-chicken")
+    chicken = next(i for i in detail.ingredients if i.normalised == "chicken thigh")
+    assert chicken.quantity_g == pytest.approx(400.0)

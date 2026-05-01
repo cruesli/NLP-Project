@@ -1,5 +1,5 @@
 from pathlib import Path
-from typing import Dict, List, Optional
+from typing import Any, Dict, List, Optional
 
 import requests
 from dotenv import load_dotenv
@@ -25,12 +25,20 @@ def collect_unique_ingredients(recipes: List[Recipe]) -> List[str]:
     return result
 
 
-def build_normalised_map(raw: List[str], normalised: List[str]) -> Dict[str, str]:
+def build_normalised_map(raw: List[str], normalised: List[Dict[str, Any]]) -> Dict[str, str]:
     if len(raw) != len(normalised):
         raise ValueError(
             f"Normaliser returned {len(normalised)} results for {len(raw)} inputs"
         )
-    return dict(zip(raw, normalised))
+    return {r: n["name"] for r, n in zip(raw, normalised)}
+
+
+def build_quantity_map(raw: List[str], normalised: List[Dict[str, Any]]) -> Dict[str, Optional[float]]:
+    if len(raw) != len(normalised):
+        raise ValueError(
+            f"Normaliser returned {len(normalised)} results for {len(raw)} inputs"
+        )
+    return {r: n.get("quantity_g") for r, n in zip(raw, normalised)}
 
 
 def run_ingest(
@@ -55,15 +63,23 @@ def run_ingest(
     print("Normalising ingredients...")
     if llm_client is None:
         llm_client = make_client()
-    normalised_list: List[str] = []
+    normalised_list: List[Dict[str, Any]] = []
     for i in range(0, len(unique_raw), _BATCH_SIZE):
         batch = unique_raw[i : i + _BATCH_SIZE]
-        normalised_list.extend(normalise_all(batch, llm_client))
+        batch_result = normalise_all(batch, llm_client)
+        # Align length with input in case LLM returns wrong count
+        if len(batch_result) > len(batch):
+            batch_result = batch_result[: len(batch)]
+        elif len(batch_result) < len(batch):
+            for j in range(len(batch_result), len(batch)):
+                batch_result.append({"name": batch[j].lower(), "quantity_g": None})
+        normalised_list.extend(batch_result)
         print(f"  normalised {min(i + _BATCH_SIZE, len(unique_raw))}/{len(unique_raw)}")
     normalised_map = build_normalised_map(unique_raw, normalised_list)
+    quantity_map = build_quantity_map(unique_raw, normalised_list)
 
     # unique normalised names (preserving order)
-    unique_normalised: List[str] = list(dict.fromkeys(normalised_list))
+    unique_normalised: List[str] = list(dict.fromkeys(n["name"] for n in normalised_list))
     print(f"  {len(unique_normalised)} unique normalised names")
 
     # entity linking
@@ -81,7 +97,11 @@ def run_ingest(
     print("Fetching nutrition from USDA...")
     nutrition_map: Dict[str, Optional[NutritionPer100g]] = {}
     for norm in unique_normalised:
-        nutrition = fetch_nutrition(norm, http_session)
+        try:
+            nutrition = fetch_nutrition(norm, http_session)
+        except requests.HTTPError as exc:
+            print(f"  {norm}: HTTP error {exc.response.status_code}, skipping")
+            nutrition = None
         nutrition_map[norm] = nutrition
         status = f"{nutrition.kcal_per_100g} kcal/100g" if nutrition else "not found"
         print(f"  {norm}: {status}")
@@ -90,7 +110,7 @@ def run_ingest(
     print("Building knowledge graph...")
     kg = RecipeKnowledgeGraph()
     for recipe in recipes:
-        kg.add_recipe(recipe, normalised_map, entity_map, nutrition_map)
+        kg.add_recipe(recipe, normalised_map, entity_map, nutrition_map, quantity_map)
 
     # serialise
     print(f"Saving graph to {output_path}...")
