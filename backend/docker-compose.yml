@@ -1,0 +1,13 @@
+# Run the ingest pipeline before building the image to generate graph.ttl:
+#   python backend/ingest.py   (from project root, requires API keys in ~/.env)
+
+services:
+  backend:
+    build:
+      context: ..
+      dockerfile: backend/Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      # Provides USDA_API_KEY and CAMPUSAI_API_KEY — file must exist before starting
+      - ../.env:/root/.env:ro
