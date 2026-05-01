@@ -119,8 +119,7 @@ def run_ingest(
 
 
 if __name__ == "__main__":
-    project_root = Path(__file__).parent.parent
     run_ingest(
-        recipes_dir=project_root / "src" / "content" / "recipes",
-        output_path=project_root / "graph.ttl",
+        recipes_dir=Path(__file__).parent.parent / "src" / "content" / "recipes",
+        output_path=Path(__file__).parent / "graph.ttl",
     )

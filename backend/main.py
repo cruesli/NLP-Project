@@ -22,7 +22,7 @@ from backend.normaliser import make_client
 
 load_dotenv(Path.home() / ".env")
 
-_GRAPH_PATH = Path(__file__).parent.parent / "graph.ttl"
+_GRAPH_PATH = Path(__file__).parent / "graph.ttl"
 
 _kg: Optional[RecipeKnowledgeGraph] = None
 
@@ -55,9 +55,9 @@ _BASE_SYSTEM_PROMPT = (
 )
 
 _EXAMPLES: list[tuple[str, dict]] = [
-    ("give me a high protein recipe", {"min_protein": 25}),
-    ("something with lots of protein", {"min_protein": 25}),
-    ("protein rich meal", {"min_protein": 30}),
+    ("give me a high protein recipe", {"min_protein": 50}),
+    ("something with lots of protein", {"min_protein": 50}),
+    ("protein rich meal", {"min_protein": 50}),
     ("quick dinner under 30 minutes", {"max_time": 30}),
     ("fast meal I can make tonight", {"max_time": 30}),
     ("low calorie option", {"max_kcal": 500}),
