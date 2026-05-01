@@ -41,7 +41,7 @@ def get_openai_client() -> openai.OpenAI:
     return make_client()
 
 
-_QUERY_SYSTEM_PROMPT = (
+_BASE_SYSTEM_PROMPT = (
     "You are a recipe filter assistant. Extract structured filter criteria from a "
     "natural language question about recipes.\n\n"
     "Return a JSON object with zero or more of these fields:\n"
@@ -54,17 +54,61 @@ _QUERY_SYSTEM_PROMPT = (
     "Return ONLY valid JSON, no other text."
 )
 
+_EXAMPLES: list[tuple[str, dict]] = [
+    ("give me a high protein recipe", {"min_protein": 25}),
+    ("something with lots of protein", {"min_protein": 25}),
+    ("protein rich meal", {"min_protein": 30}),
+    ("quick dinner under 30 minutes", {"max_time": 30}),
+    ("fast meal I can make tonight", {"max_time": 30}),
+    ("low calorie option", {"max_kcal": 500}),
+    ("light meal for lunch", {"max_kcal": 400}),
+    ("something vegan", {"dietary": "vegan"}),
+    ("vegetarian recipe please", {"dietary": "vegetarian"}),
+    ("italian food tonight", {"cuisine": "italian"}),
+    ("middle eastern cuisine", {"cuisine": "middle-eastern"}),
+    ("quick italian pasta dinner", {"max_time": 30, "cuisine": "italian"}),
+    ("high protein vegan recipe", {"min_protein": 25, "dietary": "vegan"}),
+    ("light quick meal under 30 minutes", {"max_kcal": 500, "max_time": 30}),
+    ("vegetarian low calorie dish", {"dietary": "vegetarian", "max_kcal": 500}),
+]
+
+_STOPWORDS = frozenset({
+    "a", "an", "the", "for", "me", "i", "can", "make", "want", "give",
+    "show", "something", "some", "with", "and", "or", "that", "is", "are",
+    "please", "tonight", "today", "under", "over",
+})
+
+
+def _keyword_overlap(q1: str, q2: str) -> int:
+    words1 = {w for w in q1.lower().split() if w not in _STOPWORDS}
+    words2 = {w for w in q2.lower().split() if w not in _STOPWORDS}
+    return len(words1 & words2)
+
+
+def _select_examples(
+    question: str, examples: list[tuple[str, dict]], k: int = 3
+) -> list[tuple[str, dict]]:
+    scored = sorted(examples, key=lambda ex: _keyword_overlap(question, ex[0]), reverse=True)
+    return scored[:k]
+
+
+def _build_prompt(question: str) -> str:
+    examples = _select_examples(question, _EXAMPLES)
+    shots = "\n".join(f'"{q}" -> {json.dumps(f)}' for q, f in examples)
+    return _BASE_SYSTEM_PROMPT + f"\n\nExamples:\n{shots}"
+
 
 def interpret_query(question: str, client: openai.OpenAI) -> dict:
     model = os.getenv("CAMPUSAI_MODEL", "gemma-3-27b-it")
     response = client.chat.completions.create(
         model=model,
         messages=[
-            {"role": "system", "content": _QUERY_SYSTEM_PROMPT},
+            {"role": "system", "content": _build_prompt(question)},
             {"role": "user", "content": question},
         ],
     )
     text = response.choices[0].message.content.strip()
+    print(f"LLM raw response: {repr(text)}")  # debug
     try:
         return json.loads(text)
     except (json.JSONDecodeError, ValueError):
