@@ -1,16 +1,169 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
 import { withBase } from "../utils/withBase";
+
+const recipes = await getCollection("recipes");
+recipes.sort((a: any, b: any) => a.data.title.localeCompare(b.data.title));
+const cuisines = [...new Set(recipes.map((r: any) => (r.data.cuisine || "other").toLowerCase()))].sort();
+const apiUrl: string = (import.meta as any).env?.PUBLIC_API_URL ?? "http://localhost:8000";
+const base: string = (import.meta as any).env?.BASE_URL ?? "/";
 ---
 
 <BaseLayout title="Family Recipes">
   <h1>Family Recipes</h1>
 
-  <h2>Create new recipe</h2>
-  <p>
-    When we add the CMS, this will link to the editor.
-    For now, you create a new recipe by adding a Markdown file under
-    <code>src/content/recipes/</code>.
-  </p>
-  <p><a class="card" href={withBase("/admin")}>Go to Admin (later)</a></p>
+  <div class="search-box">
+    <input id="nl-search" type="text" placeholder="Try: high-protein recipe under 30 minutes" />
+    <button id="nl-search-btn" class="btn">Search</button>
+  </div>
+
+  <div class="filter-bar">
+    <label>
+      Max time (min)
+      <input id="f-time" type="number" min="1" step="5" placeholder="e.g. 30" />
+    </label>
+    <label>
+      Min protein (g)
+      <input id="f-protein" type="number" min="0" step="5" placeholder="e.g. 30" />
+    </label>
+    <label>
+      Cuisine
+      <select id="f-cuisine">
+        <option value="">All cuisines</option>
+        {cuisines.map((c: any) => <option value={c}>{c}</option>)}
+      </select>
+    </label>
+    <label>
+      Dietary
+      <select id="f-dietary">
+        <option value="">Any</option>
+        <option value="vegan">vegan</option>
+        <option value="vegetarian">vegetarian</option>
+        <option value="halal">halal</option>
+      </select>
+    </label>
+    <button id="f-clear" class="btn" hidden>Clear</button>
+  </div>
+
+  <div id="query-meta" class="query-meta" hidden></div>
+
+  <p id="recipe-count" class="recipe-count">{recipes.length} recipe{recipes.length === 1 ? "" : "s"}</p>
+
+  <div id="recipe-grid" class="grid">
+    {recipes.map((r: any) => (
+      <a class="card" href={withBase(`/recipes/${r.slug}`)}>
+        <strong>{r.data.title}</strong>
+        <div class="badges" style="margin-top: 6px;">
+          <span class="badge" style="text-transform: capitalize;">{r.data.cuisine}</span>
+          {typeof r.data.totalTimeMinutes === "number"
+            ? <span class="badge">{r.data.totalTimeMinutes} min</span>
+            : null}
+        </div>
+      </a>
+    ))}
+  </div>
 </BaseLayout>
+
+<script is:inline define:vars={{ apiUrl, base }}>
+  function renderCards(items) {
+    if (!items.length) return '<p>No matching recipes.</p>';
+    return items.map(r => {
+      const badges = [
+        r.cuisine ? `<span class="badge" style="text-transform:capitalize;">${r.cuisine}</span>` : '',
+        r.totalTimeMinutes ? `<span class="badge">${r.totalTimeMinutes} min</span>` : '',
+      ].join('');
+      return `<a class="card" href="${base}recipes/${r.slug}">
+        <strong>${r.title}</strong>
+        <div class="badges" style="margin-top:6px;">${badges}</div>
+      </a>`;
+    }).join('');
+  }
+
+  async function applyFilter() {
+    const params = new URLSearchParams();
+    const time    = document.getElementById('f-time').value;
+    const protein = document.getElementById('f-protein').value;
+    const cuisine = document.getElementById('f-cuisine').value;
+    const dietary = document.getElementById('f-dietary').value;
+    if (time)    params.set('max_time', time);
+    if (protein) params.set('min_protein', protein);
+    if (cuisine) params.set('cuisine', cuisine);
+    if (dietary) params.set('dietary', dietary);
+
+    document.getElementById('query-meta').hidden = true;
+
+    if (!params.toString()) { restoreStatic(); return; }
+
+    try {
+      const res = await fetch(`${apiUrl}/api/v1/recipes/filter?${params}`);
+      if (!res.ok) { restoreStatic(); return; }
+      const data = await res.json();
+      document.getElementById('recipe-grid').innerHTML = renderCards(data.results);
+      document.getElementById('recipe-count').textContent =
+        `${data.count} recipe${data.count === 1 ? '' : 's'}`;
+      document.getElementById('f-clear').hidden = false;
+    } catch (_) { restoreStatic(); }
+  }
+
+  async function nlSearch() {
+    const q = document.getElementById('nl-search').value.trim();
+    if (!q) return;
+    try {
+      const res = await fetch(`${apiUrl}/api/v1/query`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ question: q }),
+      });
+      if (!res.ok) return;
+      const data = await res.json();
+
+      const meta = document.getElementById('query-meta');
+      const filters = data.interpreted_filters;
+      const filterStr = Object.keys(filters).length
+        ? Object.entries(filters).map(([k, v]) => `${k}: ${v}`).join(', ')
+        : 'no specific filters extracted';
+      meta.innerHTML = `<strong>Interpreted:</strong> ${filterStr}`;
+      meta.hidden = false;
+
+      if (filters.max_time)    document.getElementById('f-time').value    = filters.max_time;
+      if (filters.min_protein) document.getElementById('f-protein').value = filters.min_protein;
+      if (filters.cuisine)     document.getElementById('f-cuisine').value = filters.cuisine;
+      if (filters.dietary)     document.getElementById('f-dietary').value = filters.dietary;
+
+      document.getElementById('recipe-grid').innerHTML = renderCards(data.results);
+      document.getElementById('recipe-count').textContent =
+        `${data.results.length} recipe${data.results.length === 1 ? '' : 's'}`;
+      document.getElementById('f-clear').hidden = false;
+    } catch (_) {}
+  }
+
+  const _staticHtml  = document.getElementById('recipe-grid').innerHTML;
+  const _staticCount = document.getElementById('recipe-count').textContent;
+  function restoreStatic() {
+    document.getElementById('recipe-grid').innerHTML    = _staticHtml;
+    document.getElementById('recipe-count').textContent = _staticCount;
+    document.getElementById('query-meta').hidden = true;
+    document.getElementById('f-clear').hidden    = true;
+  }
+
+  function debounce(fn, ms) {
+    let t;
+    return (...args) => { clearTimeout(t); t = setTimeout(() => fn(...args), ms); };
+  }
+
+  const debouncedFilter = debounce(applyFilter, 400);
+  ['f-time', 'f-protein', 'f-cuisine', 'f-dietary'].forEach(id =>
+    document.getElementById(id).addEventListener('input', debouncedFilter));
+
+  document.getElementById('nl-search-btn').addEventListener('click', nlSearch);
+  document.getElementById('nl-search').addEventListener('keydown', e => {
+    if (e.key === 'Enter') nlSearch();
+  });
+  document.getElementById('f-clear').addEventListener('click', () => {
+    ['f-time', 'f-protein'].forEach(id => { document.getElementById(id).value = ''; });
+    ['f-cuisine', 'f-dietary'].forEach(id => { document.getElementById(id).value = ''; });
+    document.getElementById('nl-search').value = '';
+    restoreStatic();
+  });
+</script>

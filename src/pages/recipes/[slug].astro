@@ -28,6 +28,8 @@ const ingredients: string[] = Array.isArray(rawIngredients)
       .map((line: string) => line.trim().replace(/^-+\s*/, ""))
       .filter(Boolean)
   : [];
+
+const apiUrl: string = (import.meta as any).env?.PUBLIC_API_URL ?? "http://localhost:8000";
 ---
 
 <BaseLayout title={d.title}>
@@ -41,6 +43,8 @@ const ingredients: string[] = Array.isArray(rawIngredients)
       {typeof d.servings === "number" ? <span class="badge">{d.servings} servings</span> : null}
       {d.tags?.map((t) => <span class="badge">{t}</span>)}
     </div>
+
+    <div id="nutrition-panel" hidden></div>
 
     {d.image ? <img src={withBase(d.image)} alt={d.title} loading="lazy" /> : null}
 
@@ -65,3 +69,30 @@ const ingredients: string[] = Array.isArray(rawIngredients)
     </section>
   </article>
 </BaseLayout>
+
+<script is:inline define:vars={{ slug, apiUrl }}>
+  (async () => {
+    try {
+      const res = await fetch(`${apiUrl}/api/v1/recipes/${slug}`);
+      if (!res.ok) return;
+      const data = await res.json();
+      const n = data.nutritionPerServing;
+      if (!n) return;
+      const fmt = (v, unit) => v != null ? `${+(Math.round(v * 10) / 10)}${unit}` : null;
+      const items = [
+        fmt(n.kcal, ' kcal'),
+        fmt(n.proteinG, 'g protein'),
+        fmt(n.fatG, 'g fat'),
+        fmt(n.carbsG, 'g carbs'),
+      ].filter(Boolean);
+      if (!items.length) return;
+      const panel = document.getElementById('nutrition-panel');
+      panel.innerHTML =
+        '<p style="margin:8px 0 4px;font-size:13px;opacity:0.6;">Per serving</p>' +
+        '<div class="badges">' +
+        items.map(v => `<span class="badge">${v}</span>`).join('') +
+        '</div>';
+      panel.hidden = false;
+    } catch (_) {}
+  })();
+</script>

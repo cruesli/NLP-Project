@@ -87,4 +87,14 @@
       width: 100%;
     }
   }
-  
+
+  /* search + filter */
+  .search-box { display: flex; gap: 8px; margin-bottom: 12px; }
+  .search-box input { flex: 1; padding: 8px 12px; border: 1px solid var(--border); border-radius: 8px; font-size: 14px; font-family: inherit; }
+  .btn { padding: 7px 14px; border: 1px solid var(--border); border-radius: 8px; background: none; cursor: pointer; font-size: 13px; font-family: inherit; }
+  .btn:hover { border-color: rgba(0,0,0,0.3); }
+  .filter-bar { display: flex; flex-wrap: wrap; gap: 12px; align-items: flex-end; margin-bottom: 16px; padding: 12px; border: 1px solid var(--border); border-radius: 8px; }
+  .filter-bar label { display: flex; flex-direction: column; gap: 3px; font-size: 13px; }
+  .filter-bar input, .filter-bar select { padding: 6px 8px; border: 1px solid var(--border); border-radius: 6px; font-size: 13px; width: 130px; font-family: inherit; }
+  .query-meta { padding: 10px 14px; border: 1px solid var(--border); border-radius: 8px; font-size: 13px; margin-bottom: 12px; background: rgba(0,0,0,0.02); }
+  .recipe-count { font-size: 13px; opacity: 0.7; margin-bottom: 10px; }
