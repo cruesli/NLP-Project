@@ -103,8 +103,6 @@ def run_ingest(
             _save_cache(normalised_cache_path, normalised_cache)
             print(f"  normalised {min(i + _BATCH_SIZE, len(to_normalise))}/{len(to_normalise)} (new)")
         print(f"  all {len(unique_raw)} ingredients normalised, cache updated")
-        print(f"Stopping here to avoid hitting Wikidata API with DTU VPN, run again without VPN to continue with entity linking and nutrition fetching.")
-        return
     else:
         print(f"  all {len(unique_raw)} ingredients cached, skipping LLM")
     normalised_list: List[Dict[str, Any]] = [normalised_cache[r] for r in unique_raw]
@@ -115,7 +113,7 @@ def run_ingest(
     unique_normalised: List[str] = list(dict.fromkeys(n["name"] for n in normalised_list))
     print(f"  {len(unique_normalised)} unique normalised names")
 
-# entity linking
+    # entity linking
     print("Linking entities to Wikidata...")
     if http_session is None:
         http_session = requests.Session()

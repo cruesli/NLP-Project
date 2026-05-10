@@ -287,8 +287,10 @@ def test_exponential_backoff_increases_delay():
     with patch("backend.entity_linker.time.sleep", side_effect=sleep_calls.append):
         search_candidates("chicken thigh", s)
 
-    assert len(sleep_calls) == 2
-    assert sleep_calls[1] > sleep_calls[0]
+    # sleep_calls[0] is the unconditional rate-limit sleep before the retry loop;
+    # sleep_calls[1] and [2] are the exponential backoff sleeps after each 429.
+    assert len(sleep_calls) == 3
+    assert sleep_calls[2] > sleep_calls[1]
 
 
 # --- filter_food_entities ---

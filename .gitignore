@@ -43,3 +43,6 @@ CLAUDE.md
 
 # Pytest cache
 .pytest_cache/
+
+# Project description
+Project_description.md

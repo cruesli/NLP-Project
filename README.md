@@ -6,6 +6,11 @@ This project builds a knowledge graph over a personal recipe collection, enrichi
 
 ---
 
+## Note on dataset size
+
+The submitted `graph.ttl` was built from 5 recipes. The normalisation and parsing steps were verified with 20 recipes, but the full ingest pipeline could not be completed due but intermittent 502/504 timeout errors
+from the Wikidata SPARQL endpoint on the day of submission. The submitted graph therefore reflects the smaller dataset. Improving the robustness of the Wikidata entity linking step is a planned improvement, hopefully before the oral defence.
+
 ## Data
 
 ### Recipes (primary)
@@ -19,11 +24,10 @@ Accessed via the `wbsearchentities` API and SPARQL endpoint at
 ingredients: food category (`P31` instance of, `P279` subclass of), country
 of origin (`P495`), and dietary flags (vegan, vegetarian, halal, kosher).
 Food entity classification uses a SPARQL ASK query checking the subclass
-hierarchy up to `Q2095` (food). Coverage is sparse for some ingredients —
+hierarchy up to `Q2095` (food). Coverage is sparse for some ingredients,
 many return `food_category=None` due to missing `P31`/`P279` data in
-Wikidata. The transitive `P279*` query proved unreliable in practice due to
-frequent 502/504 gateway errors from the public SPARQL endpoint, a known
-characteristic of expensive queries on public infrastructure.
+Wikidata. The `P279*` query proved unreliable in practice due to
+frequent 502/504 gateway errors from the public SPARQL endpoint, which can be expected from expensive queries on public infrastructure.
 
 ### USDA FoodData Central
 
@@ -82,7 +86,7 @@ src/content/recipes/*.md
 ```
 
 The graph is built once by running `ingest.py` and serialised to `graph.ttl`.
-The FastAPI service loads `graph.ttl` at startup and never rebuilds it at
+The FastAPI service loads `graph.ttl` once at startup and never rebuilds it at
 runtime. External API calls (Wikidata, USDA) only happen during ingest.
 Intermediate results are cached in `.cache/` to avoid redundant API calls on
 re-runs.
@@ -92,10 +96,10 @@ re-runs.
 ## Pipeline design choices and limitations
 
 **Parsing** — standard YAML frontmatter parsing with handling for grouped
-ingredient sections (lines ending in `:`). Ingredient strings are passed as-is
+ingredient sections (lines ending in `:`). Ingredient strings are passed as is
 to the normaliser.
 
-**Normalisation** — an LLM is used to normalise ingredient strings into clean
+**Normalisation:** an LLM is used to normalise ingredient strings into clean
 food names and extract quantities in grams in a single batched call per recipe.
 This handles the full messiness of real recipe text that rule-based approaches
 cannot. Several edge cases were addressed through iterative prompt engineering:
@@ -107,7 +111,7 @@ the correct English food name), and "or" alternatives like "thyme or rosemary"
 the LLM). Quantity extraction is approximate — whole items like "1 butternut
 squash" rely on the LLM's estimated weight.
 
-**Entity linking** — a two-step approach: `wbsearchentities` to find
+**Entity linking:** a two-step approach: `wbsearchentities` to find
 candidates ranked by sitelinks, then a SPARQL ASK query to verify food entity
 membership via the subclass hierarchy. A fallback search appending "food" to
 the query handles ambiguous terms like "turkey". Of 42 unique normalised
@@ -115,25 +119,23 @@ ingredients, ~30 (71%) were successfully linked to Wikidata QIDs. Failures
 include overly specific terms ("parmesan rind"), ambiguous terms ("water",
 "spices"), and compound ingredients not fully resolved by normalisation
 ("minced beef"). The `P279*` SPARQL query proved unreliable on the public
-Wikidata endpoint — a more robust solution would use a fixed-depth query or a
+Wikidata endpoint. A more robust solution would use a fixed-depth query or a
 local Wikidata mirror.
 
-**Nutrition** — full nutrient profile fetched once per ingredient during
+**Nutrition:** full nutrient profile fetched once per ingredient during
 ingest. Quantities from the normalisation step are used to weight each
-ingredient's contribution to per-serving nutrition, rather than assuming equal
-contributions. Nutrition per serving is an approximation since not all
-ingredients have parseable quantities.
+ingredient's contribution to per-serving nutrition. Nutrition per serving is an approximation since not all ingredients have parseable quantities.
 
-**Knowledge graph** — RDFLib in-memory graph using a custom namespace
+**Knowledge graph:** RDFLib in-memory graph using a custom namespace
 (`http://example.org/recipe-kg/`). Serialised to `graph.ttl` and loaded at
-startup. At current scale (5 recipes, ~990 triples) query performance is
+startup. At current scale (5 recipes, ~1000 triples) query performance is
 fast. For larger collections, migration to QLever would be appropriate.
 
-**Natural language queries** — the LLM interprets free-form questions and
+**Natural language queries:** the LLM interprets free-form questions and
 extracts structured filter parameters (min protein, max kcal, max time,
 cuisine, dietary). Dynamic few-shot example selection injects the 2-3 most
 relevant examples based on keyword overlap, improving extraction accuracy for
-novel phrasings.
+novel phrasings. This is quite limited because of the filter parameters, and extending these would improve the usability of the search function.
 
 ---
 
@@ -190,35 +192,35 @@ The API is then available at `http://localhost:8000`.
 
 Base path: `/api/v1`
 
-### `GET /api/v1/recipes`
+#### `GET /api/v1/recipes`
 
 Returns all recipes as a list of summaries.
 
-### `GET /api/v1/recipes/filter`
+#### `GET /api/v1/recipes/filter`
 
 Filter recipes by query parameters: `min_protein` (float, g per serving),
 `max_kcal` (float), `max_time` (int, minutes), `cuisine` (string),
 `dietary` (string, e.g. `vegan`).
 
-### `GET /api/v1/recipes/{slug}`
+#### `GET /api/v1/recipes/{slug}`
 
 Returns full recipe detail including enriched ingredients and per-serving
 nutrition. Returns 404 if not found.
 
-### `GET /api/v1/ingredients/{ingredient}/nutrition`
+#### `GET /api/v1/ingredients/{ingredient}/nutrition`
 
 Returns the full USDA nutritional profile for a normalised ingredient name.
 
-### `GET /api/v1/ingredients/{ingredient}/wikidata`
+#### `GET /api/v1/ingredients/{ingredient}/wikidata`
 
 Returns Wikidata entity data for a normalised ingredient name.
 
-### `POST /api/v1/query`
+#### `POST /api/v1/query`
 
 Natural language query over the recipe knowledge graph. Accepts
 `{"question": "..."}` and returns matching recipes with interpreted filters.
 
-### `GET /health`
+#### `GET /health`
 
 Returns `{"status": "ok", "triples": <count>}`.
 
@@ -241,12 +243,7 @@ triple insertion and graph querying, and all API endpoint response schemas.
 
 ### Entity linking
 
-Of 42 unique normalised ingredients, approximately 30 (71%) were successfully
-linked to a Wikidata QID. Failures fall into three categories: overly specific
-terms ("parmesan rind"), genuinely ambiguous terms ("water", "spices"), and
-compound ingredients not fully resolved by normalisation. Food category
-(`P31`/`P279`) was populated for approximately 60% of linked ingredients —
-the remainder have sparse Wikidata coverage.
+Of 57 ingredient nodes in the graph (across 5 recipes, including duplicates across recipes), 50 (88%) were successfully linked to a Wikidata QID. Food category (P31/P279) was populated for all 50 linked ingredients. Failures are concentrated in overly specific terms ('parmesan rind'), ambiguous terms ('water', 'spices'), and compound ingredients not fully resolved by normalisation ('minced beef', 'neutral oil')
 
 ### Nutrition data quality
 
@@ -255,7 +252,7 @@ incorrect result selection: dehydrated carrots (341 kcal/100g vs ~41 for
 fresh), dried chickpeas (387 kcal/100g vs ~128 for cooked). These represent
 a roughly 3–9x overestimate for affected ingredients. Foundation Foods and SR
 Legacy data types are preferred to mitigate this, but do not fully resolve it.
-Quantity-weighted per-serving nutrition is an approximation — ingredients
+Quantity-weighted per-serving nutrition is an approximation, and ingredients
 without parseable quantities (e.g. "salt", "spices") are excluded from the
 calculation.
 
