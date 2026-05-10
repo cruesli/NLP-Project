@@ -19,7 +19,7 @@ ingredients: |-
 
   Grilled pepper salad:
   - 2 Large bell peppers
-  - 100g Felt salad
+  - 100g corn salad
   - 10g pine nuts
   - 1/2 red onion, thinly sliced
   - 1 tsp Balsamic vinegar

@@ -1,0 +1,878 @@
+{
+  "400g pork shoulder": {
+    "name": "pork shoulder",
+    "quantity_g": 400.0
+  },
+  "6g Salt": {
+    "name": "salt",
+    "quantity_g": 6.0
+  },
+  "Pepper to taste": {
+    "name": "pepper",
+    "quantity_g": null
+  },
+  "2 Large bell peppers": {
+    "name": "bell pepper",
+    "quantity_g": 300.0
+  },
+  "100g Felt salad": {
+    "name": "feta salad",
+    "quantity_g": 100.0
+  },
+  "10g pine nuts": {
+    "name": "pine nuts",
+    "quantity_g": 10.0
+  },
+  "1/2 red onion, thinly sliced": {
+    "name": "red onion",
+    "quantity_g": 75.0
+  },
+  "1 tsp Balsamic vinegar": {
+    "name": "balsamic vinegar",
+    "quantity_g": 5.0
+  },
+  "Salt and pepper": {
+    "name": "salt",
+    "quantity_g": null
+  },
+  "1/2 cup Parsley, finely chopped": {
+    "name": "pepper",
+    "quantity_g": null
+  },
+  "1 red chilli, finely chopped": {
+    "name": "parsley",
+    "quantity_g": 30.0
+  },
+  "1 clove garlic, finely chopped": {
+    "name": "red chilli",
+    "quantity_g": 10.0
+  },
+  "1/4 cup olive oil": {
+    "name": "garlic",
+    "quantity_g": 5.0
+  },
+  "pinch of oregano": {
+    "name": "olive oil",
+    "quantity_g": 60.0
+  },
+  "500g raw shrimp, peeled, deveined and butterflied": {
+    "name": "oregano",
+    "quantity_g": null
+  },
+  "Juice of 8 limes (about 200ml)": {
+    "name": "shrimp",
+    "quantity_g": 500.0
+  },
+  "3 serrano chiles, stems removed": {
+    "name": "lime juice",
+    "quantity_g": 200.0
+  },
+  "1 small handful fresh cilantro": {
+    "name": "serrano chile",
+    "quantity_g": 30.0
+  },
+  "2 garlic cloves": {
+    "name": "cilantro",
+    "quantity_g": 10.0
+  },
+  "1 cucumber, half diced and half thinly sliced": {
+    "name": "garlic",
+    "quantity_g": 10.0
+  },
+  "1 red onion, thinly sliced": {
+    "name": "cucumber",
+    "quantity_g": 200.0
+  },
+  "1 avocado, sliced": {
+    "name": "red onion",
+    "quantity_g": 150.0
+  },
+  "1 teaspoon salt": {
+    "name": "avocado",
+    "quantity_g": 150.0
+  },
+  "Tostadas or tortilla chips, to serve": {
+    "name": "salt",
+    "quantity_g": 5.0
+  },
+  "1 pork shank, about 1kg, fresh or lightly salted": {
+    "name": "tostadas or tortilla chips",
+    "quantity_g": null
+  },
+  "2 litres water": {
+    "name": "pork shank",
+    "quantity_g": 1000.0
+  },
+  "2 bay leaves": {
+    "name": "water",
+    "quantity_g": 2000.0
+  },
+  "1 teaspoon whole black peppercorns": {
+    "name": "bay leaves",
+    "quantity_g": 1.0
+  },
+  "1 teaspoon whole allspice berries": {
+    "name": "black peppercorns",
+    "quantity_g": 5.0
+  },
+  "1 leek, sliced": {
+    "name": "allspice berries",
+    "quantity_g": 5.0
+  },
+  "1 small rutabaga (kålrot), peeled and diced into 2cm cubes": {
+    "name": "leek",
+    "quantity_g": 150.0
+  },
+  "3 carrots, diced into 2cm cubes": {
+    "name": "rutabaga",
+    "quantity_g": 400.0
+  },
+  "1 small celeriac, peeled and diced into 2cm cubes": {
+    "name": "carrot",
+    "quantity_g": 180.0
+  },
+  "100g yellow split peas, rinsed": {
+    "name": "celeriac",
+    "quantity_g": 300.0
+  },
+  "4 potatoes, peeled and diced into 2cm cubes": {
+    "name": "yellow split peas",
+    "quantity_g": 100.0
+  },
+  "Salt and black pepper": {
+    "name": "potato",
+    "quantity_g": 600.0
+  },
+  "1 small handful fresh parsley, chopped": {
+    "name": "salt",
+    "quantity_g": null
+  },
+  "Flatbread or rye bread, to serve": {
+    "name": "black pepper",
+    "quantity_g": null
+  },
+  "4 medium potatoes, sliced into 5mm rounds": {
+    "name": "parsley",
+    "quantity_g": 10.0
+  },
+  "3 zucchini, sliced into 5mm rounds": {
+    "name": "flatbread or rye bread",
+    "quantity_g": null
+  },
+  "4 tomatoes, sliced": {
+    "name": "potato",
+    "quantity_g": 500.0
+  },
+  "200g passata or grated tomato": {
+    "name": "zucchini",
+    "quantity_g": 450.0
+  },
+  "2 red onions, thinly sliced": {
+    "name": "tomato",
+    "quantity_g": 400.0
+  },
+  "4 garlic cloves, sliced": {
+    "name": "passata or grated tomato",
+    "quantity_g": 200.0
+  },
+  "100ml olive oil": {
+    "name": "red onion",
+    "quantity_g": 300.0
+  },
+  "2 teaspoons dried oregano": {
+    "name": "garlic",
+    "quantity_g": 20.0
+  },
+  "Crumbled feta, to serve (optional)": {
+    "name": "olive oil",
+    "quantity_g": 100.0
+  },
+  "800g skirt or flank steak": {
+    "name": "dried oregano",
+    "quantity_g": 10.0
+  },
+  "Juice of 2 limes": {
+    "name": "feta",
+    "quantity_g": null
+  },
+  "Juice of 1 orange": {
+    "name": "skirt or flank steak",
+    "quantity_g": 800.0
+  },
+  "4 garlic cloves, grated": {
+    "name": "garlic",
+    "quantity_g": 20.0
+  },
+  "1 small handful fresh cilantro, chopped": {
+    "name": "fresh cilantro",
+    "quantity_g": 10.0
+  },
+  "2 tablespoons olive oil": {
+    "name": "olive oil",
+    "quantity_g": 30.0
+  },
+  "2 teaspoons ground cumin": {
+    "name": "ground cumin",
+    "quantity_g": 10.0
+  },
+  "1 teaspoon dried oregano": {
+    "name": "dried oregano",
+    "quantity_g": 5.0
+  },
+  "1 teaspoon black pepper": {
+    "name": "black pepper",
+    "quantity_g": 5.0
+  },
+  "12 small corn tortillas": {
+    "name": "corn tortilla",
+    "quantity_g": 180.0
+  },
+  "1 white onion, finely diced": {
+    "name": "white onion",
+    "quantity_g": 150.0
+  },
+  "2 limes, cut into wedges": {
+    "name": "lime",
+    "quantity_g": 100.0
+  },
+  "Salsa verde or salsa roja": {
+    "name": "salsa verde or salsa roja",
+    "quantity_g": null
+  },
+  "2.5 kg Pork shoulder": {
+    "name": "pork shoulder",
+    "quantity_g": 2500.0
+  },
+  "1 Orange sliced in half": {
+    "name": "orange",
+    "quantity_g": 120.0
+  },
+  "1 Yellow onion sliced in half": {
+    "name": "yellow onion",
+    "quantity_g": 150.0
+  },
+  "1 Cinnamon stick": {
+    "name": "cinnamon stick",
+    "quantity_g": 5.0
+  },
+  "5 Garlic cloves": {
+    "name": "garlic",
+    "quantity_g": 25.0
+  },
+  "2 Bay leafs": {
+    "name": "bay leaf",
+    "quantity_g": 2.0
+  },
+  "30g salt": {
+    "name": "salt",
+    "quantity_g": 30.0
+  },
+  "Roughly 500ml Water": {
+    "name": "water",
+    "quantity_g": 500.0
+  },
+  "Neutral oil": {
+    "name": "neutral oil",
+    "quantity_g": null
+  },
+  "1kg pork shoulder, cut into 4cm-thick strips": {
+    "name": "pork shoulder",
+    "quantity_g": 1000.0
+  },
+  "3 tablespoons hoisin sauce": {
+    "name": "hoisin sauce",
+    "quantity_g": 45.0
+  },
+  "2 tablespoons light soy sauce": {
+    "name": "light soy sauce",
+    "quantity_g": 30.0
+  },
+  "1 tablespoon dark soy sauce": {
+    "name": "dark soy sauce",
+    "quantity_g": 15.0
+  },
+  "2 tablespoons Shaoxing wine": {
+    "name": "shaoxing wine",
+    "quantity_g": 30.0
+  },
+  "2 cubes red fermented bean curd, plus 1 tablespoon of its liquid": {
+    "name": "red fermented bean curd",
+    "quantity_g": 30.0
+  },
+  "2 tablespoons honey": {
+    "name": "red fermented bean curd liquid",
+    "quantity_g": 15.0
+  },
+  "2 tablespoons sugar": {
+    "name": "honey",
+    "quantity_g": 30.0
+  },
+  "1 teaspoon five-spice powder": {
+    "name": "sugar",
+    "quantity_g": 30.0
+  },
+  "1 teaspoon white pepper": {
+    "name": "five-spice powder",
+    "quantity_g": 5.0
+  },
+  "3 tablespoons honey": {
+    "name": "white pepper",
+    "quantity_g": 5.0
+  },
+  "2 tablespoons reserved marinade": {
+    "name": "honey",
+    "quantity_g": 45.0
+  },
+  "600g chicken thighs, boneless, sliced into 1cm strips": {
+    "name": "reserved marinade",
+    "quantity_g": 30.0
+  },
+  "4 garlic cloves, minced": {
+    "name": "chicken thigh",
+    "quantity_g": 600.0
+  },
+  "2 teaspoons smoked paprika": {
+    "name": "garlic",
+    "quantity_g": 20.0
+  },
+  "1 teaspoon chili powder": {
+    "name": "smoked paprika",
+    "quantity_g": 10.0
+  },
+  "1 red bell pepper, sliced": {
+    "name": "chili powder",
+    "quantity_g": 5.0
+  },
+  "1 yellow bell pepper, sliced": {
+    "name": "red bell pepper",
+    "quantity_g": 150.0
+  },
+  "1 green bell pepper, sliced": {
+    "name": "yellow bell pepper",
+    "quantity_g": 150.0
+  },
+  "2 large onions, sliced": {
+    "name": "green bell pepper",
+    "quantity_g": 150.0
+  },
+  "2 tablespoons neutral oil": {
+    "name": "onion",
+    "quantity_g": 300.0
+  },
+  "8 flour tortillas, warmed": {
+    "name": "neutral oil",
+    "quantity_g": 30.0
+  },
+  "Sour cream": {
+    "name": "flour tortilla",
+    "quantity_g": 120.0
+  },
+  "Guacamole": {
+    "name": "sour cream",
+    "quantity_g": null
+  },
+  "Lime wedges": {
+    "name": "guacamole",
+    "quantity_g": null
+  },
+  "Fresh cilantro": {
+    "name": "lime",
+    "quantity_g": null
+  },
+  "500g chicken thighs, boneless, skinless, cut into 2cm cubes": {
+    "name": "fresh cilantro",
+    "quantity_g": null
+  },
+  "1 tablespoon Shaoxing wine": {
+    "name": "chicken thigh",
+    "quantity_g": 500.0
+  },
+  "1 tablespoon light soy sauce": {
+    "name": "shaoxing wine",
+    "quantity_g": 15.0
+  },
+  "1 teaspoon cornstarch": {
+    "name": "light soy sauce",
+    "quantity_g": 15.0
+  },
+  "2 tablespoons Chinkiang black vinegar": {
+    "name": "cornstarch",
+    "quantity_g": 5.0
+  },
+  "2 teaspoons sugar": {
+    "name": "sugar",
+    "quantity_g": 10.0
+  },
+  "2 tablespoons water": {
+    "name": "water",
+    "quantity_g": 30.0
+  },
+  "12 dried Sichuan chiles, snipped, seeds shaken out": {
+    "name": "dried sichuan chiles",
+    "quantity_g": 15.0
+  },
+  "2 teaspoons whole Sichuan peppercorns": {
+    "name": "whole sichuan peppercorns",
+    "quantity_g": 10.0
+  },
+  "1 thumb ginger, sliced": {
+    "name": "ginger",
+    "quantity_g": 15.0
+  },
+  "4 spring onions, white parts only, cut into 2cm pieces": {
+    "name": "spring onion",
+    "quantity_g": 60.0
+  },
+  "80g unsalted roasted peanuts": {
+    "name": "unsalted roasted peanuts",
+    "quantity_g": 80.0
+  },
+  "3 tablespoons neutral oil": {
+    "name": "neutral oil",
+    "quantity_g": 45.0
+  },
+  "1.2kg beef chuck, cut into 4cm cubes": {
+    "name": "beef chuck",
+    "quantity_g": 1200.0
+  },
+  "3 tablespoons lard or neutral oil": {
+    "name": "lard or neutral oil",
+    "quantity_g": 45.0
+  },
+  "4 large onions, finely diced": {
+    "name": "onion",
+    "quantity_g": 600.0
+  },
+  "4 tablespoons sweet Hungarian paprika": {
+    "name": "sweet hungarian paprika",
+    "quantity_g": 30.0
+  },
+  "1 teaspoon hot Hungarian paprika (optional)": {
+    "name": "hot hungarian paprika",
+    "quantity_g": 5.0
+  },
+  "1 teaspoon caraway seeds, lightly crushed": {
+    "name": "caraway seeds",
+    "quantity_g": 5.0
+  },
+  "2 tablespoons tomato paste": {
+    "name": "tomato paste",
+    "quantity_g": 30.0
+  },
+  "2 red bell peppers, diced": {
+    "name": "red bell pepper",
+    "quantity_g": 300.0
+  },
+  "2 ripe tomatoes, diced": {
+    "name": "tomato",
+    "quantity_g": 250.0
+  },
+  "1.5 litres beef stock or water": {
+    "name": "beef stock or water",
+    "quantity_g": 1500.0
+  },
+  "4 medium potatoes, peeled and cut into 3cm chunks": {
+    "name": "potato",
+    "quantity_g": 600.0
+  },
+  "Sour cream and parsley, to serve": {
+    "name": "sour cream",
+    "quantity_g": null
+  },
+  "2 pork loin steaks, about 150g each": {
+    "name": "parsley",
+    "quantity_g": null
+  },
+  "50g plain flour": {
+    "name": "pork loin steak",
+    "quantity_g": 300.0
+  },
+  "1 egg, beaten": {
+    "name": "plain flour",
+    "quantity_g": 50.0
+  },
+  "80g panko breadcrumbs": {
+    "name": "egg",
+    "quantity_g": 50.0
+  },
+  "Neutral oil, for frying": {
+    "name": "panko breadcrumbs",
+    "quantity_g": 80.0
+  },
+  "1 onion, thinly sliced": {
+    "name": "neutral oil",
+    "quantity_g": null
+  },
+  "200ml dashi": {
+    "name": "onion",
+    "quantity_g": 150.0
+  },
+  "3 tablespoons soy sauce": {
+    "name": "dashi",
+    "quantity_g": 200.0
+  },
+  "2 tablespoons mirin": {
+    "name": "soy sauce",
+    "quantity_g": 45.0
+  },
+  "1 tablespoon sugar": {
+    "name": "mirin",
+    "quantity_g": 30.0
+  },
+  "4 eggs, lightly beaten": {
+    "name": "sugar",
+    "quantity_g": 15.0
+  },
+  "2 spring onions, sliced": {
+    "name": "egg",
+    "quantity_g": 200.0
+  },
+  "2 portions hot steamed rice": {
+    "name": "spring onion",
+    "quantity_g": 30.0
+  },
+  "400g Chicken thighs": {
+    "name": "hot steamed rice",
+    "quantity_g": 300.0
+  },
+  "200g Hummus": {
+    "name": "chicken thigh",
+    "quantity_g": 400.0
+  },
+  "1 Bell pepper cut into chunks": {
+    "name": "hummus",
+    "quantity_g": 200.0
+  },
+  "1 Onion cut into chunks": {
+    "name": "bell pepper",
+    "quantity_g": 150.0
+  },
+  "2-3 garlic cloves thinly sliced": {
+    "name": "onion",
+    "quantity_g": 150.0
+  },
+  "1 Lemon cut in half": {
+    "name": "garlic clove",
+    "quantity_g": 15.0
+  },
+  "Spices for marinating chicken": {
+    "name": "lemon",
+    "quantity_g": 100.0
+  },
+  "Olive oil": {
+    "name": "spices for marinating chicken",
+    "quantity_g": null
+  },
+  "600g pork belly, skin on, diced into 1cm pieces": {
+    "name": "olive oil",
+    "quantity_g": null
+  },
+  "6 shallots, thinly sliced": {
+    "name": "pork belly",
+    "quantity_g": 600.0
+  },
+  "4 tablespoons dark soy sauce": {
+    "name": "shallot",
+    "quantity_g": 120.0
+  },
+  "3 tablespoons Shaoxing rice wine": {
+    "name": "dark soy sauce",
+    "quantity_g": 60.0
+  },
+  "2 tablespoons rock sugar": {
+    "name": "shaoxing rice wine",
+    "quantity_g": 45.0
+  },
+  "1 star anise": {
+    "name": "rock sugar",
+    "quantity_g": 30.0
+  },
+  "1 cinnamon stick": {
+    "name": "star anise",
+    "quantity_g": 2.0
+  },
+  "4 dried shiitake mushrooms, soaked and diced": {
+    "name": "cinnamon stick",
+    "quantity_g": 4.0
+  },
+  "4 soft-boiled eggs, peeled": {
+    "name": "dried shiitake mushrooms",
+    "quantity_g": 20.0
+  },
+  "500ml water or pork stock": {
+    "name": "water or pork stock",
+    "quantity_g": 500.0
+  },
+  "Steamed rice, to serve": {
+    "name": "steamed rice",
+    "quantity_g": null
+  },
+  "Pickled greens, to serve": {
+    "name": "pickled greens",
+    "quantity_g": null
+  },
+  "700g Minced beef": {
+    "name": "minced beef",
+    "quantity_g": 700.0
+  },
+  "100g Bacon": {
+    "name": "bacon",
+    "quantity_g": 100.0
+  },
+  "2 Medium onion, finely diced": {
+    "name": "onion",
+    "quantity_g": 300.0
+  },
+  "2 Large carrots, finely diced": {
+    "name": "carrot",
+    "quantity_g": 240.0
+  },
+  "1 Stalk celery, finely diced": {
+    "name": "celery",
+    "quantity_g": 40.0
+  },
+  "3 cloves garlic, minced": {
+    "name": "garlic",
+    "quantity_g": 15.0
+  },
+  "3 Tbsp tomato pureé (double concentrated)": {
+    "name": "tomato puree",
+    "quantity_g": 45.0
+  },
+  "1/3 Bottle red wine (cheap)": {
+    "name": "red wine",
+    "quantity_g": 250.0
+  },
+  "1 can of tomatoes": {
+    "name": "tomatoes",
+    "quantity_g": 400.0
+  },
+  "500 ml stock (beef or chicken)": {
+    "name": "stock",
+    "quantity_g": 500.0
+  },
+  "Thyme or rosemary": {
+    "name": "thyme or rosemary",
+    "quantity_g": null
+  },
+  "1 Bay leaf": {
+    "name": "bay leaf",
+    "quantity_g": null
+  },
+  "Parmesan rind (Only if you have)": {
+    "name": "parmesan rind",
+    "quantity_g": null
+  },
+  "4 sweet peppers, sliced into strips": {
+    "name": "sweet peppers",
+    "quantity_g": 400.0
+  },
+  "3 garlic cloves, sliced": {
+    "name": "garlic",
+    "quantity_g": 15.0
+  },
+  "400g ripe tomatoes, roughly chopped": {
+    "name": "tomatoes",
+    "quantity_g": 400.0
+  },
+  "2 tablespoons capers": {
+    "name": "capers",
+    "quantity_g": 30.0
+  },
+  "2 tablespoons red wine vinegar": {
+    "name": "red wine vinegar",
+    "quantity_g": 30.0
+  },
+  "1 teaspoon sugar": {
+    "name": "sugar",
+    "quantity_g": 5.0
+  },
+  "3 tablespoons olive oil": {
+    "name": "olive oil",
+    "quantity_g": 45.0
+  },
+  "1 small handful fresh basil": {
+    "name": "fresh basil",
+    "quantity_g": null
+  },
+  "1.2kg pork shoulder, boneless, cut into 4 large pieces": {
+    "name": "pork shoulder",
+    "quantity_g": 1200.0
+  },
+  "1 onion, finely diced": {
+    "name": "onion",
+    "quantity_g": 150.0
+  },
+  "2 carrots, finely diced": {
+    "name": "carrot",
+    "quantity_g": 120.0
+  },
+  "2 celery stalks, finely diced": {
+    "name": "celery",
+    "quantity_g": 80.0
+  },
+  "200ml dry white wine": {
+    "name": "dry white wine",
+    "quantity_g": 200.0
+  },
+  "1 can peeled tomatoes": {
+    "name": "peeled tomatoes",
+    "quantity_g": 400.0
+  },
+  "500ml chicken stock": {
+    "name": "chicken stock",
+    "quantity_g": 500.0
+  },
+  "1 small handful fresh rosemary": {
+    "name": "fresh rosemary",
+    "quantity_g": null
+  },
+  "4 bay leaves": {
+    "name": "bay leaf",
+    "quantity_g": null
+  },
+  "1 strip orange peel": {
+    "name": "orange peel",
+    "quantity_g": null
+  },
+  "Pasta (pappardelle or rigatoni), to serve": {
+    "name": "pasta",
+    "quantity_g": null
+  },
+  "Grated Parmesan, to serve": {
+    "name": "parmesan",
+    "quantity_g": null
+  },
+  "2 Sausages": {
+    "name": "sausage",
+    "quantity_g": 300.0
+  },
+  "3 Strips of bacon (optional)": {
+    "name": "bacon",
+    "quantity_g": 45.0
+  },
+  "2 Medium size potatoes": {
+    "name": "potato",
+    "quantity_g": 300.0
+  },
+  "1 Medium size onion": {
+    "name": "onion",
+    "quantity_g": 150.0
+  },
+  "Ketchup for topping": {
+    "name": "ketchup",
+    "quantity_g": null
+  },
+  "800g pork shoulder, cut into 3cm cubes": {
+    "name": "pork shoulder",
+    "quantity_g": 800.0
+  },
+  "4 tablespoons olive oil": {
+    "name": "olive oil",
+    "quantity_g": 60.0
+  },
+  "Juice of 1 lemon": {
+    "name": "lemon juice",
+    "quantity_g": 45.0
+  },
+  "4 pita breads, warmed": {
+    "name": "pita bread",
+    "quantity_g": 320.0
+  },
+  "2 tomatoes, sliced": {
+    "name": "tomato",
+    "quantity_g": 150.0
+  },
+  "Tzatziki": {
+    "name": "tzatziki",
+    "quantity_g": null
+  },
+  "Lemon wedges": {
+    "name": "lemon wedges",
+    "quantity_g": null
+  },
+  "400g Chicken": {
+    "name": "chicken",
+    "quantity_g": 400.0
+  },
+  "Tahini": {
+    "name": "tahini",
+    "quantity_g": null
+  },
+  "Honey": {
+    "name": "honey",
+    "quantity_g": null
+  },
+  "Soy sauce": {
+    "name": "soy sauce",
+    "quantity_g": null
+  },
+  "Vinegar": {
+    "name": "vinegar",
+    "quantity_g": null
+  },
+  "Chili": {
+    "name": "chili",
+    "quantity_g": null
+  },
+  "Garlic": {
+    "name": "garlic",
+    "quantity_g": null
+  },
+  "Salt": {
+    "name": "salt",
+    "quantity_g": null
+  },
+  "1 Butternut squash": {
+    "name": "butternut squash",
+    "quantity_g": 700.0
+  },
+  "1 Can chickpeas": {
+    "name": "chickpeas",
+    "quantity_g": 400.0
+  },
+  "3 Cloves of garlic": {
+    "name": "garlic",
+    "quantity_g": 15.0
+  },
+  "Squeeze of lemon": {
+    "name": "lemon",
+    "quantity_g": 5.0
+  },
+  "Bulgur": {
+    "name": "bulgur",
+    "quantity_g": null
+  },
+  "1/2 Red onion": {
+    "name": "red onion",
+    "quantity_g": 75.0
+  },
+  "Parsley": {
+    "name": "parsley",
+    "quantity_g": null
+  },
+  "4 chicken thighs, boneless, skin on (about 500g)": {
+    "name": "chicken thigh",
+    "quantity_g": 500.0
+  },
+  "1 teaspoon neutral oil": {
+    "name": "neutral oil",
+    "quantity_g": 5.0
+  },
+  "3 tablespoons mirin": {
+    "name": "mirin",
+    "quantity_g": 45.0
+  },
+  "3 tablespoons sake": {
+    "name": "sake",
+    "quantity_g": 45.0
+  },
+  "Steamed greens, to serve": {
+    "name": "steamed greens",
+    "quantity_g": null
+  },
+  "Toasted sesame seeds, to serve": {
+    "name": "toasted sesame seeds",
+    "quantity_g": null
+  }
+}

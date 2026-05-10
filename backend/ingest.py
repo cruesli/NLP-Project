@@ -68,8 +68,10 @@ def run_ingest(
         cache_dir = _DEFAULT_CACHE_DIR
     entity_cache_path = cache_dir / "entities.json"
     nutrition_cache_path = cache_dir / "nutrition.json"
+    normalised_cache_path = cache_dir / "normalised.json"
     entity_cache = _load_cache(entity_cache_path)
     nutrition_cache = _load_cache(nutrition_cache_path)
+    normalised_cache = _load_cache(normalised_cache_path)
 
     # parse
     print("Parsing recipes...")
@@ -80,30 +82,37 @@ def run_ingest(
     unique_raw = collect_unique_ingredients(recipes)
     print(f"  {len(unique_raw)} unique raw ingredients")
 
-    # normalise in batches
+    # normalise in batches (incremental, cached per raw ingredient)
     print("Normalising ingredients...")
-    if llm_client is None:
-        llm_client = make_client()
-    normalised_list: List[Dict[str, Any]] = []
-    for i in range(0, len(unique_raw), _BATCH_SIZE):
-        batch = unique_raw[i : i + _BATCH_SIZE]
-        batch_result = normalise_all(batch, llm_client)
-        # Align length with input in case LLM returns wrong count
-        if len(batch_result) > len(batch):
-            batch_result = batch_result[: len(batch)]
-        elif len(batch_result) < len(batch):
-            for j in range(len(batch_result), len(batch)):
-                batch_result.append({"name": batch[j].lower(), "quantity_g": None})
-        normalised_list.extend(batch_result)
-        print(f"  normalised {min(i + _BATCH_SIZE, len(unique_raw))}/{len(unique_raw)}")
-    normalised_map = build_normalised_map(unique_raw, normalised_list)
-    quantity_map = build_quantity_map(unique_raw, normalised_list)
+    to_normalise = [r for r in unique_raw if r not in normalised_cache]
+    if to_normalise:
+        if llm_client is None:
+            llm_client = make_client()
+        for i in range(0, len(to_normalise), _BATCH_SIZE):
+            batch = to_normalise[i : i + _BATCH_SIZE]
+            batch_result = normalise_all(batch, llm_client)
+            # Align length with input in case LLM returns wrong count
+            if len(batch_result) > len(batch):
+                batch_result = batch_result[: len(batch)]
+            elif len(batch_result) < len(batch):
+                for j in range(len(batch_result), len(batch)):
+                    batch_result.append({"name": batch[j].lower(), "quantity_g": None})
+            for raw, norm in zip(batch, batch_result):
+                normalised_cache[raw] = norm
+            _save_cache(normalised_cache_path, normalised_cache)
+            print(f"  normalised {min(i + _BATCH_SIZE, len(to_normalise))}/{len(to_normalise)} (new)")
+        print(f"  all {len(unique_raw)} ingredients normalised, cache updated")
+        print(f"Stopping here to avoid hitting Wikidata API with DTU VPN, run again without VPN to continue with entity linking and nutrition fetching.")
+        return
+    else:
+        print(f"  all {len(unique_raw)} ingredients cached, skipping LLM")
+    normalised_list: List[Dict[str, Any]] = [normalised_cache[r] for r in unique_raw]
 
     # unique normalised names (preserving order)
     unique_normalised: List[str] = list(dict.fromkeys(n["name"] for n in normalised_list))
     print(f"  {len(unique_normalised)} unique normalised names")
 
-    # entity linking
+# entity linking
     print("Linking entities to Wikidata...")
     if http_session is None:
         http_session = requests.Session()
@@ -121,8 +130,12 @@ def run_ingest(
                 print(f"  {norm}: network error ({type(exc).__name__}), skipping")
                 entity = None
                 network_error = True
+            except requests.HTTPError as exc:                                          # ← new
+                status = exc.response.status_code if exc.response is not None else "?" # ← new
+                print(f"  {norm}: HTTP error {status}, skipping")                      # ← new
+                entity = None                                                          # ← new
+                network_error = True                                                   # ← new
             if not network_error:
-                # Only cache successful lookups (including "not found") so next run retries timeouts
                 entity_cache[norm] = entity.model_dump() if entity else None
                 _save_cache(entity_cache_path, entity_cache)
                 status = entity.qid if entity else "not found"

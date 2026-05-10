@@ -16,6 +16,7 @@ ex:ing_test-recipe_0 a ex:Ingredient ;
     ex:hasNutrition ex:nutr_test-recipe_0 ;
     ex:normalisedName "chicken" ;
     ex:rawString "chicken" ;
+    ex:wikidataLabel "chicken" ;
     ex:wikidataQid "Q123" ;
     ex:wikidataUri "http://wikidata.org/entity/Q123" .
 

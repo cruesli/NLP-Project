@@ -190,6 +190,18 @@ def test_run_ingest_quantity_written_to_graph(recipes_dir, tmp_path, cache_dir):
         run_ingest(recipes_dir, out, llm_client=MagicMock(), cache_dir=cache_dir)
     content = out.read_text()
     assert "quantityG" in content
+    
+def test_run_ingest_continues_after_entity_link_http_error(recipes_dir, tmp_path, cache_dir):
+    _write_recipe(recipes_dir, "soup", ["Chicken", "Water"])
+    out = tmp_path / "graph.ttl"
+    err = requests.HTTPError(response=MagicMock(status_code=502))
+    mock_link = MagicMock(side_effect=[err, None])
+    with patch("backend.ingest.normalise_all", return_value=[_nd("chicken"), _nd("water")]), \
+         patch("backend.ingest.link_ingredient", mock_link), \
+         patch("backend.ingest.fetch_nutrition", return_value=None):
+        run_ingest(recipes_dir, out, llm_client=MagicMock(), cache_dir=cache_dir)
+    assert out.exists()
+    assert mock_link.call_count == 2
 
 
 # ── caching ───────────────────────────────────────────────────────────────────
@@ -296,3 +308,22 @@ def test_run_ingest_does_not_cache_nutrition_on_timeout(recipes_dir, tmp_path, c
     nutr_cache_path = cache_dir / "nutrition.json"
     cache = json.loads(nutr_cache_path.read_text()) if nutr_cache_path.exists() else {}
     assert "chicken" not in cache
+
+
+def test_run_ingest_uses_cached_normalisation(recipes_dir, tmp_path, cache_dir):
+    _write_recipe(recipes_dir, "soup", ["Chicken"])
+    out = tmp_path / "graph.ttl"
+    # Pre-populate the normalised cache
+    normalised_cache_path = cache_dir / "normalised.json"
+    normalised_cache_path.parent.mkdir(parents=True, exist_ok=True)
+    normalised_cache_path.write_text(json.dumps({"Chicken": {"name": "chicken", "quantity_g": None}}))
+    mock_client = MagicMock()
+    mock_normalise = MagicMock()
+    with patch("backend.ingest.make_client", return_value=mock_client) as mock_make, \
+         patch("backend.ingest.normalise_all", mock_normalise), \
+         patch("backend.ingest.link_ingredient", return_value=None), \
+         patch("backend.ingest.fetch_nutrition", return_value=None):
+        run_ingest(recipes_dir, out, cache_dir=cache_dir)
+    assert mock_make.call_count == 0
+    assert mock_normalise.call_count == 0
+    assert out.exists()

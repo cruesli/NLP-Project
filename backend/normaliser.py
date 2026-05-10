@@ -16,8 +16,12 @@ _SYSTEM_PROMPT = (
     "1 kg = 1000 g. For whole countable items estimate a reasonable weight (e.g. '1 butternut squash' "
     "→ 700 g, '2 garlic cloves' → 10 g, '1 onion' → 150 g, '1 egg' → 50 g). "
     "Use null for 'to taste', 'pinch', or any amount that cannot be quantified. "
+    "CRITICAL: you MUST return EXACTLY one JSON object per input line — never more, never fewer. "
+    "Do NOT split a compound ingredient (e.g. 'salt and pepper') into two entries; pick the primary "
+    "ingredient and return one object (e.g. {\"name\": \"salt\", \"quantity_g\": null}). "
+    "The output array length must equal the number of input lines. "
     "Preserve the input order. Reply with only the JSON array, no markdown fencing or extra text. "
-    "Example input: '400g Chicken thighs\\n2 tbsp olive oil\\nsalt to taste' "
+    "Example input: '400g Chicken thighs\\n2 tbsp olive oil\\nsalt and pepper to taste' "
     "Example output: [{\"name\": \"chicken thigh\", \"quantity_g\": 400.0}, "
     "{\"name\": \"olive oil\", \"quantity_g\": 30.0}, "
     "{\"name\": \"salt\", \"quantity_g\": null}]"
@@ -40,12 +44,14 @@ def make_client() -> openai.OpenAI:
 def normalise_all(ingredients: List[str], client: openai.OpenAI) -> List[Dict[str, Any]]:
     if not ingredients:
         return []
+    # keep only the first alternative for "X or Y" ingredients
+    cleaned = [re.split(r"\s+or\s+", ing, maxsplit=1, flags=re.IGNORECASE)[0].strip() for ing in ingredients]
     model = os.getenv("CAMPUSAI_MODEL", "gemma-3-27b-it")
     response = client.chat.completions.create(
         model=model,
         messages=[
             {"role": "system", "content": _SYSTEM_PROMPT},
-            {"role": "user", "content": "\n".join(ingredients)},
+            {"role": "user", "content": "\n".join(cleaned)},
         ],
     )
     items = _parse_response(response.choices[0].message.content.strip())

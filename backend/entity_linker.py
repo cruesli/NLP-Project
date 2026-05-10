@@ -23,10 +23,11 @@ _DIETARY_MAP = {
 
 def _get(session: requests.Session, url: str, params: dict, max_retries: int = 3) -> dict:
     headers = {"User-Agent": _USER_AGENT, "Accept": "application/json"}
+    time.sleep(1)
     delay = 1.0
     for attempt in range(max_retries):
         try:
-            resp = session.get(url, params=params, headers=headers, timeout=30)
+            resp = session.get(url, params=params, headers=headers, timeout=90)
         except (requests.exceptions.ReadTimeout, requests.exceptions.ConnectionError):
             if attempt == max_retries - 1:
                 raise
