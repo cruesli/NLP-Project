@@ -64,9 +64,11 @@ def is_food_entity(qid: str, session: requests.Session) -> bool:
 PREFIX wd: <http://www.wikidata.org/entity/>
 PREFIX wdt: <http://www.wikidata.org/prop/direct/>
 ASK {{
-  {{ wd:{qid} wdt:P279* wd:{_FOOD_QID} . }}
-  UNION
-  {{ wd:{qid} wdt:P31/wdt:P279* wd:{_FOOD_QID} . }}
+  {{ wd:{qid} wdt:P279 wd:{_FOOD_QID} . }}
+  UNION {{ wd:{qid} wdt:P31 wd:{_FOOD_QID} . }}
+  UNION {{ wd:{qid} wdt:P279/wdt:P279 wd:{_FOOD_QID} . }}
+  UNION {{ wd:{qid} wdt:P31/wdt:P279 wd:{_FOOD_QID} . }}
+  UNION {{ wd:{qid} wdt:P31/wdt:P279/wdt:P279 wd:{_FOOD_QID} . }}
 }}
 """
     data = _get(session, _SPARQL_URL, {"query": query, "format": "json"})

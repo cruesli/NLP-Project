@@ -1,5 +1,6 @@
 import json
 from pathlib import Path
+import time
 from typing import Any, Dict, List, Optional
 
 import requests
@@ -141,7 +142,7 @@ def run_ingest(
                 status = entity.qid if entity else "not found"
                 print(f"  {norm}: {status}")
         entity_map[norm] = entity
-
+        time.sleep(1)  # respect Wikidata rate limits
     # nutrition
     print("Fetching nutrition from USDA...")
     nutrition_map: Dict[str, Optional[NutritionPer100g]] = {}
