@@ -66,6 +66,8 @@ const base: string = (import.meta as any).env?.BASE_URL ?? "/";
 </BaseLayout>
 
 <script is:inline define:vars={{ apiUrl, base }}>
+  const normalizedBase = base.endsWith('/') ? base : base + '/';
+
   function renderCards(items) {
     if (!items.length) return '<p>No matching recipes.</p>';
     return items.map(r => {
@@ -73,7 +75,7 @@ const base: string = (import.meta as any).env?.BASE_URL ?? "/";
         r.cuisine ? `<span class="badge" style="text-transform:capitalize;">${r.cuisine}</span>` : '',
         r.totalTimeMinutes ? `<span class="badge">${r.totalTimeMinutes} min</span>` : '',
       ].join('');
-      return `<a class="card" href="${base}recipes/${r.slug}">
+      return `<a class="card" href="${normalizedBase}recipes/${r.slug}">
         <strong>${r.title}</strong>
         <div class="badges" style="margin-top:6px;">${badges}</div>
       </a>`;

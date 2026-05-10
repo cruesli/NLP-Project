@@ -9,9 +9,11 @@ This project builds a knowledge graph over a personal recipe collection, enrichi
 ## Data
 
 ### Recipes (primary)
+
 A personal recipe collection stored as Markdown files with YAML frontmatter in a Git repository (`src/content/recipes/`). Each file contains structured metadata (`title`, `cuisine`, `foodType`, `tags`, `servings`, `totalTimeMinutes`, `ingredients`) and step-by-step instructions in the body. Ingredient strings are free-form human-readable text (e.g. `"400g chicken thighs, boneless and skin-on"`), which motivates the normalisation step.
 
 ### Wikidata
+
 Accessed via the `wbsearchentities` API and SPARQL endpoint at
 `https://query.wikidata.org/sparql`. Used for semantic enrichment of
 ingredients: food category (`P31` instance of, `P279` subclass of), country
@@ -24,6 +26,7 @@ frequent 502/504 gateway errors from the public SPARQL endpoint, a known
 characteristic of expensive queries on public infrastructure.
 
 ### USDA FoodData Central
+
 Free public API at `https://api.nal.usda.gov/fdc/v1/foods/search`. Returns a
 full nutrient profile per 100g including protein, fat, carbohydrates, kcal,
 fibre, sugar, saturated fat, sodium, cholesterol, and more. Foundation Foods
@@ -34,6 +37,7 @@ search result sometimes returns dried or processed versions of an ingredient
 (e.g. dehydrated carrots at 341 kcal/100g instead of fresh at ~41 kcal/100g).
 
 ### WikiFCD (investigated, not adopted)
+
 WikiFCD (`https://wikifcd.wikibase.cloud`) is a dedicated food composition
 knowledge base built on Wikibase with a SPARQL endpoint and data from 10
 national food composition databases. Its SPARQL endpoint was confirmed to be
@@ -151,7 +155,9 @@ novel phrasings.
 ## Running the service
 
 ### Prerequisites
+
 - Docker installed
+
 - A `~/.env` file containing:
 
 ```
@@ -185,28 +191,35 @@ The API is then available at `http://localhost:8000`.
 Base path: `/api/v1`
 
 ### `GET /api/v1/recipes`
+
 Returns all recipes as a list of summaries.
 
 ### `GET /api/v1/recipes/filter`
+
 Filter recipes by query parameters: `min_protein` (float, g per serving),
 `max_kcal` (float), `max_time` (int, minutes), `cuisine` (string),
 `dietary` (string, e.g. `vegan`).
 
 ### `GET /api/v1/recipes/{slug}`
+
 Returns full recipe detail including enriched ingredients and per-serving
 nutrition. Returns 404 if not found.
 
 ### `GET /api/v1/ingredients/{ingredient}/nutrition`
+
 Returns the full USDA nutritional profile for a normalised ingredient name.
 
 ### `GET /api/v1/ingredients/{ingredient}/wikidata`
+
 Returns Wikidata entity data for a normalised ingredient name.
 
 ### `POST /api/v1/query`
+
 Natural language query over the recipe knowledge graph. Accepts
 `{"question": "..."}` and returns matching recipes with interpreted filters.
 
 ### `GET /health`
+
 Returns `{"status": "ok", "triples": <count>}`.
 
 ---
@@ -227,6 +240,7 @@ triple insertion and graph querying, and all API endpoint response schemas.
 ## Evaluation
 
 ### Entity linking
+
 Of 42 unique normalised ingredients, approximately 30 (71%) were successfully
 linked to a Wikidata QID. Failures fall into three categories: overly specific
 terms ("parmesan rind"), genuinely ambiguous terms ("water", "spices"), and
@@ -235,6 +249,7 @@ compound ingredients not fully resolved by normalisation. Food category
 the remainder have sparse Wikidata coverage.
 
 ### Nutrition data quality
+
 USDA lookup works well for common ingredients. Known quality issues from
 incorrect result selection: dehydrated carrots (341 kcal/100g vs ~41 for
 fresh), dried chickpeas (387 kcal/100g vs ~128 for cooked). These represent
@@ -245,22 +260,24 @@ without parseable quantities (e.g. "salt", "spices") are excluded from the
 calculation.
 
 ### Natural language query
+
 The NL query endpoint correctly extracts structured filters for common
 phrasings. Example results:
 
 | Query | Extracted filters | Works? |
 |---|---|---|
-| "give me a high protein recipe" | `min_protein: 25` | ✅ |
-| "quick italian dinner" | `max_time: 30, cuisine: italian` | ✅ |
-| "something vegan and light" | `dietary: vegan, max_kcal: 400` | ✅ |
-| "low sodium dish" | `{}` | ❌ — not covered by few-shot examples |
+| "give me a high protein recipe" | `min_protein: 50` | Yes |
+| "quick italian dinner" | `max_time: 30, cuisine: italian` | Yes |
+| "something vegan and light" | `dietary: vegan, max_kcal: 400` | Yes |
+| "low sodium dish" | `{}` | No,e not covered by few-shot examples |
 
 Performance degrades for phrasings not covered by the few-shot example set.
 Extending the example set or using embedding-based retrieval would improve
 coverage.
 
 ### Wikidata reliability
-The transitive `P279*` SPARQL query for food entity classification produced
+
+The `P279*` SPARQL query for food entity classification produced
 frequent 502/504 gateway errors from the public Wikidata endpoint during
 development. Whether this is a scaling issue or general endpoint instability
 is unclear. A fixed-depth query or a local Wikidata mirror (e.g. QLever) would
@@ -276,3 +293,5 @@ be more robust.
 - RDFLib: https://rdflib.readthedocs.io
 - FastAPI: https://fastapi.tiangolo.com
 - CampusAI: https://campusai.compute.dtu.dk
+- Knowledge Graphs book
+- NLP Book

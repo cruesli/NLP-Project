@@ -108,6 +108,8 @@ def run_ingest(
     else:
         print(f"  all {len(unique_raw)} ingredients cached, skipping LLM")
     normalised_list: List[Dict[str, Any]] = [normalised_cache[r] for r in unique_raw]
+    normalised_map = build_normalised_map(unique_raw, normalised_list)
+    quantity_map = build_quantity_map(unique_raw, normalised_list)
 
     # unique normalised names (preserving order)
     unique_normalised: List[str] = list(dict.fromkeys(n["name"] for n in normalised_list))
@@ -185,5 +187,5 @@ def run_ingest(
 if __name__ == "__main__":
     run_ingest(
         recipes_dir=Path(__file__).parent.parent / "src" / "content" / "recipes",
-        output_path=Path(__file__).parent / "graph.ttl",
+        output_path=Path(__file__).parent / "graph 2.ttl",
     )

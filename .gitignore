@@ -32,9 +32,6 @@ __pycache__/
 .venv/
 venv/
 
-# Graph serialization
-graph.ttl
-
 # Ingest cache
 .cache/
 
@@ -43,3 +40,6 @@ CLAUDE.md
 
 # claude settings
 .claude/
+
+# Pytest cache
+.pytest_cache/

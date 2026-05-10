@@ -7,6 +7,7 @@ tags:
   - Healthy
   - Summer
 servings: 2
+totalTimeMinutes: 40
 image: /images/recipes/screenshot-2026-03-16-at-11.05.31.png
 ingredients: |-
   Chicken marinade:
