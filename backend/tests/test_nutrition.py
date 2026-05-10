@@ -4,7 +4,7 @@ import pytest
 import requests
 
 from backend.models import NutritionPer100g
-from backend.nutrition import fetch_nutrition
+from backend.nutrition import _pick_best, fetch_nutrition
 
 
 # --- helpers ---
@@ -181,6 +181,51 @@ def test_fetch_nutrition_includes_ingredient_in_query():
     fetch_nutrition("tahini", s)
     params = s.get.call_args.kwargs.get("params", {})
     assert "tahini" in params.get("query", "")
+
+
+# --- zero-macro skipping ---
+
+ZERO_MACRO_FOUNDATION = {
+    "fdcId": 10001,
+    "description": "Water, bottled",
+    "dataType": "Foundation",
+    "foodNutrients": [
+        {"nutrientId": 1003, "value": 0.0},
+        {"nutrientId": 1004, "value": 0.0},
+        {"nutrientId": 1005, "value": 0.0},
+        {"nutrientId": 1008, "value": 0.0},
+    ],
+}
+
+NONZERO_SR_LEGACY = {
+    "fdcId": 10002,
+    "description": "Chicken thigh, cooked",
+    "dataType": "SR Legacy",
+    "foodNutrients": [
+        {"nutrientId": 1003, "value": 25.0},
+        {"nutrientId": 1004, "value": 9.0},
+        {"nutrientId": 1005, "value": 0.0},
+        {"nutrientId": 1008, "value": 185.0},
+    ],
+}
+
+
+def test_pick_best_skips_zero_macro_preferred_food():
+    result = _pick_best([ZERO_MACRO_FOUNDATION, NONZERO_SR_LEGACY])
+    assert result == NONZERO_SR_LEGACY
+
+
+def test_pick_best_returns_zero_macro_food_when_all_have_zero_macros():
+    result = _pick_best([ZERO_MACRO_FOUNDATION])
+    assert result == ZERO_MACRO_FOUNDATION
+
+
+def test_fetch_nutrition_skips_zero_macro_candidate():
+    response = {"foods": [ZERO_MACRO_FOUNDATION, NONZERO_SR_LEGACY]}
+    s = _session(_mock_response(response))
+    result = fetch_nutrition("water", s)
+    assert result is not None
+    assert result.protein_per_100g == pytest.approx(25.0)
 
 
 # --- retry logic ---

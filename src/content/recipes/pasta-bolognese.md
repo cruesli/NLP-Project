@@ -2,6 +2,7 @@
 title: Pasta Bolognese alla Magnus
 cuisine: italian
 foodType: Dinner
+season: All
 tags:
   - Family
   - Freezer-friendly
@@ -10,7 +11,7 @@ servings: 4
 totalTimeMinutes: 120
 image: /images/recipes/bolognese.jpg
 ingredients: |-
-  - 700g Minced beef and pork (both or one)
+  - 700g Minced beef
   - 100g Bacon
   - 2 Medium onion, finely diced
   - 2 Large carrots, finely diced

@@ -126,6 +126,11 @@ app.add_middleware(
 )
 
 
+@app.get("/health")
+def health(kg: RecipeKnowledgeGraph = Depends(get_kg)):
+    return {"status": "ok", "triples": len(kg.graph)}
+
+
 @app.get("/api/v1/recipes", response_model=list[RecipeSummary])
 def list_recipes(kg: RecipeKnowledgeGraph = Depends(get_kg)):
     return kg.get_all_recipes()

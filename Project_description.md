@@ -67,6 +67,21 @@ The existing Astro website acts as the human-facing frontend, consuming the API.
 - Returns: protein (g), fat (g), carbohydrates (g), energy (kcal),
   fibre (g) per 100g of ingredient
 
+### WikiFCD (investigated, not used)
+
+- A dedicated food composition knowledge base at `https://wikifcd.wikibase.cloud`
+  built on Wikibase with a SPARQL endpoint and data from 10 national food composition
+  databases covering 271 nutrients
+- Investigated as an alternative/supplement to the USDA API. The SPARQL endpoint
+  is accessible programmatically (confirmed via test queries)
+- Not adopted as the primary nutrition source for two reasons: (1) the knowledge
+  base is primarily populated from USDA FoodData Central data, so nutrition values
+  would be largely identical; (2) food item names follow USDA-style verbose naming
+  (e.g. "Tomatoes, red, ripe, raw, year round average") making ingredient entity
+  linking equally challenging as with USDA directly
+- Could serve as a future supplement for international ingredients not well covered
+  by USDA, via the WikiFCD SPARQL endpoint at `https://wikifcd.wikibase.cloud/query/`
+
 ---
 
 ## Architecture

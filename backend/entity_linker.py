@@ -72,6 +72,30 @@ ASK {{
     return bool(data.get("boolean", False))
 
 
+def filter_food_entities(qids: List[str], session: requests.Session) -> set:
+    """Return the subset of QIDs that are food entities via a single batch SPARQL query."""
+    if not qids:
+        return set()
+    values = " ".join(f"wd:{q}" for q in qids)
+    query = f"""
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+SELECT ?entity WHERE {{
+  VALUES ?entity {{ {values} }}
+  {{
+    ?entity wdt:P279* wd:{_FOOD_QID} .
+  }}
+  UNION
+  {{
+    ?entity wdt:P31/wdt:P279* wd:{_FOOD_QID} .
+  }}
+}}
+"""
+    data = _get(session, _SPARQL_URL, {"query": query, "format": "json"})
+    bindings = data.get("results", {}).get("bindings", [])
+    return {row["entity"]["value"].split("/")[-1] for row in bindings}
+
+
 def fetch_properties(qid: str, label: str, session: requests.Session) -> WikidataEntity:
     dietary_values = "\n".join(
         f'      (wd:{q} "{flag}")' for q, flag in _DIETARY_MAP.items()
@@ -79,9 +103,10 @@ def fetch_properties(qid: str, label: str, session: requests.Session) -> Wikidat
     query = f"""
 PREFIX wd: <http://www.wikidata.org/entity/>
 PREFIX wdt: <http://www.wikidata.org/prop/direct/>
-SELECT DISTINCT ?foodCategory ?foodCategoryLabel ?originCountry ?originCountryLabel ?dietaryFlag
+SELECT DISTINCT ?foodCategory ?foodCategoryLabel ?subclassCategory ?subclassCategoryLabel ?originCountry ?originCountryLabel ?dietaryFlag
 WHERE {{
   OPTIONAL {{ wd:{qid} wdt:P31 ?foodCategory . }}
+  OPTIONAL {{ wd:{qid} wdt:P279 ?subclassCategory . }}
   OPTIONAL {{ wd:{qid} wdt:P495 ?originCountry . }}
   OPTIONAL {{
     wd:{qid} wdt:P31 ?dietaryClass .
@@ -96,18 +121,24 @@ WHERE {{
     bindings = data.get("results", {}).get("bindings", [])
 
     food_category: Optional[str] = None
+    subclass_category: Optional[str] = None
     origin_country: Optional[str] = None
     dietary_flags: List[str] = []
 
     for row in bindings:
         if food_category is None and "foodCategoryLabel" in row:
             food_category = row["foodCategoryLabel"]["value"]
+        if subclass_category is None and "subclassCategoryLabel" in row:
+            subclass_category = row["subclassCategoryLabel"]["value"]
         if origin_country is None and "originCountryLabel" in row:
             origin_country = row["originCountryLabel"]["value"]
         if "dietaryFlag" in row:
             flag = row["dietaryFlag"]["value"]
             if flag not in dietary_flags:
                 dietary_flags.append(flag)
+
+    if food_category is None:
+        food_category = subclass_category
 
     return WikidataEntity(
         qid=qid,
@@ -120,13 +151,26 @@ WHERE {{
 
 
 def link_ingredient(ingredient: str, session: requests.Session) -> Optional[WikidataEntity]:
-    # first attempt
-    for candidate in search_candidates(ingredient, session):
-        if is_food_entity(candidate["id"], session):
-            return fetch_properties(candidate["id"], candidate.get("label", ingredient), session)
+    # first attempt — one batch query checks all candidates at once
+    candidates = sorted(
+        search_candidates(ingredient, session),
+        key=lambda c: c.get("sitelinks", 0),
+        reverse=True,
+    )
+    if candidates:
+        food_qids = filter_food_entities([c["id"] for c in candidates], session)
+        for candidate in candidates:
+            if candidate["id"] in food_qids:
+                return fetch_properties(candidate["id"], candidate.get("label", ingredient), session)
     # fallback: retry with "food" appended
-    for candidate in search_candidates(f"{ingredient} food", session):
-        if is_food_entity(candidate["id"], session):
-            return fetch_properties(candidate["id"], candidate.get("label", ingredient), session)
-    return None
+    candidates_fb = sorted(
+        search_candidates(f"{ingredient} food", session),
+        key=lambda c: c.get("sitelinks", 0),
+        reverse=True,
+    )
+    if candidates_fb:
+        food_qids_fb = filter_food_entities([c["id"] for c in candidates_fb], session)
+        for candidate in candidates_fb:
+            if candidate["id"] in food_qids_fb:
+                return fetch_properties(candidate["id"], candidate.get("label", ingredient), session)
     return None

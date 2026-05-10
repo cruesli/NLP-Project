@@ -1,11 +1,9 @@
 # Run the ingest pipeline before building the image to generate graph.ttl:
-#   python backend/ingest.py   (from project root, requires API keys in ~/.env)
+#   python ingest.py   (from backend/, requires API keys in ~/.env)
 
 services:
   backend:
-    build:
-      context: ..
-      dockerfile: backend/Dockerfile
+    build: .
     ports:
       - "8000:8000"
     volumes:

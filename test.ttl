@@ -1,0 +1,27 @@
+@prefix ex: <http://example.org/recipe-kg/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:recipe_test-recipe a ex:Recipe ;
+    ex:approxKcalPerServing 90.0 ;
+    ex:approxProteinPerServing 12.5 ;
+    ex:cuisine "italian" ;
+    ex:hasIngredient ex:ing_test-recipe_0 ;
+    ex:servings 2 ;
+    ex:slug "test-recipe" ;
+    ex:title "Test" ;
+    ex:totalTimeMinutes 30 .
+
+ex:ing_test-recipe_0 a ex:Ingredient ;
+    ex:foodCategory "poultry" ;
+    ex:hasNutrition ex:nutr_test-recipe_0 ;
+    ex:normalisedName "chicken" ;
+    ex:rawString "chicken" ;
+    ex:wikidataQid "Q123" ;
+    ex:wikidataUri "http://wikidata.org/entity/Q123" .
+
+ex:nutr_test-recipe_0 a ex:Nutrition ;
+    ex:carbsPer100g 0.0 ;
+    ex:fatPer100g 9.0 ;
+    ex:kcalPer100g 180.0 ;
+    ex:proteinPer100g 25.0 .
+

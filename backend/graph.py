@@ -67,6 +67,7 @@ class RecipeKnowledgeGraph:
             if entity:
                 self.graph.add((ing_node, EX.wikidataQid, Literal(entity.qid)))
                 self.graph.add((ing_node, EX.wikidataUri, Literal(entity.uri)))
+                self.graph.add((ing_node, EX.wikidataLabel, Literal(entity.label)))
                 if entity.food_category:
                     self.graph.add((ing_node, EX.foodCategory, Literal(entity.food_category)))
                 if entity.origin_country:
@@ -113,14 +114,16 @@ class RecipeKnowledgeGraph:
     def get_all_recipes(self) -> List[RecipeSummary]:
         results = []
         for recipe_node in self.graph.subjects(RDF.type, EX.Recipe):
-            slug = str(next(self.graph.objects(recipe_node, EX.slug)))
-            title = str(next(self.graph.objects(recipe_node, EX.title)))
-            cuisine = str(next(self.graph.objects(recipe_node, EX.cuisine)))
+            slug = next(self.graph.objects(recipe_node, EX.slug), None)
+            title = next(self.graph.objects(recipe_node, EX.title), None)
+            cuisine = next(self.graph.objects(recipe_node, EX.cuisine), None)
+            if slug is None or title is None or cuisine is None:
+                continue
             tags = [str(t) for t in self.graph.objects(recipe_node, EX.tag)]
             time_vals = list(self.graph.objects(recipe_node, EX.totalTimeMinutes))
             total_time = int(time_vals[0]) if time_vals else None
             results.append(RecipeSummary(
-                slug=slug, title=title, cuisine=cuisine,
+                slug=str(slug), title=str(title), cuisine=str(cuisine),
                 tags=tags, total_time_minutes=total_time,
             ))
         return results
@@ -130,8 +133,12 @@ class RecipeKnowledgeGraph:
         if (recipe_node, RDF.type, EX.Recipe) not in self.graph:
             return None
 
-        title = str(next(self.graph.objects(recipe_node, EX.title)))
-        cuisine = str(next(self.graph.objects(recipe_node, EX.cuisine)))
+        title = next(self.graph.objects(recipe_node, EX.title), None)
+        cuisine = next(self.graph.objects(recipe_node, EX.cuisine), None)
+        if title is None or cuisine is None:
+            return None
+        title = str(title)
+        cuisine = str(cuisine)
         servings_vals = list(self.graph.objects(recipe_node, EX.servings))
         servings = int(servings_vals[0]) if servings_vals else None
         time_vals = list(self.graph.objects(recipe_node, EX.totalTimeMinutes))
@@ -139,7 +146,10 @@ class RecipeKnowledgeGraph:
 
         ingredients = []
         for ing_node in self.graph.objects(recipe_node, EX.hasIngredient):
-            raw = str(next(self.graph.objects(ing_node, EX.rawString)))
+            raw_val = next(self.graph.objects(ing_node, EX.rawString), None)
+            if raw_val is None:
+                continue
+            raw = str(raw_val)
             norm_vals = list(self.graph.objects(ing_node, EX.normalisedName))
             normalised = str(norm_vals[0]) if norm_vals else None
             qid_vals = list(self.graph.objects(ing_node, EX.wikidataQid))
@@ -236,14 +246,16 @@ class RecipeKnowledgeGraph:
         for recipe_node in self.graph.subjects(RDF.type, EX.Recipe):
             if not self._matches_filter(recipe_node, min_protein, max_kcal, max_time, cuisine, dietary):
                 continue
-            slug = str(next(self.graph.objects(recipe_node, EX.slug)))
-            title = str(next(self.graph.objects(recipe_node, EX.title)))
-            cuisine_val = str(next(self.graph.objects(recipe_node, EX.cuisine)))
+            slug = next(self.graph.objects(recipe_node, EX.slug), None)
+            title = next(self.graph.objects(recipe_node, EX.title), None)
+            cuisine_val = next(self.graph.objects(recipe_node, EX.cuisine), None)
+            if slug is None or title is None or cuisine_val is None:
+                continue
             tags = [str(t) for t in self.graph.objects(recipe_node, EX.tag)]
             time_vals = list(self.graph.objects(recipe_node, EX.totalTimeMinutes))
             total_time = int(time_vals[0]) if time_vals else None
             results.append(RecipeSummary(
-                slug=slug, title=title, cuisine=cuisine_val,
+                slug=str(slug), title=str(title), cuisine=str(cuisine_val),
                 tags=tags, total_time_minutes=total_time,
             ))
 
@@ -318,6 +330,8 @@ class RecipeKnowledgeGraph:
             qid = str(qid_vals[0])
             uri_vals = list(self.graph.objects(ing_node, EX.wikidataUri))
             uri = str(uri_vals[0]) if uri_vals else None
+            label_vals = list(self.graph.objects(ing_node, EX.wikidataLabel))
+            label = str(label_vals[0]) if label_vals else ingredient
             cat_vals = list(self.graph.objects(ing_node, EX.foodCategory))
             food_category = str(cat_vals[0]) if cat_vals else None
             country_vals = list(self.graph.objects(ing_node, EX.originCountry))
@@ -327,7 +341,7 @@ class RecipeKnowledgeGraph:
                 ingredient=ingredient,
                 wikidata_qid=qid,
                 wikidata_uri=uri,
-                label=ingredient,
+                label=label,
                 food_category=food_category,
                 origin_country=origin_country,
                 dietary_flags=flags,

@@ -1,4 +1,6 @@
 ---
+import { existsSync } from "node:fs";
+import { join } from "node:path";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
 import { withBase } from "../../utils/withBase";
@@ -30,6 +32,11 @@ const ingredients: string[] = Array.isArray(rawIngredients)
   : [];
 
 const apiUrl: string = (import.meta as any).env?.PUBLIC_API_URL ?? "http://localhost:8000";
+
+const imagePath = d.image?.trim() || "";
+const hasImage =
+  imagePath.length > 0 &&
+  existsSync(join(process.cwd(), "public", imagePath.replace(/^\//, "")));
 ---
 
 <BaseLayout title={d.title}>
@@ -46,7 +53,7 @@ const apiUrl: string = (import.meta as any).env?.PUBLIC_API_URL ?? "http://local
 
     <div id="nutrition-panel" hidden></div>
 
-    {d.image ? <img src={withBase(d.image)} alt={d.title} loading="lazy" /> : null}
+    {hasImage ? <img src={withBase(imagePath)} alt={d.title} loading="lazy" /> : null}
 
     {ingredients.length ? (
       <section style="margin-top: 16px;">

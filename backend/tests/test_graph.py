@@ -810,3 +810,56 @@ def test_load_graph_preserves_quantity_g(kg_with_quantities, tmp_path):
     detail = loaded.get_recipe_by_slug("tahini-chicken")
     chicken = next(i for i in detail.ingredients if i.normalised == "chicken thigh")
     assert chicken.quantity_g == pytest.approx(400.0)
+
+
+# ---------------------------------------------------------------------------
+# get_all_recipes — missing-triple safety (change 5)
+# ---------------------------------------------------------------------------
+
+
+def test_get_all_recipes_skips_recipe_node_missing_slug(kg):
+    from rdflib import Literal
+    from backend.graph import EX
+    # Inject a recipe node that is missing the slug triple
+    broken = EX["recipe_broken"]
+    kg.graph.add((broken, EX["type"], EX.Recipe))  # uses rdf:type indirectly via subjects
+    # Actually add rdf:type so the iterator sees it but omit slug/title/cuisine
+    from rdflib import RDF
+    kg.graph.add((broken, RDF.type, EX.Recipe))
+    # No slug, title, or cuisine → should be silently skipped
+    summaries = kg.get_all_recipes()
+    slugs = {s.slug for s in summaries}
+    assert "broken" not in slugs
+    assert "tahini-chicken" in slugs
+
+
+# ---------------------------------------------------------------------------
+# get_ingredient_wikidata — stored label (change 6)
+# ---------------------------------------------------------------------------
+
+
+def test_get_ingredient_wikidata_returns_stored_label(kg):
+    result = kg.get_ingredient_wikidata("tahini")
+    assert result is not None
+    # The stored label comes from entity_tahini.label ("tahini"), not the normalised name
+    assert result.label == "tahini"
+
+
+def test_get_ingredient_wikidata_label_differs_from_normalised_name():
+    entity = WikidataEntity(
+        qid="Q192628",
+        uri="http://www.wikidata.org/entity/Q192628",
+        label="chicken thigh (poultry)",  # differs from normalised name
+        food_category="poultry",
+    )
+    recipe = Recipe(
+        slug="test-label",
+        title="Label Test",
+        cuisine="italian",
+        ingredients=["raw chicken"],
+    )
+    g = RecipeKnowledgeGraph()
+    g.add_recipe(recipe, {"raw chicken": "chicken"}, {"chicken": entity}, {})
+    result = g.get_ingredient_wikidata("chicken")
+    assert result is not None
+    assert result.label == "chicken thigh (poultry)"

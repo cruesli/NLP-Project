@@ -121,6 +121,27 @@ def client_with_mock_llm(test_kg, mock_llm):
 
 
 # ---------------------------------------------------------------------------
+# GET /health
+# ---------------------------------------------------------------------------
+
+
+def test_health_returns_200(client):
+    assert client.get("/health").status_code == 200
+
+
+def test_health_status_is_ok(client):
+    data = client.get("/health").json()
+    assert data["status"] == "ok"
+
+
+def test_health_includes_triple_count(client):
+    data = client.get("/health").json()
+    assert "triples" in data
+    assert isinstance(data["triples"], int)
+    assert data["triples"] > 0
+
+
+# ---------------------------------------------------------------------------
 # GET /api/v1/recipes
 # ---------------------------------------------------------------------------
 

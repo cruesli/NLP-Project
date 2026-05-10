@@ -11,7 +11,7 @@ totalTimeMinutes: 300
 image: /images/recipes/carnitas-main.webp
 ingredients: |
   - 2.5 kg Pork shoulder
-  - 1 Orange or 2 Limes sliced in half
+  - 1 Orange sliced in half
   - 1 Yellow onion sliced in half
   - 1 Cinnamon stick
   - 5 Garlic cloves

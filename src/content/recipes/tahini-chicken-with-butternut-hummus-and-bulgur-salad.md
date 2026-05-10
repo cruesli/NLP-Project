@@ -6,7 +6,6 @@ tags:
   - Quick
   - Healthy
   - Summer
-  - ""
 servings: 2
 image: /images/recipes/screenshot-2026-03-16-at-11.05.31.png
 ingredients: |-
@@ -30,7 +29,7 @@ ingredients: |-
   - Salt
 
   Bulgur Salad:
-  - Bulgur/quinoa
+  - Bulgur
   - 1/2 Red onion
   - Parsley
   - Squeeze of lemon

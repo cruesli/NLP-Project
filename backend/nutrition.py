@@ -60,12 +60,32 @@ def _search(ingredient: str, session: requests.Session) -> dict:
     return {}
 
 
+def _has_nonzero_macros(food: dict) -> bool:
+    nutrients = {n["nutrientId"]: n["value"] for n in food.get("foodNutrients", [])}
+    macro_ids = [NUTRIENT_IDS["protein"], NUTRIENT_IDS["fat"], NUTRIENT_IDS["carbohydrates"]]
+    return any(nutrients.get(nid, 0.0) != 0.0 for nid in macro_ids)
+
+
 def _pick_best(foods: list) -> Optional[dict]:
+    # Build ordered candidates: preferred data types first, then remainder
+    ordered: list = []
+    seen: set = set()
     for preferred in _PREFERRED_DATA_TYPES:
         for food in foods:
-            if food.get("dataType") == preferred:
-                return food
-    return foods[0] if foods else None
+            fid = food.get("fdcId")
+            if food.get("dataType") == preferred and fid not in seen:
+                ordered.append(food)
+                seen.add(fid)
+    for food in foods:
+        fid = food.get("fdcId")
+        if fid not in seen:
+            ordered.append(food)
+            seen.add(fid)
+
+    for food in ordered:
+        if _has_nonzero_macros(food):
+            return food
+    return ordered[0] if ordered else None
 
 
 def _extract_nutrition(food: dict) -> NutritionPer100g:

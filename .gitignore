@@ -35,6 +35,9 @@ venv/
 # Graph serialization
 graph.ttl
 
+# Ingest cache
+.cache/
+
 # Claude context
 CLAUDE.md
 

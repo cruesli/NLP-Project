@@ -3,7 +3,13 @@ from unittest.mock import MagicMock, patch
 import pytest
 import requests
 
-from backend.entity_linker import fetch_properties, is_food_entity, link_ingredient, search_candidates
+from backend.entity_linker import (
+    fetch_properties,
+    filter_food_entities,
+    is_food_entity,
+    link_ingredient,
+    search_candidates,
+)
 from backend.models import WikidataEntity
 
 
@@ -42,6 +48,17 @@ PROPS_RESPONSE = {
     }
 }
 
+PROPS_RESPONSE_P279_FALLBACK = {
+    "results": {
+        "bindings": [
+            {
+                "subclassCategoryLabel": {"value": "poultry"},
+                "originCountryLabel": {"value": "United States"},
+            }
+        ]
+    }
+}
+
 DIETARY_RESPONSE = {
     "results": {
         "bindings": [
@@ -52,6 +69,16 @@ DIETARY_RESPONSE = {
 }
 
 EMPTY_BINDINGS = {"results": {"bindings": []}}
+
+# Batch SELECT response: Q192628 is a food entity
+FILTER_Q192628 = {
+    "results": {
+        "bindings": [
+            {"entity": {"value": "http://www.wikidata.org/entity/Q192628"}}
+        ]
+    }
+}
+FILTER_EMPTY = {"results": {"bindings": []}}
 
 
 # --- search_candidates ---
@@ -176,6 +203,28 @@ def test_fetch_properties_handles_empty_bindings():
     assert entity.dietary_flags == []
 
 
+def test_fetch_properties_uses_p279_when_p31_absent():
+    s = _session(_mock_response(PROPS_RESPONSE_P279_FALLBACK))
+    entity = fetch_properties("Q192628", "chicken thigh", s)
+    assert entity.food_category == "poultry"
+
+
+def test_fetch_properties_prefers_p31_over_p279():
+    both = {
+        "results": {
+            "bindings": [
+                {
+                    "foodCategoryLabel": {"value": "meat"},
+                    "subclassCategoryLabel": {"value": "animal product"},
+                }
+            ]
+        }
+    }
+    s = _session(_mock_response(both))
+    entity = fetch_properties("Q192628", "chicken thigh", s)
+    assert entity.food_category == "meat"
+
+
 def test_fetch_properties_sends_user_agent():
     s = _session(_mock_response(PROPS_RESPONSE))
     fetch_properties("Q192628", "chicken thigh", s)
@@ -242,12 +291,41 @@ def test_exponential_backoff_increases_delay():
     assert sleep_calls[1] > sleep_calls[0]
 
 
+# --- filter_food_entities ---
+
+def test_filter_food_entities_returns_matching_qids():
+    s = _session(_mock_response(FILTER_Q192628))
+    result = filter_food_entities(["Q192628", "Q999"], s)
+    assert result == {"Q192628"}
+
+
+def test_filter_food_entities_returns_empty_for_no_food():
+    s = _session(_mock_response(FILTER_EMPTY))
+    result = filter_food_entities(["Q999"], s)
+    assert result == set()
+
+
+def test_filter_food_entities_returns_empty_for_no_qids():
+    s = MagicMock(spec=requests.Session)
+    result = filter_food_entities([], s)
+    assert result == set()
+    s.get.assert_not_called()
+
+
+def test_filter_food_entities_sends_user_agent():
+    s = _session(_mock_response(FILTER_Q192628))
+    filter_food_entities(["Q192628"], s)
+    headers = s.get.call_args.kwargs.get("headers", {})
+    assert "User-Agent" in headers
+
+
 # --- link_ingredient ---
 
 def test_link_ingredient_returns_entity_for_known_food():
+    # search → batch filter (Q192628 is food) → fetch_properties
     s = _session(
         _mock_response(SEARCH_RESPONSE),
-        _mock_response(ASK_TRUE),
+        _mock_response(FILTER_Q192628),
         _mock_response(PROPS_RESPONSE),
     )
     entity = link_ingredient("chicken thigh", s)
@@ -256,6 +334,7 @@ def test_link_ingredient_returns_entity_for_known_food():
 
 
 def test_link_ingredient_returns_none_when_no_candidates():
+    # Both search attempts return empty lists — filter is never called
     s = _session(_mock_response({"search": []}), _mock_response({"search": []}))
     assert link_ingredient("xyzzy", s) is None
 
@@ -267,10 +346,10 @@ def test_link_ingredient_skips_non_food_candidates():
             SEARCH_HIT,
         ]
     }
+    # Batch filter returns only Q192628 — Q999 is skipped
     s = _session(
         _mock_response(two_candidates),
-        _mock_response(ASK_FALSE),   # Q999 fails food check
-        _mock_response(ASK_TRUE),    # Q192628 passes
+        _mock_response(FILTER_Q192628),
         _mock_response(PROPS_RESPONSE),
     )
     entity = link_ingredient("chicken thigh", s)
@@ -279,13 +358,37 @@ def test_link_ingredient_skips_non_food_candidates():
 
 
 def test_link_ingredient_returns_none_when_no_candidate_is_food():
+    # First search: no food entities; second (fallback) search: empty
     s = _session(
         _mock_response(SEARCH_RESPONSE),
-        _mock_response(ASK_FALSE),
-        _mock_response(ASK_FALSE),
-        _mock_response({"search": []}),  # fallback search with " food" suffix
+        _mock_response(FILTER_EMPTY),        # no candidates are food
+        _mock_response({"search": []}),      # fallback search empty
     )
     assert link_ingredient("chicken thigh", s) is None
+
+
+def test_link_ingredient_sorts_candidates_by_sitelinks():
+    # High-sitelinks entity is second in API response but picked first from the food set
+    low_sitelinks = {"id": "Q999", "label": "not food", "sitelinks": 5}
+    high_sitelinks = {**SEARCH_HIT, "sitelinks": 100}
+    two_candidates = {"search": [low_sitelinks, high_sitelinks]}
+    # Batch filter says both are food — but sitelinks order means Q192628 is returned
+    filter_both = {
+        "results": {
+            "bindings": [
+                {"entity": {"value": "http://www.wikidata.org/entity/Q192628"}},
+                {"entity": {"value": "http://www.wikidata.org/entity/Q999"}},
+            ]
+        }
+    }
+    s = _session(
+        _mock_response(two_candidates),
+        _mock_response(filter_both),
+        _mock_response(PROPS_RESPONSE),
+    )
+    entity = link_ingredient("chicken thigh", s)
+    assert entity is not None
+    assert entity.qid == "Q192628"
 
 
 def test_retries_on_read_timeout_then_succeeds():

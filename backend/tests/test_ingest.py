@@ -1,7 +1,9 @@
+import json
 from pathlib import Path
 from unittest.mock import MagicMock, patch
 
 import pytest
+import requests
 
 from backend.ingest import (
     build_normalised_map,
@@ -99,17 +101,22 @@ def test_build_quantity_map_all_none():
 
 # ── run_ingest ────────────────────────────────────────────────────────────────
 
-def test_run_ingest_creates_ttl_file(recipes_dir, tmp_path):
+@pytest.fixture()
+def cache_dir(tmp_path):
+    return tmp_path / ".cache"
+
+
+def test_run_ingest_creates_ttl_file(recipes_dir, tmp_path, cache_dir):
     _write_recipe(recipes_dir, "soup", ["Chicken", "Water"])
     out = tmp_path / "graph.ttl"
     with patch("backend.ingest.normalise_all", return_value=[_nd("chicken"), _nd("water")]), \
          patch("backend.ingest.link_ingredient", return_value=None), \
          patch("backend.ingest.fetch_nutrition", return_value=None):
-        run_ingest(recipes_dir, out, llm_client=MagicMock())
+        run_ingest(recipes_dir, out, llm_client=MagicMock(), cache_dir=cache_dir)
     assert out.exists()
 
 
-def test_run_ingest_deduplicates_before_normalise(recipes_dir, tmp_path):
+def test_run_ingest_deduplicates_before_normalise(recipes_dir, tmp_path, cache_dir):
     _write_recipe(recipes_dir, "r1", ["Pasta", "Eggs"])
     _write_recipe(recipes_dir, "r2", ["Pasta", "Cheese"])
     out = tmp_path / "graph.ttl"
@@ -117,12 +124,12 @@ def test_run_ingest_deduplicates_before_normalise(recipes_dir, tmp_path):
     with patch("backend.ingest.normalise_all", mock_normalise), \
          patch("backend.ingest.link_ingredient", return_value=None), \
          patch("backend.ingest.fetch_nutrition", return_value=None):
-        run_ingest(recipes_dir, out, llm_client=MagicMock())
+        run_ingest(recipes_dir, out, llm_client=MagicMock(), cache_dir=cache_dir)
     total_sent = sum(len(c.args[0]) for c in mock_normalise.call_args_list)
     assert total_sent == 3  # Pasta deduplicated, not 4
 
 
-def test_run_ingest_calls_link_and_nutrition_per_unique_normalised(recipes_dir, tmp_path):
+def test_run_ingest_calls_link_and_nutrition_per_unique_normalised(recipes_dir, tmp_path, cache_dir):
     _write_recipe(recipes_dir, "r1", ["Pasta", "Eggs"])
     _write_recipe(recipes_dir, "r2", ["Pasta", "Cheese"])
     out = tmp_path / "graph.ttl"
@@ -131,12 +138,12 @@ def test_run_ingest_calls_link_and_nutrition_per_unique_normalised(recipes_dir, 
     with patch("backend.ingest.normalise_all", return_value=[_nd("pasta", 400.0), _nd("egg"), _nd("cheese")]), \
          patch("backend.ingest.link_ingredient", mock_link), \
          patch("backend.ingest.fetch_nutrition", mock_nutr):
-        run_ingest(recipes_dir, out, llm_client=MagicMock())
+        run_ingest(recipes_dir, out, llm_client=MagicMock(), cache_dir=cache_dir)
     assert mock_link.call_count == 3
     assert mock_nutr.call_count == 3
 
 
-def test_run_ingest_enrichment_written_to_graph(recipes_dir, tmp_path):
+def test_run_ingest_enrichment_written_to_graph(recipes_dir, tmp_path, cache_dir):
     _write_recipe(recipes_dir, "soup", ["Chicken"])
     out = tmp_path / "graph.ttl"
     entity = WikidataEntity(
@@ -152,13 +159,13 @@ def test_run_ingest_enrichment_written_to_graph(recipes_dir, tmp_path):
     with patch("backend.ingest.normalise_all", return_value=[_nd("chicken")]), \
          patch("backend.ingest.link_ingredient", return_value=entity), \
          patch("backend.ingest.fetch_nutrition", return_value=nutr):
-        run_ingest(recipes_dir, out, llm_client=MagicMock())
+        run_ingest(recipes_dir, out, llm_client=MagicMock(), cache_dir=cache_dir)
     content = out.read_text()
     assert "Q192628" in content
     assert "20" in content
 
 
-def test_run_ingest_batches_normalisation(recipes_dir, tmp_path):
+def test_run_ingest_batches_normalisation(recipes_dir, tmp_path, cache_dir):
     for i in range(5):
         _write_recipe(recipes_dir, f"r{i}", [f"Ingredient{i}"])
     out = tmp_path / "graph.ttl"
@@ -169,17 +176,123 @@ def test_run_ingest_batches_normalisation(recipes_dir, tmp_path):
          patch("backend.ingest.link_ingredient", return_value=None), \
          patch("backend.ingest.fetch_nutrition", return_value=None), \
          patch("backend.ingest._BATCH_SIZE", 2):
-        run_ingest(recipes_dir, out, llm_client=MagicMock())
+        run_ingest(recipes_dir, out, llm_client=MagicMock(), cache_dir=cache_dir)
     # 5 ingredients with batch size 2 → 3 batches
     assert mock_normalise.call_count == 3
 
 
-def test_run_ingest_quantity_written_to_graph(recipes_dir, tmp_path):
+def test_run_ingest_quantity_written_to_graph(recipes_dir, tmp_path, cache_dir):
     _write_recipe(recipes_dir, "soup", ["400g Chicken"])
     out = tmp_path / "graph.ttl"
     with patch("backend.ingest.normalise_all", return_value=[_nd("chicken", 400.0)]), \
          patch("backend.ingest.link_ingredient", return_value=None), \
          patch("backend.ingest.fetch_nutrition", return_value=None):
-        run_ingest(recipes_dir, out, llm_client=MagicMock())
+        run_ingest(recipes_dir, out, llm_client=MagicMock(), cache_dir=cache_dir)
     content = out.read_text()
     assert "quantityG" in content
+
+
+# ── caching ───────────────────────────────────────────────────────────────────
+
+def test_run_ingest_skips_api_calls_for_cached_entities(recipes_dir, tmp_path, cache_dir):
+    _write_recipe(recipes_dir, "soup", ["Chicken"])
+    out = tmp_path / "graph.ttl"
+    entity = WikidataEntity(
+        qid="Q192628", uri="http://www.wikidata.org/entity/Q192628",
+        label="chicken", food_category="poultry",
+    )
+    mock_link = MagicMock(return_value=entity)
+    mock_nutr = MagicMock(return_value=None)
+
+    with patch("backend.ingest.normalise_all", return_value=[_nd("chicken")]), \
+         patch("backend.ingest.link_ingredient", mock_link), \
+         patch("backend.ingest.fetch_nutrition", mock_nutr):
+        run_ingest(recipes_dir, out, llm_client=MagicMock(), cache_dir=cache_dir)
+        # second run — cache is populated, API must not be called again
+        run_ingest(recipes_dir, out, llm_client=MagicMock(), cache_dir=cache_dir)
+
+    assert mock_link.call_count == 1
+    assert mock_nutr.call_count == 1
+
+
+def test_run_ingest_cached_entity_written_to_graph(recipes_dir, tmp_path, cache_dir):
+    _write_recipe(recipes_dir, "soup", ["Chicken"])
+    out = tmp_path / "graph.ttl"
+    entity = WikidataEntity(
+        qid="Q192628", uri="http://www.wikidata.org/entity/Q192628",
+        label="chicken", food_category="poultry",
+    )
+    with patch("backend.ingest.normalise_all", return_value=[_nd("chicken")]), \
+         patch("backend.ingest.link_ingredient", return_value=entity), \
+         patch("backend.ingest.fetch_nutrition", return_value=None):
+        run_ingest(recipes_dir, out, llm_client=MagicMock(), cache_dir=cache_dir)
+
+    out2 = tmp_path / "graph2.ttl"
+    mock_link = MagicMock(return_value=None)
+    with patch("backend.ingest.normalise_all", return_value=[_nd("chicken")]), \
+         patch("backend.ingest.link_ingredient", mock_link), \
+         patch("backend.ingest.fetch_nutrition", return_value=None):
+        run_ingest(recipes_dir, out2, llm_client=MagicMock(), cache_dir=cache_dir)
+
+    assert mock_link.call_count == 0
+    assert "Q192628" in out2.read_text()
+
+
+# ── network error resilience ──────────────────────────────────────────────────
+
+def test_run_ingest_continues_after_entity_link_timeout(recipes_dir, tmp_path, cache_dir):
+    _write_recipe(recipes_dir, "soup", ["Chicken", "Water"])
+    out = tmp_path / "graph.ttl"
+    # link_ingredient times out on "chicken", succeeds (None) for "water"
+    mock_link = MagicMock(side_effect=[
+        requests.exceptions.ReadTimeout("timed out"),
+        None,
+    ])
+    with patch("backend.ingest.normalise_all", return_value=[_nd("chicken"), _nd("water")]), \
+         patch("backend.ingest.link_ingredient", mock_link), \
+         patch("backend.ingest.fetch_nutrition", return_value=None):
+        run_ingest(recipes_dir, out, llm_client=MagicMock(), cache_dir=cache_dir)
+    assert out.exists()
+    assert mock_link.call_count == 2
+
+
+def test_run_ingest_does_not_cache_entity_on_timeout(recipes_dir, tmp_path, cache_dir):
+    _write_recipe(recipes_dir, "soup", ["Chicken"])
+    out = tmp_path / "graph.ttl"
+    mock_link = MagicMock(side_effect=requests.exceptions.ReadTimeout("timed out"))
+    with patch("backend.ingest.normalise_all", return_value=[_nd("chicken")]), \
+         patch("backend.ingest.link_ingredient", mock_link), \
+         patch("backend.ingest.fetch_nutrition", return_value=None):
+        run_ingest(recipes_dir, out, llm_client=MagicMock(), cache_dir=cache_dir)
+    # Cache must not contain the ingredient (so next run retries it)
+    entity_cache_path = cache_dir / "entities.json"
+    cache = json.loads(entity_cache_path.read_text()) if entity_cache_path.exists() else {}
+    assert "chicken" not in cache
+
+
+def test_run_ingest_continues_after_nutrition_timeout(recipes_dir, tmp_path, cache_dir):
+    _write_recipe(recipes_dir, "soup", ["Chicken", "Water"])
+    out = tmp_path / "graph.ttl"
+    mock_nutr = MagicMock(side_effect=[
+        requests.exceptions.ReadTimeout("timed out"),
+        None,
+    ])
+    with patch("backend.ingest.normalise_all", return_value=[_nd("chicken"), _nd("water")]), \
+         patch("backend.ingest.link_ingredient", return_value=None), \
+         patch("backend.ingest.fetch_nutrition", mock_nutr):
+        run_ingest(recipes_dir, out, llm_client=MagicMock(), cache_dir=cache_dir)
+    assert out.exists()
+    assert mock_nutr.call_count == 2
+
+
+def test_run_ingest_does_not_cache_nutrition_on_timeout(recipes_dir, tmp_path, cache_dir):
+    _write_recipe(recipes_dir, "soup", ["Chicken"])
+    out = tmp_path / "graph.ttl"
+    mock_nutr = MagicMock(side_effect=requests.exceptions.ReadTimeout("timed out"))
+    with patch("backend.ingest.normalise_all", return_value=[_nd("chicken")]), \
+         patch("backend.ingest.link_ingredient", return_value=None), \
+         patch("backend.ingest.fetch_nutrition", mock_nutr):
+        run_ingest(recipes_dir, out, llm_client=MagicMock(), cache_dir=cache_dir)
+    nutr_cache_path = cache_dir / "nutrition.json"
+    cache = json.loads(nutr_cache_path.read_text()) if nutr_cache_path.exists() else {}
+    assert "chicken" not in cache
