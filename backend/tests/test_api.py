@@ -414,3 +414,90 @@ def test_build_prompt_injects_relevant_example_for_italian_query():
 def test_build_prompt_base_prompt_is_short():
     # base prompt without examples should not contain example arrows
     assert "->" not in _BASE_SYSTEM_PROMPT
+
+
+"""Tests for embedding-based few-shot example selection in main.py."""
+import pytest
+
+from backend.main import (
+    _EXAMPLES,
+    _keyword_overlap,
+    _select_examples,
+    _build_prompt,
+    _BASE_SYSTEM_PROMPT,
+)
+
+
+# --- _keyword_overlap (kept for backward compat) --------------------------
+
+def test_keyword_overlap_exact_match():
+    assert _keyword_overlap("quick italian", "quick italian dinner") == 2
+
+def test_keyword_overlap_stopwords_ignored():
+    assert _keyword_overlap("give me a recipe", "show me a recipe") == 1
+
+def test_keyword_overlap_symmetric():
+    assert _keyword_overlap("quick italian", "italian quick dinner") == \
+           _keyword_overlap("italian quick dinner", "quick italian")
+
+
+# --- _select_examples (embedding-based) -----------------------------------
+
+def test_select_examples_returns_k():
+    assert len(_select_examples("high protein recipe", _EXAMPLES, k=2)) == 2
+
+def test_select_examples_returns_k_even_with_no_overlap():
+    # Nonsense query — should still return k examples (not crash or return fewer)
+    assert len(_select_examples("zzz nonsense xyz", _EXAMPLES, k=3)) == 3
+
+def test_select_examples_ranks_protein_first_for_protein_query():
+    results = _select_examples("high protein meal", _EXAMPLES, k=3)
+    top_questions = [q for q, _ in results]
+    assert any("protein" in q for q in top_questions)
+
+def test_select_examples_ranks_cuisine_first_for_cuisine_query():
+    results = _select_examples("italian pasta dinner tonight", _EXAMPLES, k=3)
+    top_questions = [q for q, _ in results]
+    assert any("italian" in q for q in top_questions)
+
+def test_select_examples_ranks_vegan_first_for_vegan_query():
+    results = _select_examples("something vegan and light", _EXAMPLES, k=2)
+    top_questions = [q for q, _ in results]
+    assert any("vegan" in q for q in top_questions)
+
+def test_select_examples_ranks_sodium_first_for_sodium_query():
+    # This would fail with keyword overlap — "low sodium dish" shares 0 words
+    # with existing examples. Embeddings should surface it correctly.
+    results = _select_examples("low sodium dish", _EXAMPLES, k=2)
+    top_questions = [q for q, _ in results]
+    assert any("sodium" in q for q in top_questions)
+
+def test_select_examples_ranks_filling_first_for_satiety_query():
+    results = _select_examples("I want something really filling", _EXAMPLES, k=2)
+    top_questions = [q for q, _ in results]
+    assert any("filling" in q or "hearty" in q for q in top_questions)
+
+def test_select_examples_handles_negative_constraint():
+    results = _select_examples("no meat please", _EXAMPLES, k=2)
+    top_questions = [q for q, _ in results]
+    assert any("meat" in q or "vegan" in q or "vegetarian" in q for q in top_questions)
+
+
+# --- _build_prompt --------------------------------------------------------
+
+def test_build_prompt_contains_all_filter_field_names():
+    prompt = _build_prompt("high protein recipe")
+    for field in ("min_protein", "max_kcal", "max_time", "cuisine", "dietary"):
+        assert field in prompt
+
+def test_build_prompt_includes_examples_section():
+    assert "Examples:" in _build_prompt("high protein recipe")
+
+def test_build_prompt_injects_at_most_3_examples():
+    assert _build_prompt("high protein recipe").count("->") <= 3
+
+def test_build_prompt_injects_relevant_example_for_italian_query():
+    assert "italian" in _build_prompt("quick italian dinner").lower()
+
+def test_build_prompt_base_prompt_has_no_examples():
+    assert "->" not in _BASE_SYSTEM_PROMPT

@@ -2,8 +2,10 @@ import json
 import os
 from pathlib import Path
 from typing import Optional
+import numpy as np
+from sentence_transformers import SentenceTransformer
 
-import openai
+import openai 
 from dotenv import load_dotenv
 from fastapi import Depends, FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
@@ -54,43 +56,101 @@ _BASE_SYSTEM_PROMPT = (
     "Return ONLY valid JSON, no other text."
 )
 
+_EMBED_MODEL = SentenceTransformer("all-MiniLM-L6-v2")
+ 
+# Extended example bank — covers all filter fields + satiety/texture/negative
 _EXAMPLES: list[tuple[str, dict]] = [
-    ("give me a high protein recipe", {"min_protein": 50}),
-    ("something with lots of protein", {"min_protein": 50}),
-    ("protein rich meal", {"min_protein": 50}),
-    ("quick dinner under 30 minutes", {"max_time": 30}),
-    ("fast meal I can make tonight", {"max_time": 30}),
-    ("low calorie option", {"max_kcal": 500}),
-    ("light meal for lunch", {"max_kcal": 400}),
-    ("something vegan", {"dietary": "vegan"}),
-    ("vegetarian recipe please", {"dietary": "vegetarian"}),
-    ("italian food tonight", {"cuisine": "italian"}),
-    ("middle eastern cuisine", {"cuisine": "middle-eastern"}),
-    ("quick italian pasta dinner", {"max_time": 30, "cuisine": "italian"}),
-    ("high protein vegan recipe", {"min_protein": 25, "dietary": "vegan"}),
-    ("light quick meal under 30 minutes", {"max_kcal": 500, "max_time": 30}),
-    ("vegetarian low calorie dish", {"dietary": "vegetarian", "max_kcal": 500}),
+    # --- protein ---
+    ("give me a high protein recipe",           {"min_protein": 50}),
+    ("something with lots of protein",          {"min_protein": 50}),
+    ("protein rich meal",                       {"min_protein": 50}),
+    ("high protein dinner for muscle gain",     {"min_protein": 40}),
+    # --- time ---
+    ("quick dinner under 30 minutes",           {"max_time": 30}),
+    ("fast meal I can make tonight",            {"max_time": 30}),
+    ("something I can cook in under an hour",   {"max_time": 60}),
+    # --- calories ---
+    ("low calorie option",                      {"max_kcal": 500}),
+    ("light meal for lunch",                    {"max_kcal": 400}),
+    ("something not too heavy",                 {"max_kcal": 500}),
+    ("diet friendly recipe",                    {"max_kcal": 450}),
+    # --- fat ---
+    ("low fat meal",                            {"max_fat": 15}),
+    ("something not too greasy",                {"max_fat": 20}),
+    ("heart healthy recipe",                    {"max_fat": 15}),
+    # --- sodium ---
+    ("low sodium dish",                         {"max_sodium": 400}),
+    ("something not too salty",                 {"max_sodium": 400}),
+    ("good for high blood pressure",            {"max_sodium": 300}),
+    # --- fibre / satiety ---
+    ("something filling and hearty",            {"min_fibre": 5}),
+    ("high fibre recipe",                       {"min_fibre": 8}),
+    ("substantial meal that keeps me full",     {"min_fibre": 5}),
+    ("light and fresh",                         {"max_kcal": 400}),
+    # --- dietary ---
+    ("something vegan",                         {"dietary": "vegan"}),
+    ("vegetarian recipe please",                {"dietary": "vegetarian"}),
+    ("halal meal",                              {"dietary": "halal"}),
+    ("plant-based dinner",                      {"dietary": "vegan"}),
+    # --- negative constraints ---
+    ("no meat please",                          {"dietary": "vegetarian"}),
+    ("without any animal products",             {"dietary": "vegan"}),
+    ("dairy free option",                       {"dietary": "vegan"}),
+    # --- cuisine ---
+    ("italian food tonight",                    {"cuisine": "italian"}),
+    ("middle eastern cuisine",                  {"cuisine": "middle-eastern"}),
+    ("asian inspired dish",                     {"cuisine": "asian"}),
+    ("mediterranean flavours",                  {"cuisine": "middle-eastern"}),
+    # --- origin country ---
+    ("something with mediterranean ingredients",    {"origin_country": "mediterranean"}),
+    ("recipe using ingredients from asia",          {"origin_country": "asia"}),
+    ("dish with south american flavours",           {"origin_country": "south america"}),
+    # --- combos ---
+    ("quick italian pasta dinner",              {"max_time": 30, "cuisine": "italian"}),
+    ("high protein vegan recipe",               {"min_protein": 25, "dietary": "vegan"}),
+    ("light quick meal under 30 minutes",       {"max_kcal": 500, "max_time": 30}),
+    ("vegetarian low calorie dish",             {"dietary": "vegetarian", "max_kcal": 500}),
+    ("low fat high protein lunch",              {"max_fat": 15, "min_protein": 30}),
+    ("quick low sodium dinner",                 {"max_time": 30, "max_sodium": 400}),
+    ("hearty vegetarian meal",                  {"dietary": "vegetarian", "min_fibre": 5}),
 ]
-
-_STOPWORDS = frozenset({
-    "a", "an", "the", "for", "me", "i", "can", "make", "want", "give",
-    "show", "something", "some", "with", "and", "or", "that", "is", "are",
-    "please", "tonight", "today", "under", "over",
-})
-
-
+ 
+# Pre-compute once at load time — shape (n_examples, embedding_dim)
+_EXAMPLE_QUESTIONS = [q for q, _ in _EXAMPLES]
+_EXAMPLE_EMBEDDINGS: np.ndarray = _EMBED_MODEL.encode(
+    _EXAMPLE_QUESTIONS, normalize_embeddings=True
+)
+ 
+ 
 def _keyword_overlap(q1: str, q2: str) -> int:
-    words1 = {w for w in q1.lower().split() if w not in _STOPWORDS}
-    words2 = {w for w in q2.lower().split() if w not in _STOPWORDS}
+    """Kept for backward compatibility and tests. Not used by _select_examples."""
+    stopwords = frozenset({
+        "a", "an", "the", "for", "me", "i", "can", "make", "want", "give",
+        "show", "something", "some", "with", "and", "or", "that", "is", "are",
+        "please", "tonight", "today", "under", "over",
+    })
+    words1 = {w for w in q1.lower().split() if w not in stopwords}
+    words2 = {w for w in q2.lower().split() if w not in stopwords}
     return len(words1 & words2)
-
-
+ 
+ 
 def _select_examples(
     question: str, examples: list[tuple[str, dict]], k: int = 3
 ) -> list[tuple[str, dict]]:
-    scored = sorted(examples, key=lambda ex: _keyword_overlap(question, ex[0]), reverse=True)
-    return scored[:k]
-
+    """Return the k most semantically similar examples using cosine similarity."""
+    questions = [q for q, _ in examples]
+    # use pre-computed matrix when called with the global example bank
+    if questions == _EXAMPLE_QUESTIONS:
+        ex_embs = _EXAMPLE_EMBEDDINGS
+    else:
+        ex_embs = _EMBED_MODEL.encode(questions, normalize_embeddings=True)
+ 
+    # normalised embeddings → cosine similarity = dot product
+    q_emb = _EMBED_MODEL.encode([question], normalize_embeddings=True)[0]
+    scores = ex_embs @ q_emb
+    top_k = np.argsort(scores)[::-1][:k]
+    return [examples[i] for i in top_k]
+ 
 
 def _build_prompt(question: str) -> str:
     examples = _select_examples(question, _EXAMPLES)
