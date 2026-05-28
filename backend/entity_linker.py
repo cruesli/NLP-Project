@@ -1,3 +1,4 @@
+import re
 import time
 from typing import List, Optional
 
@@ -10,16 +11,25 @@ _SPARQL_URL = "https://query.wikidata.org/sparql"
 _USER_AGENT = "recipe-kg/1.0 (geirdunma@gmail.com)"
 _ENTITY_BASE = "http://www.wikidata.org/entity/"
 
-# Food (Q2095) used as root of the food subclass hierarchy
-_FOOD_QID = "Q2095"
+_FOOD_QID = "Q2095"  # root of food subclass hierarchy
 
 _DIETARY_MAP = {
     "Q2945560": "vegan",
-    "Q386724": "vegetarian",
+    "Q386724":  "vegetarian",
     "Q3088585": "halal",
-    "Q178558": "kosher",
+    "Q178558":  "kosher",
 }
 
+# Modifiers to strip when broadening a compound ingredient search term
+_MODIFIERS = re.compile(
+    r"\b(minced|ground|diced|chopped|sliced|dried|fresh|frozen|raw|cooked|"
+    r"roasted|smoked|canned|tinned|pickled|whole|boneless|skinless|rind|"
+    r"neutral|extra.virgin|semi-skimmed|full.fat|low.fat|organic)\b",
+    re.IGNORECASE,
+)
+
+
+# --- HTTP helper -----------------------------------------------------------
 
 def _get(session: requests.Session, url: str, params: dict, max_retries: int = 3) -> dict:
     headers = {"User-Agent": _USER_AGENT, "Accept": "application/json"}
@@ -34,7 +44,7 @@ def _get(session: requests.Session, url: str, params: dict, max_retries: int = 3
             time.sleep(delay)
             delay *= 2
             continue
-        if resp.status_code in (429, 502, 503):
+        if resp.status_code in (429, 502, 503, 504):
             if attempt == max_retries - 1:
                 raise requests.HTTPError(
                     f"HTTP {resp.status_code} after {max_retries} retries", response=resp
@@ -45,7 +55,10 @@ def _get(session: requests.Session, url: str, params: dict, max_retries: int = 3
             continue
         resp.raise_for_status()
         return resp.json()
+    return {}
 
+
+# --- Wikidata search -------------------------------------------------------
 
 def search_candidates(ingredient: str, session: requests.Session) -> List[dict]:
     data = _get(session, _API_URL, {
@@ -59,45 +72,75 @@ def search_candidates(ingredient: str, session: requests.Session) -> List[dict]:
     return data.get("search", [])
 
 
-def is_food_entity(qid: str, session: requests.Session) -> bool:
-    query = f"""
-PREFIX wd: <http://www.wikidata.org/entity/>
-PREFIX wdt: <http://www.wikidata.org/prop/direct/>
-ASK {{
-  {{ wd:{qid} wdt:P279 wd:{_FOOD_QID} . }}
-  UNION {{ wd:{qid} wdt:P31 wd:{_FOOD_QID} . }}
-  UNION {{ wd:{qid} wdt:P279/wdt:P279 wd:{_FOOD_QID} . }}
-  UNION {{ wd:{qid} wdt:P31/wdt:P279 wd:{_FOOD_QID} . }}
-  UNION {{ wd:{qid} wdt:P31/wdt:P279/wdt:P279 wd:{_FOOD_QID} . }}
-}}
-"""
-    data = _get(session, _SPARQL_URL, {"query": query, "format": "json"})
-    return bool(data.get("boolean", False))
-
+# --- Food classification (fixed-depth, no P279*) --------------------------
 
 def filter_food_entities(qids: List[str], session: requests.Session) -> set:
-    """Return the subset of QIDs that are food entities via a single batch SPARQL query."""
+    """Return subset of QIDs that are food entities.
+
+    Uses a fixed 4-level subclass chain instead of P279* to avoid the
+    frequent 502/504 gateway errors caused by the unbounded transitive query.
+    4 levels covers deep hierarchies like:
+      red wine -> wine -> alcoholic beverage -> beverage -> food/drink
+    """
     if not qids:
         return set()
     values = " ".join(f"wd:{q}" for q in qids)
+    food = f"wd:{_FOOD_QID}"
     query = f"""
 PREFIX wd: <http://www.wikidata.org/entity/>
 PREFIX wdt: <http://www.wikidata.org/prop/direct/>
-SELECT ?entity WHERE {{
+SELECT DISTINCT ?entity WHERE {{
   VALUES ?entity {{ {values} }}
   {{
-    ?entity wdt:P279* wd:{_FOOD_QID} .
-  }}
-  UNION
-  {{
-    ?entity wdt:P31/wdt:P279* wd:{_FOOD_QID} .
+    # depth 1
+    {{ ?entity wdt:P279 {food} }}
+    UNION
+    {{ ?entity wdt:P31  {food} }}
+    UNION
+    # depth 2
+    {{ ?entity wdt:P279/wdt:P279 {food} }}
+    UNION
+    {{ ?entity wdt:P31/wdt:P279  {food} }}
+    UNION
+    # depth 3
+    {{ ?entity wdt:P279/wdt:P279/wdt:P279 {food} }}
+    UNION
+    {{ ?entity wdt:P31/wdt:P279/wdt:P279  {food} }}
+    UNION
+    # depth 4
+    {{ ?entity wdt:P279/wdt:P279/wdt:P279/wdt:P279 {food} }}
+    UNION
+    {{ ?entity wdt:P31/wdt:P279/wdt:P279/wdt:P279  {food} }}
   }}
 }}
 """
-    data = _get(session, _SPARQL_URL, {"query": query, "format": "json"})
+    try:
+        data = _get(session, _SPARQL_URL, {"query": query, "format": "json"})
+    except requests.HTTPError:
+        return set()
     bindings = data.get("results", {}).get("bindings", [])
     return {row["entity"]["value"].split("/")[-1] for row in bindings}
 
+
+# --- Description heuristic fallback ---------------------------------------
+
+def _description_looks_like_food(candidates: List[dict]) -> Optional[dict]:
+    """Return the first candidate whose Wikidata description mentions food."""
+    food_words = {
+        "food", "fruit", "vegetable", "meat", "fish", "spice", "herb",
+        "grain", "cereal", "legume", "dairy", "cheese", "oil", "sauce",
+        "beverage", "drink", "condiment", "nut", "wine", "alcohol",
+        "alcoholic", "spirit", "seasoning", "stock", "broth", "paste",
+        "seed", "fat", "flour", "sugar", "syrup", "vinegar", "ingredient",
+    }
+    for c in candidates:
+        desc = c.get("description", "").lower()
+        if any(w in desc for w in food_words):
+            return c
+    return None
+
+
+# --- Properties fetch -----------------------------------------------------
 
 def fetch_properties(qid: str, label: str, session: requests.Session) -> WikidataEntity:
     dietary_values = "\n".join(
@@ -106,9 +149,10 @@ def fetch_properties(qid: str, label: str, session: requests.Session) -> Wikidat
     query = f"""
 PREFIX wd: <http://www.wikidata.org/entity/>
 PREFIX wdt: <http://www.wikidata.org/prop/direct/>
-SELECT DISTINCT ?foodCategory ?foodCategoryLabel ?subclassCategory ?subclassCategoryLabel ?originCountry ?originCountryLabel ?dietaryFlag
+SELECT DISTINCT ?foodCategory ?foodCategoryLabel ?subclassCategory ?subclassCategoryLabel
+                ?originCountry ?originCountryLabel ?dietaryFlag
 WHERE {{
-  OPTIONAL {{ wd:{qid} wdt:P31 ?foodCategory . }}
+  OPTIONAL {{ wd:{qid} wdt:P31  ?foodCategory . }}
   OPTIONAL {{ wd:{qid} wdt:P279 ?subclassCategory . }}
   OPTIONAL {{ wd:{qid} wdt:P495 ?originCountry . }}
   OPTIONAL {{
@@ -153,27 +197,97 @@ WHERE {{
     )
 
 
-def link_ingredient(ingredient: str, session: requests.Session) -> Optional[WikidataEntity]:
-    # first attempt — one batch query checks all candidates at once
+# --- Core linking logic ---------------------------------------------------
+
+def _try_link(query: str, session: requests.Session) -> Optional[WikidataEntity]:
+    """Search, filter to food entities, return the best match or None."""
     candidates = sorted(
-        search_candidates(ingredient, session),
+        search_candidates(query, session),
         key=lambda c: c.get("sitelinks", 0),
         reverse=True,
     )
-    if candidates:
-        food_qids = filter_food_entities([c["id"] for c in candidates], session)
-        for candidate in candidates:
-            if candidate["id"] in food_qids:
-                return fetch_properties(candidate["id"], candidate.get("label", ingredient), session)
-    # fallback: retry with "food" appended
-    candidates_fb = sorted(
-        search_candidates(f"{ingredient} food", session),
-        key=lambda c: c.get("sitelinks", 0),
-        reverse=True,
-    )
-    if candidates_fb:
-        food_qids_fb = filter_food_entities([c["id"] for c in candidates_fb], session)
-        for candidate in candidates_fb:
-            if candidate["id"] in food_qids_fb:
-                return fetch_properties(candidate["id"], candidate.get("label", ingredient), session)
+    if not candidates:
+        return None
+
+    # SPARQL food filter
+    food_qids = filter_food_entities([c["id"] for c in candidates], session)
+    for c in candidates:
+        if c["id"] in food_qids:
+            return fetch_properties(c["id"], c.get("label", query), session)
+
+    # description heuristic when SPARQL returns nothing
+    match = _description_looks_like_food(candidates)
+    if match:
+        return fetch_properties(match["id"], match.get("label", query), session)
+
+    return None
+
+
+def _broaden(ingredient: str) -> Optional[str]:
+    """Strip recognised modifiers to produce a broader search term."""
+    broader = _MODIFIERS.sub("", ingredient).strip()
+    broader = re.sub(r"\s+", " ", broader)
+    return broader if broader and broader != ingredient else None
+
+
+def _singularise(term: str) -> Optional[str]:
+    """Return singular of last word if it ends in 's', else None.
+
+    Handles: "garlic cloves" -> "garlic clove", "chickpeas" -> "chickpea",
+             "tomatoes" -> "tomato".
+    Skips words <= 3 chars or already singular-looking.
+    """
+    words = term.split()
+    last = words[-1]
+    if len(last) <= 3 or not last.endswith("s") or last.endswith("ss"):
+        return None
+    # "oes"/"ies" endings need special handling; keep it simple: strip "es"
+    if last.endswith("es") and len(last) > 4:
+        singular = last[:-2]
+    else:
+        singular = last[:-1]
+    words[-1] = singular
+    result = " ".join(words)
+    return result if result != term else None
+
+
+def link_ingredient(ingredient: str, session: requests.Session) -> Optional[WikidataEntity]:
+    """Link an ingredient string to a Wikidata entity.
+
+    Fallback chain:
+      1. Direct search
+      2. Singular form  (e.g. "garlic cloves" -> "garlic clove")
+      3. Search with " food" appended  (handles ambiguous terms like "turkey")
+      4. Broadened term (modifiers stripped, e.g. "minced beef" -> "beef")
+      5. Broadened term + " food"
+    """
+    # 1. direct
+    result = _try_link(ingredient, session)
+    if result:
+        return result
+
+    # 2. singular
+    singular = _singularise(ingredient)
+    if singular:
+        result = _try_link(singular, session)
+        if result:
+            return result
+
+    # 3. append "food"
+    result = _try_link(f"{ingredient} food", session)
+    if result:
+        return result
+
+    # 4. strip modifiers
+    broader = _broaden(ingredient)
+    if broader:
+        result = _try_link(broader, session)
+        if result:
+            return result
+
+        # 5. broader + "food"
+        result = _try_link(f"{broader} food", session)
+        if result:
+            return result
+
     return None
