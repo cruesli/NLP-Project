@@ -1,9 +1,160 @@
 @prefix ex: <http://example.org/recipe-kg/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
+ex:recipe_Pork-chops-with-chimichurri-and-grilled-pepper-salad a ex:Recipe ;
+    ex:approxCarbsPerServing 1419.6567499999999 ;
+    ex:approxFatPerServing 90.416 ;
+    ex:approxFibrePerServing 19.072999999999997 ;
+    ex:approxKcalPerServing 1214.0749999999998 ;
+    ex:approxProteinPerServing 47.1115 ;
+    ex:approxSodiumPerServing 40588.575 ;
+    ex:cuisine "Argentinian" ;
+    ex:foodType "Simple" ;
+    ex:hasIngredient ex:ing_Pork-chops-with-chimichurri-and-grilled-pepper-salad_0,
+        ex:ing_Pork-chops-with-chimichurri-and-grilled-pepper-salad_1,
+        ex:ing_Pork-chops-with-chimichurri-and-grilled-pepper-salad_10,
+        ex:ing_Pork-chops-with-chimichurri-and-grilled-pepper-salad_11,
+        ex:ing_Pork-chops-with-chimichurri-and-grilled-pepper-salad_12,
+        ex:ing_Pork-chops-with-chimichurri-and-grilled-pepper-salad_13,
+        ex:ing_Pork-chops-with-chimichurri-and-grilled-pepper-salad_14,
+        ex:ing_Pork-chops-with-chimichurri-and-grilled-pepper-salad_15,
+        ex:ing_Pork-chops-with-chimichurri-and-grilled-pepper-salad_2,
+        ex:ing_Pork-chops-with-chimichurri-and-grilled-pepper-salad_3,
+        ex:ing_Pork-chops-with-chimichurri-and-grilled-pepper-salad_4,
+        ex:ing_Pork-chops-with-chimichurri-and-grilled-pepper-salad_5,
+        ex:ing_Pork-chops-with-chimichurri-and-grilled-pepper-salad_6,
+        ex:ing_Pork-chops-with-chimichurri-and-grilled-pepper-salad_7,
+        ex:ing_Pork-chops-with-chimichurri-and-grilled-pepper-salad_8,
+        ex:ing_Pork-chops-with-chimichurri-and-grilled-pepper-salad_9 ;
+    ex:servings 2 ;
+    ex:slug "Pork-chops-with-chimichurri-and-grilled-pepper-salad" ;
+    ex:tag "Bright",
+        "Grill",
+        "Healthy",
+        "Quick",
+        "Summer" ;
+    ex:title "Pork chops with chimichurri and grilled pepper salad." .
+
+ex:recipe_aguachile a ex:Recipe ;
+    ex:approxCarbsPerServing 45.54675 ;
+    ex:approxFatPerServing 43.823074999999996 ;
+    ex:approxFibrePerServing 2.5389999999999997 ;
+    ex:approxKcalPerServing 567.425 ;
+    ex:approxProteinPerServing 17.8017 ;
+    ex:approxSodiumPerServing 1449.375 ;
+    ex:cuisine "mexican" ;
+    ex:foodType "Simple" ;
+    ex:hasIngredient ex:ing_aguachile_0,
+        ex:ing_aguachile_1,
+        ex:ing_aguachile_2,
+        ex:ing_aguachile_3,
+        ex:ing_aguachile_4,
+        ex:ing_aguachile_5,
+        ex:ing_aguachile_6,
+        ex:ing_aguachile_7,
+        ex:ing_aguachile_8,
+        ex:ing_aguachile_9 ;
+    ex:servings 4 ;
+    ex:slug "aguachile" ;
+    ex:tag "Healthy",
+        "No-Cook",
+        "Quick" ;
+    ex:title "Aguachile" .
+
+ex:recipe_betasuppe a ex:Recipe ;
+    ex:approxCarbsPerServing 105.94011666666665 ;
+    ex:approxFatPerServing 30.62801 ;
+    ex:approxFibrePerServing 20.543333333333333 ;
+    ex:approxKcalPerServing 862.525 ;
+    ex:approxProteinPerServing 51.15873333333332 ;
+    ex:approxSodiumPerServing 1854.5081666666667 ;
+    ex:cuisine "norwegian" ;
+    ex:foodType "Simple" ;
+    ex:hasIngredient ex:ing_betasuppe_0,
+        ex:ing_betasuppe_1,
+        ex:ing_betasuppe_10,
+        ex:ing_betasuppe_11,
+        ex:ing_betasuppe_12,
+        ex:ing_betasuppe_13,
+        ex:ing_betasuppe_2,
+        ex:ing_betasuppe_3,
+        ex:ing_betasuppe_4,
+        ex:ing_betasuppe_5,
+        ex:ing_betasuppe_6,
+        ex:ing_betasuppe_7,
+        ex:ing_betasuppe_8,
+        ex:ing_betasuppe_9 ;
+    ex:servings 6 ;
+    ex:slug "betasuppe" ;
+    ex:tag "Comfort",
+        "Make-Ahead",
+        "Slow-Cook" ;
+    ex:title "Betasuppe with pork shank" .
+
+ex:recipe_briam a ex:Recipe ;
+    ex:approxCarbsPerServing 93.68125 ;
+    ex:approxFatPerServing 47.644999999999996 ;
+    ex:approxFibrePerServing 28.35 ;
+    ex:approxKcalPerServing 702.1 ;
+    ex:approxProteinPerServing 32.09375 ;
+    ex:approxSodiumPerServing 799.625 ;
+    ex:cuisine "greek" ;
+    ex:foodType "Simple" ;
+    ex:hasIngredient ex:ing_briam_0,
+        ex:ing_briam_1,
+        ex:ing_briam_10,
+        ex:ing_briam_2,
+        ex:ing_briam_3,
+        ex:ing_briam_4,
+        ex:ing_briam_5,
+        ex:ing_briam_6,
+        ex:ing_briam_7,
+        ex:ing_briam_8,
+        ex:ing_briam_9 ;
+    ex:servings 4 ;
+    ex:slug "briam" ;
+    ex:tag "One-Pan",
+        "Vegan",
+        "Vegetarian" ;
+    ex:title "Briam" .
+
+ex:recipe_carne-asada-tacos a ex:Recipe ;
+    ex:approxCarbsPerServing 70.06925000000001 ;
+    ex:approxFatPerServing 44.89875 ;
+    ex:approxFibrePerServing 4.640000000000001 ;
+    ex:approxKcalPerServing 817.6000000000001 ;
+    ex:approxProteinPerServing 46.01175 ;
+    ex:approxSodiumPerServing 893.4625000000001 ;
+    ex:cuisine "mexican" ;
+    ex:foodType "Simple" ;
+    ex:hasIngredient ex:ing_carne-asada-tacos_0,
+        ex:ing_carne-asada-tacos_1,
+        ex:ing_carne-asada-tacos_10,
+        ex:ing_carne-asada-tacos_11,
+        ex:ing_carne-asada-tacos_12,
+        ex:ing_carne-asada-tacos_13,
+        ex:ing_carne-asada-tacos_14,
+        ex:ing_carne-asada-tacos_2,
+        ex:ing_carne-asada-tacos_3,
+        ex:ing_carne-asada-tacos_4,
+        ex:ing_carne-asada-tacos_5,
+        ex:ing_carne-asada-tacos_6,
+        ex:ing_carne-asada-tacos_7,
+        ex:ing_carne-asada-tacos_8,
+        ex:ing_carne-asada-tacos_9 ;
+    ex:servings 4 ;
+    ex:slug "carne-asada-tacos" ;
+    ex:tag "Grill",
+        "Quick" ;
+    ex:title "Carne asada tacos" .
+
 ex:recipe_carnitas a ex:Recipe ;
-    ex:approxKcalPerServing 335.8933333333333 ;
-    ex:approxProteinPerServing 38.7188 ;
+    ex:approxCarbsPerServing 40.144 ;
+    ex:approxFatPerServing 13.705400000000001 ;
+    ex:approxFibrePerServing 0.7390000000000001 ;
+    ex:approxKcalPerServing 336.8066666666667 ;
+    ex:approxProteinPerServing 38.7387 ;
+    ex:approxSodiumPerServing 944.9300000000001 ;
     ex:cuisine "mexican" ;
     ex:foodType "Taco" ;
     ex:hasIngredient ex:ing_carnitas_0,
@@ -23,9 +174,168 @@ ex:recipe_carnitas a ex:Recipe ;
     ex:title "Carnitas" ;
     ex:totalTimeMinutes 300 .
 
+ex:recipe_char-siu a ex:Recipe ;
+    ex:approxCarbsPerServing 32.79837500000001 ;
+    ex:approxFatPerServing 9.213875000000002 ;
+    ex:approxFibrePerServing 1.605 ;
+    ex:approxKcalPerServing 458.4 ;
+    ex:approxProteinPerServing 60.291625 ;
+    ex:approxSodiumPerServing 1178.075 ;
+    ex:cuisine "chinese" ;
+    ex:foodType "Simple" ;
+    ex:hasIngredient ex:ing_char-siu_0,
+        ex:ing_char-siu_1,
+        ex:ing_char-siu_10,
+        ex:ing_char-siu_11,
+        ex:ing_char-siu_12,
+        ex:ing_char-siu_2,
+        ex:ing_char-siu_3,
+        ex:ing_char-siu_4,
+        ex:ing_char-siu_5,
+        ex:ing_char-siu_6,
+        ex:ing_char-siu_7,
+        ex:ing_char-siu_8,
+        ex:ing_char-siu_9 ;
+    ex:servings 4 ;
+    ex:slug "char-siu" ;
+    ex:tag "Grill",
+        "Make-Ahead" ;
+    ex:title "Char siu" .
+
+ex:recipe_chicken-fajitas a ex:Recipe ;
+    ex:approxCarbsPerServing 65.528 ;
+    ex:approxFatPerServing 56.823625 ;
+    ex:approxFibrePerServing 6.336999999999999 ;
+    ex:approxKcalPerServing 746.0500000000001 ;
+    ex:approxProteinPerServing 27.440749999999998 ;
+    ex:approxSodiumPerServing 1049.7125 ;
+    ex:cuisine "mexican" ;
+    ex:foodType "Simple" ;
+    ex:hasIngredient ex:ing_chicken-fajitas_0,
+        ex:ing_chicken-fajitas_1,
+        ex:ing_chicken-fajitas_10,
+        ex:ing_chicken-fajitas_11,
+        ex:ing_chicken-fajitas_12,
+        ex:ing_chicken-fajitas_13,
+        ex:ing_chicken-fajitas_14,
+        ex:ing_chicken-fajitas_15,
+        ex:ing_chicken-fajitas_16,
+        ex:ing_chicken-fajitas_17,
+        ex:ing_chicken-fajitas_18,
+        ex:ing_chicken-fajitas_19,
+        ex:ing_chicken-fajitas_2,
+        ex:ing_chicken-fajitas_3,
+        ex:ing_chicken-fajitas_4,
+        ex:ing_chicken-fajitas_5,
+        ex:ing_chicken-fajitas_6,
+        ex:ing_chicken-fajitas_7,
+        ex:ing_chicken-fajitas_8,
+        ex:ing_chicken-fajitas_9 ;
+    ex:servings 4 ;
+    ex:slug "chicken-fajitas" ;
+    ex:tag "Family",
+        "Quick" ;
+    ex:title "Chicken fajitas" .
+
+ex:recipe_gongbao-chicken a ex:Recipe ;
+    ex:approxCarbsPerServing 19.376 ;
+    ex:approxFatPerServing 58.948499999999996 ;
+    ex:approxFibrePerServing 3.036666666666667 ;
+    ex:approxKcalPerServing 700.4499999999999 ;
+    ex:approxProteinPerServing 32.26900000000001 ;
+    ex:approxSodiumPerServing 784.7666666666669 ;
+    ex:cuisine "chinese" ;
+    ex:foodType "Simple" ;
+    ex:hasIngredient ex:ing_gongbao-chicken_0,
+        ex:ing_gongbao-chicken_1,
+        ex:ing_gongbao-chicken_10,
+        ex:ing_gongbao-chicken_11,
+        ex:ing_gongbao-chicken_12,
+        ex:ing_gongbao-chicken_13,
+        ex:ing_gongbao-chicken_14,
+        ex:ing_gongbao-chicken_15,
+        ex:ing_gongbao-chicken_16,
+        ex:ing_gongbao-chicken_2,
+        ex:ing_gongbao-chicken_3,
+        ex:ing_gongbao-chicken_4,
+        ex:ing_gongbao-chicken_5,
+        ex:ing_gongbao-chicken_6,
+        ex:ing_gongbao-chicken_7,
+        ex:ing_gongbao-chicken_8,
+        ex:ing_gongbao-chicken_9 ;
+    ex:servings 3 ;
+    ex:slug "gongbao-chicken" ;
+    ex:tag "Quick",
+        "Spicy" ;
+    ex:title "Gongbao chicken" .
+
+ex:recipe_goulash a ex:Recipe ;
+    ex:approxCarbsPerServing 61.281783333333344 ;
+    ex:approxFatPerServing 58.260010000000015 ;
+    ex:approxFibrePerServing 15.621666666666668 ;
+    ex:approxKcalPerServing 434.95 ;
+    ex:approxProteinPerServing 56.92631666666665 ;
+    ex:approxSodiumPerServing 919.2148333333333 ;
+    ex:cuisine "hungarian" ;
+    ex:foodType "Simple" ;
+    ex:hasIngredient ex:ing_goulash_0,
+        ex:ing_goulash_1,
+        ex:ing_goulash_10,
+        ex:ing_goulash_11,
+        ex:ing_goulash_12,
+        ex:ing_goulash_13,
+        ex:ing_goulash_14,
+        ex:ing_goulash_2,
+        ex:ing_goulash_3,
+        ex:ing_goulash_4,
+        ex:ing_goulash_5,
+        ex:ing_goulash_6,
+        ex:ing_goulash_7,
+        ex:ing_goulash_8,
+        ex:ing_goulash_9 ;
+    ex:servings 6 ;
+    ex:slug "goulash" ;
+    ex:tag "Comfort",
+        "Make-Ahead",
+        "Slow-Cook" ;
+    ex:title "Goulash" .
+
+ex:recipe_katsudon a ex:Recipe ;
+    ex:approxCarbsPerServing 217.19225 ;
+    ex:approxFatPerServing 68.20725 ;
+    ex:approxFibrePerServing 18.565 ;
+    ex:approxKcalPerServing 1497.75 ;
+    ex:approxProteinPerServing 87.64250000000001 ;
+    ex:approxSodiumPerServing 12227.775 ;
+    ex:cuisine "japanese" ;
+    ex:foodType "Simple" ;
+    ex:hasIngredient ex:ing_katsudon_0,
+        ex:ing_katsudon_1,
+        ex:ing_katsudon_10,
+        ex:ing_katsudon_11,
+        ex:ing_katsudon_12,
+        ex:ing_katsudon_13,
+        ex:ing_katsudon_2,
+        ex:ing_katsudon_3,
+        ex:ing_katsudon_4,
+        ex:ing_katsudon_5,
+        ex:ing_katsudon_6,
+        ex:ing_katsudon_7,
+        ex:ing_katsudon_8,
+        ex:ing_katsudon_9 ;
+    ex:servings 2 ;
+    ex:slug "katsudon" ;
+    ex:tag "Comfort",
+        "Quick" ;
+    ex:title "Katsudon" .
+
 ex:recipe_lebanese-chicken-hummus-and-grilled-vegetables a ex:Recipe ;
-    ex:approxKcalPerServing 877.3666666666667 ;
-    ex:approxProteinPerServing 29.08266666666667 ;
+    ex:approxCarbsPerServing 49.669999999999995 ;
+    ex:approxFatPerServing 79.42633333333333 ;
+    ex:approxFibrePerServing 12.350999999999999 ;
+    ex:approxKcalPerServing 920.1333333333333 ;
+    ex:approxProteinPerServing 26.609833333333338 ;
+    ex:approxSodiumPerServing 435.23333333333335 ;
     ex:cuisine "middle-eastern" ;
     ex:foodType "Simple" ;
     ex:hasIngredient ex:ing_lebanese-chicken-hummus-and-grilled-vegetables_0,
@@ -44,9 +354,44 @@ ex:recipe_lebanese-chicken-hummus-and-grilled-vegetables a ex:Recipe ;
     ex:title "Lebanese chicken, hummus and grilled vegetables" ;
     ex:totalTimeMinutes 20 .
 
+ex:recipe_lu-rou-fan a ex:Recipe ;
+    ex:approxCarbsPerServing 52.67975 ;
+    ex:approxFatPerServing 71.67887499999999 ;
+    ex:approxFibrePerServing 6.7085 ;
+    ex:approxKcalPerServing 437.7375 ;
+    ex:approxProteinPerServing 41.405249999999995 ;
+    ex:approxSodiumPerServing 2046.4388 ;
+    ex:cuisine "taiwanese" ;
+    ex:foodType "Simple" ;
+    ex:hasIngredient ex:ing_lu-rou-fan_0,
+        ex:ing_lu-rou-fan_1,
+        ex:ing_lu-rou-fan_10,
+        ex:ing_lu-rou-fan_11,
+        ex:ing_lu-rou-fan_12,
+        ex:ing_lu-rou-fan_13,
+        ex:ing_lu-rou-fan_14,
+        ex:ing_lu-rou-fan_15,
+        ex:ing_lu-rou-fan_2,
+        ex:ing_lu-rou-fan_3,
+        ex:ing_lu-rou-fan_4,
+        ex:ing_lu-rou-fan_5,
+        ex:ing_lu-rou-fan_6,
+        ex:ing_lu-rou-fan_7,
+        ex:ing_lu-rou-fan_8,
+        ex:ing_lu-rou-fan_9 ;
+    ex:servings 4 ;
+    ex:slug "lu-rou-fan" ;
+    ex:tag "Comfort",
+        "Make-Ahead" ;
+    ex:title "Lu rou fan" .
+
 ex:recipe_pasta-bolognese a ex:Recipe ;
-    ex:approxKcalPerServing 803.15 ;
-    ex:approxProteinPerServing 43.932875 ;
+    ex:approxCarbsPerServing 408.53975 ;
+    ex:approxFatPerServing 48.59100000000001 ;
+    ex:approxFibrePerServing 23.400000000000002 ;
+    ex:approxKcalPerServing 853.8375 ;
+    ex:approxProteinPerServing 57.476625 ;
+    ex:approxSodiumPerServing 12983.365 ;
     ex:cuisine "italian" ;
     ex:foodType "Dinner" ;
     ex:hasIngredient ex:ing_pasta-bolognese_0,
@@ -71,9 +416,69 @@ ex:recipe_pasta-bolognese a ex:Recipe ;
     ex:title "Pasta Bolognese alla Magnus" ;
     ex:totalTimeMinutes 120 .
 
+ex:recipe_peperonata a ex:Recipe ;
+    ex:approxCarbsPerServing 45.254 ;
+    ex:approxFatPerServing 13.747499999999999 ;
+    ex:approxFibrePerServing 16.67 ;
+    ex:approxKcalPerServing 236.4375 ;
+    ex:approxProteinPerServing 15.56525 ;
+    ex:approxSodiumPerServing 286.1 ;
+    ex:cuisine "italian" ;
+    ex:foodType "Simple" ;
+    ex:hasIngredient ex:ing_peperonata_0,
+        ex:ing_peperonata_1,
+        ex:ing_peperonata_2,
+        ex:ing_peperonata_3,
+        ex:ing_peperonata_4,
+        ex:ing_peperonata_5,
+        ex:ing_peperonata_6,
+        ex:ing_peperonata_7,
+        ex:ing_peperonata_8 ;
+    ex:servings 4 ;
+    ex:slug "peperonata" ;
+    ex:tag "Make-Ahead",
+        "Vegan",
+        "Vegetarian" ;
+    ex:title "Peperonata" .
+
+ex:recipe_pork-ragu a ex:Recipe ;
+    ex:approxCarbsPerServing 54.31666666666666 ;
+    ex:approxFatPerServing 17.80566666666667 ;
+    ex:approxFibrePerServing 11.011666666666665 ;
+    ex:approxKcalPerServing 621.1 ;
+    ex:approxProteinPerServing 56.41416666666666 ;
+    ex:approxSodiumPerServing 817.35 ;
+    ex:cuisine "italian" ;
+    ex:foodType "Simple" ;
+    ex:hasIngredient ex:ing_pork-ragu_0,
+        ex:ing_pork-ragu_1,
+        ex:ing_pork-ragu_10,
+        ex:ing_pork-ragu_11,
+        ex:ing_pork-ragu_12,
+        ex:ing_pork-ragu_13,
+        ex:ing_pork-ragu_14,
+        ex:ing_pork-ragu_2,
+        ex:ing_pork-ragu_3,
+        ex:ing_pork-ragu_4,
+        ex:ing_pork-ragu_5,
+        ex:ing_pork-ragu_6,
+        ex:ing_pork-ragu_7,
+        ex:ing_pork-ragu_8,
+        ex:ing_pork-ragu_9 ;
+    ex:servings 6 ;
+    ex:slug "pork-ragu" ;
+    ex:tag "Comfort",
+        "Make-Ahead",
+        "Slow-Cook" ;
+    ex:title "Pork ragu" .
+
 ex:recipe_pytt-i-panne a ex:Recipe ;
-    ex:approxKcalPerServing 1748.5 ;
-    ex:approxProteinPerServing 53.936 ;
+    ex:approxCarbsPerServing 131.58 ;
+    ex:approxFatPerServing 60.94 ;
+    ex:approxFibrePerServing 13.55 ;
+    ex:approxKcalPerServing 1238.0 ;
+    ex:approxProteinPerServing 40.01 ;
+    ex:approxSodiumPerServing 2787.0 ;
     ex:cuisine "scandinavian" ;
     ex:foodType "Lazy" ;
     ex:hasIngredient ex:ing_pytt-i-panne_0,
@@ -88,9 +493,40 @@ ex:recipe_pytt-i-panne a ex:Recipe ;
     ex:title "Pytt i Panne" ;
     ex:totalTimeMinutes 15 .
 
+ex:recipe_souvlaki a ex:Recipe ;
+    ex:approxCarbsPerServing 96.845 ;
+    ex:approxFatPerServing 25.565250000000002 ;
+    ex:approxFibrePerServing 12.4725 ;
+    ex:approxKcalPerServing 736.8375000000001 ;
+    ex:approxProteinPerServing 63.211875000000006 ;
+    ex:approxSodiumPerServing 1252.7125 ;
+    ex:cuisine "greek" ;
+    ex:foodType "Simple" ;
+    ex:hasIngredient ex:ing_souvlaki_0,
+        ex:ing_souvlaki_1,
+        ex:ing_souvlaki_10,
+        ex:ing_souvlaki_11,
+        ex:ing_souvlaki_2,
+        ex:ing_souvlaki_3,
+        ex:ing_souvlaki_4,
+        ex:ing_souvlaki_5,
+        ex:ing_souvlaki_6,
+        ex:ing_souvlaki_7,
+        ex:ing_souvlaki_8,
+        ex:ing_souvlaki_9 ;
+    ex:servings 4 ;
+    ex:slug "souvlaki" ;
+    ex:tag "Grill",
+        "Quick" ;
+    ex:title "Souvlaki" .
+
 ex:recipe_tahini-chicken-with-butternut-hummus-and-bulgur-salad a ex:Recipe ;
-    ex:approxKcalPerServing 2724.525 ;
-    ex:approxProteinPerServing 105.315 ;
+    ex:approxCarbsPerServing 2172.83025 ;
+    ex:approxFatPerServing 172.173 ;
+    ex:approxFibrePerServing 28.879999999999995 ;
+    ex:approxKcalPerServing 2628.0750000000003 ;
+    ex:approxProteinPerServing 92.21300000000002 ;
+    ex:approxSodiumPerServing 62805.274999999994 ;
     ex:cuisine "middle-eastern" ;
     ex:foodType "Simple" ;
     ex:hasIngredient ex:ing_tahini-chicken-with-butternut-hummus-and-bulgur-salad_0,
@@ -119,7 +555,655 @@ ex:recipe_tahini-chicken-with-butternut-hummus-and-bulgur-salad a ex:Recipe ;
     ex:tag "Healthy",
         "Quick",
         "Summer" ;
-    ex:title "Tahini chicken with butternut hummus and bulgur salad" .
+    ex:title "Tahini chicken with butternut hummus and bulgur salad" ;
+    ex:totalTimeMinutes 40 .
+
+ex:recipe_teriyaki-chicken a ex:Recipe ;
+    ex:approxCarbsPerServing 49.969249999999995 ;
+    ex:approxFatPerServing 76.19825 ;
+    ex:approxFibrePerServing 6.43 ;
+    ex:approxKcalPerServing 1065.8 ;
+    ex:approxProteinPerServing 52.384 ;
+    ex:approxSodiumPerServing 1631.45 ;
+    ex:cuisine "japanese" ;
+    ex:foodType "Simple" ;
+    ex:hasIngredient ex:ing_teriyaki-chicken_0,
+        ex:ing_teriyaki-chicken_1,
+        ex:ing_teriyaki-chicken_2,
+        ex:ing_teriyaki-chicken_3,
+        ex:ing_teriyaki-chicken_4,
+        ex:ing_teriyaki-chicken_5,
+        ex:ing_teriyaki-chicken_6,
+        ex:ing_teriyaki-chicken_7,
+        ex:ing_teriyaki-chicken_8 ;
+    ex:servings 2 ;
+    ex:slug "teriyaki-chicken" ;
+    ex:tag "Healthy",
+        "Quick" ;
+    ex:title "Teriyaki chicken" .
+
+ex:ing_Pork-chops-with-chimichurri-and-grilled-pepper-salad_0 a ex:Ingredient ;
+    ex:foodCategory "pork" ;
+    ex:hasNutrition ex:nutr_Pork-chops-with-chimichurri-and-grilled-pepper-salad_0 ;
+    ex:normalisedName "pork shoulder" ;
+    ex:quantityG 400.0 ;
+    ex:rawString "400g pork shoulder" ;
+    ex:wikidataLabel "pork shoulder" ;
+    ex:wikidataQid "Q2255700" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q2255700" .
+
+ex:ing_Pork-chops-with-chimichurri-and-grilled-pepper-salad_1 a ex:Ingredient ;
+    ex:foodCategory "mixture" ;
+    ex:hasNutrition ex:nutr_Pork-chops-with-chimichurri-and-grilled-pepper-salad_1 ;
+    ex:normalisedName "salt" ;
+    ex:quantityG 6.0 ;
+    ex:rawString "6g Salt" ;
+    ex:wikidataLabel "table salt" ;
+    ex:wikidataQid "Q11254" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q11254" .
+
+ex:ing_Pork-chops-with-chimichurri-and-grilled-pepper-salad_10 a ex:Ingredient ;
+    ex:hasNutrition ex:nutr_Pork-chops-with-chimichurri-and-grilled-pepper-salad_10 ;
+    ex:normalisedName "red chilli" ;
+    ex:quantityG 10.0 ;
+    ex:rawString "1 red chilli, finely chopped" .
+
+ex:ing_Pork-chops-with-chimichurri-and-grilled-pepper-salad_11 a ex:Ingredient ;
+    ex:foodCategory "herbal medicinal product" ;
+    ex:hasNutrition ex:nutr_Pork-chops-with-chimichurri-and-grilled-pepper-salad_11 ;
+    ex:normalisedName "garlic" ;
+    ex:quantityG 5.0 ;
+    ex:rawString "1 clove garlic, finely chopped" ;
+    ex:wikidataLabel "garlic" ;
+    ex:wikidataQid "Q21546392" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q21546392" .
+
+ex:ing_Pork-chops-with-chimichurri-and-grilled-pepper-salad_12 a ex:Ingredient ;
+    ex:foodCategory "non-drying oil" ;
+    ex:hasNutrition ex:nutr_Pork-chops-with-chimichurri-and-grilled-pepper-salad_12 ;
+    ex:normalisedName "olive oil" ;
+    ex:quantityG 60.0 ;
+    ex:rawString "1/4 cup olive oil" ;
+    ex:wikidataLabel "olive oil" ;
+    ex:wikidataQid "Q93165" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q93165" .
+
+ex:ing_Pork-chops-with-chimichurri-and-grilled-pepper-salad_13 a ex:Ingredient ;
+    ex:foodCategory "taxon" ;
+    ex:hasNutrition ex:nutr_Pork-chops-with-chimichurri-and-grilled-pepper-salad_13 ;
+    ex:normalisedName "oregano" ;
+    ex:rawString "pinch of oregano" ;
+    ex:wikidataLabel "Origanum vulgare" ;
+    ex:wikidataQid "Q134283" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q134283" .
+
+ex:ing_Pork-chops-with-chimichurri-and-grilled-pepper-salad_14 a ex:Ingredient ;
+    ex:foodCategory "condiment" ;
+    ex:hasNutrition ex:nutr_Pork-chops-with-chimichurri-and-grilled-pepper-salad_14 ;
+    ex:normalisedName "balsamic vinegar" ;
+    ex:originCountry "Italy" ;
+    ex:quantityG 5.0 ;
+    ex:rawString "1 tsp Balsamic vinegar" ;
+    ex:wikidataLabel "balsamic vinegar" ;
+    ex:wikidataQid "Q170037" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q170037" .
+
+ex:ing_Pork-chops-with-chimichurri-and-grilled-pepper-salad_15 a ex:Ingredient ;
+    ex:foodCategory "mixture" ;
+    ex:hasNutrition ex:nutr_Pork-chops-with-chimichurri-and-grilled-pepper-salad_15 ;
+    ex:normalisedName "salt" ;
+    ex:rawString "Salt and pepper" ;
+    ex:wikidataLabel "table salt" ;
+    ex:wikidataQid "Q11254" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q11254" .
+
+ex:ing_Pork-chops-with-chimichurri-and-grilled-pepper-salad_2 a ex:Ingredient ;
+    ex:foodCategory "Group" ;
+    ex:hasNutrition ex:nutr_Pork-chops-with-chimichurri-and-grilled-pepper-salad_2 ;
+    ex:normalisedName "pepper" ;
+    ex:rawString "Pepper to taste" ;
+    ex:wikidataLabel "bell pepper" ;
+    ex:wikidataQid "Q1548030" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q1548030" .
+
+ex:ing_Pork-chops-with-chimichurri-and-grilled-pepper-salad_3 a ex:Ingredient ;
+    ex:foodCategory "Group" ;
+    ex:hasNutrition ex:nutr_Pork-chops-with-chimichurri-and-grilled-pepper-salad_3 ;
+    ex:normalisedName "bell pepper" ;
+    ex:quantityG 300.0 ;
+    ex:rawString "2 Large bell peppers" ;
+    ex:wikidataLabel "bell pepper" ;
+    ex:wikidataQid "Q1548030" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q1548030" .
+
+ex:ing_Pork-chops-with-chimichurri-and-grilled-pepper-salad_4 a ex:Ingredient ;
+    ex:foodCategory "dish" ;
+    ex:hasNutrition ex:nutr_Pork-chops-with-chimichurri-and-grilled-pepper-salad_4 ;
+    ex:normalisedName "corn salad" ;
+    ex:quantityG 100.0 ;
+    ex:rawString "100g corn salad" ;
+    ex:wikidataLabel "corn salad" ;
+    ex:wikidataQid "Q94642761" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q94642761" .
+
+ex:ing_Pork-chops-with-chimichurri-and-grilled-pepper-salad_5 a ex:Ingredient ;
+    ex:foodCategory "nut" ;
+    ex:hasNutrition ex:nutr_Pork-chops-with-chimichurri-and-grilled-pepper-salad_5 ;
+    ex:normalisedName "pine nuts" ;
+    ex:quantityG 10.0 ;
+    ex:rawString "10g pine nuts" ;
+    ex:wikidataLabel "pine nut" ;
+    ex:wikidataQid "Q212933" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q212933" .
+
+ex:ing_Pork-chops-with-chimichurri-and-grilled-pepper-salad_6 a ex:Ingredient ;
+    ex:foodCategory "taxon" ;
+    ex:hasNutrition ex:nutr_Pork-chops-with-chimichurri-and-grilled-pepper-salad_6 ;
+    ex:normalisedName "red onion" ;
+    ex:quantityG 75.0 ;
+    ex:rawString "1/2 red onion, thinly sliced" ;
+    ex:wikidataLabel "red onion" ;
+    ex:wikidataQid "Q622350" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q622350" .
+
+ex:ing_Pork-chops-with-chimichurri-and-grilled-pepper-salad_7 a ex:Ingredient ;
+    ex:foodCategory "condiment" ;
+    ex:hasNutrition ex:nutr_Pork-chops-with-chimichurri-and-grilled-pepper-salad_7 ;
+    ex:normalisedName "balsamic vinegar" ;
+    ex:originCountry "Italy" ;
+    ex:quantityG 5.0 ;
+    ex:rawString "1 tsp Balsamic vinegar" ;
+    ex:wikidataLabel "balsamic vinegar" ;
+    ex:wikidataQid "Q170037" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q170037" .
+
+ex:ing_Pork-chops-with-chimichurri-and-grilled-pepper-salad_8 a ex:Ingredient ;
+    ex:foodCategory "mixture" ;
+    ex:hasNutrition ex:nutr_Pork-chops-with-chimichurri-and-grilled-pepper-salad_8 ;
+    ex:normalisedName "salt" ;
+    ex:rawString "Salt and pepper" ;
+    ex:wikidataLabel "table salt" ;
+    ex:wikidataQid "Q11254" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q11254" .
+
+ex:ing_Pork-chops-with-chimichurri-and-grilled-pepper-salad_9 a ex:Ingredient ;
+    ex:foodCategory "spice" ;
+    ex:hasNutrition ex:nutr_Pork-chops-with-chimichurri-and-grilled-pepper-salad_9 ;
+    ex:normalisedName "parsley" ;
+    ex:quantityG 120.0 ;
+    ex:rawString "1/2 cup Parsley, finely chopped" ;
+    ex:wikidataLabel "parsley" ;
+    ex:wikidataQid "Q65522500" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q65522500" .
+
+ex:ing_aguachile_0 a ex:Ingredient ;
+    ex:foodCategory "organisms known by a particular common name" ;
+    ex:hasNutrition ex:nutr_aguachile_0 ;
+    ex:normalisedName "shrimp" ;
+    ex:quantityG 500.0 ;
+    ex:rawString "500g raw shrimp, peeled, deveined and butterflied" ;
+    ex:wikidataLabel "shrimp" ;
+    ex:wikidataQid "Q1517781" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q1517781" .
+
+ex:ing_aguachile_1 a ex:Ingredient ;
+    ex:foodCategory "essential oil" ;
+    ex:hasNutrition ex:nutr_aguachile_1 ;
+    ex:normalisedName "lime juice" ;
+    ex:quantityG 200.0 ;
+    ex:rawString "Juice of 8 limes (about 200ml)" ;
+    ex:wikidataLabel "lime oil" ;
+    ex:wikidataQid "Q72487476" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q72487476" .
+
+ex:ing_aguachile_2 a ex:Ingredient ;
+    ex:hasNutrition ex:nutr_aguachile_2 ;
+    ex:normalisedName "serrano chile" ;
+    ex:quantityG 30.0 ;
+    ex:rawString "3 serrano chiles, stems removed" .
+
+ex:ing_aguachile_3 a ex:Ingredient ;
+    ex:foodCategory "taxon" ;
+    ex:hasNutrition ex:nutr_aguachile_3 ;
+    ex:normalisedName "cilantro" ;
+    ex:quantityG 15.0 ;
+    ex:rawString "1 small handful fresh cilantro" ;
+    ex:wikidataLabel "Coriandrum sativum" ;
+    ex:wikidataQid "Q41611" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q41611" .
+
+ex:ing_aguachile_4 a ex:Ingredient ;
+    ex:foodCategory "herbal medicinal product" ;
+    ex:hasNutrition ex:nutr_aguachile_4 ;
+    ex:normalisedName "garlic" ;
+    ex:quantityG 10.0 ;
+    ex:rawString "2 garlic cloves" ;
+    ex:wikidataLabel "garlic" ;
+    ex:wikidataQid "Q21546392" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q21546392" .
+
+ex:ing_aguachile_5 a ex:Ingredient ;
+    ex:foodCategory "taxon" ;
+    ex:hasNutrition ex:nutr_aguachile_5 ;
+    ex:normalisedName "cucumber" ;
+    ex:quantityG 200.0 ;
+    ex:rawString "1 cucumber, half diced and half thinly sliced" ;
+    ex:wikidataLabel "Cucumis sativus" ;
+    ex:wikidataQid "Q23425" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q23425" .
+
+ex:ing_aguachile_6 a ex:Ingredient ;
+    ex:foodCategory "taxon" ;
+    ex:hasNutrition ex:nutr_aguachile_6 ;
+    ex:normalisedName "red onion" ;
+    ex:quantityG 150.0 ;
+    ex:rawString "1 red onion, thinly sliced" ;
+    ex:wikidataLabel "red onion" ;
+    ex:wikidataQid "Q622350" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q622350" .
+
+ex:ing_aguachile_7 a ex:Ingredient ;
+    ex:foodCategory "tropical fruit" ;
+    ex:hasNutrition ex:nutr_aguachile_7 ;
+    ex:normalisedName "avocado" ;
+    ex:quantityG 150.0 ;
+    ex:rawString "1 avocado, sliced" ;
+    ex:wikidataLabel "avocado" ;
+    ex:wikidataQid "Q961769" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q961769" .
+
+ex:ing_aguachile_8 a ex:Ingredient ;
+    ex:foodCategory "mixture" ;
+    ex:hasNutrition ex:nutr_aguachile_8 ;
+    ex:normalisedName "salt" ;
+    ex:quantityG 5.0 ;
+    ex:rawString "1 teaspoon salt" ;
+    ex:wikidataLabel "table salt" ;
+    ex:wikidataQid "Q11254" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q11254" .
+
+ex:ing_aguachile_9 a ex:Ingredient ;
+    ex:foodCategory "dish" ;
+    ex:hasNutrition ex:nutr_aguachile_9 ;
+    ex:normalisedName "tostadas" ;
+    ex:originCountry "Mexico" ;
+    ex:rawString "Tostadas or tortilla chips, to serve" ;
+    ex:wikidataLabel "tostada" ;
+    ex:wikidataQid "Q3280441" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q3280441" .
+
+ex:ing_betasuppe_0 a ex:Ingredient ;
+    ex:hasNutrition ex:nutr_betasuppe_0 ;
+    ex:normalisedName "pork shank" ;
+    ex:quantityG 1000.0 ;
+    ex:rawString "1 pork shank, about 1kg, fresh or lightly salted" .
+
+ex:ing_betasuppe_1 a ex:Ingredient ;
+    ex:hasNutrition ex:nutr_betasuppe_1 ;
+    ex:normalisedName "water" ;
+    ex:quantityG 2000.0 ;
+    ex:rawString "2 litres water" .
+
+ex:ing_betasuppe_10 a ex:Ingredient ;
+    ex:foodCategory "staple food" ;
+    ex:hasNutrition ex:nutr_betasuppe_10 ;
+    ex:normalisedName "potato" ;
+    ex:quantityG 600.0 ;
+    ex:rawString "4 potatoes, peeled and diced into 2cm cubes" ;
+    ex:wikidataLabel "potato" ;
+    ex:wikidataQid "Q16587531" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q16587531" .
+
+ex:ing_betasuppe_11 a ex:Ingredient ;
+    ex:hasNutrition ex:nutr_betasuppe_11 ;
+    ex:normalisedName "salt and black pepper" ;
+    ex:rawString "Salt and black pepper" .
+
+ex:ing_betasuppe_12 a ex:Ingredient ;
+    ex:foodCategory "spice" ;
+    ex:hasNutrition ex:nutr_betasuppe_12 ;
+    ex:normalisedName "parsley" ;
+    ex:quantityG 15.0 ;
+    ex:rawString "1 small handful fresh parsley, chopped" ;
+    ex:wikidataLabel "parsley" ;
+    ex:wikidataQid "Q65522500" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q65522500" .
+
+ex:ing_betasuppe_13 a ex:Ingredient ;
+    ex:foodCategory "bing" ;
+    ex:hasNutrition ex:nutr_betasuppe_13 ;
+    ex:normalisedName "flatbread" ;
+    ex:rawString "Flatbread or rye bread, to serve" ;
+    ex:wikidataLabel "flatbread" ;
+    ex:wikidataQid "Q666242" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q666242" .
+
+ex:ing_betasuppe_2 a ex:Ingredient ;
+    ex:foodCategory "essential oil" ;
+    ex:hasNutrition ex:nutr_betasuppe_2 ;
+    ex:normalisedName "bay leaf" ;
+    ex:quantityG 1.0 ;
+    ex:rawString "2 bay leaves" ;
+    ex:wikidataLabel "bay oil" ;
+    ex:wikidataQid "Q72444924" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q72444924" .
+
+ex:ing_betasuppe_3 a ex:Ingredient ;
+    ex:foodCategory "food ingredient" ;
+    ex:hasNutrition ex:nutr_betasuppe_3 ;
+    ex:normalisedName "black peppercorn" ;
+    ex:quantityG 5.0 ;
+    ex:rawString "1 teaspoon whole black peppercorns" ;
+    ex:wikidataLabel "black pepper" ;
+    ex:wikidataQid "Q22915010" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q22915010" .
+
+ex:ing_betasuppe_4 a ex:Ingredient ;
+    ex:hasNutrition ex:nutr_betasuppe_4 ;
+    ex:normalisedName "allspice berry" ;
+    ex:quantityG 5.0 ;
+    ex:rawString "1 teaspoon whole allspice berries" .
+
+ex:ing_betasuppe_5 a ex:Ingredient ;
+    ex:foodCategory "organisms known by a particular common name" ;
+    ex:hasNutrition ex:nutr_betasuppe_5 ;
+    ex:normalisedName "leek" ;
+    ex:quantityG 150.0 ;
+    ex:rawString "1 leek, sliced" ;
+    ex:wikidataLabel "leek" ;
+    ex:wikidataQid "Q1807269" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q1807269" .
+
+ex:ing_betasuppe_6 a ex:Ingredient ;
+    ex:foodCategory "winter vegetable" ;
+    ex:hasNutrition ex:nutr_betasuppe_6 ;
+    ex:normalisedName "rutabaga" ;
+    ex:quantityG 400.0 ;
+    ex:rawString "1 small rutabaga (kålrot), peeled and diced into 2cm cubes" ;
+    ex:wikidataLabel "rutabaga" ;
+    ex:wikidataQid "Q104733765" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q104733765" .
+
+ex:ing_betasuppe_7 a ex:Ingredient ;
+    ex:foodCategory "food crop" ;
+    ex:hasNutrition ex:nutr_betasuppe_7 ;
+    ex:normalisedName "carrot" ;
+    ex:quantityG 180.0 ;
+    ex:rawString "3 carrots, diced into 2cm cubes" ;
+    ex:wikidataLabel "carrot" ;
+    ex:wikidataQid "Q81" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q81" .
+
+ex:ing_betasuppe_8 a ex:Ingredient ;
+    ex:foodCategory "root vegetable" ;
+    ex:hasNutrition ex:nutr_betasuppe_8 ;
+    ex:normalisedName "celeriac" ;
+    ex:quantityG 300.0 ;
+    ex:rawString "1 small celeriac, peeled and diced into 2cm cubes" ;
+    ex:wikidataLabel "celeriac root" ;
+    ex:wikidataQid "Q103765549" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q103765549" .
+
+ex:ing_betasuppe_9 a ex:Ingredient ;
+    ex:foodCategory "bean" ;
+    ex:hasNutrition ex:nutr_betasuppe_9 ;
+    ex:normalisedName "yellow split peas" ;
+    ex:quantityG 100.0 ;
+    ex:rawString "100g yellow split peas, rinsed" ;
+    ex:wikidataLabel "pigeon pea" ;
+    ex:wikidataQid "Q103449274" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q103449274" .
+
+ex:ing_briam_0 a ex:Ingredient ;
+    ex:foodCategory "staple food" ;
+    ex:hasNutrition ex:nutr_briam_0 ;
+    ex:normalisedName "potato" ;
+    ex:quantityG 600.0 ;
+    ex:rawString "4 medium potatoes, sliced into 5mm rounds" ;
+    ex:wikidataLabel "potato" ;
+    ex:wikidataQid "Q16587531" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q16587531" .
+
+ex:ing_briam_1 a ex:Ingredient ;
+    ex:foodCategory "taxon" ;
+    ex:hasNutrition ex:nutr_briam_1 ;
+    ex:normalisedName "zucchini" ;
+    ex:quantityG 450.0 ;
+    ex:rawString "3 zucchini, sliced into 5mm rounds" ;
+    ex:wikidataLabel "zucchini" ;
+    ex:wikidataQid "Q7533" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q7533" .
+
+ex:ing_briam_10 a ex:Ingredient ;
+    ex:foodCategory "mixed milk cheese" ;
+    ex:hasNutrition ex:nutr_briam_10 ;
+    ex:normalisedName "feta" ;
+    ex:originCountry "Greece" ;
+    ex:rawString "Crumbled feta, to serve (optional)" ;
+    ex:wikidataLabel "feta" ;
+    ex:wikidataQid "Q182760" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q182760" .
+
+ex:ing_briam_2 a ex:Ingredient ;
+    ex:foodCategory "food crop" ;
+    ex:hasNutrition ex:nutr_briam_2 ;
+    ex:normalisedName "tomato" ;
+    ex:quantityG 450.0 ;
+    ex:rawString "4 tomatoes, sliced" ;
+    ex:wikidataLabel "tomato" ;
+    ex:wikidataQid "Q23501" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q23501" .
+
+ex:ing_briam_3 a ex:Ingredient ;
+    ex:foodCategory "tomato dish" ;
+    ex:hasNutrition ex:nutr_briam_3 ;
+    ex:normalisedName "passata" ;
+    ex:originCountry "Italy" ;
+    ex:quantityG 200.0 ;
+    ex:rawString "200g passata or grated tomato" ;
+    ex:wikidataLabel "tomato purée" ;
+    ex:wikidataQid "Q1114674" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q1114674" .
+
+ex:ing_briam_4 a ex:Ingredient ;
+    ex:foodCategory "taxon" ;
+    ex:hasNutrition ex:nutr_briam_4 ;
+    ex:normalisedName "red onion" ;
+    ex:quantityG 300.0 ;
+    ex:rawString "2 red onions, thinly sliced" ;
+    ex:wikidataLabel "red onion" ;
+    ex:wikidataQid "Q622350" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q622350" .
+
+ex:ing_briam_5 a ex:Ingredient ;
+    ex:foodCategory "herbal medicinal product" ;
+    ex:hasNutrition ex:nutr_briam_5 ;
+    ex:normalisedName "garlic" ;
+    ex:quantityG 20.0 ;
+    ex:rawString "4 garlic cloves, sliced" ;
+    ex:wikidataLabel "garlic" ;
+    ex:wikidataQid "Q21546392" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q21546392" .
+
+ex:ing_briam_6 a ex:Ingredient ;
+    ex:foodCategory "non-drying oil" ;
+    ex:hasNutrition ex:nutr_briam_6 ;
+    ex:normalisedName "olive oil" ;
+    ex:quantityG 100.0 ;
+    ex:rawString "100ml olive oil" ;
+    ex:wikidataLabel "olive oil" ;
+    ex:wikidataQid "Q93165" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q93165" .
+
+ex:ing_briam_7 a ex:Ingredient ;
+    ex:foodCategory "taxon" ;
+    ex:hasNutrition ex:nutr_briam_7 ;
+    ex:normalisedName "oregano" ;
+    ex:quantityG 10.0 ;
+    ex:rawString "2 teaspoons dried oregano" ;
+    ex:wikidataLabel "Origanum vulgare" ;
+    ex:wikidataQid "Q134283" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q134283" .
+
+ex:ing_briam_8 a ex:Ingredient ;
+    ex:foodCategory "spice" ;
+    ex:hasNutrition ex:nutr_briam_8 ;
+    ex:normalisedName "parsley" ;
+    ex:quantityG 15.0 ;
+    ex:rawString "1 small handful fresh parsley, chopped" ;
+    ex:wikidataLabel "parsley" ;
+    ex:wikidataQid "Q65522500" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q65522500" .
+
+ex:ing_briam_9 a ex:Ingredient ;
+    ex:hasNutrition ex:nutr_briam_9 ;
+    ex:normalisedName "salt and black pepper" ;
+    ex:rawString "Salt and black pepper" .
+
+ex:ing_carne-asada-tacos_0 a ex:Ingredient ;
+    ex:foodCategory "Plate steak" ;
+    ex:hasNutrition ex:nutr_carne-asada-tacos_0 ;
+    ex:normalisedName "skirt steak" ;
+    ex:quantityG 800.0 ;
+    ex:rawString "800g skirt or flank steak" ;
+    ex:wikidataLabel "skirt steak" ;
+    ex:wikidataQid "Q643995" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q643995" .
+
+ex:ing_carne-asada-tacos_1 a ex:Ingredient ;
+    ex:foodCategory "essential oil" ;
+    ex:hasNutrition ex:nutr_carne-asada-tacos_1 ;
+    ex:normalisedName "lime juice" ;
+    ex:quantityG 60.0 ;
+    ex:rawString "Juice of 2 limes" ;
+    ex:wikidataLabel "lime oil" ;
+    ex:wikidataQid "Q72487476" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q72487476" .
+
+ex:ing_carne-asada-tacos_10 a ex:Ingredient ;
+    ex:foodCategory "tortilla" ;
+    ex:hasNutrition ex:nutr_carne-asada-tacos_10 ;
+    ex:normalisedName "corn tortilla" ;
+    ex:originCountry "Mesoamerica" ;
+    ex:quantityG 180.0 ;
+    ex:rawString "12 small corn tortillas" ;
+    ex:wikidataLabel "corn tortilla" ;
+    ex:wikidataQid "Q15660894" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q15660894" .
+
+ex:ing_carne-asada-tacos_11 a ex:Ingredient ;
+    ex:foodCategory "parivyaya" ;
+    ex:hasNutrition ex:nutr_carne-asada-tacos_11 ;
+    ex:normalisedName "onion" ;
+    ex:quantityG 150.0 ;
+    ex:rawString "1 white onion, finely diced" ;
+    ex:wikidataLabel "Allium" ;
+    ex:wikidataQid "Q49391" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q49391" .
+
+ex:ing_carne-asada-tacos_12 a ex:Ingredient ;
+    ex:foodCategory "taxon" ;
+    ex:hasNutrition ex:nutr_carne-asada-tacos_12 ;
+    ex:normalisedName "cilantro" ;
+    ex:rawString "1 small handful fresh cilantro, chopped" ;
+    ex:wikidataLabel "Coriandrum sativum" ;
+    ex:wikidataQid "Q41611" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q41611" .
+
+ex:ing_carne-asada-tacos_13 a ex:Ingredient ;
+    ex:hasNutrition ex:nutr_carne-asada-tacos_13 ;
+    ex:normalisedName "lime" ;
+    ex:quantityG 100.0 ;
+    ex:rawString "2 limes, cut into wedges" .
+
+ex:ing_carne-asada-tacos_14 a ex:Ingredient ;
+    ex:foodCategory "sauce" ;
+    ex:hasNutrition ex:nutr_carne-asada-tacos_14 ;
+    ex:normalisedName "salsa verde" ;
+    ex:originCountry "Mexico" ;
+    ex:rawString "Salsa verde or salsa roja" ;
+    ex:wikidataLabel "salsa verde" ;
+    ex:wikidataQid "Q20747642" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q20747642" .
+
+ex:ing_carne-asada-tacos_2 a ex:Ingredient ;
+    ex:foodCategory "ship type" ;
+    ex:hasNutrition ex:nutr_carne-asada-tacos_2 ;
+    ex:normalisedName "orange juice" ;
+    ex:quantityG 50.0 ;
+    ex:rawString "Juice of 1 orange" ;
+    ex:wikidataLabel "fruit juice tanker" ;
+    ex:wikidataQid "Q1470795" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q1470795" .
+
+ex:ing_carne-asada-tacos_3 a ex:Ingredient ;
+    ex:foodCategory "herbal medicinal product" ;
+    ex:hasNutrition ex:nutr_carne-asada-tacos_3 ;
+    ex:normalisedName "garlic" ;
+    ex:quantityG 20.0 ;
+    ex:rawString "4 garlic cloves, grated" ;
+    ex:wikidataLabel "garlic" ;
+    ex:wikidataQid "Q21546392" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q21546392" .
+
+ex:ing_carne-asada-tacos_4 a ex:Ingredient ;
+    ex:foodCategory "taxon" ;
+    ex:hasNutrition ex:nutr_carne-asada-tacos_4 ;
+    ex:normalisedName "cilantro" ;
+    ex:rawString "1 small handful fresh cilantro, chopped" ;
+    ex:wikidataLabel "Coriandrum sativum" ;
+    ex:wikidataQid "Q41611" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q41611" .
+
+ex:ing_carne-asada-tacos_5 a ex:Ingredient ;
+    ex:foodCategory "non-drying oil" ;
+    ex:hasNutrition ex:nutr_carne-asada-tacos_5 ;
+    ex:normalisedName "olive oil" ;
+    ex:quantityG 30.0 ;
+    ex:rawString "2 tablespoons olive oil" ;
+    ex:wikidataLabel "olive oil" ;
+    ex:wikidataQid "Q93165" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q93165" .
+
+ex:ing_carne-asada-tacos_6 a ex:Ingredient ;
+    ex:foodCategory "fruit" ;
+    ex:hasNutrition ex:nutr_carne-asada-tacos_6 ;
+    ex:normalisedName "ground cumin" ;
+    ex:quantityG 10.0 ;
+    ex:rawString "2 teaspoons ground cumin" ;
+    ex:wikidataLabel "cumin seed" ;
+    ex:wikidataQid "Q57328174" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q57328174" .
+
+ex:ing_carne-asada-tacos_7 a ex:Ingredient ;
+    ex:foodCategory "Origanum vulgare" ;
+    ex:hasNutrition ex:nutr_carne-asada-tacos_7 ;
+    ex:normalisedName "dried oregano" ;
+    ex:quantityG 5.0 ;
+    ex:rawString "1 teaspoon dried oregano" ;
+    ex:wikidataLabel "dried oregano" ;
+    ex:wikidataQid "Q68496350" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q68496350" .
+
+ex:ing_carne-asada-tacos_8 a ex:Ingredient ;
+    ex:foodCategory "mixture" ;
+    ex:hasNutrition ex:nutr_carne-asada-tacos_8 ;
+    ex:normalisedName "salt" ;
+    ex:quantityG 5.0 ;
+    ex:rawString "1 teaspoon salt" ;
+    ex:wikidataLabel "table salt" ;
+    ex:wikidataQid "Q11254" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q11254" .
+
+ex:ing_carne-asada-tacos_9 a ex:Ingredient ;
+    ex:foodCategory "food ingredient" ;
+    ex:hasNutrition ex:nutr_carne-asada-tacos_9 ;
+    ex:normalisedName "black pepper" ;
+    ex:quantityG 5.0 ;
+    ex:rawString "1 teaspoon black pepper" ;
+    ex:wikidataLabel "black pepper" ;
+    ex:wikidataQid "Q22915010" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q22915010" .
 
 ex:ing_carnitas_0 a ex:Ingredient ;
     ex:foodCategory "pork" ;
@@ -161,19 +1245,23 @@ ex:ing_carnitas_3 a ex:Ingredient ;
     ex:wikidataUri "http://www.wikidata.org/entity/Q30038886" .
 
 ex:ing_carnitas_4 a ex:Ingredient ;
+    ex:foodCategory "food ingredient" ;
     ex:hasNutrition ex:nutr_carnitas_4 ;
-    ex:normalisedName "garlic cloves" ;
-    ex:quantityG 10.0 ;
-    ex:rawString "5 Garlic cloves" .
+    ex:normalisedName "garlic clove" ;
+    ex:quantityG 15.0 ;
+    ex:rawString "5 Garlic cloves" ;
+    ex:wikidataLabel "garlic clove" ;
+    ex:wikidataQid "Q28966859" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q28966859" .
 
 ex:ing_carnitas_5 a ex:Ingredient ;
-    ex:foodCategory "spice" ;
+    ex:foodCategory "essential oil" ;
     ex:hasNutrition ex:nutr_carnitas_5 ;
     ex:normalisedName "bay leaf" ;
     ex:rawString "2 Bay leafs" ;
-    ex:wikidataLabel "bay leaf" ;
-    ex:wikidataQid "Q2370943" ;
-    ex:wikidataUri "http://www.wikidata.org/entity/Q2370943" .
+    ex:wikidataLabel "bay oil" ;
+    ex:wikidataQid "Q72444924" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q72444924" .
 
 ex:ing_carnitas_6 a ex:Ingredient ;
     ex:foodCategory "mixture" ;
@@ -192,9 +1280,747 @@ ex:ing_carnitas_7 a ex:Ingredient ;
     ex:rawString "Roughly 500ml Water" .
 
 ex:ing_carnitas_8 a ex:Ingredient ;
+    ex:foodCategory "mixture" ;
     ex:hasNutrition ex:nutr_carnitas_8 ;
     ex:normalisedName "neutral oil" ;
-    ex:rawString "Neutral oil" .
+    ex:rawString "Neutral oil" ;
+    ex:wikidataLabel "essential oil" ;
+    ex:wikidataQid "Q170885" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q170885" .
+
+ex:ing_char-siu_0 a ex:Ingredient ;
+    ex:foodCategory "pork" ;
+    ex:hasNutrition ex:nutr_char-siu_0 ;
+    ex:normalisedName "pork shoulder" ;
+    ex:quantityG 1000.0 ;
+    ex:rawString "1kg pork shoulder, cut into 4cm-thick strips" ;
+    ex:wikidataLabel "pork shoulder" ;
+    ex:wikidataQid "Q2255700" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q2255700" .
+
+ex:ing_char-siu_1 a ex:Ingredient ;
+    ex:foodCategory "sauce" ;
+    ex:hasNutrition ex:nutr_char-siu_1 ;
+    ex:normalisedName "hoisin sauce" ;
+    ex:originCountry "People's Republic of China" ;
+    ex:quantityG 45.0 ;
+    ex:rawString "3 tablespoons hoisin sauce" ;
+    ex:wikidataLabel "hoisin sauce" ;
+    ex:wikidataQid "Q404114" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q404114" .
+
+ex:ing_char-siu_10 a ex:Ingredient ;
+    ex:foodCategory "food ingredient" ;
+    ex:hasNutrition ex:nutr_char-siu_10 ;
+    ex:normalisedName "white pepper" ;
+    ex:quantityG 5.0 ;
+    ex:rawString "1 teaspoon white pepper" ;
+    ex:wikidataLabel "white pepper" ;
+    ex:wikidataQid "Q744814" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q744814" .
+
+ex:ing_char-siu_11 a ex:Ingredient ;
+    ex:foodCategory "organic matter" ;
+    ex:hasNutrition ex:nutr_char-siu_11 ;
+    ex:normalisedName "honey" ;
+    ex:quantityG 45.0 ;
+    ex:rawString "3 tablespoons honey" ;
+    ex:wikidataLabel "honey" ;
+    ex:wikidataQid "Q10987" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q10987" .
+
+ex:ing_char-siu_12 a ex:Ingredient ;
+    ex:foodCategory "fish dish" ;
+    ex:hasNutrition ex:nutr_char-siu_12 ;
+    ex:normalisedName "marinade" ;
+    ex:quantityG 30.0 ;
+    ex:rawString "2 tablespoons reserved marinade" ;
+    ex:wikidataLabel "pickled fish" ;
+    ex:wikidataQid "Q66246606" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q66246606" .
+
+ex:ing_char-siu_2 a ex:Ingredient ;
+    ex:foodCategory "soy sauce" ;
+    ex:hasNutrition ex:nutr_char-siu_2 ;
+    ex:normalisedName "light soy sauce" ;
+    ex:quantityG 30.0 ;
+    ex:rawString "2 tablespoons light soy sauce" ;
+    ex:wikidataLabel "light soy sauce" ;
+    ex:wikidataQid "Q8529545" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q8529545" .
+
+ex:ing_char-siu_3 a ex:Ingredient ;
+    ex:foodCategory "soy sauce" ;
+    ex:hasNutrition ex:nutr_char-siu_3 ;
+    ex:normalisedName "dark soy sauce" ;
+    ex:originCountry "People's Republic of China" ;
+    ex:quantityG 15.0 ;
+    ex:rawString "1 tablespoon dark soy sauce" ;
+    ex:wikidataLabel "dark soy sauce" ;
+    ex:wikidataQid "Q8484030" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q8484030" .
+
+ex:ing_char-siu_4 a ex:Ingredient ;
+    ex:foodCategory "Huangjiu" ;
+    ex:hasNutrition ex:nutr_char-siu_4 ;
+    ex:normalisedName "shaoxing wine" ;
+    ex:quantityG 30.0 ;
+    ex:rawString "2 tablespoons Shaoxing wine" ;
+    ex:wikidataLabel "Shaoxing wine" ;
+    ex:wikidataQid "Q175245" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q175245" .
+
+ex:ing_char-siu_5 a ex:Ingredient ;
+    ex:hasNutrition ex:nutr_char-siu_5 ;
+    ex:normalisedName "red fermented bean curd" ;
+    ex:quantityG 40.0 ;
+    ex:rawString "2 cubes red fermented bean curd, plus 1 tablespoon of its liquid" .
+
+ex:ing_char-siu_6 a ex:Ingredient ;
+    ex:foodCategory "organic matter" ;
+    ex:hasNutrition ex:nutr_char-siu_6 ;
+    ex:normalisedName "honey" ;
+    ex:quantityG 30.0 ;
+    ex:rawString "2 tablespoons honey" ;
+    ex:wikidataLabel "honey" ;
+    ex:wikidataQid "Q10987" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q10987" .
+
+ex:ing_char-siu_7 a ex:Ingredient ;
+    ex:foodCategory "excipient" ;
+    ex:hasNutrition ex:nutr_char-siu_7 ;
+    ex:normalisedName "sugar" ;
+    ex:quantityG 30.0 ;
+    ex:rawString "2 tablespoons sugar" ;
+    ex:wikidataLabel "sugar" ;
+    ex:wikidataQid "Q11002" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q11002" .
+
+ex:ing_char-siu_8 a ex:Ingredient ;
+    ex:foodCategory "pentad" ;
+    ex:hasNutrition ex:nutr_char-siu_8 ;
+    ex:normalisedName "five-spice powder" ;
+    ex:originCountry "China" ;
+    ex:quantityG 5.0 ;
+    ex:rawString "1 teaspoon five-spice powder" ;
+    ex:wikidataLabel "five-spice powder" ;
+    ex:wikidataQid "Q1051492" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q1051492" .
+
+ex:ing_char-siu_9 a ex:Ingredient ;
+    ex:foodCategory "herbal medicinal product" ;
+    ex:hasNutrition ex:nutr_char-siu_9 ;
+    ex:normalisedName "garlic" ;
+    ex:quantityG 20.0 ;
+    ex:rawString "4 garlic cloves, grated" ;
+    ex:wikidataLabel "garlic" ;
+    ex:wikidataQid "Q21546392" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q21546392" .
+
+ex:ing_chicken-fajitas_0 a ex:Ingredient ;
+    ex:foodCategory "thigh" ;
+    ex:hasNutrition ex:nutr_chicken-fajitas_0 ;
+    ex:normalisedName "chicken thigh" ;
+    ex:quantityG 600.0 ;
+    ex:rawString "600g chicken thighs, boneless, sliced into 1cm strips" ;
+    ex:wikidataLabel "chicken thigh" ;
+    ex:wikidataQid "Q102354615" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q102354615" .
+
+ex:ing_chicken-fajitas_1 a ex:Ingredient ;
+    ex:foodCategory "non-drying oil" ;
+    ex:hasNutrition ex:nutr_chicken-fajitas_1 ;
+    ex:normalisedName "olive oil" ;
+    ex:quantityG 30.0 ;
+    ex:rawString "2 tablespoons olive oil" ;
+    ex:wikidataLabel "olive oil" ;
+    ex:wikidataQid "Q93165" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q93165" .
+
+ex:ing_chicken-fajitas_10 a ex:Ingredient ;
+    ex:foodCategory "bell pepper" ;
+    ex:hasNutrition ex:nutr_chicken-fajitas_10 ;
+    ex:normalisedName "red bell pepper" ;
+    ex:quantityG 150.0 ;
+    ex:rawString "1 red bell pepper, sliced" ;
+    ex:wikidataLabel "red bell pepper" ;
+    ex:wikidataQid "Q106446932" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q106446932" .
+
+ex:ing_chicken-fajitas_11 a ex:Ingredient ;
+    ex:hasNutrition ex:nutr_chicken-fajitas_11 ;
+    ex:normalisedName "yellow bell pepper" ;
+    ex:quantityG 150.0 ;
+    ex:rawString "1 yellow bell pepper, sliced" .
+
+ex:ing_chicken-fajitas_12 a ex:Ingredient ;
+    ex:foodCategory "bell pepper" ;
+    ex:hasNutrition ex:nutr_chicken-fajitas_12 ;
+    ex:normalisedName "green bell pepper" ;
+    ex:quantityG 150.0 ;
+    ex:rawString "1 green bell pepper, sliced" ;
+    ex:wikidataLabel "green bell pepper" ;
+    ex:wikidataQid "Q67865843" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q67865843" .
+
+ex:ing_chicken-fajitas_13 a ex:Ingredient ;
+    ex:foodCategory "parivyaya" ;
+    ex:hasNutrition ex:nutr_chicken-fajitas_13 ;
+    ex:normalisedName "onion" ;
+    ex:quantityG 300.0 ;
+    ex:rawString "2 large onions, sliced" ;
+    ex:wikidataLabel "Allium" ;
+    ex:wikidataQid "Q49391" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q49391" .
+
+ex:ing_chicken-fajitas_14 a ex:Ingredient ;
+    ex:foodCategory "mixture" ;
+    ex:hasNutrition ex:nutr_chicken-fajitas_14 ;
+    ex:normalisedName "neutral oil" ;
+    ex:quantityG 30.0 ;
+    ex:rawString "2 tablespoons neutral oil" ;
+    ex:wikidataLabel "essential oil" ;
+    ex:wikidataQid "Q170885" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q170885" .
+
+ex:ing_chicken-fajitas_15 a ex:Ingredient ;
+    ex:foodCategory "flatbread" ;
+    ex:hasNutrition ex:nutr_chicken-fajitas_15 ;
+    ex:normalisedName "flour tortilla" ;
+    ex:originCountry "Mexico" ;
+    ex:quantityG 120.0 ;
+    ex:rawString "8 flour tortillas, warmed" ;
+    ex:wikidataLabel "wheat tortilla" ;
+    ex:wikidataQid "Q204251" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q204251" .
+
+ex:ing_chicken-fajitas_16 a ex:Ingredient ;
+    ex:foodCategory "dairy product" ;
+    ex:hasNutrition ex:nutr_chicken-fajitas_16 ;
+    ex:normalisedName "sour cream" ;
+    ex:rawString "Sour cream" ;
+    ex:wikidataLabel "sour cream" ;
+    ex:wikidataQid "Q840171" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q840171" .
+
+ex:ing_chicken-fajitas_17 a ex:Ingredient ;
+    ex:foodCategory "dip" ;
+    ex:hasNutrition ex:nutr_chicken-fajitas_17 ;
+    ex:normalisedName "guacamole" ;
+    ex:originCountry "Mexico" ;
+    ex:rawString "Guacamole" ;
+    ex:wikidataLabel "guacamole" ;
+    ex:wikidataQid "Q207968" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q207968" .
+
+ex:ing_chicken-fajitas_18 a ex:Ingredient ;
+    ex:foodCategory "side dish" ;
+    ex:hasNutrition ex:nutr_chicken-fajitas_18 ;
+    ex:normalisedName "lime wedge" ;
+    ex:rawString "Lime wedges" ;
+    ex:wikidataLabel "lime wedge" ;
+    ex:wikidataQid "Q26877133" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q26877133" .
+
+ex:ing_chicken-fajitas_19 a ex:Ingredient ;
+    ex:foodCategory "taxon" ;
+    ex:hasNutrition ex:nutr_chicken-fajitas_19 ;
+    ex:normalisedName "cilantro" ;
+    ex:rawString "Fresh cilantro" ;
+    ex:wikidataLabel "Coriandrum sativum" ;
+    ex:wikidataQid "Q41611" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q41611" .
+
+ex:ing_chicken-fajitas_2 a ex:Ingredient ;
+    ex:foodCategory "essential oil" ;
+    ex:hasNutrition ex:nutr_chicken-fajitas_2 ;
+    ex:normalisedName "lime juice" ;
+    ex:quantityG 60.0 ;
+    ex:rawString "Juice of 2 limes" ;
+    ex:wikidataLabel "lime oil" ;
+    ex:wikidataQid "Q72487476" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q72487476" .
+
+ex:ing_chicken-fajitas_3 a ex:Ingredient ;
+    ex:foodCategory "herbal medicinal product" ;
+    ex:hasNutrition ex:nutr_chicken-fajitas_3 ;
+    ex:normalisedName "garlic" ;
+    ex:quantityG 20.0 ;
+    ex:rawString "4 garlic cloves, minced" ;
+    ex:wikidataLabel "garlic" ;
+    ex:wikidataQid "Q21546392" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q21546392" .
+
+ex:ing_chicken-fajitas_4 a ex:Ingredient ;
+    ex:foodCategory "fruit" ;
+    ex:hasNutrition ex:nutr_chicken-fajitas_4 ;
+    ex:normalisedName "ground cumin" ;
+    ex:quantityG 10.0 ;
+    ex:rawString "2 teaspoons ground cumin" ;
+    ex:wikidataLabel "cumin seed" ;
+    ex:wikidataQid "Q57328174" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q57328174" .
+
+ex:ing_chicken-fajitas_5 a ex:Ingredient ;
+    ex:foodCategory "food ingredient" ;
+    ex:hasNutrition ex:nutr_chicken-fajitas_5 ;
+    ex:normalisedName "smoked paprika" ;
+    ex:quantityG 10.0 ;
+    ex:rawString "2 teaspoons smoked paprika" ;
+    ex:wikidataLabel "paprika" ;
+    ex:wikidataQid "Q3127593" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q3127593" .
+
+ex:ing_chicken-fajitas_6 a ex:Ingredient ;
+    ex:foodCategory "food" ;
+    ex:hasNutrition ex:nutr_chicken-fajitas_6 ;
+    ex:normalisedName "chili powder" ;
+    ex:quantityG 5.0 ;
+    ex:rawString "1 teaspoon chili powder" ;
+    ex:wikidataLabel "chili powder" ;
+    ex:wikidataQid "Q1072946" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q1072946" .
+
+ex:ing_chicken-fajitas_7 a ex:Ingredient ;
+    ex:foodCategory "Origanum vulgare" ;
+    ex:hasNutrition ex:nutr_chicken-fajitas_7 ;
+    ex:normalisedName "dried oregano" ;
+    ex:quantityG 5.0 ;
+    ex:rawString "1 teaspoon dried oregano" ;
+    ex:wikidataLabel "dried oregano" ;
+    ex:wikidataQid "Q68496350" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q68496350" .
+
+ex:ing_chicken-fajitas_8 a ex:Ingredient ;
+    ex:foodCategory "mixture" ;
+    ex:hasNutrition ex:nutr_chicken-fajitas_8 ;
+    ex:normalisedName "salt" ;
+    ex:quantityG 5.0 ;
+    ex:rawString "1 teaspoon salt" ;
+    ex:wikidataLabel "table salt" ;
+    ex:wikidataQid "Q11254" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q11254" .
+
+ex:ing_chicken-fajitas_9 a ex:Ingredient ;
+    ex:foodCategory "food ingredient" ;
+    ex:hasNutrition ex:nutr_chicken-fajitas_9 ;
+    ex:normalisedName "black pepper" ;
+    ex:quantityG 5.0 ;
+    ex:rawString "1 teaspoon black pepper" ;
+    ex:wikidataLabel "black pepper" ;
+    ex:wikidataQid "Q22915010" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q22915010" .
+
+ex:ing_gongbao-chicken_0 a ex:Ingredient ;
+    ex:foodCategory "thigh" ;
+    ex:hasNutrition ex:nutr_gongbao-chicken_0 ;
+    ex:normalisedName "chicken thigh" ;
+    ex:quantityG 500.0 ;
+    ex:rawString "500g chicken thighs, boneless, skinless, cut into 2cm cubes" ;
+    ex:wikidataLabel "chicken thigh" ;
+    ex:wikidataQid "Q102354615" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q102354615" .
+
+ex:ing_gongbao-chicken_1 a ex:Ingredient ;
+    ex:foodCategory "Huangjiu" ;
+    ex:hasNutrition ex:nutr_gongbao-chicken_1 ;
+    ex:normalisedName "shaoxing wine" ;
+    ex:quantityG 15.0 ;
+    ex:rawString "1 tablespoon Shaoxing wine" ;
+    ex:wikidataLabel "Shaoxing wine" ;
+    ex:wikidataQid "Q175245" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q175245" .
+
+ex:ing_gongbao-chicken_10 a ex:Ingredient ;
+    ex:hasNutrition ex:nutr_gongbao-chicken_10 ;
+    ex:normalisedName "sichuan chile" ;
+    ex:quantityG 10.0 ;
+    ex:rawString "12 dried Sichuan chiles, snipped, seeds shaken out" .
+
+ex:ing_gongbao-chicken_11 a ex:Ingredient ;
+    ex:foodCategory "food ingredient" ;
+    ex:hasNutrition ex:nutr_gongbao-chicken_11 ;
+    ex:normalisedName "sichuan peppercorn" ;
+    ex:quantityG 10.0 ;
+    ex:rawString "2 teaspoons whole Sichuan peppercorns" ;
+    ex:wikidataLabel "Sichuan pepper" ;
+    ex:wikidataQid "Q756800" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q756800" .
+
+ex:ing_gongbao-chicken_12 a ex:Ingredient ;
+    ex:foodCategory "herbal medicinal product" ;
+    ex:hasNutrition ex:nutr_gongbao-chicken_12 ;
+    ex:normalisedName "garlic" ;
+    ex:quantityG 20.0 ;
+    ex:rawString "4 garlic cloves, sliced" ;
+    ex:wikidataLabel "garlic" ;
+    ex:wikidataQid "Q21546392" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q21546392" .
+
+ex:ing_gongbao-chicken_13 a ex:Ingredient ;
+    ex:foodCategory "rhizome" ;
+    ex:hasNutrition ex:nutr_gongbao-chicken_13 ;
+    ex:normalisedName "ginger" ;
+    ex:quantityG 15.0 ;
+    ex:rawString "1 thumb ginger, sliced" ;
+    ex:wikidataLabel "ginger" ;
+    ex:wikidataQid "Q15046077" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q15046077" .
+
+ex:ing_gongbao-chicken_14 a ex:Ingredient ;
+    ex:foodCategory "parivyaya" ;
+    ex:hasNutrition ex:nutr_gongbao-chicken_14 ;
+    ex:normalisedName "spring onion" ;
+    ex:quantityG 40.0 ;
+    ex:rawString "4 spring onions, white parts only, cut into 2cm pieces" ;
+    ex:wikidataLabel "scallion" ;
+    ex:wikidataQid "Q774278" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q774278" .
+
+ex:ing_gongbao-chicken_15 a ex:Ingredient ;
+    ex:hasNutrition ex:nutr_gongbao-chicken_15 ;
+    ex:normalisedName "unsalted roasted peanut" ;
+    ex:quantityG 80.0 ;
+    ex:rawString "80g unsalted roasted peanuts" .
+
+ex:ing_gongbao-chicken_16 a ex:Ingredient ;
+    ex:foodCategory "mixture" ;
+    ex:hasNutrition ex:nutr_gongbao-chicken_16 ;
+    ex:normalisedName "neutral oil" ;
+    ex:quantityG 45.0 ;
+    ex:rawString "3 tablespoons neutral oil" ;
+    ex:wikidataLabel "essential oil" ;
+    ex:wikidataQid "Q170885" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q170885" .
+
+ex:ing_gongbao-chicken_2 a ex:Ingredient ;
+    ex:foodCategory "soy sauce" ;
+    ex:hasNutrition ex:nutr_gongbao-chicken_2 ;
+    ex:normalisedName "light soy sauce" ;
+    ex:quantityG 15.0 ;
+    ex:rawString "1 tablespoon light soy sauce" ;
+    ex:wikidataLabel "light soy sauce" ;
+    ex:wikidataQid "Q8529545" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q8529545" .
+
+ex:ing_gongbao-chicken_3 a ex:Ingredient ;
+    ex:foodCategory "food ingredient" ;
+    ex:hasNutrition ex:nutr_gongbao-chicken_3 ;
+    ex:normalisedName "cornstarch" ;
+    ex:quantityG 5.0 ;
+    ex:rawString "1 teaspoon cornstarch" ;
+    ex:wikidataLabel "corn starch" ;
+    ex:wikidataQid "Q3393961" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q3393961" .
+
+ex:ing_gongbao-chicken_4 a ex:Ingredient ;
+    ex:hasNutrition ex:nutr_gongbao-chicken_4 ;
+    ex:normalisedName "chinkiang black vinegar" ;
+    ex:quantityG 30.0 ;
+    ex:rawString "2 tablespoons Chinkiang black vinegar" .
+
+ex:ing_gongbao-chicken_5 a ex:Ingredient ;
+    ex:foodCategory "soy sauce" ;
+    ex:hasNutrition ex:nutr_gongbao-chicken_5 ;
+    ex:normalisedName "light soy sauce" ;
+    ex:quantityG 15.0 ;
+    ex:rawString "1 tablespoon light soy sauce" ;
+    ex:wikidataLabel "light soy sauce" ;
+    ex:wikidataQid "Q8529545" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q8529545" .
+
+ex:ing_gongbao-chicken_6 a ex:Ingredient ;
+    ex:foodCategory "Huangjiu" ;
+    ex:hasNutrition ex:nutr_gongbao-chicken_6 ;
+    ex:normalisedName "shaoxing wine" ;
+    ex:quantityG 15.0 ;
+    ex:rawString "1 tablespoon Shaoxing wine" ;
+    ex:wikidataLabel "Shaoxing wine" ;
+    ex:wikidataQid "Q175245" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q175245" .
+
+ex:ing_gongbao-chicken_7 a ex:Ingredient ;
+    ex:foodCategory "excipient" ;
+    ex:hasNutrition ex:nutr_gongbao-chicken_7 ;
+    ex:normalisedName "sugar" ;
+    ex:quantityG 10.0 ;
+    ex:rawString "2 teaspoons sugar" ;
+    ex:wikidataLabel "sugar" ;
+    ex:wikidataQid "Q11002" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q11002" .
+
+ex:ing_gongbao-chicken_8 a ex:Ingredient ;
+    ex:foodCategory "food ingredient" ;
+    ex:hasNutrition ex:nutr_gongbao-chicken_8 ;
+    ex:normalisedName "cornstarch" ;
+    ex:quantityG 5.0 ;
+    ex:rawString "1 teaspoon cornstarch" ;
+    ex:wikidataLabel "corn starch" ;
+    ex:wikidataQid "Q3393961" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q3393961" .
+
+ex:ing_gongbao-chicken_9 a ex:Ingredient ;
+    ex:hasNutrition ex:nutr_gongbao-chicken_9 ;
+    ex:normalisedName "water" ;
+    ex:quantityG 30.0 ;
+    ex:rawString "2 tablespoons water" .
+
+ex:ing_goulash_0 a ex:Ingredient ;
+    ex:hasNutrition ex:nutr_goulash_0 ;
+    ex:normalisedName "beef chuck" ;
+    ex:quantityG 1200.0 ;
+    ex:rawString "1.2kg beef chuck, cut into 4cm cubes" .
+
+ex:ing_goulash_1 a ex:Ingredient ;
+    ex:foodCategory "dripping" ;
+    ex:hasNutrition ex:nutr_goulash_1 ;
+    ex:normalisedName "lard" ;
+    ex:quantityG 45.0 ;
+    ex:rawString "3 tablespoons lard or neutral oil" ;
+    ex:wikidataLabel "lard" ;
+    ex:wikidataQid "Q72827" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q72827" .
+
+ex:ing_goulash_10 a ex:Ingredient ;
+    ex:foodCategory "stock" ;
+    ex:hasNutrition ex:nutr_goulash_10 ;
+    ex:normalisedName "beef stock" ;
+    ex:quantityG 1500.0 ;
+    ex:rawString "1.5 litres beef stock or water" ;
+    ex:wikidataLabel "beef stock" ;
+    ex:wikidataQid "Q96362190" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q96362190" .
+
+ex:ing_goulash_11 a ex:Ingredient ;
+    ex:foodCategory "staple food" ;
+    ex:hasNutrition ex:nutr_goulash_11 ;
+    ex:normalisedName "potato" ;
+    ex:quantityG 600.0 ;
+    ex:rawString "4 medium potatoes, peeled and cut into 3cm chunks" ;
+    ex:wikidataLabel "potato" ;
+    ex:wikidataQid "Q16587531" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q16587531" .
+
+ex:ing_goulash_12 a ex:Ingredient ;
+    ex:foodCategory "essential oil" ;
+    ex:hasNutrition ex:nutr_goulash_12 ;
+    ex:normalisedName "bay leaf" ;
+    ex:quantityG 1.0 ;
+    ex:rawString "2 bay leaves" ;
+    ex:wikidataLabel "bay oil" ;
+    ex:wikidataQid "Q72444924" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q72444924" .
+
+ex:ing_goulash_13 a ex:Ingredient ;
+    ex:hasNutrition ex:nutr_goulash_13 ;
+    ex:normalisedName "salt and black pepper" ;
+    ex:rawString "Salt and black pepper" .
+
+ex:ing_goulash_14 a ex:Ingredient ;
+    ex:foodCategory "dairy product" ;
+    ex:hasNutrition ex:nutr_goulash_14 ;
+    ex:normalisedName "sour cream" ;
+    ex:rawString "Sour cream and parsley, to serve" ;
+    ex:wikidataLabel "sour cream" ;
+    ex:wikidataQid "Q840171" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q840171" .
+
+ex:ing_goulash_2 a ex:Ingredient ;
+    ex:foodCategory "parivyaya" ;
+    ex:hasNutrition ex:nutr_goulash_2 ;
+    ex:normalisedName "onion" ;
+    ex:quantityG 600.0 ;
+    ex:rawString "4 large onions, finely diced" ;
+    ex:wikidataLabel "Allium" ;
+    ex:wikidataQid "Q49391" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q49391" .
+
+ex:ing_goulash_3 a ex:Ingredient ;
+    ex:foodCategory "herbal medicinal product" ;
+    ex:hasNutrition ex:nutr_goulash_3 ;
+    ex:normalisedName "garlic" ;
+    ex:quantityG 20.0 ;
+    ex:rawString "4 garlic cloves, minced" ;
+    ex:wikidataLabel "garlic" ;
+    ex:wikidataQid "Q21546392" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q21546392" .
+
+ex:ing_goulash_4 a ex:Ingredient ;
+    ex:hasNutrition ex:nutr_goulash_4 ;
+    ex:normalisedName "sweet hungarian paprika" ;
+    ex:quantityG 60.0 ;
+    ex:rawString "4 tablespoons sweet Hungarian paprika" .
+
+ex:ing_goulash_5 a ex:Ingredient ;
+    ex:hasNutrition ex:nutr_goulash_5 ;
+    ex:normalisedName "hot hungarian paprika" ;
+    ex:quantityG 5.0 ;
+    ex:rawString "1 teaspoon hot Hungarian paprika (optional)" .
+
+ex:ing_goulash_6 a ex:Ingredient ;
+    ex:foodCategory "spice" ;
+    ex:hasNutrition ex:nutr_goulash_6 ;
+    ex:normalisedName "caraway seeds" ;
+    ex:quantityG 5.0 ;
+    ex:rawString "1 teaspoon caraway seeds, lightly crushed" ;
+    ex:wikidataLabel "caraway seeds" ;
+    ex:wikidataQid "Q21155816" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q21155816" .
+
+ex:ing_goulash_7 a ex:Ingredient ;
+    ex:foodCategory "food ingredient" ;
+    ex:hasNutrition ex:nutr_goulash_7 ;
+    ex:normalisedName "tomato paste" ;
+    ex:quantityG 30.0 ;
+    ex:rawString "2 tablespoons tomato paste" ;
+    ex:wikidataLabel "tomato paste" ;
+    ex:wikidataQid "Q1499073" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q1499073" .
+
+ex:ing_goulash_8 a ex:Ingredient ;
+    ex:foodCategory "bell pepper" ;
+    ex:hasNutrition ex:nutr_goulash_8 ;
+    ex:normalisedName "red bell pepper" ;
+    ex:quantityG 300.0 ;
+    ex:rawString "2 red bell peppers, diced" ;
+    ex:wikidataLabel "red bell pepper" ;
+    ex:wikidataQid "Q106446932" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q106446932" .
+
+ex:ing_goulash_9 a ex:Ingredient ;
+    ex:foodCategory "food crop" ;
+    ex:hasNutrition ex:nutr_goulash_9 ;
+    ex:normalisedName "tomato" ;
+    ex:quantityG 300.0 ;
+    ex:rawString "2 ripe tomatoes, diced" ;
+    ex:wikidataLabel "tomato" ;
+    ex:wikidataQid "Q23501" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q23501" .
+
+ex:ing_katsudon_0 a ex:Ingredient ;
+    ex:hasNutrition ex:nutr_katsudon_0 ;
+    ex:normalisedName "pork loin steak" ;
+    ex:quantityG 300.0 ;
+    ex:rawString "2 pork loin steaks, about 150g each" .
+
+ex:ing_katsudon_1 a ex:Ingredient ;
+    ex:foodCategory "flour" ;
+    ex:hasNutrition ex:nutr_katsudon_1 ;
+    ex:normalisedName "plain flour" ;
+    ex:quantityG 50.0 ;
+    ex:rawString "50g plain flour" ;
+    ex:wikidataLabel "all-purpose flour" ;
+    ex:wikidataQid "Q95388739" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q95388739" .
+
+ex:ing_katsudon_10 a ex:Ingredient ;
+    ex:foodCategory "excipient" ;
+    ex:hasNutrition ex:nutr_katsudon_10 ;
+    ex:normalisedName "sugar" ;
+    ex:quantityG 15.0 ;
+    ex:rawString "1 tablespoon sugar" ;
+    ex:wikidataLabel "sugar" ;
+    ex:wikidataQid "Q11002" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q11002" .
+
+ex:ing_katsudon_11 a ex:Ingredient ;
+    ex:foodCategory "animal-based food" ;
+    ex:hasNutrition ex:nutr_katsudon_11 ;
+    ex:normalisedName "egg" ;
+    ex:quantityG 200.0 ;
+    ex:rawString "4 eggs, lightly beaten" ;
+    ex:wikidataLabel "egg as food" ;
+    ex:wikidataQid "Q93189" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q93189" .
+
+ex:ing_katsudon_12 a ex:Ingredient ;
+    ex:foodCategory "parivyaya" ;
+    ex:hasNutrition ex:nutr_katsudon_12 ;
+    ex:normalisedName "spring onion" ;
+    ex:quantityG 40.0 ;
+    ex:rawString "2 spring onions, sliced" ;
+    ex:wikidataLabel "scallion" ;
+    ex:wikidataQid "Q774278" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q774278" .
+
+ex:ing_katsudon_13 a ex:Ingredient ;
+    ex:hasNutrition ex:nutr_katsudon_13 ;
+    ex:normalisedName "hot steamed rice" ;
+    ex:quantityG 400.0 ;
+    ex:rawString "2 portions hot steamed rice" .
+
+ex:ing_katsudon_2 a ex:Ingredient ;
+    ex:foodCategory "animal-based food" ;
+    ex:hasNutrition ex:nutr_katsudon_2 ;
+    ex:normalisedName "egg" ;
+    ex:quantityG 50.0 ;
+    ex:rawString "1 egg, beaten" ;
+    ex:wikidataLabel "egg as food" ;
+    ex:wikidataQid "Q93189" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q93189" .
+
+ex:ing_katsudon_3 a ex:Ingredient ;
+    ex:hasNutrition ex:nutr_katsudon_3 ;
+    ex:normalisedName "panko breadcrumbs" ;
+    ex:quantityG 80.0 ;
+    ex:rawString "80g panko breadcrumbs" .
+
+ex:ing_katsudon_4 a ex:Ingredient ;
+    ex:hasNutrition ex:nutr_katsudon_4 ;
+    ex:normalisedName "salt and black pepper" ;
+    ex:rawString "Salt and black pepper" .
+
+ex:ing_katsudon_5 a ex:Ingredient ;
+    ex:foodCategory "mixture" ;
+    ex:hasNutrition ex:nutr_katsudon_5 ;
+    ex:normalisedName "neutral oil" ;
+    ex:rawString "Neutral oil, for frying" ;
+    ex:wikidataLabel "essential oil" ;
+    ex:wikidataQid "Q170885" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q170885" .
+
+ex:ing_katsudon_6 a ex:Ingredient ;
+    ex:foodCategory "parivyaya" ;
+    ex:hasNutrition ex:nutr_katsudon_6 ;
+    ex:normalisedName "onion" ;
+    ex:quantityG 150.0 ;
+    ex:rawString "1 onion, thinly sliced" ;
+    ex:wikidataLabel "Allium" ;
+    ex:wikidataQid "Q49391" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q49391" .
+
+ex:ing_katsudon_7 a ex:Ingredient ;
+    ex:foodCategory "broth" ;
+    ex:hasNutrition ex:nutr_katsudon_7 ;
+    ex:normalisedName "dashi" ;
+    ex:originCountry "Japan" ;
+    ex:quantityG 200.0 ;
+    ex:rawString "200ml dashi" ;
+    ex:wikidataLabel "dashi" ;
+    ex:wikidataQid "Q851746" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q851746" .
+
+ex:ing_katsudon_8 a ex:Ingredient ;
+    ex:foodCategory "sauce" ;
+    ex:hasNutrition ex:nutr_katsudon_8 ;
+    ex:normalisedName "soy sauce" ;
+    ex:originCountry "China" ;
+    ex:quantityG 45.0 ;
+    ex:rawString "3 tablespoons soy sauce" ;
+    ex:wikidataLabel "soy sauce" ;
+    ex:wikidataQid "Q229385" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q229385" .
+
+ex:ing_katsudon_9 a ex:Ingredient ;
+    ex:foodCategory "condiment" ;
+    ex:hasNutrition ex:nutr_katsudon_9 ;
+    ex:normalisedName "mirin" ;
+    ex:originCountry "Japan" ;
+    ex:quantityG 30.0 ;
+    ex:rawString "2 tablespoons mirin" ;
+    ex:wikidataLabel "mirin" ;
+    ex:wikidataQid "Q1045910" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q1045910" .
 
 ex:ing_lebanese-chicken-hummus-and-grilled-vegetables_0 a ex:Ingredient ;
     ex:foodCategory "thigh" ;
@@ -238,10 +2064,14 @@ ex:ing_lebanese-chicken-hummus-and-grilled-vegetables_3 a ex:Ingredient ;
     ex:wikidataUri "http://www.wikidata.org/entity/Q49391" .
 
 ex:ing_lebanese-chicken-hummus-and-grilled-vegetables_4 a ex:Ingredient ;
+    ex:foodCategory "food ingredient" ;
     ex:hasNutrition ex:nutr_lebanese-chicken-hummus-and-grilled-vegetables_4 ;
-    ex:normalisedName "garlic cloves" ;
-    ex:quantityG 15.0 ;
-    ex:rawString "2-3 garlic cloves thinly sliced" .
+    ex:normalisedName "garlic clove" ;
+    ex:quantityG 10.0 ;
+    ex:rawString "2-3 garlic cloves thinly sliced" ;
+    ex:wikidataLabel "garlic clove" ;
+    ex:wikidataQid "Q28966859" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q28966859" .
 
 ex:ing_lebanese-chicken-hummus-and-grilled-vegetables_5 a ex:Ingredient ;
     ex:foodCategory "fruit" ;
@@ -271,11 +2101,166 @@ ex:ing_lebanese-chicken-hummus-and-grilled-vegetables_7 a ex:Ingredient ;
     ex:wikidataQid "Q93165" ;
     ex:wikidataUri "http://www.wikidata.org/entity/Q93165" .
 
+ex:ing_lu-rou-fan_0 a ex:Ingredient ;
+    ex:foodCategory "pork" ;
+    ex:hasNutrition ex:nutr_lu-rou-fan_0 ;
+    ex:normalisedName "pork belly" ;
+    ex:quantityG 600.0 ;
+    ex:rawString "600g pork belly, skin on, diced into 1cm pieces" ;
+    ex:wikidataLabel "pork belly" ;
+    ex:wikidataQid "Q1365868" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q1365868" .
+
+ex:ing_lu-rou-fan_1 a ex:Ingredient ;
+    ex:foodCategory "bulb" ;
+    ex:hasNutrition ex:nutr_lu-rou-fan_1 ;
+    ex:normalisedName "shallot" ;
+    ex:quantityG 120.0 ;
+    ex:rawString "6 shallots, thinly sliced" ;
+    ex:wikidataLabel "shallot" ;
+    ex:wikidataQid "Q67206407" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q67206407" .
+
+ex:ing_lu-rou-fan_10 a ex:Ingredient ;
+    ex:foodCategory "ingredient" ;
+    ex:hasNutrition ex:nutr_lu-rou-fan_10 ;
+    ex:normalisedName "cinnamon stick" ;
+    ex:rawString "1 cinnamon stick" ;
+    ex:wikidataLabel "cinnamon stick" ;
+    ex:wikidataQid "Q30038886" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q30038886" .
+
+ex:ing_lu-rou-fan_11 a ex:Ingredient ;
+    ex:foodCategory "taxon" ;
+    ex:hasNutrition ex:nutr_lu-rou-fan_11 ;
+    ex:normalisedName "dried shiitake mushroom" ;
+    ex:quantityG 20.0 ;
+    ex:rawString "4 dried shiitake mushrooms, soaked and diced" ;
+    ex:wikidataLabel "Lentinula edodes" ;
+    ex:wikidataQid "Q320999" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q320999" .
+
+ex:ing_lu-rou-fan_12 a ex:Ingredient ;
+    ex:foodCategory "boiled egg" ;
+    ex:hasNutrition ex:nutr_lu-rou-fan_12 ;
+    ex:normalisedName "soft-boiled egg" ;
+    ex:quantityG 200.0 ;
+    ex:rawString "4 soft-boiled eggs, peeled" ;
+    ex:wikidataLabel "soft-boiled egg" ;
+    ex:wikidataQid "Q11716216" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q11716216" .
+
+ex:ing_lu-rou-fan_13 a ex:Ingredient ;
+    ex:hasNutrition ex:nutr_lu-rou-fan_13 ;
+    ex:normalisedName "water" ;
+    ex:quantityG 500.0 ;
+    ex:rawString "500ml water or pork stock" .
+
+ex:ing_lu-rou-fan_14 a ex:Ingredient ;
+    ex:foodCategory "cooked rice" ;
+    ex:hasNutrition ex:nutr_lu-rou-fan_14 ;
+    ex:normalisedName "steamed rice" ;
+    ex:rawString "Steamed rice, to serve" ;
+    ex:wikidataLabel "steamed rice" ;
+    ex:wikidataQid "Q103921799" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q103921799" .
+
+ex:ing_lu-rou-fan_15 a ex:Ingredient ;
+    ex:foodCategory "vegetable" ;
+    ex:hasNutrition ex:nutr_lu-rou-fan_15 ;
+    ex:normalisedName "pickled greens" ;
+    ex:rawString "Pickled greens, to serve" ;
+    ex:wikidataLabel "leaf vegetable" ;
+    ex:wikidataQid "Q20134" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q20134" .
+
+ex:ing_lu-rou-fan_2 a ex:Ingredient ;
+    ex:foodCategory "herbal medicinal product" ;
+    ex:hasNutrition ex:nutr_lu-rou-fan_2 ;
+    ex:normalisedName "garlic" ;
+    ex:quantityG 20.0 ;
+    ex:rawString "4 garlic cloves, minced" ;
+    ex:wikidataLabel "garlic" ;
+    ex:wikidataQid "Q21546392" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q21546392" .
+
+ex:ing_lu-rou-fan_3 a ex:Ingredient ;
+    ex:foodCategory "rhizome" ;
+    ex:hasNutrition ex:nutr_lu-rou-fan_3 ;
+    ex:normalisedName "ginger" ;
+    ex:quantityG 15.0 ;
+    ex:rawString "1 thumb ginger, sliced" ;
+    ex:wikidataLabel "ginger" ;
+    ex:wikidataQid "Q15046077" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q15046077" .
+
+ex:ing_lu-rou-fan_4 a ex:Ingredient ;
+    ex:foodCategory "soy sauce" ;
+    ex:hasNutrition ex:nutr_lu-rou-fan_4 ;
+    ex:normalisedName "dark soy sauce" ;
+    ex:originCountry "People's Republic of China" ;
+    ex:quantityG 60.0 ;
+    ex:rawString "4 tablespoons dark soy sauce" ;
+    ex:wikidataLabel "dark soy sauce" ;
+    ex:wikidataQid "Q8484030" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q8484030" .
+
+ex:ing_lu-rou-fan_5 a ex:Ingredient ;
+    ex:foodCategory "soy sauce" ;
+    ex:hasNutrition ex:nutr_lu-rou-fan_5 ;
+    ex:normalisedName "light soy sauce" ;
+    ex:quantityG 30.0 ;
+    ex:rawString "2 tablespoons light soy sauce" ;
+    ex:wikidataLabel "light soy sauce" ;
+    ex:wikidataQid "Q8529545" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q8529545" .
+
+ex:ing_lu-rou-fan_6 a ex:Ingredient ;
+    ex:hasNutrition ex:nutr_lu-rou-fan_6 ;
+    ex:normalisedName "shaoxing rice wine" ;
+    ex:quantityG 45.0 ;
+    ex:rawString "3 tablespoons Shaoxing rice wine" .
+
+ex:ing_lu-rou-fan_7 a ex:Ingredient ;
+    ex:foodCategory "confection" ;
+    ex:hasNutrition ex:nutr_lu-rou-fan_7 ;
+    ex:normalisedName "rock sugar" ;
+    ex:originCountry "Iran" ;
+    ex:quantityG 30.0 ;
+    ex:rawString "2 tablespoons rock sugar" ;
+    ex:wikidataLabel "rock candy" ;
+    ex:wikidataQid "Q849816" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q849816" .
+
+ex:ing_lu-rou-fan_8 a ex:Ingredient ;
+    ex:foodCategory "pentad" ;
+    ex:hasNutrition ex:nutr_lu-rou-fan_8 ;
+    ex:normalisedName "five-spice powder" ;
+    ex:originCountry "China" ;
+    ex:quantityG 5.0 ;
+    ex:rawString "1 teaspoon five-spice powder" ;
+    ex:wikidataLabel "five-spice powder" ;
+    ex:wikidataQid "Q1051492" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q1051492" .
+
+ex:ing_lu-rou-fan_9 a ex:Ingredient ;
+    ex:foodCategory "essential oil" ;
+    ex:hasNutrition ex:nutr_lu-rou-fan_9 ;
+    ex:normalisedName "star anise" ;
+    ex:rawString "1 star anise" ;
+    ex:wikidataLabel "badian oil" ;
+    ex:wikidataQid "Q4075018" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q4075018" .
+
 ex:ing_pasta-bolognese_0 a ex:Ingredient ;
+    ex:foodCategory "meat" ;
     ex:hasNutrition ex:nutr_pasta-bolognese_0 ;
     ex:normalisedName "minced beef" ;
     ex:quantityG 700.0 ;
-    ex:rawString "700g Minced beef" .
+    ex:rawString "700g Minced beef" ;
+    ex:wikidataLabel "beef" ;
+    ex:wikidataQid "Q192628" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q192628" .
 
 ex:ing_pasta-bolognese_1 a ex:Ingredient ;
     ex:foodCategory "pork" ;
@@ -297,27 +2282,32 @@ ex:ing_pasta-bolognese_10 a ex:Ingredient ;
     ex:wikidataUri "http://www.wikidata.org/entity/Q3215980" .
 
 ex:ing_pasta-bolognese_11 a ex:Ingredient ;
+    ex:foodCategory "essential oil" ;
     ex:hasNutrition ex:nutr_pasta-bolognese_11 ;
-    ex:normalisedName "rosemary" ;
-    ex:rawString "1 Bay leaf" .
+    ex:normalisedName "bay leaf" ;
+    ex:rawString "1 Bay leaf" ;
+    ex:wikidataLabel "bay oil" ;
+    ex:wikidataQid "Q72444924" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q72444924" .
 
 ex:ing_pasta-bolognese_12 a ex:Ingredient ;
-    ex:foodCategory "spice" ;
-    ex:hasNutrition ex:nutr_pasta-bolognese_12 ;
-    ex:normalisedName "bay leaf" ;
-    ex:rawString "Salt and pepper" ;
-    ex:wikidataLabel "bay leaf" ;
-    ex:wikidataQid "Q2370943" ;
-    ex:wikidataUri "http://www.wikidata.org/entity/Q2370943" .
-
-ex:ing_pasta-bolognese_13 a ex:Ingredient ;
     ex:foodCategory "mixture" ;
-    ex:hasNutrition ex:nutr_pasta-bolognese_13 ;
+    ex:hasNutrition ex:nutr_pasta-bolognese_12 ;
     ex:normalisedName "salt" ;
-    ex:rawString "Parmesan rind (Only if you have)" ;
+    ex:rawString "Salt and pepper" ;
     ex:wikidataLabel "table salt" ;
     ex:wikidataQid "Q11254" ;
     ex:wikidataUri "http://www.wikidata.org/entity/Q11254" .
+
+ex:ing_pasta-bolognese_13 a ex:Ingredient ;
+    ex:foodCategory "cheese" ;
+    ex:hasNutrition ex:nutr_pasta-bolognese_13 ;
+    ex:normalisedName "parmesan rind" ;
+    ex:originCountry "Italy" ;
+    ex:rawString "Parmesan rind (Only if you have)" ;
+    ex:wikidataLabel "Parmesan" ;
+    ex:wikidataQid "Q155922" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q155922" .
 
 ex:ing_pasta-bolognese_2 a ex:Ingredient ;
     ex:foodCategory "parivyaya" ;
@@ -371,7 +2361,7 @@ ex:ing_pasta-bolognese_6 a ex:Ingredient ;
     ex:wikidataUri "http://www.wikidata.org/entity/Q1114674" .
 
 ex:ing_pasta-bolognese_7 a ex:Ingredient ;
-    ex:foodCategory "wine color" ;
+    ex:foodCategory "wine" ;
     ex:hasNutrition ex:nutr_pasta-bolognese_7 ;
     ex:normalisedName "red wine" ;
     ex:quantityG 250.0 ;
@@ -381,14 +2371,14 @@ ex:ing_pasta-bolognese_7 a ex:Ingredient ;
     ex:wikidataUri "http://www.wikidata.org/entity/Q1827" .
 
 ex:ing_pasta-bolognese_8 a ex:Ingredient ;
-    ex:foodCategory "food ingredient" ;
+    ex:foodCategory "food crop" ;
     ex:hasNutrition ex:nutr_pasta-bolognese_8 ;
-    ex:normalisedName "tomatoes" ;
+    ex:normalisedName "tomato" ;
     ex:quantityG 400.0 ;
     ex:rawString "1 can of tomatoes" ;
     ex:wikidataLabel "tomato" ;
-    ex:wikidataQid "Q20638126" ;
-    ex:wikidataUri "http://www.wikidata.org/entity/Q20638126" .
+    ex:wikidataQid "Q23501" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q23501" .
 
 ex:ing_pasta-bolognese_9 a ex:Ingredient ;
     ex:foodCategory "type of food or dish" ;
@@ -400,79 +2390,427 @@ ex:ing_pasta-bolognese_9 a ex:Ingredient ;
     ex:wikidataQid "Q275068" ;
     ex:wikidataUri "http://www.wikidata.org/entity/Q275068" .
 
-ex:ing_pytt-i-panne_0 a ex:Ingredient ;
-    ex:foodCategory "fruit" ;
-    ex:hasNutrition ex:nutr_pytt-i-panne_0 ;
-    ex:normalisedName "pepper" ;
-    ex:rawString "2 Sausages" ;
-    ex:wikidataLabel "peppercorn" ;
-    ex:wikidataQid "Q3143131" ;
-    ex:wikidataUri "http://www.wikidata.org/entity/Q3143131" .
-
-ex:ing_pytt-i-panne_1 a ex:Ingredient ;
-    ex:hasNutrition ex:nutr_pytt-i-panne_1 ;
-    ex:normalisedName "parmesan rind" ;
-    ex:rawString "3 Strips of bacon (optional)" .
-
-ex:ing_pytt-i-panne_2 a ex:Ingredient ;
-    ex:foodCategory "human food" ;
-    ex:hasNutrition ex:nutr_pytt-i-panne_2 ;
-    ex:normalisedName "sausage" ;
-    ex:quantityG 250.0 ;
-    ex:rawString "2 Medium size potatoes" ;
-    ex:wikidataLabel "sausage" ;
-    ex:wikidataQid "Q131419" ;
-    ex:wikidataUri "http://www.wikidata.org/entity/Q131419" .
-
-ex:ing_pytt-i-panne_3 a ex:Ingredient ;
-    ex:foodCategory "pork" ;
-    ex:hasNutrition ex:nutr_pytt-i-panne_3 ;
-    ex:normalisedName "bacon" ;
-    ex:quantityG 45.0 ;
-    ex:rawString "1 Medium size onion" ;
-    ex:wikidataLabel "bacon" ;
-    ex:wikidataQid "Q11106" ;
-    ex:wikidataUri "http://www.wikidata.org/entity/Q11106" .
-
-ex:ing_pytt-i-panne_4 a ex:Ingredient ;
-    ex:foodCategory "staple food" ;
-    ex:hasNutrition ex:nutr_pytt-i-panne_4 ;
-    ex:normalisedName "potato" ;
+ex:ing_peperonata_0 a ex:Ingredient ;
+    ex:foodCategory "Group" ;
+    ex:hasNutrition ex:nutr_peperonata_0 ;
+    ex:normalisedName "sweet pepper" ;
     ex:quantityG 300.0 ;
-    ex:rawString "Ketchup for topping" ;
-    ex:wikidataLabel "potato" ;
-    ex:wikidataQid "Q16587531" ;
-    ex:wikidataUri "http://www.wikidata.org/entity/Q16587531" .
+    ex:rawString "4 sweet peppers, sliced into strips" ;
+    ex:wikidataLabel "bell pepper" ;
+    ex:wikidataQid "Q1548030" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q1548030" .
 
-ex:ing_tahini-chicken-with-butternut-hummus-and-bulgur-salad_0 a ex:Ingredient ;
+ex:ing_peperonata_1 a ex:Ingredient ;
+    ex:foodCategory "taxon" ;
+    ex:hasNutrition ex:nutr_peperonata_1 ;
+    ex:normalisedName "red onion" ;
+    ex:quantityG 150.0 ;
+    ex:rawString "1 red onion, thinly sliced" ;
+    ex:wikidataLabel "red onion" ;
+    ex:wikidataQid "Q622350" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q622350" .
+
+ex:ing_peperonata_2 a ex:Ingredient ;
+    ex:foodCategory "herbal medicinal product" ;
+    ex:hasNutrition ex:nutr_peperonata_2 ;
+    ex:normalisedName "garlic" ;
+    ex:quantityG 10.0 ;
+    ex:rawString "3 garlic cloves, sliced" ;
+    ex:wikidataLabel "garlic" ;
+    ex:wikidataQid "Q21546392" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q21546392" .
+
+ex:ing_peperonata_3 a ex:Ingredient ;
+    ex:foodCategory "food crop" ;
+    ex:hasNutrition ex:nutr_peperonata_3 ;
+    ex:normalisedName "tomato" ;
+    ex:quantityG 400.0 ;
+    ex:rawString "400g ripe tomatoes, roughly chopped" ;
+    ex:wikidataLabel "tomato" ;
+    ex:wikidataQid "Q23501" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q23501" .
+
+ex:ing_peperonata_4 a ex:Ingredient ;
+    ex:foodCategory "bud" ;
+    ex:hasNutrition ex:nutr_peperonata_4 ;
+    ex:normalisedName "capers" ;
+    ex:quantityG 30.0 ;
+    ex:rawString "2 tablespoons capers" ;
+    ex:wikidataLabel "caper" ;
+    ex:wikidataQid "Q3229775" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q3229775" .
+
+ex:ing_peperonata_5 a ex:Ingredient ;
+    ex:foodCategory "wine vinegar" ;
+    ex:hasNutrition ex:nutr_peperonata_5 ;
+    ex:normalisedName "red wine vinegar" ;
+    ex:quantityG 30.0 ;
+    ex:rawString "2 tablespoons red wine vinegar" ;
+    ex:wikidataLabel "red wine vinegar" ;
+    ex:wikidataQid "Q68431797" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q68431797" .
+
+ex:ing_peperonata_6 a ex:Ingredient ;
+    ex:foodCategory "excipient" ;
+    ex:hasNutrition ex:nutr_peperonata_6 ;
+    ex:normalisedName "sugar" ;
+    ex:quantityG 5.0 ;
+    ex:rawString "1 teaspoon sugar" ;
+    ex:wikidataLabel "sugar" ;
+    ex:wikidataQid "Q11002" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q11002" .
+
+ex:ing_peperonata_7 a ex:Ingredient ;
+    ex:foodCategory "non-drying oil" ;
+    ex:hasNutrition ex:nutr_peperonata_7 ;
+    ex:normalisedName "olive oil" ;
+    ex:quantityG 45.0 ;
+    ex:rawString "3 tablespoons olive oil" ;
+    ex:wikidataLabel "olive oil" ;
+    ex:wikidataQid "Q93165" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q93165" .
+
+ex:ing_peperonata_8 a ex:Ingredient ;
+    ex:foodCategory "taxon" ;
+    ex:hasNutrition ex:nutr_peperonata_8 ;
+    ex:normalisedName "basil" ;
+    ex:quantityG 10.0 ;
+    ex:rawString "1 small handful fresh basil" ;
+    ex:wikidataLabel "basil" ;
+    ex:wikidataQid "Q38859" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q38859" .
+
+ex:ing_pork-ragu_0 a ex:Ingredient ;
+    ex:foodCategory "pork" ;
+    ex:hasNutrition ex:nutr_pork-ragu_0 ;
+    ex:normalisedName "pork shoulder" ;
+    ex:quantityG 1200.0 ;
+    ex:rawString "1.2kg pork shoulder, boneless, cut into 4 large pieces" ;
+    ex:wikidataLabel "pork shoulder" ;
+    ex:wikidataQid "Q2255700" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q2255700" .
+
+ex:ing_pork-ragu_1 a ex:Ingredient ;
+    ex:foodCategory "non-drying oil" ;
+    ex:hasNutrition ex:nutr_pork-ragu_1 ;
+    ex:normalisedName "olive oil" ;
+    ex:quantityG 30.0 ;
+    ex:rawString "2 tablespoons olive oil" ;
+    ex:wikidataLabel "olive oil" ;
+    ex:wikidataQid "Q93165" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q93165" .
+
+ex:ing_pork-ragu_10 a ex:Ingredient ;
+    ex:foodCategory "essential oil" ;
+    ex:hasNutrition ex:nutr_pork-ragu_10 ;
+    ex:normalisedName "bay leaf" ;
+    ex:rawString "4 bay leaves" ;
+    ex:wikidataLabel "bay oil" ;
+    ex:wikidataQid "Q72444924" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q72444924" .
+
+ex:ing_pork-ragu_11 a ex:Ingredient ;
+    ex:foodCategory "peel" ;
+    ex:hasNutrition ex:nutr_pork-ragu_11 ;
+    ex:normalisedName "orange peel" ;
+    ex:rawString "1 strip orange peel" ;
+    ex:wikidataLabel "orange peel" ;
+    ex:wikidataQid "Q102035949" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q102035949" .
+
+ex:ing_pork-ragu_12 a ex:Ingredient ;
+    ex:hasNutrition ex:nutr_pork-ragu_12 ;
+    ex:normalisedName "salt and black pepper" ;
+    ex:rawString "Salt and black pepper" .
+
+ex:ing_pork-ragu_13 a ex:Ingredient ;
+    ex:foodCategory "dish" ;
+    ex:hasNutrition ex:nutr_pork-ragu_13 ;
+    ex:normalisedName "pasta" ;
+    ex:originCountry "Kingdom of Italy" ;
+    ex:rawString "Pasta (pappardelle or rigatoni), to serve" ;
+    ex:wikidataLabel "pasta" ;
+    ex:wikidataQid "Q178" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q178" .
+
+ex:ing_pork-ragu_14 a ex:Ingredient ;
+    ex:foodCategory "cheese" ;
+    ex:hasNutrition ex:nutr_pork-ragu_14 ;
+    ex:normalisedName "parmesan" ;
+    ex:originCountry "Italy" ;
+    ex:rawString "Grated Parmesan, to serve" ;
+    ex:wikidataLabel "Parmesan" ;
+    ex:wikidataQid "Q155922" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q155922" .
+
+ex:ing_pork-ragu_2 a ex:Ingredient ;
     ex:foodCategory "parivyaya" ;
-    ex:hasNutrition ex:nutr_tahini-chicken-with-butternut-hummus-and-bulgur-salad_0 ;
+    ex:hasNutrition ex:nutr_pork-ragu_2 ;
     ex:normalisedName "onion" ;
     ex:quantityG 150.0 ;
-    ex:rawString "400g Chicken" ;
+    ex:rawString "1 onion, finely diced" ;
     ex:wikidataLabel "Allium" ;
     ex:wikidataQid "Q49391" ;
     ex:wikidataUri "http://www.wikidata.org/entity/Q49391" .
 
-ex:ing_tahini-chicken-with-butternut-hummus-and-bulgur-salad_1 a ex:Ingredient ;
+ex:ing_pork-ragu_3 a ex:Ingredient ;
+    ex:foodCategory "food crop" ;
+    ex:hasNutrition ex:nutr_pork-ragu_3 ;
+    ex:normalisedName "carrot" ;
+    ex:quantityG 120.0 ;
+    ex:rawString "2 carrots, finely diced" ;
+    ex:wikidataLabel "carrot" ;
+    ex:wikidataQid "Q81" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q81" .
+
+ex:ing_pork-ragu_4 a ex:Ingredient ;
+    ex:foodCategory "herb" ;
+    ex:hasNutrition ex:nutr_pork-ragu_4 ;
+    ex:normalisedName "celery" ;
+    ex:quantityG 100.0 ;
+    ex:rawString "2 celery stalks, finely diced" ;
+    ex:wikidataLabel "celery" ;
+    ex:wikidataQid "Q23012379" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q23012379" .
+
+ex:ing_pork-ragu_5 a ex:Ingredient ;
+    ex:foodCategory "herbal medicinal product" ;
+    ex:hasNutrition ex:nutr_pork-ragu_5 ;
+    ex:normalisedName "garlic" ;
+    ex:quantityG 20.0 ;
+    ex:rawString "4 garlic cloves, minced" ;
+    ex:wikidataLabel "garlic" ;
+    ex:wikidataQid "Q21546392" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q21546392" .
+
+ex:ing_pork-ragu_6 a ex:Ingredient ;
+    ex:hasNutrition ex:nutr_pork-ragu_6 ;
+    ex:normalisedName "dry white wine" ;
+    ex:quantityG 200.0 ;
+    ex:rawString "200ml dry white wine" .
+
+ex:ing_pork-ragu_7 a ex:Ingredient ;
+    ex:foodCategory "canned tomato" ;
+    ex:hasNutrition ex:nutr_pork-ragu_7 ;
+    ex:normalisedName "peeled tomatoes" ;
+    ex:quantityG 400.0 ;
+    ex:rawString "1 can peeled tomatoes" ;
+    ex:wikidataLabel "peeled tomato" ;
+    ex:wikidataQid "Q12798512" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q12798512" .
+
+ex:ing_pork-ragu_8 a ex:Ingredient ;
+    ex:foodCategory "broth" ;
+    ex:hasNutrition ex:nutr_pork-ragu_8 ;
+    ex:normalisedName "chicken stock" ;
+    ex:quantityG 500.0 ;
+    ex:rawString "500ml chicken stock" ;
+    ex:wikidataLabel "chicken stock" ;
+    ex:wikidataQid "Q96362076" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q96362076" .
+
+ex:ing_pork-ragu_9 a ex:Ingredient ;
+    ex:hasNutrition ex:nutr_pork-ragu_9 ;
+    ex:normalisedName "rosemary" ;
+    ex:rawString "1 small handful fresh rosemary" .
+
+ex:ing_pytt-i-panne_0 a ex:Ingredient ;
+    ex:foodCategory "human food" ;
+    ex:hasNutrition ex:nutr_pytt-i-panne_0 ;
+    ex:normalisedName "sausage" ;
+    ex:quantityG 200.0 ;
+    ex:rawString "2 Sausages" ;
+    ex:wikidataLabel "sausage" ;
+    ex:wikidataQid "Q131419" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q131419" .
+
+ex:ing_pytt-i-panne_1 a ex:Ingredient ;
+    ex:foodCategory "pork" ;
+    ex:hasNutrition ex:nutr_pytt-i-panne_1 ;
+    ex:normalisedName "bacon" ;
+    ex:quantityG 30.0 ;
+    ex:rawString "3 Strips of bacon (optional)" ;
+    ex:wikidataLabel "bacon" ;
+    ex:wikidataQid "Q11106" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q11106" .
+
+ex:ing_pytt-i-panne_2 a ex:Ingredient ;
+    ex:foodCategory "staple food" ;
+    ex:hasNutrition ex:nutr_pytt-i-panne_2 ;
+    ex:normalisedName "potato" ;
+    ex:quantityG 300.0 ;
+    ex:rawString "2 Medium size potatoes" ;
+    ex:wikidataLabel "potato" ;
+    ex:wikidataQid "Q16587531" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q16587531" .
+
+ex:ing_pytt-i-panne_3 a ex:Ingredient ;
+    ex:foodCategory "parivyaya" ;
+    ex:hasNutrition ex:nutr_pytt-i-panne_3 ;
+    ex:normalisedName "onion" ;
+    ex:quantityG 150.0 ;
+    ex:rawString "1 Medium size onion" ;
+    ex:wikidataLabel "Allium" ;
+    ex:wikidataQid "Q49391" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q49391" .
+
+ex:ing_pytt-i-panne_4 a ex:Ingredient ;
     ex:foodCategory "tomato sauce" ;
-    ex:hasNutrition ex:nutr_tahini-chicken-with-butternut-hummus-and-bulgur-salad_1 ;
+    ex:hasNutrition ex:nutr_pytt-i-panne_4 ;
     ex:normalisedName "ketchup" ;
     ex:originCountry "Ukrainian Soviet Socialist Republic" ;
-    ex:rawString "Tahini" ;
+    ex:rawString "Ketchup for topping" ;
     ex:wikidataLabel "ketchup" ;
     ex:wikidataQid "Q178143" ;
     ex:wikidataUri "http://www.wikidata.org/entity/Q178143" .
 
+ex:ing_souvlaki_0 a ex:Ingredient ;
+    ex:foodCategory "pork" ;
+    ex:hasNutrition ex:nutr_souvlaki_0 ;
+    ex:normalisedName "pork shoulder" ;
+    ex:quantityG 800.0 ;
+    ex:rawString "800g pork shoulder, cut into 3cm cubes" ;
+    ex:wikidataLabel "pork shoulder" ;
+    ex:wikidataQid "Q2255700" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q2255700" .
+
+ex:ing_souvlaki_1 a ex:Ingredient ;
+    ex:foodCategory "non-drying oil" ;
+    ex:hasNutrition ex:nutr_souvlaki_1 ;
+    ex:normalisedName "olive oil" ;
+    ex:quantityG 60.0 ;
+    ex:rawString "4 tablespoons olive oil" ;
+    ex:wikidataLabel "olive oil" ;
+    ex:wikidataQid "Q93165" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q93165" .
+
+ex:ing_souvlaki_10 a ex:Ingredient ;
+    ex:foodCategory "food" ;
+    ex:hasNutrition ex:nutr_souvlaki_10 ;
+    ex:normalisedName "tzatziki" ;
+    ex:originCountry "Greece" ;
+    ex:rawString "Tzatziki" ;
+    ex:wikidataLabel "tzatziki" ;
+    ex:wikidataQid "Q836538" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q836538" .
+
+ex:ing_souvlaki_11 a ex:Ingredient ;
+    ex:foodCategory "side dish" ;
+    ex:hasNutrition ex:nutr_souvlaki_11 ;
+    ex:normalisedName "lemon wedges" ;
+    ex:rawString "Lemon wedges" ;
+    ex:wikidataLabel "lemon wedge" ;
+    ex:wikidataQid "Q26877136" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q26877136" .
+
+ex:ing_souvlaki_2 a ex:Ingredient ;
+    ex:foodCategory "lemon and lime juice" ;
+    ex:hasNutrition ex:nutr_souvlaki_2 ;
+    ex:normalisedName "lemon juice" ;
+    ex:quantityG 45.0 ;
+    ex:rawString "Juice of 1 lemon" ;
+    ex:wikidataLabel "lemon juice" ;
+    ex:wikidataQid "Q1375049" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q1375049" .
+
+ex:ing_souvlaki_3 a ex:Ingredient ;
+    ex:foodCategory "taxon" ;
+    ex:hasNutrition ex:nutr_souvlaki_3 ;
+    ex:normalisedName "oregano" ;
+    ex:quantityG 10.0 ;
+    ex:rawString "2 teaspoons dried oregano" ;
+    ex:wikidataLabel "Origanum vulgare" ;
+    ex:wikidataQid "Q134283" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q134283" .
+
+ex:ing_souvlaki_4 a ex:Ingredient ;
+    ex:foodCategory "herbal medicinal product" ;
+    ex:hasNutrition ex:nutr_souvlaki_4 ;
+    ex:normalisedName "garlic" ;
+    ex:quantityG 20.0 ;
+    ex:rawString "4 garlic cloves, grated" ;
+    ex:wikidataLabel "garlic" ;
+    ex:wikidataQid "Q21546392" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q21546392" .
+
+ex:ing_souvlaki_5 a ex:Ingredient ;
+    ex:foodCategory "mixture" ;
+    ex:hasNutrition ex:nutr_souvlaki_5 ;
+    ex:normalisedName "salt" ;
+    ex:quantityG 5.0 ;
+    ex:rawString "1 teaspoon salt" ;
+    ex:wikidataLabel "table salt" ;
+    ex:wikidataQid "Q11254" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q11254" .
+
+ex:ing_souvlaki_6 a ex:Ingredient ;
+    ex:foodCategory "food ingredient" ;
+    ex:hasNutrition ex:nutr_souvlaki_6 ;
+    ex:normalisedName "black pepper" ;
+    ex:quantityG 5.0 ;
+    ex:rawString "1 teaspoon black pepper" ;
+    ex:wikidataLabel "black pepper" ;
+    ex:wikidataQid "Q22915010" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q22915010" .
+
+ex:ing_souvlaki_7 a ex:Ingredient ;
+    ex:foodCategory "flatbread" ;
+    ex:hasNutrition ex:nutr_souvlaki_7 ;
+    ex:normalisedName "pita bread" ;
+    ex:quantityG 320.0 ;
+    ex:rawString "4 pita breads, warmed" ;
+    ex:wikidataLabel "pita" ;
+    ex:wikidataQid "Q211340" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q211340" .
+
+ex:ing_souvlaki_8 a ex:Ingredient ;
+    ex:foodCategory "taxon" ;
+    ex:hasNutrition ex:nutr_souvlaki_8 ;
+    ex:normalisedName "red onion" ;
+    ex:quantityG 150.0 ;
+    ex:rawString "1 red onion, thinly sliced" ;
+    ex:wikidataLabel "red onion" ;
+    ex:wikidataQid "Q622350" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q622350" .
+
+ex:ing_souvlaki_9 a ex:Ingredient ;
+    ex:foodCategory "food crop" ;
+    ex:hasNutrition ex:nutr_souvlaki_9 ;
+    ex:normalisedName "tomato" ;
+    ex:quantityG 250.0 ;
+    ex:rawString "2 tomatoes, sliced" ;
+    ex:wikidataLabel "tomato" ;
+    ex:wikidataQid "Q23501" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q23501" .
+
+ex:ing_tahini-chicken-with-butternut-hummus-and-bulgur-salad_0 a ex:Ingredient ;
+    ex:foodCategory "poultry meat" ;
+    ex:hasNutrition ex:nutr_tahini-chicken-with-butternut-hummus-and-bulgur-salad_0 ;
+    ex:normalisedName "chicken" ;
+    ex:quantityG 400.0 ;
+    ex:rawString "400g Chicken" ;
+    ex:wikidataLabel "chicken as food" ;
+    ex:wikidataQid "Q864693" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q864693" .
+
+ex:ing_tahini-chicken-with-butternut-hummus-and-bulgur-salad_1 a ex:Ingredient ;
+    ex:foodCategory "spread" ;
+    ex:hasNutrition ex:nutr_tahini-chicken-with-butternut-hummus-and-bulgur-salad_1 ;
+    ex:normalisedName "tahini" ;
+    ex:rawString "Tahini" ;
+    ex:wikidataLabel "tehina" ;
+    ex:wikidataQid "Q383389" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q383389" .
+
 ex:ing_tahini-chicken-with-butternut-hummus-and-bulgur-salad_10 a ex:Ingredient ;
-    ex:foodCategory "cultivar" ;
+    ex:foodCategory "herbal medicinal product" ;
     ex:hasNutrition ex:nutr_tahini-chicken-with-butternut-hummus-and-bulgur-salad_10 ;
-    ex:normalisedName "butternut squash" ;
-    ex:quantityG 700.0 ;
+    ex:normalisedName "garlic" ;
+    ex:quantityG 15.0 ;
     ex:rawString "3 Cloves of garlic" ;
-    ex:wikidataLabel "butternut squash" ;
-    ex:wikidataQid "Q4169287" ;
-    ex:wikidataUri "http://www.wikidata.org/entity/Q4169287" .
+    ex:wikidataLabel "garlic" ;
+    ex:wikidataQid "Q21546392" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q21546392" .
 
 ex:ing_tahini-chicken-with-butternut-hummus-and-bulgur-salad_11 a ex:Ingredient ;
     ex:foodCategory "non-drying oil" ;
@@ -484,52 +2822,51 @@ ex:ing_tahini-chicken-with-butternut-hummus-and-bulgur-salad_11 a ex:Ingredient 
     ex:wikidataUri "http://www.wikidata.org/entity/Q93165" .
 
 ex:ing_tahini-chicken-with-butternut-hummus-and-bulgur-salad_12 a ex:Ingredient ;
-    ex:foodCategory "bean" ;
-    ex:hasNutrition ex:nutr_tahini-chicken-with-butternut-hummus-and-bulgur-salad_12 ;
-    ex:normalisedName "chickpeas" ;
-    ex:quantityG 400.0 ;
-    ex:rawString "Squeeze of lemon" ;
-    ex:wikidataLabel "chickpea" ;
-    ex:wikidataQid "Q21156930" ;
-    ex:wikidataUri "http://www.wikidata.org/entity/Q21156930" .
-
-ex:ing_tahini-chicken-with-butternut-hummus-and-bulgur-salad_13 a ex:Ingredient ;
-    ex:foodCategory "tomato sauce" ;
-    ex:hasNutrition ex:nutr_tahini-chicken-with-butternut-hummus-and-bulgur-salad_13 ;
-    ex:normalisedName "ketchup" ;
-    ex:originCountry "Ukrainian Soviet Socialist Republic" ;
-    ex:rawString "Tahini" ;
-    ex:wikidataLabel "ketchup" ;
-    ex:wikidataQid "Q178143" ;
-    ex:wikidataUri "http://www.wikidata.org/entity/Q178143" .
-
-ex:ing_tahini-chicken-with-butternut-hummus-and-bulgur-salad_14 a ex:Ingredient ;
-    ex:foodCategory "organisms known by a particular common name" ;
-    ex:hasNutrition ex:nutr_tahini-chicken-with-butternut-hummus-and-bulgur-salad_14 ;
-    ex:normalisedName "chili" ;
-    ex:rawString "Salt" ;
-    ex:wikidataLabel "chili pepper" ;
-    ex:wikidataQid "Q165199" ;
-    ex:wikidataUri "http://www.wikidata.org/entity/Q165199" .
-
-ex:ing_tahini-chicken-with-butternut-hummus-and-bulgur-salad_15 a ex:Ingredient ;
-    ex:foodCategory "herbal medicinal product" ;
-    ex:hasNutrition ex:nutr_tahini-chicken-with-butternut-hummus-and-bulgur-salad_15 ;
-    ex:normalisedName "garlic" ;
-    ex:quantityG 15.0 ;
-    ex:rawString "Bulgur" ;
-    ex:wikidataLabel "garlic" ;
-    ex:wikidataQid "Q21546392" ;
-    ex:wikidataUri "http://www.wikidata.org/entity/Q21546392" .
-
-ex:ing_tahini-chicken-with-butternut-hummus-and-bulgur-salad_16 a ex:Ingredient ;
     ex:foodCategory "fruit" ;
-    ex:hasNutrition ex:nutr_tahini-chicken-with-butternut-hummus-and-bulgur-salad_16 ;
+    ex:hasNutrition ex:nutr_tahini-chicken-with-butternut-hummus-and-bulgur-salad_12 ;
     ex:normalisedName "lemon" ;
-    ex:rawString "1/2 Red onion" ;
+    ex:quantityG 15.0 ;
+    ex:rawString "Squeeze of lemon" ;
     ex:wikidataLabel "lemon" ;
     ex:wikidataQid "Q1093742" ;
     ex:wikidataUri "http://www.wikidata.org/entity/Q1093742" .
+
+ex:ing_tahini-chicken-with-butternut-hummus-and-bulgur-salad_13 a ex:Ingredient ;
+    ex:foodCategory "spread" ;
+    ex:hasNutrition ex:nutr_tahini-chicken-with-butternut-hummus-and-bulgur-salad_13 ;
+    ex:normalisedName "tahini" ;
+    ex:rawString "Tahini" ;
+    ex:wikidataLabel "tehina" ;
+    ex:wikidataQid "Q383389" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q383389" .
+
+ex:ing_tahini-chicken-with-butternut-hummus-and-bulgur-salad_14 a ex:Ingredient ;
+    ex:foodCategory "mixture" ;
+    ex:hasNutrition ex:nutr_tahini-chicken-with-butternut-hummus-and-bulgur-salad_14 ;
+    ex:normalisedName "salt" ;
+    ex:rawString "Salt" ;
+    ex:wikidataLabel "table salt" ;
+    ex:wikidataQid "Q11254" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q11254" .
+
+ex:ing_tahini-chicken-with-butternut-hummus-and-bulgur-salad_15 a ex:Ingredient ;
+    ex:foodCategory "seed" ;
+    ex:hasNutrition ex:nutr_tahini-chicken-with-butternut-hummus-and-bulgur-salad_15 ;
+    ex:normalisedName "bulgur" ;
+    ex:rawString "Bulgur" ;
+    ex:wikidataLabel "bulgur" ;
+    ex:wikidataQid "Q250432" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q250432" .
+
+ex:ing_tahini-chicken-with-butternut-hummus-and-bulgur-salad_16 a ex:Ingredient ;
+    ex:foodCategory "taxon" ;
+    ex:hasNutrition ex:nutr_tahini-chicken-with-butternut-hummus-and-bulgur-salad_16 ;
+    ex:normalisedName "red onion" ;
+    ex:quantityG 75.0 ;
+    ex:rawString "1/2 Red onion" ;
+    ex:wikidataLabel "red onion" ;
+    ex:wikidataQid "Q622350" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q622350" .
 
 ex:ing_tahini-chicken-with-butternut-hummus-and-bulgur-salad_17 a ex:Ingredient ;
     ex:foodCategory "spice" ;
@@ -541,14 +2878,14 @@ ex:ing_tahini-chicken-with-butternut-hummus-and-bulgur-salad_17 a ex:Ingredient 
     ex:wikidataUri "http://www.wikidata.org/entity/Q65522500" .
 
 ex:ing_tahini-chicken-with-butternut-hummus-and-bulgur-salad_18 a ex:Ingredient ;
-    ex:foodCategory "bean" ;
+    ex:foodCategory "fruit" ;
     ex:hasNutrition ex:nutr_tahini-chicken-with-butternut-hummus-and-bulgur-salad_18 ;
-    ex:normalisedName "chickpeas" ;
-    ex:quantityG 400.0 ;
+    ex:normalisedName "lemon" ;
+    ex:quantityG 15.0 ;
     ex:rawString "Squeeze of lemon" ;
-    ex:wikidataLabel "chickpea" ;
-    ex:wikidataQid "Q21156930" ;
-    ex:wikidataUri "http://www.wikidata.org/entity/Q21156930" .
+    ex:wikidataLabel "lemon" ;
+    ex:wikidataQid "Q1093742" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q1093742" .
 
 ex:ing_tahini-chicken-with-butternut-hummus-and-bulgur-salad_19 a ex:Ingredient ;
     ex:foodCategory "non-drying oil" ;
@@ -560,87 +2897,800 @@ ex:ing_tahini-chicken-with-butternut-hummus-and-bulgur-salad_19 a ex:Ingredient 
     ex:wikidataUri "http://www.wikidata.org/entity/Q93165" .
 
 ex:ing_tahini-chicken-with-butternut-hummus-and-bulgur-salad_2 a ex:Ingredient ;
-    ex:foodCategory "poultry meat" ;
-    ex:hasNutrition ex:nutr_tahini-chicken-with-butternut-hummus-and-bulgur-salad_2 ;
-    ex:normalisedName "chicken" ;
-    ex:quantityG 400.0 ;
-    ex:rawString "Honey" ;
-    ex:wikidataLabel "chicken as food" ;
-    ex:wikidataQid "Q864693" ;
-    ex:wikidataUri "http://www.wikidata.org/entity/Q864693" .
-
-ex:ing_tahini-chicken-with-butternut-hummus-and-bulgur-salad_20 a ex:Ingredient ;
-    ex:foodCategory "organisms known by a particular common name" ;
-    ex:hasNutrition ex:nutr_tahini-chicken-with-butternut-hummus-and-bulgur-salad_20 ;
-    ex:normalisedName "chili" ;
-    ex:rawString "Salt" ;
-    ex:wikidataLabel "chili pepper" ;
-    ex:wikidataQid "Q165199" ;
-    ex:wikidataUri "http://www.wikidata.org/entity/Q165199" .
-
-ex:ing_tahini-chicken-with-butternut-hummus-and-bulgur-salad_3 a ex:Ingredient ;
-    ex:foodCategory "spread" ;
-    ex:hasNutrition ex:nutr_tahini-chicken-with-butternut-hummus-and-bulgur-salad_3 ;
-    ex:normalisedName "tahini" ;
-    ex:rawString "Soy sauce" ;
-    ex:wikidataLabel "tehina" ;
-    ex:wikidataQid "Q383389" ;
-    ex:wikidataUri "http://www.wikidata.org/entity/Q383389" .
-
-ex:ing_tahini-chicken-with-butternut-hummus-and-bulgur-salad_4 a ex:Ingredient ;
     ex:foodCategory "organic matter" ;
-    ex:hasNutrition ex:nutr_tahini-chicken-with-butternut-hummus-and-bulgur-salad_4 ;
+    ex:hasNutrition ex:nutr_tahini-chicken-with-butternut-hummus-and-bulgur-salad_2 ;
     ex:normalisedName "honey" ;
-    ex:rawString "Vinegar" ;
+    ex:rawString "Honey" ;
     ex:wikidataLabel "honey" ;
     ex:wikidataQid "Q10987" ;
     ex:wikidataUri "http://www.wikidata.org/entity/Q10987" .
 
-ex:ing_tahini-chicken-with-butternut-hummus-and-bulgur-salad_5 a ex:Ingredient ;
+ex:ing_tahini-chicken-with-butternut-hummus-and-bulgur-salad_20 a ex:Ingredient ;
+    ex:foodCategory "mixture" ;
+    ex:hasNutrition ex:nutr_tahini-chicken-with-butternut-hummus-and-bulgur-salad_20 ;
+    ex:normalisedName "salt" ;
+    ex:rawString "Salt" ;
+    ex:wikidataLabel "table salt" ;
+    ex:wikidataQid "Q11254" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q11254" .
+
+ex:ing_tahini-chicken-with-butternut-hummus-and-bulgur-salad_3 a ex:Ingredient ;
     ex:foodCategory "sauce" ;
-    ex:hasNutrition ex:nutr_tahini-chicken-with-butternut-hummus-and-bulgur-salad_5 ;
+    ex:hasNutrition ex:nutr_tahini-chicken-with-butternut-hummus-and-bulgur-salad_3 ;
     ex:normalisedName "soy sauce" ;
     ex:originCountry "China" ;
-    ex:rawString "Chili" ;
+    ex:rawString "Soy sauce" ;
     ex:wikidataLabel "soy sauce" ;
     ex:wikidataQid "Q229385" ;
     ex:wikidataUri "http://www.wikidata.org/entity/Q229385" .
 
-ex:ing_tahini-chicken-with-butternut-hummus-and-bulgur-salad_6 a ex:Ingredient ;
+ex:ing_tahini-chicken-with-butternut-hummus-and-bulgur-salad_4 a ex:Ingredient ;
     ex:foodCategory "aqueous solution" ;
-    ex:hasNutrition ex:nutr_tahini-chicken-with-butternut-hummus-and-bulgur-salad_6 ;
+    ex:hasNutrition ex:nutr_tahini-chicken-with-butternut-hummus-and-bulgur-salad_4 ;
     ex:normalisedName "vinegar" ;
-    ex:rawString "Garlic" ;
+    ex:rawString "Vinegar" ;
     ex:wikidataLabel "vinegar" ;
     ex:wikidataQid "Q41354" ;
     ex:wikidataUri "http://www.wikidata.org/entity/Q41354" .
 
-ex:ing_tahini-chicken-with-butternut-hummus-and-bulgur-salad_7 a ex:Ingredient ;
+ex:ing_tahini-chicken-with-butternut-hummus-and-bulgur-salad_5 a ex:Ingredient ;
     ex:foodCategory "organisms known by a particular common name" ;
-    ex:hasNutrition ex:nutr_tahini-chicken-with-butternut-hummus-and-bulgur-salad_7 ;
+    ex:hasNutrition ex:nutr_tahini-chicken-with-butternut-hummus-and-bulgur-salad_5 ;
     ex:normalisedName "chili" ;
-    ex:rawString "Salt" ;
+    ex:rawString "Chili" ;
     ex:wikidataLabel "chili pepper" ;
     ex:wikidataQid "Q165199" ;
     ex:wikidataUri "http://www.wikidata.org/entity/Q165199" .
 
-ex:ing_tahini-chicken-with-butternut-hummus-and-bulgur-salad_8 a ex:Ingredient ;
+ex:ing_tahini-chicken-with-butternut-hummus-and-bulgur-salad_6 a ex:Ingredient ;
     ex:foodCategory "herbal medicinal product" ;
-    ex:hasNutrition ex:nutr_tahini-chicken-with-butternut-hummus-and-bulgur-salad_8 ;
+    ex:hasNutrition ex:nutr_tahini-chicken-with-butternut-hummus-and-bulgur-salad_6 ;
     ex:normalisedName "garlic" ;
-    ex:rawString "1 Butternut squash" ;
+    ex:rawString "Garlic" ;
     ex:wikidataLabel "garlic" ;
     ex:wikidataQid "Q21546392" ;
     ex:wikidataUri "http://www.wikidata.org/entity/Q21546392" .
 
-ex:ing_tahini-chicken-with-butternut-hummus-and-bulgur-salad_9 a ex:Ingredient ;
+ex:ing_tahini-chicken-with-butternut-hummus-and-bulgur-salad_7 a ex:Ingredient ;
     ex:foodCategory "mixture" ;
-    ex:hasNutrition ex:nutr_tahini-chicken-with-butternut-hummus-and-bulgur-salad_9 ;
+    ex:hasNutrition ex:nutr_tahini-chicken-with-butternut-hummus-and-bulgur-salad_7 ;
     ex:normalisedName "salt" ;
-    ex:rawString "1 Can chickpeas" ;
+    ex:rawString "Salt" ;
     ex:wikidataLabel "table salt" ;
     ex:wikidataQid "Q11254" ;
     ex:wikidataUri "http://www.wikidata.org/entity/Q11254" .
+
+ex:ing_tahini-chicken-with-butternut-hummus-and-bulgur-salad_8 a ex:Ingredient ;
+    ex:hasNutrition ex:nutr_tahini-chicken-with-butternut-hummus-and-bulgur-salad_8 ;
+    ex:normalisedName "butternut squash" ;
+    ex:quantityG 700.0 ;
+    ex:rawString "1 Butternut squash" .
+
+ex:ing_tahini-chicken-with-butternut-hummus-and-bulgur-salad_9 a ex:Ingredient ;
+    ex:foodCategory "bean" ;
+    ex:hasNutrition ex:nutr_tahini-chicken-with-butternut-hummus-and-bulgur-salad_9 ;
+    ex:normalisedName "chickpeas" ;
+    ex:quantityG 400.0 ;
+    ex:rawString "1 Can chickpeas" ;
+    ex:wikidataLabel "chickpea" ;
+    ex:wikidataQid "Q21156930" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q21156930" .
+
+ex:ing_teriyaki-chicken_0 a ex:Ingredient ;
+    ex:foodCategory "thigh" ;
+    ex:hasNutrition ex:nutr_teriyaki-chicken_0 ;
+    ex:normalisedName "chicken thigh" ;
+    ex:quantityG 500.0 ;
+    ex:rawString "4 chicken thighs, boneless, skin on (about 500g)" ;
+    ex:wikidataLabel "chicken thigh" ;
+    ex:wikidataQid "Q102354615" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q102354615" .
+
+ex:ing_teriyaki-chicken_1 a ex:Ingredient ;
+    ex:foodCategory "mixture" ;
+    ex:hasNutrition ex:nutr_teriyaki-chicken_1 ;
+    ex:normalisedName "neutral oil" ;
+    ex:quantityG 5.0 ;
+    ex:rawString "1 teaspoon neutral oil" ;
+    ex:wikidataLabel "essential oil" ;
+    ex:wikidataQid "Q170885" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q170885" .
+
+ex:ing_teriyaki-chicken_2 a ex:Ingredient ;
+    ex:foodCategory "sauce" ;
+    ex:hasNutrition ex:nutr_teriyaki-chicken_2 ;
+    ex:normalisedName "soy sauce" ;
+    ex:originCountry "China" ;
+    ex:quantityG 45.0 ;
+    ex:rawString "3 tablespoons soy sauce" ;
+    ex:wikidataLabel "soy sauce" ;
+    ex:wikidataQid "Q229385" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q229385" .
+
+ex:ing_teriyaki-chicken_3 a ex:Ingredient ;
+    ex:foodCategory "condiment" ;
+    ex:hasNutrition ex:nutr_teriyaki-chicken_3 ;
+    ex:normalisedName "mirin" ;
+    ex:originCountry "Japan" ;
+    ex:quantityG 45.0 ;
+    ex:rawString "3 tablespoons mirin" ;
+    ex:wikidataLabel "mirin" ;
+    ex:wikidataQid "Q1045910" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q1045910" .
+
+ex:ing_teriyaki-chicken_4 a ex:Ingredient ;
+    ex:foodCategory "rice wine" ;
+    ex:hasNutrition ex:nutr_teriyaki-chicken_4 ;
+    ex:normalisedName "sake" ;
+    ex:originCountry "Japan" ;
+    ex:quantityG 45.0 ;
+    ex:rawString "3 tablespoons sake" ;
+    ex:wikidataLabel "sake" ;
+    ex:wikidataQid "Q170219" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q170219" .
+
+ex:ing_teriyaki-chicken_5 a ex:Ingredient ;
+    ex:foodCategory "excipient" ;
+    ex:hasNutrition ex:nutr_teriyaki-chicken_5 ;
+    ex:normalisedName "sugar" ;
+    ex:quantityG 15.0 ;
+    ex:rawString "1 tablespoon sugar" ;
+    ex:wikidataLabel "sugar" ;
+    ex:wikidataQid "Q11002" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q11002" .
+
+ex:ing_teriyaki-chicken_6 a ex:Ingredient ;
+    ex:foodCategory "cooked rice" ;
+    ex:hasNutrition ex:nutr_teriyaki-chicken_6 ;
+    ex:normalisedName "steamed rice" ;
+    ex:rawString "Steamed rice, to serve" ;
+    ex:wikidataLabel "steamed rice" ;
+    ex:wikidataQid "Q103921799" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q103921799" .
+
+ex:ing_teriyaki-chicken_7 a ex:Ingredient ;
+    ex:hasNutrition ex:nutr_teriyaki-chicken_7 ;
+    ex:normalisedName "steamed greens" ;
+    ex:rawString "Steamed greens, to serve" .
+
+ex:ing_teriyaki-chicken_8 a ex:Ingredient ;
+    ex:foodCategory "food ingredient" ;
+    ex:hasNutrition ex:nutr_teriyaki-chicken_8 ;
+    ex:normalisedName "sesame seeds" ;
+    ex:rawString "Toasted sesame seeds, to serve" ;
+    ex:wikidataLabel "sesame seed" ;
+    ex:wikidataQid "Q12000036" ;
+    ex:wikidataUri "http://www.wikidata.org/entity/Q12000036" .
+
+ex:nutr_Pork-chops-with-chimichurri-and-grilled-pepper-salad_0 a ex:Nutrition ;
+    ex:carbsPer100g 0.0 ;
+    ex:cholesterolMgPer100g 60.0 ;
+    ex:fatPer100g 3.4 ;
+    ex:fibrePer100g 0.0 ;
+    ex:kcalPer100g 127.0 ;
+    ex:proteinPer100g 22.5 ;
+    ex:saturatedFatPer100g 1.07 ;
+    ex:sodiumMgPer100g 54.0 ;
+    ex:sugarPer100g 0.0 .
+
+ex:nutr_Pork-chops-with-chimichurri-and-grilled-pepper-salad_1 a ex:Nutrition ;
+    ex:carbsPer100g 1330.0 ;
+    ex:fatPer100g 0.0 ;
+    ex:kcalPer100g 0.0 ;
+    ex:proteinPer100g 0.0 ;
+    ex:sodiumMgPer100g 39300.0 .
+
+ex:nutr_Pork-chops-with-chimichurri-and-grilled-pepper-salad_10 a ex:Nutrition ;
+    ex:carbsPer100g 7.23 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 0.02 ;
+    ex:fibrePer100g 0.0 ;
+    ex:kcalPer100g 85.0 ;
+    ex:proteinPer100g 0.04 ;
+    ex:saturatedFatPer100g 0.001 ;
+    ex:sodiumMgPer100g 10.0 ;
+    ex:sugarPer100g 6.14 .
+
+ex:nutr_Pork-chops-with-chimichurri-and-grilled-pepper-salad_11 a ex:Nutrition ;
+    ex:carbsPer100g 33.3 ;
+    ex:fatPer100g 0.0 ;
+    ex:kcalPer100g 167.0 ;
+    ex:proteinPer100g 0.0 ;
+    ex:sodiumMgPer100g 0.0 .
+
+ex:nutr_Pork-chops-with-chimichurri-and-grilled-pepper-salad_12 a ex:Nutrition ;
+    ex:carbsPer100g 0.0 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 100.0 ;
+    ex:fibrePer100g 0.0 ;
+    ex:kcalPer100g 900.0 ;
+    ex:proteinPer100g 0.0 ;
+    ex:saturatedFatPer100g 15.52 ;
+    ex:sodiumMgPer100g 2.0 ;
+    ex:sugarPer100g 0.0 .
+
+ex:nutr_Pork-chops-with-chimichurri-and-grilled-pepper-salad_13 a ex:Nutrition ;
+    ex:carbsPer100g 0.0 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 0.0 ;
+    ex:kcalPer100g 0.0 ;
+    ex:proteinPer100g 0.0 ;
+    ex:sodiumMgPer100g 0.0 ;
+    ex:sugarPer100g 0.0 .
+
+ex:nutr_Pork-chops-with-chimichurri-and-grilled-pepper-salad_14 a ex:Nutrition ;
+    ex:carbsPer100g 73.3 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 0.0 ;
+    ex:fibrePer100g 0.0 ;
+    ex:kcalPer100g 300.0 ;
+    ex:proteinPer100g 0.0 ;
+    ex:saturatedFatPer100g 0.0 ;
+    ex:sodiumMgPer100g 0.0 ;
+    ex:sugarPer100g 33.3 .
+
+ex:nutr_Pork-chops-with-chimichurri-and-grilled-pepper-salad_15 a ex:Nutrition ;
+    ex:carbsPer100g 1330.0 ;
+    ex:fatPer100g 0.0 ;
+    ex:kcalPer100g 0.0 ;
+    ex:proteinPer100g 0.0 ;
+    ex:sodiumMgPer100g 39300.0 .
+
+ex:nutr_Pork-chops-with-chimichurri-and-grilled-pepper-salad_2 a ex:Nutrition ;
+    ex:carbsPer100g 66.7 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 0.0 ;
+    ex:fibrePer100g 33.3 ;
+    ex:kcalPer100g 333.0 ;
+    ex:proteinPer100g 0.0 ;
+    ex:saturatedFatPer100g 0.0 ;
+    ex:sodiumMgPer100g 0.0 ;
+    ex:sugarPer100g 0.0 .
+
+ex:nutr_Pork-chops-with-chimichurri-and-grilled-pepper-salad_3 a ex:Nutrition ;
+    ex:carbsPer100g 4.78 ;
+    ex:fatPer100g 0.106 ;
+    ex:fibrePer100g 0.942 ;
+    ex:kcalPer100g 0.0 ;
+    ex:proteinPer100g 0.715 ;
+    ex:sodiumMgPer100g 0.0 .
+
+ex:nutr_Pork-chops-with-chimichurri-and-grilled-pepper-salad_4 a ex:Nutrition ;
+    ex:carbsPer100g 0.0 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 100.0 ;
+    ex:fibrePer100g 0.0 ;
+    ex:kcalPer100g 900.0 ;
+    ex:proteinPer100g 0.0 ;
+    ex:saturatedFatPer100g 12.9 ;
+    ex:sodiumMgPer100g 0.0 ;
+    ex:sugarPer100g 0.0 .
+
+ex:nutr_Pork-chops-with-chimichurri-and-grilled-pepper-salad_5 a ex:Nutrition ;
+    ex:carbsPer100g 13.08 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 68.37 ;
+    ex:fibrePer100g 3.7 ;
+    ex:kcalPer100g 673.0 ;
+    ex:proteinPer100g 13.69 ;
+    ex:saturatedFatPer100g 4.899 ;
+    ex:sodiumMgPer100g 2.0 ;
+    ex:sugarPer100g 3.59 .
+
+ex:nutr_Pork-chops-with-chimichurri-and-grilled-pepper-salad_6 a ex:Nutrition ;
+    ex:carbsPer100g 9.93 ;
+    ex:fatPer100g 0.1 ;
+    ex:fibrePer100g 2.2 ;
+    ex:kcalPer100g 44.0 ;
+    ex:proteinPer100g 0.94 ;
+    ex:sodiumMgPer100g 1.0 .
+
+ex:nutr_Pork-chops-with-chimichurri-and-grilled-pepper-salad_7 a ex:Nutrition ;
+    ex:carbsPer100g 73.3 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 0.0 ;
+    ex:fibrePer100g 0.0 ;
+    ex:kcalPer100g 300.0 ;
+    ex:proteinPer100g 0.0 ;
+    ex:saturatedFatPer100g 0.0 ;
+    ex:sodiumMgPer100g 0.0 ;
+    ex:sugarPer100g 33.3 .
+
+ex:nutr_Pork-chops-with-chimichurri-and-grilled-pepper-salad_8 a ex:Nutrition ;
+    ex:carbsPer100g 1330.0 ;
+    ex:fatPer100g 0.0 ;
+    ex:kcalPer100g 0.0 ;
+    ex:proteinPer100g 0.0 ;
+    ex:sodiumMgPer100g 39300.0 .
+
+ex:nutr_Pork-chops-with-chimichurri-and-grilled-pepper-salad_9 a ex:Nutrition ;
+    ex:carbsPer100g 0.0 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 0.0 ;
+    ex:kcalPer100g 0.0 ;
+    ex:proteinPer100g 0.0 ;
+    ex:sodiumMgPer100g 0.0 ;
+    ex:sugarPer100g 0.0 .
+
+ex:nutr_aguachile_0 a ex:Nutrition ;
+    ex:carbsPer100g 0.0 ;
+    ex:cholesterolMgPer100g 112.0 ;
+    ex:fatPer100g 0.0 ;
+    ex:fibrePer100g 0.0 ;
+    ex:kcalPer100g 47.0 ;
+    ex:proteinPer100g 11.8 ;
+    ex:saturatedFatPer100g 0.0 ;
+    ex:sodiumMgPer100g 494.0 ;
+    ex:sugarPer100g 0.0 .
+
+ex:nutr_aguachile_1 a ex:Nutrition ;
+    ex:carbsPer100g 8.42 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 0.07 ;
+    ex:fibrePer100g 0.4 ;
+    ex:kcalPer100g 25.0 ;
+    ex:proteinPer100g 0.42 ;
+    ex:saturatedFatPer100g 0.008 ;
+    ex:sodiumMgPer100g 2.0 ;
+    ex:sugarPer100g 1.69 .
+
+ex:nutr_aguachile_2 a ex:Nutrition ;
+    ex:carbsPer100g 6.14 ;
+    ex:fatPer100g 0.141 ;
+    ex:fibrePer100g 2.52 ;
+    ex:kcalPer100g 0.0 ;
+    ex:proteinPer100g 0.856 ;
+    ex:sodiumMgPer100g 0.0 .
+
+ex:nutr_aguachile_3 a ex:Nutrition ;
+    ex:carbsPer100g 0.0 ;
+    ex:fatPer100g 20.0 ;
+    ex:kcalPer100g 200.0 ;
+    ex:proteinPer100g 0.0 ;
+    ex:sodiumMgPer100g 100.0 .
+
+ex:nutr_aguachile_4 a ex:Nutrition ;
+    ex:carbsPer100g 33.3 ;
+    ex:fatPer100g 0.0 ;
+    ex:kcalPer100g 167.0 ;
+    ex:proteinPer100g 0.0 ;
+    ex:sodiumMgPer100g 0.0 .
+
+ex:nutr_aguachile_5 a ex:Nutrition ;
+    ex:carbsPer100g 6.79 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 0.13 ;
+    ex:fibrePer100g 0.5 ;
+    ex:kcalPer100g 34.0 ;
+    ex:proteinPer100g 0.5 ;
+    ex:saturatedFatPer100g 0.027 ;
+    ex:sodiumMgPer100g 236.0 ;
+    ex:sugarPer100g 5.33 .
+
+ex:nutr_aguachile_6 a ex:Nutrition ;
+    ex:carbsPer100g 9.93 ;
+    ex:fatPer100g 0.1 ;
+    ex:fibrePer100g 2.2 ;
+    ex:kcalPer100g 44.0 ;
+    ex:proteinPer100g 0.94 ;
+    ex:sodiumMgPer100g 1.0 .
+
+ex:nutr_aguachile_7 a ex:Nutrition ;
+    ex:carbsPer100g 0.0 ;
+    ex:fatPer100g 100.0 ;
+    ex:fibrePer100g 0.0 ;
+    ex:kcalPer100g 884.0 ;
+    ex:proteinPer100g 0.0 ;
+    ex:saturatedFatPer100g 11.6 ;
+    ex:sodiumMgPer100g 0.0 .
+
+ex:nutr_aguachile_8 a ex:Nutrition ;
+    ex:carbsPer100g 1330.0 ;
+    ex:fatPer100g 0.0 ;
+    ex:kcalPer100g 0.0 ;
+    ex:proteinPer100g 0.0 ;
+    ex:sodiumMgPer100g 39300.0 .
+
+ex:nutr_aguachile_9 a ex:Nutrition ;
+    ex:carbsPer100g 65.2 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 21.7 ;
+    ex:fibrePer100g 4.3 ;
+    ex:kcalPer100g 478.0 ;
+    ex:proteinPer100g 8.7 ;
+    ex:saturatedFatPer100g 6.52 ;
+    ex:sodiumMgPer100g 870.0 ;
+    ex:sugarPer100g 0.0 .
+
+ex:nutr_betasuppe_0 a ex:Nutrition ;
+    ex:carbsPer100g 0.41 ;
+    ex:cholesterolMgPer100g 61.0 ;
+    ex:fatPer100g 9.85 ;
+    ex:fibrePer100g 0.0 ;
+    ex:kcalPer100g 177.0 ;
+    ex:proteinPer100g 21.6 ;
+    ex:saturatedFatPer100g 3.18 ;
+    ex:sodiumMgPer100g 816.0 ;
+    ex:sugarPer100g 0.06 .
+
+ex:nutr_betasuppe_1 a ex:Nutrition ;
+    ex:carbsPer100g 10.8 ;
+    ex:fatPer100g 0.0 ;
+    ex:kcalPer100g 42.0 ;
+    ex:proteinPer100g 0.0 ;
+    ex:sodiumMgPer100g 8.0 ;
+    ex:sugarPer100g 10.8 .
+
+ex:nutr_betasuppe_10 a ex:Nutrition ;
+    ex:carbsPer100g 13.49 ;
+    ex:cholesterolMgPer100g 74.0 ;
+    ex:fatPer100g 11.32 ;
+    ex:fibrePer100g 1.5 ;
+    ex:kcalPer100g 171.0 ;
+    ex:proteinPer100g 3.89 ;
+    ex:saturatedFatPer100g 3.112 ;
+    ex:sodiumMgPer100g 219.0 ;
+    ex:sugarPer100g 1.48 .
+
+ex:nutr_betasuppe_11 a ex:Nutrition ;
+    ex:carbsPer100g 64.0 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 3.26 ;
+    ex:fibrePer100g 25.3 ;
+    ex:kcalPer100g 251.0 ;
+    ex:proteinPer100g 10.4 ;
+    ex:saturatedFatPer100g 1.39 ;
+    ex:sodiumMgPer100g 20.0 ;
+    ex:sugarPer100g 0.64 .
+
+ex:nutr_betasuppe_12 a ex:Nutrition ;
+    ex:carbsPer100g 0.0 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 0.0 ;
+    ex:kcalPer100g 0.0 ;
+    ex:proteinPer100g 0.0 ;
+    ex:sodiumMgPer100g 0.0 ;
+    ex:sugarPer100g 0.0 .
+
+ex:nutr_betasuppe_13 a ex:Nutrition ;
+    ex:carbsPer100g 33.0 ;
+    ex:cholesterolMgPer100g 25.0 ;
+    ex:fatPer100g 7.0 ;
+    ex:fibrePer100g 1.0 ;
+    ex:kcalPer100g 250.0 ;
+    ex:proteinPer100g 12.0 ;
+    ex:saturatedFatPer100g 4.0 ;
+    ex:sodiumMgPer100g 560.0 ;
+    ex:sugarPer100g 1.0 .
+
+ex:nutr_betasuppe_2 a ex:Nutrition ;
+    ex:carbsPer100g 4.07 ;
+    ex:fatPer100g 0.156 ;
+    ex:kcalPer100g 0.0 ;
+    ex:proteinPer100g 1.09 ;
+    ex:sodiumMgPer100g 28.9 .
+
+ex:nutr_betasuppe_3 a ex:Nutrition ;
+    ex:carbsPer100g 3.5 ;
+    ex:cholesterolMgPer100g 49.0 ;
+    ex:fatPer100g 61.4 ;
+    ex:fibrePer100g 0.0 ;
+    ex:kcalPer100g 564.0 ;
+    ex:proteinPer100g 1.2 ;
+    ex:saturatedFatPer100g 10.5 ;
+    ex:sodiumMgPer100g 1100.0 ;
+    ex:sugarPer100g 2.45 .
+
+ex:nutr_betasuppe_4 a ex:Nutrition ;
+    ex:carbsPer100g 72.1 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 8.69 ;
+    ex:fibrePer100g 21.6 ;
+    ex:kcalPer100g 263.0 ;
+    ex:proteinPer100g 6.09 ;
+    ex:saturatedFatPer100g 2.55 ;
+    ex:sodiumMgPer100g 77.0 .
+
+ex:nutr_betasuppe_5 a ex:Nutrition ;
+    ex:carbsPer100g 0.0 ;
+    ex:fatPer100g 0.0 ;
+    ex:fibrePer100g 3.0 ;
+    ex:kcalPer100g 0.0 ;
+    ex:proteinPer100g 1.47 ;
+    ex:sodiumMgPer100g 17.7 .
+
+ex:nutr_betasuppe_6 a ex:Nutrition ;
+    ex:carbsPer100g 0.0 ;
+    ex:fatPer100g 0.0 ;
+    ex:fibrePer100g 2.9 ;
+    ex:kcalPer100g 0.0 ;
+    ex:proteinPer100g 0.888 ;
+    ex:sodiumMgPer100g 4.59 .
+
+ex:nutr_betasuppe_7 a ex:Nutrition ;
+    ex:carbsPer100g 79.6 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 1.49 ;
+    ex:fibrePer100g 23.6 ;
+    ex:kcalPer100g 341.0 ;
+    ex:proteinPer100g 8.1 ;
+    ex:saturatedFatPer100g 0.256 ;
+    ex:sodiumMgPer100g 275.0 ;
+    ex:sugarPer100g 38.8 .
+
+ex:nutr_betasuppe_8 a ex:Nutrition ;
+    ex:carbsPer100g 9.2 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 0.3 ;
+    ex:fibrePer100g 1.8 ;
+    ex:kcalPer100g 42.0 ;
+    ex:proteinPer100g 1.5 ;
+    ex:saturatedFatPer100g 0.079 ;
+    ex:sodiumMgPer100g 100.0 ;
+    ex:sugarPer100g 1.6 .
+
+ex:nutr_betasuppe_9 a ex:Nutrition ;
+    ex:carbsPer100g 62.9 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 0.0 ;
+    ex:fibrePer100g 22.9 ;
+    ex:kcalPer100g 257.0 ;
+    ex:proteinPer100g 20.0 ;
+    ex:saturatedFatPer100g 0.0 ;
+    ex:sodiumMgPer100g 14.0 ;
+    ex:sugarPer100g 2.86 .
+
+ex:nutr_briam_0 a ex:Nutrition ;
+    ex:carbsPer100g 13.49 ;
+    ex:cholesterolMgPer100g 74.0 ;
+    ex:fatPer100g 11.32 ;
+    ex:fibrePer100g 1.5 ;
+    ex:kcalPer100g 171.0 ;
+    ex:proteinPer100g 3.89 ;
+    ex:saturatedFatPer100g 3.112 ;
+    ex:sodiumMgPer100g 219.0 ;
+    ex:sugarPer100g 1.48 .
+
+ex:nutr_briam_1 a ex:Nutrition ;
+    ex:carbsPer100g 4.21 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 0.0 ;
+    ex:fibrePer100g 1.1 ;
+    ex:kcalPer100g 21.0 ;
+    ex:proteinPer100g 1.05 ;
+    ex:saturatedFatPer100g 0.0 ;
+    ex:sodiumMgPer100g 0.0 ;
+    ex:sugarPer100g 3.16 .
+
+ex:nutr_briam_10 a ex:Nutrition ;
+    ex:carbsPer100g 5.58 ;
+    ex:cholesterolMgPer100g 57.5 ;
+    ex:fatPer100g 19.1 ;
+    ex:kcalPer100g 0.0 ;
+    ex:proteinPer100g 19.7 ;
+    ex:saturatedFatPer100g 11.2 ;
+    ex:sodiumMgPer100g 1030.0 .
+
+ex:nutr_briam_2 a ex:Nutrition ;
+    ex:carbsPer100g 35.7 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 0.0 ;
+    ex:fibrePer100g 14.3 ;
+    ex:kcalPer100g 71.0 ;
+    ex:proteinPer100g 14.3 ;
+    ex:saturatedFatPer100g 0.0 ;
+    ex:sodiumMgPer100g 179.0 ;
+    ex:sugarPer100g 14.3 .
+
+ex:nutr_briam_3 a ex:Nutrition ;
+    ex:carbsPer100g 4.08 ;
+    ex:fatPer100g 0.0 ;
+    ex:fibrePer100g 1.6 ;
+    ex:kcalPer100g 26.0 ;
+    ex:proteinPer100g 1.52 ;
+    ex:sodiumMgPer100g 12.0 .
+
+ex:nutr_briam_4 a ex:Nutrition ;
+    ex:carbsPer100g 9.93 ;
+    ex:fatPer100g 0.1 ;
+    ex:fibrePer100g 2.2 ;
+    ex:kcalPer100g 44.0 ;
+    ex:proteinPer100g 0.94 ;
+    ex:sodiumMgPer100g 1.0 .
+
+ex:nutr_briam_5 a ex:Nutrition ;
+    ex:carbsPer100g 33.3 ;
+    ex:fatPer100g 0.0 ;
+    ex:kcalPer100g 167.0 ;
+    ex:proteinPer100g 0.0 ;
+    ex:sodiumMgPer100g 0.0 .
+
+ex:nutr_briam_6 a ex:Nutrition ;
+    ex:carbsPer100g 0.0 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 100.0 ;
+    ex:fibrePer100g 0.0 ;
+    ex:kcalPer100g 900.0 ;
+    ex:proteinPer100g 0.0 ;
+    ex:saturatedFatPer100g 15.52 ;
+    ex:sodiumMgPer100g 2.0 ;
+    ex:sugarPer100g 0.0 .
+
+ex:nutr_briam_7 a ex:Nutrition ;
+    ex:carbsPer100g 0.0 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 0.0 ;
+    ex:kcalPer100g 0.0 ;
+    ex:proteinPer100g 0.0 ;
+    ex:sodiumMgPer100g 0.0 ;
+    ex:sugarPer100g 0.0 .
+
+ex:nutr_briam_8 a ex:Nutrition ;
+    ex:carbsPer100g 0.0 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 0.0 ;
+    ex:kcalPer100g 0.0 ;
+    ex:proteinPer100g 0.0 ;
+    ex:sodiumMgPer100g 0.0 ;
+    ex:sugarPer100g 0.0 .
+
+ex:nutr_briam_9 a ex:Nutrition ;
+    ex:carbsPer100g 64.0 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 3.26 ;
+    ex:fibrePer100g 25.3 ;
+    ex:kcalPer100g 251.0 ;
+    ex:proteinPer100g 10.4 ;
+    ex:saturatedFatPer100g 1.39 ;
+    ex:sodiumMgPer100g 20.0 ;
+    ex:sugarPer100g 0.64 .
+
+ex:nutr_carne-asada-tacos_0 a ex:Nutrition ;
+    ex:carbsPer100g 0.0 ;
+    ex:cholesterolMgPer100g 65.0 ;
+    ex:fatPer100g 12.8 ;
+    ex:fibrePer100g 0.0 ;
+    ex:kcalPer100g 195.0 ;
+    ex:proteinPer100g 20.1 ;
+    ex:saturatedFatPer100g 5.03 ;
+    ex:sodiumMgPer100g 65.0 ;
+    ex:sugarPer100g 0.0 .
+
+ex:nutr_carne-asada-tacos_1 a ex:Nutrition ;
+    ex:carbsPer100g 8.42 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 0.07 ;
+    ex:fibrePer100g 0.4 ;
+    ex:kcalPer100g 25.0 ;
+    ex:proteinPer100g 0.42 ;
+    ex:saturatedFatPer100g 0.008 ;
+    ex:sodiumMgPer100g 2.0 ;
+    ex:sugarPer100g 1.69 .
+
+ex:nutr_carne-asada-tacos_10 a ex:Nutrition ;
+    ex:carbsPer100g 85.7 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 3.57 ;
+    ex:fibrePer100g 3.6 ;
+    ex:kcalPer100g 429.0 ;
+    ex:proteinPer100g 10.7 ;
+    ex:saturatedFatPer100g 0.0 ;
+    ex:sodiumMgPer100g 36.0 ;
+    ex:sugarPer100g 0.0 .
+
+ex:nutr_carne-asada-tacos_11 a ex:Nutrition ;
+    ex:carbsPer100g 9.34 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 0.1 ;
+    ex:fibrePer100g 1.7 ;
+    ex:kcalPer100g 40.0 ;
+    ex:proteinPer100g 1.1 ;
+    ex:saturatedFatPer100g 0.042 ;
+    ex:sodiumMgPer100g 4.0 ;
+    ex:sugarPer100g 4.24 .
+
+ex:nutr_carne-asada-tacos_12 a ex:Nutrition ;
+    ex:carbsPer100g 0.0 ;
+    ex:fatPer100g 20.0 ;
+    ex:kcalPer100g 200.0 ;
+    ex:proteinPer100g 0.0 ;
+    ex:sodiumMgPer100g 100.0 .
+
+ex:nutr_carne-asada-tacos_13 a ex:Nutrition ;
+    ex:carbsPer100g 10.5 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 0.2 ;
+    ex:fibrePer100g 2.8 ;
+    ex:kcalPer100g 30.0 ;
+    ex:proteinPer100g 0.7 ;
+    ex:saturatedFatPer100g 0.022 ;
+    ex:sodiumMgPer100g 2.0 ;
+    ex:sugarPer100g 1.69 .
+
+ex:nutr_carne-asada-tacos_14 a ex:Nutrition ;
+    ex:carbsPer100g 6.25 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 0.0 ;
+    ex:fibrePer100g 3.1 ;
+    ex:kcalPer100g 31.0 ;
+    ex:proteinPer100g 0.0 ;
+    ex:saturatedFatPer100g 0.0 ;
+    ex:sodiumMgPer100g 812.0 ;
+    ex:sugarPer100g 3.12 .
+
+ex:nutr_carne-asada-tacos_2 a ex:Nutrition ;
+    ex:carbsPer100g 10.8 ;
+    ex:fatPer100g 0.0 ;
+    ex:kcalPer100g 46.0 ;
+    ex:proteinPer100g 0.83 ;
+    ex:saturatedFatPer100g 0.0 ;
+    ex:sodiumMgPer100g 0.0 ;
+    ex:sugarPer100g 9.17 .
+
+ex:nutr_carne-asada-tacos_3 a ex:Nutrition ;
+    ex:carbsPer100g 33.3 ;
+    ex:fatPer100g 0.0 ;
+    ex:kcalPer100g 167.0 ;
+    ex:proteinPer100g 0.0 ;
+    ex:sodiumMgPer100g 0.0 .
+
+ex:nutr_carne-asada-tacos_4 a ex:Nutrition ;
+    ex:carbsPer100g 0.0 ;
+    ex:fatPer100g 20.0 ;
+    ex:kcalPer100g 200.0 ;
+    ex:proteinPer100g 0.0 ;
+    ex:sodiumMgPer100g 100.0 .
+
+ex:nutr_carne-asada-tacos_5 a ex:Nutrition ;
+    ex:carbsPer100g 0.0 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 100.0 ;
+    ex:fibrePer100g 0.0 ;
+    ex:kcalPer100g 900.0 ;
+    ex:proteinPer100g 0.0 ;
+    ex:saturatedFatPer100g 15.52 ;
+    ex:sodiumMgPer100g 2.0 ;
+    ex:sugarPer100g 0.0 .
+
+ex:nutr_carne-asada-tacos_6 a ex:Nutrition ;
+    ex:carbsPer100g 50.0 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 0.0 ;
+    ex:fibrePer100g 0.0 ;
+    ex:kcalPer100g 500.0 ;
+    ex:proteinPer100g 0.0 ;
+    ex:saturatedFatPer100g 0.0 ;
+    ex:sodiumMgPer100g 0.0 ;
+    ex:sugarPer100g 0.0 .
+
+ex:nutr_carne-asada-tacos_7 a ex:Nutrition ;
+    ex:carbsPer100g 68.9 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 4.28 ;
+    ex:fibrePer100g 42.5 ;
+    ex:kcalPer100g 265.0 ;
+    ex:proteinPer100g 9.0 ;
+    ex:saturatedFatPer100g 1.55 ;
+    ex:sodiumMgPer100g 25.0 ;
+    ex:sugarPer100g 4.09 .
+
+ex:nutr_carne-asada-tacos_8 a ex:Nutrition ;
+    ex:carbsPer100g 1330.0 ;
+    ex:fatPer100g 0.0 ;
+    ex:kcalPer100g 0.0 ;
+    ex:proteinPer100g 0.0 ;
+    ex:sodiumMgPer100g 39300.0 .
+
+ex:nutr_carne-asada-tacos_9 a ex:Nutrition ;
+    ex:carbsPer100g 64.0 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 3.26 ;
+    ex:fibrePer100g 25.3 ;
+    ex:kcalPer100g 251.0 ;
+    ex:proteinPer100g 10.4 ;
+    ex:saturatedFatPer100g 1.39 ;
+    ex:sodiumMgPer100g 20.0 ;
+    ex:sugarPer100g 0.64 .
 
 ex:nutr_carnitas_0 a ex:Nutrition ;
     ex:carbsPer100g 0.0 ;
@@ -727,6 +3777,782 @@ ex:nutr_carnitas_8 a ex:Nutrition ;
     ex:sodiumMgPer100g 0.0 ;
     ex:sugarPer100g 0.0 .
 
+ex:nutr_char-siu_0 a ex:Nutrition ;
+    ex:carbsPer100g 0.0 ;
+    ex:cholesterolMgPer100g 60.0 ;
+    ex:fatPer100g 3.4 ;
+    ex:fibrePer100g 0.0 ;
+    ex:kcalPer100g 127.0 ;
+    ex:proteinPer100g 22.5 ;
+    ex:saturatedFatPer100g 1.07 ;
+    ex:sodiumMgPer100g 54.0 ;
+    ex:sugarPer100g 0.0 .
+
+ex:nutr_char-siu_1 a ex:Nutrition ;
+    ex:carbsPer100g 44.08 ;
+    ex:cholesterolMgPer100g 3.0 ;
+    ex:fatPer100g 3.39 ;
+    ex:fibrePer100g 2.8 ;
+    ex:kcalPer100g 220.0 ;
+    ex:proteinPer100g 3.31 ;
+    ex:saturatedFatPer100g 0.568 ;
+    ex:sodiumMgPer100g 1615.0 ;
+    ex:sugarPer100g 27.26 .
+
+ex:nutr_char-siu_10 a ex:Nutrition ;
+    ex:carbsPer100g 68.6 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 2.12 ;
+    ex:fibrePer100g 26.2 ;
+    ex:kcalPer100g 296.0 ;
+    ex:proteinPer100g 10.4 ;
+    ex:saturatedFatPer100g 0.626 ;
+    ex:sodiumMgPer100g 5.0 .
+
+ex:nutr_char-siu_11 a ex:Nutrition ;
+    ex:carbsPer100g 82.4 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 0.0 ;
+    ex:fibrePer100g 0.2 ;
+    ex:kcalPer100g 304.0 ;
+    ex:proteinPer100g 0.3 ;
+    ex:saturatedFatPer100g 0.0 ;
+    ex:sodiumMgPer100g 4.0 ;
+    ex:sugarPer100g 82.1 .
+
+ex:nutr_char-siu_12 a ex:Nutrition ;
+    ex:carbsPer100g 13.3 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 0.0 ;
+    ex:fibrePer100g 0.0 ;
+    ex:kcalPer100g 67.0 ;
+    ex:proteinPer100g 0.0 ;
+    ex:saturatedFatPer100g 0.0 ;
+    ex:sodiumMgPer100g 2600.0 ;
+    ex:sugarPer100g 6.67 .
+
+ex:nutr_char-siu_2 a ex:Nutrition ;
+    ex:carbsPer100g 5.57 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 0.1 ;
+    ex:fibrePer100g 0.8 ;
+    ex:kcalPer100g 60.0 ;
+    ex:proteinPer100g 10.5 ;
+    ex:saturatedFatPer100g 0.011 ;
+    ex:sodiumMgPer100g 5590.0 ;
+    ex:sugarPer100g 1.7 .
+
+ex:nutr_char-siu_3 a ex:Nutrition ;
+    ex:carbsPer100g 5.57 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 0.1 ;
+    ex:fibrePer100g 0.8 ;
+    ex:kcalPer100g 60.0 ;
+    ex:proteinPer100g 10.5 ;
+    ex:saturatedFatPer100g 0.011 ;
+    ex:sodiumMgPer100g 5590.0 ;
+    ex:sugarPer100g 1.7 .
+
+ex:nutr_char-siu_4 a ex:Nutrition ;
+    ex:carbsPer100g 1.62 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 0.0 ;
+    ex:fibrePer100g 0.0 ;
+    ex:kcalPer100g 49.0 ;
+    ex:proteinPer100g 0.04 ;
+    ex:saturatedFatPer100g 0.0 ;
+    ex:sodiumMgPer100g 11.0 ;
+    ex:sugarPer100g 0.47 .
+
+ex:nutr_char-siu_5 a ex:Nutrition ;
+    ex:carbsPer100g 0.0 ;
+    ex:fatPer100g 1.16 ;
+    ex:fibrePer100g 4.0 ;
+    ex:kcalPer100g 0.0 ;
+    ex:proteinPer100g 21.3 .
+
+ex:nutr_char-siu_6 a ex:Nutrition ;
+    ex:carbsPer100g 82.4 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 0.0 ;
+    ex:fibrePer100g 0.2 ;
+    ex:kcalPer100g 304.0 ;
+    ex:proteinPer100g 0.3 ;
+    ex:saturatedFatPer100g 0.0 ;
+    ex:sodiumMgPer100g 4.0 ;
+    ex:sugarPer100g 82.1 .
+
+ex:nutr_char-siu_7 a ex:Nutrition ;
+    ex:carbsPer100g 100.0 ;
+    ex:fatPer100g 0.0 ;
+    ex:kcalPer100g 375.0 ;
+    ex:proteinPer100g 0.0 ;
+    ex:sodiumMgPer100g 0.0 ;
+    ex:sugarPer100g 100.0 .
+
+ex:nutr_char-siu_8 a ex:Nutrition ;
+    ex:carbsPer100g 49.7 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 14.3 ;
+    ex:fibrePer100g 34.8 ;
+    ex:kcalPer100g 282.0 ;
+    ex:proteinPer100g 13.5 ;
+    ex:saturatedFatPer100g 2.46 ;
+    ex:sodiumMgPer100g 2870.0 ;
+    ex:sugarPer100g 7.19 .
+
+ex:nutr_char-siu_9 a ex:Nutrition ;
+    ex:carbsPer100g 33.3 ;
+    ex:fatPer100g 0.0 ;
+    ex:kcalPer100g 167.0 ;
+    ex:proteinPer100g 0.0 ;
+    ex:sodiumMgPer100g 0.0 .
+
+ex:nutr_chicken-fajitas_0 a ex:Nutrition ;
+    ex:carbsPer100g 0.88 ;
+    ex:cholesterolMgPer100g 83.0 ;
+    ex:fatPer100g 16.7 ;
+    ex:fibrePer100g 0.0 ;
+    ex:kcalPer100g 193.0 ;
+    ex:proteinPer100g 14.0 ;
+    ex:saturatedFatPer100g 3.95 ;
+    ex:sodiumMgPer100g 66.0 ;
+    ex:sugarPer100g 0.88 .
+
+ex:nutr_chicken-fajitas_1 a ex:Nutrition ;
+    ex:carbsPer100g 0.0 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 100.0 ;
+    ex:fibrePer100g 0.0 ;
+    ex:kcalPer100g 900.0 ;
+    ex:proteinPer100g 0.0 ;
+    ex:saturatedFatPer100g 15.52 ;
+    ex:sodiumMgPer100g 2.0 ;
+    ex:sugarPer100g 0.0 .
+
+ex:nutr_chicken-fajitas_10 a ex:Nutrition ;
+    ex:carbsPer100g 6.65 ;
+    ex:fatPer100g 0.126 ;
+    ex:fibrePer100g 1.16 ;
+    ex:kcalPer100g 0.0 ;
+    ex:proteinPer100g 0.896 ;
+    ex:sodiumMgPer100g 0.0 .
+
+ex:nutr_chicken-fajitas_11 a ex:Nutrition ;
+    ex:carbsPer100g 6.6 ;
+    ex:fatPer100g 0.121 ;
+    ex:fibrePer100g 1.07 ;
+    ex:kcalPer100g 0.0 ;
+    ex:proteinPer100g 0.819 ;
+    ex:sodiumMgPer100g 0.0 .
+
+ex:nutr_chicken-fajitas_12 a ex:Nutrition ;
+    ex:carbsPer100g 4.78 ;
+    ex:fatPer100g 0.106 ;
+    ex:fibrePer100g 0.942 ;
+    ex:kcalPer100g 0.0 ;
+    ex:proteinPer100g 0.715 ;
+    ex:sodiumMgPer100g 0.0 .
+
+ex:nutr_chicken-fajitas_13 a ex:Nutrition ;
+    ex:carbsPer100g 9.34 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 0.1 ;
+    ex:fibrePer100g 1.7 ;
+    ex:kcalPer100g 40.0 ;
+    ex:proteinPer100g 1.1 ;
+    ex:saturatedFatPer100g 0.042 ;
+    ex:sodiumMgPer100g 4.0 ;
+    ex:sugarPer100g 4.24 .
+
+ex:nutr_chicken-fajitas_14 a ex:Nutrition ;
+    ex:carbsPer100g 0.0 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 100.0 ;
+    ex:fibrePer100g 0.0 ;
+    ex:kcalPer100g 884.0 ;
+    ex:proteinPer100g 0.0 ;
+    ex:saturatedFatPer100g 7.36 ;
+    ex:sodiumMgPer100g 0.0 ;
+    ex:sugarPer100g 0.0 .
+
+ex:nutr_chicken-fajitas_15 a ex:Nutrition ;
+    ex:carbsPer100g 44.2 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 6.98 ;
+    ex:fibrePer100g 2.3 ;
+    ex:kcalPer100g 279.0 ;
+    ex:proteinPer100g 6.98 ;
+    ex:saturatedFatPer100g 2.33 ;
+    ex:sodiumMgPer100g 674.0 ;
+    ex:sugarPer100g 0.0 .
+
+ex:nutr_chicken-fajitas_16 a ex:Nutrition ;
+    ex:carbsPer100g 6.67 ;
+    ex:cholesterolMgPer100g 67.0 ;
+    ex:fatPer100g 16.7 ;
+    ex:fibrePer100g 0.0 ;
+    ex:kcalPer100g 200.0 ;
+    ex:proteinPer100g 3.33 ;
+    ex:saturatedFatPer100g 11.7 ;
+    ex:sodiumMgPer100g 50.0 ;
+    ex:sugarPer100g 6.67 .
+
+ex:nutr_chicken-fajitas_17 a ex:Nutrition ;
+    ex:carbsPer100g 10.0 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 13.3 ;
+    ex:fibrePer100g 6.7 ;
+    ex:kcalPer100g 150.0 ;
+    ex:proteinPer100g 3.33 ;
+    ex:saturatedFatPer100g 1.67 ;
+    ex:sodiumMgPer100g 383.0 ;
+    ex:sugarPer100g 0.0 .
+
+ex:nutr_chicken-fajitas_18 a ex:Nutrition ;
+    ex:carbsPer100g 22.2 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 7.47 ;
+    ex:fibrePer100g 2.4 ;
+    ex:kcalPer100g 162.0 ;
+    ex:proteinPer100g 2.56 ;
+    ex:saturatedFatPer100g 1.84 ;
+    ex:sodiumMgPer100g 380.0 ;
+    ex:sugarPer100g 0.34 .
+
+ex:nutr_chicken-fajitas_19 a ex:Nutrition ;
+    ex:carbsPer100g 0.0 ;
+    ex:fatPer100g 20.0 ;
+    ex:kcalPer100g 200.0 ;
+    ex:proteinPer100g 0.0 ;
+    ex:sodiumMgPer100g 100.0 .
+
+ex:nutr_chicken-fajitas_2 a ex:Nutrition ;
+    ex:carbsPer100g 8.42 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 0.07 ;
+    ex:fibrePer100g 0.4 ;
+    ex:kcalPer100g 25.0 ;
+    ex:proteinPer100g 0.42 ;
+    ex:saturatedFatPer100g 0.008 ;
+    ex:sodiumMgPer100g 2.0 ;
+    ex:sugarPer100g 1.69 .
+
+ex:nutr_chicken-fajitas_3 a ex:Nutrition ;
+    ex:carbsPer100g 33.3 ;
+    ex:fatPer100g 0.0 ;
+    ex:kcalPer100g 167.0 ;
+    ex:proteinPer100g 0.0 ;
+    ex:sodiumMgPer100g 0.0 .
+
+ex:nutr_chicken-fajitas_4 a ex:Nutrition ;
+    ex:carbsPer100g 50.0 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 0.0 ;
+    ex:fibrePer100g 0.0 ;
+    ex:kcalPer100g 500.0 ;
+    ex:proteinPer100g 0.0 ;
+    ex:saturatedFatPer100g 0.0 ;
+    ex:sodiumMgPer100g 0.0 ;
+    ex:sugarPer100g 0.0 .
+
+ex:nutr_chicken-fajitas_5 a ex:Nutrition ;
+    ex:carbsPer100g 200.0 ;
+    ex:fatPer100g 0.0 ;
+    ex:kcalPer100g 0.0 ;
+    ex:proteinPer100g 0.0 ;
+    ex:saturatedFatPer100g 0.0 ;
+    ex:sodiumMgPer100g 0.0 .
+
+ex:nutr_chicken-fajitas_6 a ex:Nutrition ;
+    ex:carbsPer100g 0.0 ;
+    ex:fatPer100g 0.0 ;
+    ex:kcalPer100g 0.0 ;
+    ex:proteinPer100g 0.0 ;
+    ex:sodiumMgPer100g 2000.0 .
+
+ex:nutr_chicken-fajitas_7 a ex:Nutrition ;
+    ex:carbsPer100g 68.9 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 4.28 ;
+    ex:fibrePer100g 42.5 ;
+    ex:kcalPer100g 265.0 ;
+    ex:proteinPer100g 9.0 ;
+    ex:saturatedFatPer100g 1.55 ;
+    ex:sodiumMgPer100g 25.0 ;
+    ex:sugarPer100g 4.09 .
+
+ex:nutr_chicken-fajitas_8 a ex:Nutrition ;
+    ex:carbsPer100g 1330.0 ;
+    ex:fatPer100g 0.0 ;
+    ex:kcalPer100g 0.0 ;
+    ex:proteinPer100g 0.0 ;
+    ex:sodiumMgPer100g 39300.0 .
+
+ex:nutr_chicken-fajitas_9 a ex:Nutrition ;
+    ex:carbsPer100g 64.0 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 3.26 ;
+    ex:fibrePer100g 25.3 ;
+    ex:kcalPer100g 251.0 ;
+    ex:proteinPer100g 10.4 ;
+    ex:saturatedFatPer100g 1.39 ;
+    ex:sodiumMgPer100g 20.0 ;
+    ex:sugarPer100g 0.64 .
+
+ex:nutr_gongbao-chicken_0 a ex:Nutrition ;
+    ex:carbsPer100g 0.88 ;
+    ex:cholesterolMgPer100g 83.0 ;
+    ex:fatPer100g 16.7 ;
+    ex:fibrePer100g 0.0 ;
+    ex:kcalPer100g 193.0 ;
+    ex:proteinPer100g 14.0 ;
+    ex:saturatedFatPer100g 3.95 ;
+    ex:sodiumMgPer100g 66.0 ;
+    ex:sugarPer100g 0.88 .
+
+ex:nutr_gongbao-chicken_1 a ex:Nutrition ;
+    ex:carbsPer100g 1.62 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 0.0 ;
+    ex:fibrePer100g 0.0 ;
+    ex:kcalPer100g 49.0 ;
+    ex:proteinPer100g 0.04 ;
+    ex:saturatedFatPer100g 0.0 ;
+    ex:sodiumMgPer100g 11.0 ;
+    ex:sugarPer100g 0.47 .
+
+ex:nutr_gongbao-chicken_10 a ex:Nutrition ;
+    ex:carbsPer100g 19.2 ;
+    ex:fatPer100g 0.93 ;
+    ex:fibrePer100g 2.2 ;
+    ex:kcalPer100g 93.0 ;
+    ex:proteinPer100g 1.93 ;
+    ex:sodiumMgPer100g 2120.0 ;
+    ex:sugarPer100g 15.1 .
+
+ex:nutr_gongbao-chicken_11 a ex:Nutrition ;
+    ex:carbsPer100g 3.5 ;
+    ex:cholesterolMgPer100g 49.0 ;
+    ex:fatPer100g 61.4 ;
+    ex:fibrePer100g 0.0 ;
+    ex:kcalPer100g 564.0 ;
+    ex:proteinPer100g 1.2 ;
+    ex:saturatedFatPer100g 10.5 ;
+    ex:sodiumMgPer100g 1100.0 ;
+    ex:sugarPer100g 2.45 .
+
+ex:nutr_gongbao-chicken_12 a ex:Nutrition ;
+    ex:carbsPer100g 33.3 ;
+    ex:fatPer100g 0.0 ;
+    ex:kcalPer100g 167.0 ;
+    ex:proteinPer100g 0.0 ;
+    ex:sodiumMgPer100g 0.0 .
+
+ex:nutr_gongbao-chicken_13 a ex:Nutrition ;
+    ex:carbsPer100g 0.18 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 0.01 ;
+    ex:fibrePer100g 0.0 ;
+    ex:kcalPer100g 1.0 ;
+    ex:proteinPer100g 0.02 ;
+    ex:saturatedFatPer100g 0.002 ;
+    ex:sodiumMgPer100g 4.0 ;
+    ex:sugarPer100g 0.02 .
+
+ex:nutr_gongbao-chicken_14 a ex:Nutrition ;
+    ex:carbsPer100g 7.34 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 0.19 ;
+    ex:fibrePer100g 2.6 ;
+    ex:kcalPer100g 32.0 ;
+    ex:proteinPer100g 1.83 ;
+    ex:saturatedFatPer100g 0.032 ;
+    ex:sodiumMgPer100g 16.0 ;
+    ex:sugarPer100g 2.33 .
+
+ex:nutr_gongbao-chicken_15 a ex:Nutrition ;
+    ex:carbsPer100g 15.26 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 52.5 ;
+    ex:fibrePer100g 9.4 ;
+    ex:kcalPer100g 599.0 ;
+    ex:proteinPer100g 28.03 ;
+    ex:saturatedFatPer100g 8.686 ;
+    ex:sodiumMgPer100g 6.0 ;
+    ex:sugarPer100g 4.18 .
+
+ex:nutr_gongbao-chicken_16 a ex:Nutrition ;
+    ex:carbsPer100g 0.0 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 100.0 ;
+    ex:fibrePer100g 0.0 ;
+    ex:kcalPer100g 884.0 ;
+    ex:proteinPer100g 0.0 ;
+    ex:saturatedFatPer100g 7.36 ;
+    ex:sodiumMgPer100g 0.0 ;
+    ex:sugarPer100g 0.0 .
+
+ex:nutr_gongbao-chicken_2 a ex:Nutrition ;
+    ex:carbsPer100g 5.57 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 0.1 ;
+    ex:fibrePer100g 0.8 ;
+    ex:kcalPer100g 60.0 ;
+    ex:proteinPer100g 10.5 ;
+    ex:saturatedFatPer100g 0.011 ;
+    ex:sodiumMgPer100g 5590.0 ;
+    ex:sugarPer100g 1.7 .
+
+ex:nutr_gongbao-chicken_3 a ex:Nutrition ;
+    ex:carbsPer100g 91.3 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 0.05 ;
+    ex:fibrePer100g 0.9 ;
+    ex:kcalPer100g 381.0 ;
+    ex:proteinPer100g 0.26 ;
+    ex:saturatedFatPer100g 0.009 ;
+    ex:sodiumMgPer100g 9.0 ;
+    ex:sugarPer100g 0.0 .
+
+ex:nutr_gongbao-chicken_4 a ex:Nutrition ;
+    ex:carbsPer100g 17.0 ;
+    ex:fatPer100g 0.0 ;
+    ex:kcalPer100g 88.0 ;
+    ex:proteinPer100g 0.49 ;
+    ex:saturatedFatPer100g 0.0 ;
+    ex:sodiumMgPer100g 23.0 ;
+    ex:sugarPer100g 15.0 .
+
+ex:nutr_gongbao-chicken_5 a ex:Nutrition ;
+    ex:carbsPer100g 5.57 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 0.1 ;
+    ex:fibrePer100g 0.8 ;
+    ex:kcalPer100g 60.0 ;
+    ex:proteinPer100g 10.5 ;
+    ex:saturatedFatPer100g 0.011 ;
+    ex:sodiumMgPer100g 5590.0 ;
+    ex:sugarPer100g 1.7 .
+
+ex:nutr_gongbao-chicken_6 a ex:Nutrition ;
+    ex:carbsPer100g 1.62 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 0.0 ;
+    ex:fibrePer100g 0.0 ;
+    ex:kcalPer100g 49.0 ;
+    ex:proteinPer100g 0.04 ;
+    ex:saturatedFatPer100g 0.0 ;
+    ex:sodiumMgPer100g 11.0 ;
+    ex:sugarPer100g 0.47 .
+
+ex:nutr_gongbao-chicken_7 a ex:Nutrition ;
+    ex:carbsPer100g 100.0 ;
+    ex:fatPer100g 0.0 ;
+    ex:kcalPer100g 375.0 ;
+    ex:proteinPer100g 0.0 ;
+    ex:sodiumMgPer100g 0.0 ;
+    ex:sugarPer100g 100.0 .
+
+ex:nutr_gongbao-chicken_8 a ex:Nutrition ;
+    ex:carbsPer100g 91.3 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 0.05 ;
+    ex:fibrePer100g 0.9 ;
+    ex:kcalPer100g 381.0 ;
+    ex:proteinPer100g 0.26 ;
+    ex:saturatedFatPer100g 0.009 ;
+    ex:sodiumMgPer100g 9.0 ;
+    ex:sugarPer100g 0.0 .
+
+ex:nutr_gongbao-chicken_9 a ex:Nutrition ;
+    ex:carbsPer100g 10.8 ;
+    ex:fatPer100g 0.0 ;
+    ex:kcalPer100g 42.0 ;
+    ex:proteinPer100g 0.0 ;
+    ex:sodiumMgPer100g 8.0 ;
+    ex:sugarPer100g 10.8 .
+
+ex:nutr_goulash_0 a ex:Nutrition ;
+    ex:carbsPer100g 0.0 ;
+    ex:cholesterolMgPer100g 66.8 ;
+    ex:fatPer100g 17.8 ;
+    ex:kcalPer100g 0.0 ;
+    ex:proteinPer100g 18.4 ;
+    ex:saturatedFatPer100g 6.34 ;
+    ex:sodiumMgPer100g 48.4 .
+
+ex:nutr_goulash_1 a ex:Nutrition ;
+    ex:carbsPer100g 0.0 ;
+    ex:cholesterolMgPer100g 95.0 ;
+    ex:fatPer100g 100.0 ;
+    ex:fibrePer100g 0.0 ;
+    ex:kcalPer100g 902.0 ;
+    ex:proteinPer100g 0.0 ;
+    ex:saturatedFatPer100g 39.2 ;
+    ex:sodiumMgPer100g 0.0 ;
+    ex:sugarPer100g 0.0 .
+
+ex:nutr_goulash_10 a ex:Nutrition ;
+    ex:carbsPer100g 1.2 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 0.09 ;
+    ex:fibrePer100g 0.0 ;
+    ex:kcalPer100g 13.0 ;
+    ex:proteinPer100g 1.97 ;
+    ex:saturatedFatPer100g 0.035 ;
+    ex:sodiumMgPer100g 198.0 ;
+    ex:sugarPer100g 0.54 .
+
+ex:nutr_goulash_11 a ex:Nutrition ;
+    ex:carbsPer100g 13.49 ;
+    ex:cholesterolMgPer100g 74.0 ;
+    ex:fatPer100g 11.32 ;
+    ex:fibrePer100g 1.5 ;
+    ex:kcalPer100g 171.0 ;
+    ex:proteinPer100g 3.89 ;
+    ex:saturatedFatPer100g 3.112 ;
+    ex:sodiumMgPer100g 219.0 ;
+    ex:sugarPer100g 1.48 .
+
+ex:nutr_goulash_12 a ex:Nutrition ;
+    ex:carbsPer100g 4.07 ;
+    ex:fatPer100g 0.156 ;
+    ex:kcalPer100g 0.0 ;
+    ex:proteinPer100g 1.09 ;
+    ex:sodiumMgPer100g 28.9 .
+
+ex:nutr_goulash_13 a ex:Nutrition ;
+    ex:carbsPer100g 64.0 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 3.26 ;
+    ex:fibrePer100g 25.3 ;
+    ex:kcalPer100g 251.0 ;
+    ex:proteinPer100g 10.4 ;
+    ex:saturatedFatPer100g 1.39 ;
+    ex:sodiumMgPer100g 20.0 ;
+    ex:sugarPer100g 0.64 .
+
+ex:nutr_goulash_14 a ex:Nutrition ;
+    ex:carbsPer100g 6.67 ;
+    ex:cholesterolMgPer100g 67.0 ;
+    ex:fatPer100g 16.7 ;
+    ex:fibrePer100g 0.0 ;
+    ex:kcalPer100g 200.0 ;
+    ex:proteinPer100g 3.33 ;
+    ex:saturatedFatPer100g 11.7 ;
+    ex:sodiumMgPer100g 50.0 ;
+    ex:sugarPer100g 6.67 .
+
+ex:nutr_goulash_2 a ex:Nutrition ;
+    ex:carbsPer100g 9.34 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 0.1 ;
+    ex:fibrePer100g 1.7 ;
+    ex:kcalPer100g 40.0 ;
+    ex:proteinPer100g 1.1 ;
+    ex:saturatedFatPer100g 0.042 ;
+    ex:sodiumMgPer100g 4.0 ;
+    ex:sugarPer100g 4.24 .
+
+ex:nutr_goulash_3 a ex:Nutrition ;
+    ex:carbsPer100g 33.3 ;
+    ex:fatPer100g 0.0 ;
+    ex:kcalPer100g 167.0 ;
+    ex:proteinPer100g 0.0 ;
+    ex:sodiumMgPer100g 0.0 .
+
+ex:nutr_goulash_4 a ex:Nutrition ;
+    ex:carbsPer100g 0.0 ;
+    ex:fatPer100g 0.0 ;
+    ex:kcalPer100g 0.0 ;
+    ex:proteinPer100g 0.0 ;
+    ex:sodiumMgPer100g 0.0 .
+
+ex:nutr_goulash_5 a ex:Nutrition ;
+    ex:carbsPer100g 6.7 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 0.41 ;
+    ex:fibrePer100g 1.0 ;
+    ex:kcalPer100g 29.0 ;
+    ex:proteinPer100g 0.8 ;
+    ex:saturatedFatPer100g 0.046 ;
+    ex:sodiumMgPer100g 1.0 ;
+    ex:sugarPer100g 3.53 .
+
+ex:nutr_goulash_6 a ex:Nutrition ;
+    ex:carbsPer100g 49.9 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 14.6 ;
+    ex:fibrePer100g 38.0 ;
+    ex:kcalPer100g 333.0 ;
+    ex:proteinPer100g 19.8 ;
+    ex:saturatedFatPer100g 0.62 ;
+    ex:sodiumMgPer100g 17.0 ;
+    ex:sugarPer100g 0.64 .
+
+ex:nutr_goulash_7 a ex:Nutrition ;
+    ex:carbsPer100g 18.2 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 0.0 ;
+    ex:fibrePer100g 3.0 ;
+    ex:kcalPer100g 91.0 ;
+    ex:proteinPer100g 3.03 ;
+    ex:saturatedFatPer100g 0.0 ;
+    ex:sodiumMgPer100g 61.0 ;
+    ex:sugarPer100g 12.1 .
+
+ex:nutr_goulash_8 a ex:Nutrition ;
+    ex:carbsPer100g 6.65 ;
+    ex:fatPer100g 0.126 ;
+    ex:fibrePer100g 1.16 ;
+    ex:kcalPer100g 0.0 ;
+    ex:proteinPer100g 0.896 ;
+    ex:sodiumMgPer100g 0.0 .
+
+ex:nutr_goulash_9 a ex:Nutrition ;
+    ex:carbsPer100g 35.7 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 0.0 ;
+    ex:fibrePer100g 14.3 ;
+    ex:kcalPer100g 71.0 ;
+    ex:proteinPer100g 14.3 ;
+    ex:saturatedFatPer100g 0.0 ;
+    ex:sodiumMgPer100g 179.0 ;
+    ex:sugarPer100g 14.3 .
+
+ex:nutr_katsudon_0 a ex:Nutrition ;
+    ex:carbsPer100g 0.0 ;
+    ex:cholesterolMgPer100g 55.9 ;
+    ex:fatPer100g 9.47 ;
+    ex:kcalPer100g 0.0 ;
+    ex:proteinPer100g 21.1 ;
+    ex:saturatedFatPer100g 3.28 ;
+    ex:sodiumMgPer100g 40.2 .
+
+ex:nutr_katsudon_1 a ex:Nutrition ;
+    ex:carbsPer100g 79.2 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 3.5 ;
+    ex:fibrePer100g 2.8 ;
+    ex:kcalPer100g 381.0 ;
+    ex:proteinPer100g 9.1 ;
+    ex:saturatedFatPer100g 0.75 ;
+    ex:sodiumMgPer100g 250.0 ;
+    ex:sugarPer100g 2.21 .
+
+ex:nutr_katsudon_10 a ex:Nutrition ;
+    ex:carbsPer100g 100.0 ;
+    ex:fatPer100g 0.0 ;
+    ex:kcalPer100g 375.0 ;
+    ex:proteinPer100g 0.0 ;
+    ex:sodiumMgPer100g 0.0 ;
+    ex:sugarPer100g 100.0 .
+
+ex:nutr_katsudon_11 a ex:Nutrition ;
+    ex:carbsPer100g 2.36 ;
+    ex:fatPer100g 0.0 ;
+    ex:kcalPer100g 55.0 ;
+    ex:proteinPer100g 10.7 .
+
+ex:nutr_katsudon_12 a ex:Nutrition ;
+    ex:carbsPer100g 7.34 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 0.19 ;
+    ex:fibrePer100g 2.6 ;
+    ex:kcalPer100g 32.0 ;
+    ex:proteinPer100g 1.83 ;
+    ex:saturatedFatPer100g 0.032 ;
+    ex:sodiumMgPer100g 16.0 ;
+    ex:sugarPer100g 2.33 .
+
+ex:nutr_katsudon_13 a ex:Nutrition ;
+    ex:carbsPer100g 33.9 ;
+    ex:fatPer100g 0.27 ;
+    ex:fibrePer100g 0.9 ;
+    ex:kcalPer100g 151.0 ;
+    ex:proteinPer100g 3.2 ;
+    ex:sodiumMgPer100g 5.0 .
+
+ex:nutr_katsudon_2 a ex:Nutrition ;
+    ex:carbsPer100g 2.36 ;
+    ex:fatPer100g 0.0 ;
+    ex:kcalPer100g 55.0 ;
+    ex:proteinPer100g 10.7 .
+
+ex:nutr_katsudon_3 a ex:Nutrition ;
+    ex:carbsPer100g 71.4 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 1.79 ;
+    ex:fibrePer100g 3.6 ;
+    ex:kcalPer100g 357.0 ;
+    ex:proteinPer100g 14.3 ;
+    ex:saturatedFatPer100g 0.0 ;
+    ex:sodiumMgPer100g 357.0 ;
+    ex:sugarPer100g 3.57 .
+
+ex:nutr_katsudon_4 a ex:Nutrition ;
+    ex:carbsPer100g 64.0 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 3.26 ;
+    ex:fibrePer100g 25.3 ;
+    ex:kcalPer100g 251.0 ;
+    ex:proteinPer100g 10.4 ;
+    ex:saturatedFatPer100g 1.39 ;
+    ex:sodiumMgPer100g 20.0 ;
+    ex:sugarPer100g 0.64 .
+
+ex:nutr_katsudon_5 a ex:Nutrition ;
+    ex:carbsPer100g 0.0 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 100.0 ;
+    ex:fibrePer100g 0.0 ;
+    ex:kcalPer100g 884.0 ;
+    ex:proteinPer100g 0.0 ;
+    ex:saturatedFatPer100g 7.36 ;
+    ex:sodiumMgPer100g 0.0 ;
+    ex:sugarPer100g 0.0 .
+
+ex:nutr_katsudon_6 a ex:Nutrition ;
+    ex:carbsPer100g 9.34 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 0.1 ;
+    ex:fibrePer100g 1.7 ;
+    ex:kcalPer100g 40.0 ;
+    ex:proteinPer100g 1.1 ;
+    ex:saturatedFatPer100g 0.042 ;
+    ex:sodiumMgPer100g 4.0 ;
+    ex:sugarPer100g 4.24 .
+
+ex:nutr_katsudon_7 a ex:Nutrition ;
+    ex:carbsPer100g 40.0 ;
+    ex:fatPer100g 0.0 ;
+    ex:kcalPer100g 200.0 ;
+    ex:proteinPer100g 20.0 ;
+    ex:sodiumMgPer100g 10600.0 ;
+    ex:sugarPer100g 0.0 .
+
+ex:nutr_katsudon_8 a ex:Nutrition ;
+    ex:carbsPer100g 4.93 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 0.57 ;
+    ex:fibrePer100g 0.8 ;
+    ex:kcalPer100g 53.0 ;
+    ex:proteinPer100g 8.14 ;
+    ex:saturatedFatPer100g 0.073 ;
+    ex:sodiumMgPer100g 5493.0 ;
+    ex:sugarPer100g 0.4 .
+
+ex:nutr_katsudon_9 a ex:Nutrition ;
+    ex:carbsPer100g 60.0 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 0.0 ;
+    ex:kcalPer100g 300.0 ;
+    ex:proteinPer100g 0.0 ;
+    ex:saturatedFatPer100g 0.0 ;
+    ex:sodiumMgPer100g 667.0 ;
+    ex:sugarPer100g 33.3 .
+
 ex:nutr_lebanese-chicken-hummus-and-grilled-vegetables_0 a ex:Nutrition ;
     ex:carbsPer100g 0.88 ;
     ex:cholesterolMgPer100g 83.0 ;
@@ -739,14 +4565,14 @@ ex:nutr_lebanese-chicken-hummus-and-grilled-vegetables_0 a ex:Nutrition ;
     ex:sugarPer100g 0.88 .
 
 ex:nutr_lebanese-chicken-hummus-and-grilled-vegetables_1 a ex:Nutrition ;
-    ex:carbsPer100g 25.0 ;
+    ex:carbsPer100g 21.4 ;
     ex:cholesterolMgPer100g 0.0 ;
-    ex:fatPer100g 12.5 ;
+    ex:fatPer100g 28.6 ;
     ex:fibrePer100g 7.1 ;
-    ex:kcalPer100g 250.0 ;
-    ex:proteinPer100g 10.7 ;
-    ex:saturatedFatPer100g 0.0 ;
-    ex:sodiumMgPer100g 393.0 ;
+    ex:kcalPer100g 321.0 ;
+    ex:proteinPer100g 7.14 ;
+    ex:saturatedFatPer100g 3.57 ;
+    ex:sodiumMgPer100g 464.0 ;
     ex:sugarPer100g 3.57 .
 
 ex:nutr_lebanese-chicken-hummus-and-grilled-vegetables_2 a ex:Nutrition ;
@@ -811,6 +4637,162 @@ ex:nutr_lebanese-chicken-hummus-and-grilled-vegetables_7 a ex:Nutrition ;
     ex:sodiumMgPer100g 2.0 ;
     ex:sugarPer100g 0.0 .
 
+ex:nutr_lu-rou-fan_0 a ex:Nutrition ;
+    ex:carbsPer100g -0.705 ;
+    ex:cholesterolMgPer100g 66.6 ;
+    ex:fatPer100g 35.8 ;
+    ex:kcalPer100g 0.0 ;
+    ex:proteinPer100g 15.2 ;
+    ex:sodiumMgPer100g 49.7 .
+
+ex:nutr_lu-rou-fan_1 a ex:Nutrition ;
+    ex:carbsPer100g 0.0 ;
+    ex:fatPer100g 0.0 ;
+    ex:fibrePer100g 2.2 ;
+    ex:kcalPer100g 0.0 ;
+    ex:proteinPer100g 1.38 ;
+    ex:sodiumMgPer100g 3.64 .
+
+ex:nutr_lu-rou-fan_10 a ex:Nutrition ;
+    ex:carbsPer100g 22.9 ;
+    ex:cholesterolMgPer100g 33.0 ;
+    ex:fatPer100g 18.4 ;
+    ex:fibrePer100g 2.1 ;
+    ex:kcalPer100g 316.0 ;
+    ex:proteinPer100g 14.9 ;
+    ex:saturatedFatPer100g 6.73 ;
+    ex:sodiumMgPer100g 838.0 ;
+    ex:sugarPer100g 2.8 .
+
+ex:nutr_lu-rou-fan_11 a ex:Nutrition ;
+    ex:carbsPer100g 8.17 ;
+    ex:fatPer100g 0.195 ;
+    ex:fibrePer100g 4.17 ;
+    ex:kcalPer100g 0.0 ;
+    ex:proteinPer100g 2.41 ;
+    ex:sodiumMgPer100g 0.936 .
+
+ex:nutr_lu-rou-fan_12 a ex:Nutrition ;
+    ex:carbsPer100g 1.12 ;
+    ex:cholesterolMgPer100g 373.0 ;
+    ex:fatPer100g 10.6 ;
+    ex:fibrePer100g 0.0 ;
+    ex:kcalPer100g 155.0 ;
+    ex:proteinPer100g 12.6 ;
+    ex:saturatedFatPer100g 3.27 ;
+    ex:sodiumMgPer100g 124.0 ;
+    ex:sugarPer100g 1.12 .
+
+ex:nutr_lu-rou-fan_13 a ex:Nutrition ;
+    ex:carbsPer100g 10.8 ;
+    ex:fatPer100g 0.0 ;
+    ex:kcalPer100g 42.0 ;
+    ex:proteinPer100g 0.0 ;
+    ex:sodiumMgPer100g 8.0 ;
+    ex:sugarPer100g 10.8 .
+
+ex:nutr_lu-rou-fan_14 a ex:Nutrition ;
+    ex:carbsPer100g 33.9 ;
+    ex:fatPer100g 0.27 ;
+    ex:fibrePer100g 0.9 ;
+    ex:kcalPer100g 151.0 ;
+    ex:proteinPer100g 3.2 ;
+    ex:sodiumMgPer100g 5.0 .
+
+ex:nutr_lu-rou-fan_15 a ex:Nutrition ;
+    ex:carbsPer100g 3.84 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 15.3 ;
+    ex:fibrePer100g 3.3 ;
+    ex:kcalPer100g 145.0 ;
+    ex:proteinPer100g 1.03 ;
+    ex:saturatedFatPer100g 2.03 ;
+    ex:sodiumMgPer100g 1560.0 ;
+    ex:sugarPer100g 0.54 .
+
+ex:nutr_lu-rou-fan_2 a ex:Nutrition ;
+    ex:carbsPer100g 33.3 ;
+    ex:fatPer100g 0.0 ;
+    ex:kcalPer100g 167.0 ;
+    ex:proteinPer100g 0.0 ;
+    ex:sodiumMgPer100g 0.0 .
+
+ex:nutr_lu-rou-fan_3 a ex:Nutrition ;
+    ex:carbsPer100g 0.18 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 0.01 ;
+    ex:fibrePer100g 0.0 ;
+    ex:kcalPer100g 1.0 ;
+    ex:proteinPer100g 0.02 ;
+    ex:saturatedFatPer100g 0.002 ;
+    ex:sodiumMgPer100g 4.0 ;
+    ex:sugarPer100g 0.02 .
+
+ex:nutr_lu-rou-fan_4 a ex:Nutrition ;
+    ex:carbsPer100g 5.57 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 0.1 ;
+    ex:fibrePer100g 0.8 ;
+    ex:kcalPer100g 60.0 ;
+    ex:proteinPer100g 10.5 ;
+    ex:saturatedFatPer100g 0.011 ;
+    ex:sodiumMgPer100g 5590.0 ;
+    ex:sugarPer100g 1.7 .
+
+ex:nutr_lu-rou-fan_5 a ex:Nutrition ;
+    ex:carbsPer100g 5.57 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 0.1 ;
+    ex:fibrePer100g 0.8 ;
+    ex:kcalPer100g 60.0 ;
+    ex:proteinPer100g 10.5 ;
+    ex:saturatedFatPer100g 0.011 ;
+    ex:sodiumMgPer100g 5590.0 ;
+    ex:sugarPer100g 1.7 .
+
+ex:nutr_lu-rou-fan_6 a ex:Nutrition ;
+    ex:carbsPer100g 5.0 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 0.0 ;
+    ex:fibrePer100g 0.0 ;
+    ex:kcalPer100g 134.0 ;
+    ex:proteinPer100g 0.5 ;
+    ex:saturatedFatPer100g 0.0 ;
+    ex:sodiumMgPer100g 2.0 ;
+    ex:sugarPer100g 0.0 .
+
+ex:nutr_lu-rou-fan_7 a ex:Nutrition ;
+    ex:carbsPer100g 100.0 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 0.0 ;
+    ex:fibrePer100g 0.0 ;
+    ex:kcalPer100g 400.0 ;
+    ex:proteinPer100g 0.0 ;
+    ex:saturatedFatPer100g 0.0 ;
+    ex:sodiumMgPer100g 0.0 ;
+    ex:sugarPer100g 100.0 .
+
+ex:nutr_lu-rou-fan_8 a ex:Nutrition ;
+    ex:carbsPer100g 49.7 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 14.3 ;
+    ex:fibrePer100g 34.8 ;
+    ex:kcalPer100g 282.0 ;
+    ex:proteinPer100g 13.5 ;
+    ex:saturatedFatPer100g 2.46 ;
+    ex:sodiumMgPer100g 2870.0 ;
+    ex:sugarPer100g 7.19 .
+
+ex:nutr_lu-rou-fan_9 a ex:Nutrition ;
+    ex:carbsPer100g 50.0 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 15.9 ;
+    ex:fibrePer100g 14.6 ;
+    ex:kcalPer100g 337.0 ;
+    ex:proteinPer100g 17.6 ;
+    ex:saturatedFatPer100g 0.586 ;
+    ex:sodiumMgPer100g 16.0 .
+
 ex:nutr_pasta-bolognese_0 a ex:Nutrition ;
     ex:carbsPer100g 1.84 ;
     ex:cholesterolMgPer100g 70.0 ;
@@ -841,27 +4823,26 @@ ex:nutr_pasta-bolognese_10 a ex:Nutrition ;
     ex:sugarPer100g 0.0 .
 
 ex:nutr_pasta-bolognese_11 a ex:Nutrition ;
-    ex:carbsPer100g 0.0 ;
-    ex:cholesterolMgPer100g 0.0 ;
-    ex:fatPer100g 0.0 ;
-    ex:kcalPer100g 0.0 ;
-    ex:proteinPer100g 0.0 ;
-    ex:sodiumMgPer100g 0.0 ;
-    ex:sugarPer100g 0.0 .
-
-ex:nutr_pasta-bolognese_12 a ex:Nutrition ;
     ex:carbsPer100g 4.07 ;
     ex:fatPer100g 0.156 ;
     ex:kcalPer100g 0.0 ;
     ex:proteinPer100g 1.09 ;
     ex:sodiumMgPer100g 28.9 .
 
-ex:nutr_pasta-bolognese_13 a ex:Nutrition ;
+ex:nutr_pasta-bolognese_12 a ex:Nutrition ;
     ex:carbsPer100g 1330.0 ;
     ex:fatPer100g 0.0 ;
     ex:kcalPer100g 0.0 ;
     ex:proteinPer100g 0.0 ;
     ex:sodiumMgPer100g 39300.0 .
+
+ex:nutr_pasta-bolognese_13 a ex:Nutrition ;
+    ex:carbsPer100g 4.17 ;
+    ex:fatPer100g 0.07 ;
+    ex:fibrePer100g 1.54 ;
+    ex:kcalPer100g 0.0 ;
+    ex:proteinPer100g 0.531 ;
+    ex:sodiumMgPer100g 3.76 .
 
 ex:nutr_pasta-bolognese_2 a ex:Nutrition ;
     ex:carbsPer100g 9.34 ;
@@ -904,15 +4885,15 @@ ex:nutr_pasta-bolognese_5 a ex:Nutrition ;
     ex:sodiumMgPer100g 0.0 .
 
 ex:nutr_pasta-bolognese_6 a ex:Nutrition ;
-    ex:carbsPer100g 5.0 ;
+    ex:carbsPer100g 7.94 ;
     ex:cholesterolMgPer100g 0.0 ;
     ex:fatPer100g 0.0 ;
-    ex:fibrePer100g 1.7 ;
-    ex:kcalPer100g 25.0 ;
-    ex:proteinPer100g 1.67 ;
+    ex:fibrePer100g 1.6 ;
+    ex:kcalPer100g 40.0 ;
+    ex:proteinPer100g 1.59 ;
     ex:saturatedFatPer100g 0.0 ;
-    ex:sodiumMgPer100g 17.0 ;
-    ex:sugarPer100g 3.33 .
+    ex:sodiumMgPer100g 24.0 ;
+    ex:sugarPer100g 4.76 .
 
 ex:nutr_pasta-bolognese_7 a ex:Nutrition ;
     ex:carbsPer100g 0.27 ;
@@ -925,15 +4906,15 @@ ex:nutr_pasta-bolognese_7 a ex:Nutrition ;
     ex:sugarPer100g 0.0 .
 
 ex:nutr_pasta-bolognese_8 a ex:Nutrition ;
-    ex:carbsPer100g 3.51 ;
+    ex:carbsPer100g 35.7 ;
     ex:cholesterolMgPer100g 0.0 ;
     ex:fatPer100g 0.0 ;
-    ex:fibrePer100g 0.9 ;
-    ex:kcalPer100g 22.0 ;
-    ex:proteinPer100g 0.88 ;
+    ex:fibrePer100g 14.3 ;
+    ex:kcalPer100g 71.0 ;
+    ex:proteinPer100g 14.3 ;
     ex:saturatedFatPer100g 0.0 ;
-    ex:sodiumMgPer100g 18.0 ;
-    ex:sugarPer100g 2.63 .
+    ex:sodiumMgPer100g 179.0 ;
+    ex:sugarPer100g 14.3 .
 
 ex:nutr_pasta-bolognese_9 a ex:Nutrition ;
     ex:carbsPer100g 1.2 ;
@@ -946,57 +4927,160 @@ ex:nutr_pasta-bolognese_9 a ex:Nutrition ;
     ex:sodiumMgPer100g 198.0 ;
     ex:sugarPer100g 0.54 .
 
-ex:nutr_pytt-i-panne_0 a ex:Nutrition ;
-    ex:carbsPer100g 66.7 ;
+ex:nutr_peperonata_0 a ex:Nutrition ;
+    ex:carbsPer100g 4.64 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 0.17 ;
+    ex:fibrePer100g 1.7 ;
+    ex:kcalPer100g 20.0 ;
+    ex:proteinPer100g 0.86 ;
+    ex:saturatedFatPer100g 0.058 ;
+    ex:sodiumMgPer100g 3.0 ;
+    ex:sugarPer100g 2.4 .
+
+ex:nutr_peperonata_1 a ex:Nutrition ;
+    ex:carbsPer100g 9.93 ;
+    ex:fatPer100g 0.1 ;
+    ex:fibrePer100g 2.2 ;
+    ex:kcalPer100g 44.0 ;
+    ex:proteinPer100g 0.94 ;
+    ex:sodiumMgPer100g 1.0 .
+
+ex:nutr_peperonata_2 a ex:Nutrition ;
+    ex:carbsPer100g 33.3 ;
+    ex:fatPer100g 0.0 ;
+    ex:kcalPer100g 167.0 ;
+    ex:proteinPer100g 0.0 ;
+    ex:sodiumMgPer100g 0.0 .
+
+ex:nutr_peperonata_3 a ex:Nutrition ;
+    ex:carbsPer100g 35.7 ;
     ex:cholesterolMgPer100g 0.0 ;
     ex:fatPer100g 0.0 ;
-    ex:fibrePer100g 33.3 ;
-    ex:kcalPer100g 333.0 ;
+    ex:fibrePer100g 14.3 ;
+    ex:kcalPer100g 71.0 ;
+    ex:proteinPer100g 14.3 ;
+    ex:saturatedFatPer100g 0.0 ;
+    ex:sodiumMgPer100g 179.0 ;
+    ex:sugarPer100g 14.3 .
+
+ex:nutr_peperonata_4 a ex:Nutrition ;
+    ex:carbsPer100g 3.57 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 0.0 ;
+    ex:fibrePer100g 3.6 ;
+    ex:kcalPer100g 18.0 ;
+    ex:proteinPer100g 3.57 ;
+    ex:saturatedFatPer100g 0.0 ;
+    ex:sodiumMgPer100g 1390.0 ;
+    ex:sugarPer100g 0.0 .
+
+ex:nutr_peperonata_5 a ex:Nutrition ;
+    ex:carbsPer100g 0.0 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 0.0 ;
+    ex:fibrePer100g 0.0 ;
+    ex:kcalPer100g 33.0 ;
     ex:proteinPer100g 0.0 ;
     ex:saturatedFatPer100g 0.0 ;
     ex:sodiumMgPer100g 0.0 ;
     ex:sugarPer100g 0.0 .
 
-ex:nutr_pytt-i-panne_1 a ex:Nutrition ;
-    ex:carbsPer100g 4.17 ;
-    ex:fatPer100g 0.07 ;
-    ex:fibrePer100g 1.54 ;
-    ex:kcalPer100g 0.0 ;
-    ex:proteinPer100g 0.531 ;
-    ex:sodiumMgPer100g 3.76 .
+ex:nutr_peperonata_6 a ex:Nutrition ;
+    ex:carbsPer100g 100.0 ;
+    ex:fatPer100g 0.0 ;
+    ex:kcalPer100g 375.0 ;
+    ex:proteinPer100g 0.0 ;
+    ex:sodiumMgPer100g 0.0 ;
+    ex:sugarPer100g 100.0 .
 
-ex:nutr_pytt-i-panne_2 a ex:Nutrition ;
-    ex:carbsPer100g 12.0 ;
-    ex:cholesterolMgPer100g 40.0 ;
-    ex:fatPer100g 17.3 ;
-    ex:fibrePer100g 1.3 ;
-    ex:kcalPer100g 253.0 ;
-    ex:proteinPer100g 10.7 ;
-    ex:saturatedFatPer100g 5.33 ;
-    ex:sodiumMgPer100g 2010.0 ;
+ex:nutr_peperonata_7 a ex:Nutrition ;
+    ex:carbsPer100g 0.0 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 100.0 ;
+    ex:fibrePer100g 0.0 ;
+    ex:kcalPer100g 900.0 ;
+    ex:proteinPer100g 0.0 ;
+    ex:saturatedFatPer100g 15.52 ;
+    ex:sodiumMgPer100g 2.0 ;
     ex:sugarPer100g 0.0 .
 
-ex:nutr_pytt-i-panne_3 a ex:Nutrition ;
+ex:nutr_peperonata_8 a ex:Nutrition ;
     ex:carbsPer100g 0.0 ;
-    ex:cholesterolMgPer100g 100.0 ;
-    ex:fatPer100g 46.7 ;
-    ex:kcalPer100g 600.0 ;
-    ex:proteinPer100g 33.3 ;
-    ex:saturatedFatPer100g 16.7 ;
-    ex:sodiumMgPer100g 1800.0 .
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 93.3 ;
+    ex:kcalPer100g 800.0 ;
+    ex:proteinPer100g 0.0 ;
+    ex:sodiumMgPer100g 0.0 .
 
-ex:nutr_pytt-i-panne_4 a ex:Nutrition ;
-    ex:carbsPer100g 13.49 ;
-    ex:cholesterolMgPer100g 74.0 ;
-    ex:fatPer100g 11.32 ;
-    ex:fibrePer100g 1.5 ;
-    ex:kcalPer100g 171.0 ;
-    ex:proteinPer100g 3.89 ;
-    ex:saturatedFatPer100g 3.112 ;
-    ex:sodiumMgPer100g 219.0 ;
-    ex:sugarPer100g 1.48 .
+ex:nutr_pork-ragu_0 a ex:Nutrition ;
+    ex:carbsPer100g 0.0 ;
+    ex:cholesterolMgPer100g 60.0 ;
+    ex:fatPer100g 3.4 ;
+    ex:fibrePer100g 0.0 ;
+    ex:kcalPer100g 127.0 ;
+    ex:proteinPer100g 22.5 ;
+    ex:saturatedFatPer100g 1.07 ;
+    ex:sodiumMgPer100g 54.0 ;
+    ex:sugarPer100g 0.0 .
 
-ex:nutr_tahini-chicken-with-butternut-hummus-and-bulgur-salad_0 a ex:Nutrition ;
+ex:nutr_pork-ragu_1 a ex:Nutrition ;
+    ex:carbsPer100g 0.0 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 100.0 ;
+    ex:fibrePer100g 0.0 ;
+    ex:kcalPer100g 900.0 ;
+    ex:proteinPer100g 0.0 ;
+    ex:saturatedFatPer100g 15.52 ;
+    ex:sodiumMgPer100g 2.0 ;
+    ex:sugarPer100g 0.0 .
+
+ex:nutr_pork-ragu_10 a ex:Nutrition ;
+    ex:carbsPer100g 4.07 ;
+    ex:fatPer100g 0.156 ;
+    ex:kcalPer100g 0.0 ;
+    ex:proteinPer100g 1.09 ;
+    ex:sodiumMgPer100g 28.9 .
+
+ex:nutr_pork-ragu_11 a ex:Nutrition ;
+    ex:carbsPer100g 2.95 ;
+    ex:fatPer100g 0.178 ;
+    ex:kcalPer100g 0.0 ;
+    ex:proteinPer100g 0.625 ;
+    ex:sodiumMgPer100g 1.52 .
+
+ex:nutr_pork-ragu_12 a ex:Nutrition ;
+    ex:carbsPer100g 64.0 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 3.26 ;
+    ex:fibrePer100g 25.3 ;
+    ex:kcalPer100g 251.0 ;
+    ex:proteinPer100g 10.4 ;
+    ex:saturatedFatPer100g 1.39 ;
+    ex:sodiumMgPer100g 20.0 ;
+    ex:sugarPer100g 0.64 .
+
+ex:nutr_pork-ragu_13 a ex:Nutrition ;
+    ex:carbsPer100g 78.6 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 1.79 ;
+    ex:fibrePer100g 3.6 ;
+    ex:kcalPer100g 375.0 ;
+    ex:proteinPer100g 12.5 ;
+    ex:saturatedFatPer100g 0.0 ;
+    ex:sodiumMgPer100g 0.0 ;
+    ex:sugarPer100g 3.57 .
+
+ex:nutr_pork-ragu_14 a ex:Nutrition ;
+    ex:carbsPer100g 12.4 ;
+    ex:cholesterolMgPer100g 87.0 ;
+    ex:fatPer100g 28.0 ;
+    ex:kcalPer100g 421.0 ;
+    ex:proteinPer100g 29.6 ;
+    ex:saturatedFatPer100g 15.5 ;
+    ex:sodiumMgPer100g 1750.0 .
+
+ex:nutr_pork-ragu_2 a ex:Nutrition ;
     ex:carbsPer100g 9.34 ;
     ex:cholesterolMgPer100g 0.0 ;
     ex:fatPer100g 0.1 ;
@@ -1007,7 +5091,116 @@ ex:nutr_tahini-chicken-with-butternut-hummus-and-bulgur-salad_0 a ex:Nutrition ;
     ex:sodiumMgPer100g 4.0 ;
     ex:sugarPer100g 4.24 .
 
-ex:nutr_tahini-chicken-with-butternut-hummus-and-bulgur-salad_1 a ex:Nutrition ;
+ex:nutr_pork-ragu_3 a ex:Nutrition ;
+    ex:carbsPer100g 79.6 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 1.49 ;
+    ex:fibrePer100g 23.6 ;
+    ex:kcalPer100g 341.0 ;
+    ex:proteinPer100g 8.1 ;
+    ex:saturatedFatPer100g 0.256 ;
+    ex:sodiumMgPer100g 275.0 ;
+    ex:sugarPer100g 38.8 .
+
+ex:nutr_pork-ragu_4 a ex:Nutrition ;
+    ex:carbsPer100g 3.64 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 0.0 ;
+    ex:fibrePer100g 1.8 ;
+    ex:kcalPer100g 14.0 ;
+    ex:proteinPer100g 0.0 ;
+    ex:saturatedFatPer100g 0.0 ;
+    ex:sodiumMgPer100g 105.0 ;
+    ex:sugarPer100g 1.82 .
+
+ex:nutr_pork-ragu_5 a ex:Nutrition ;
+    ex:carbsPer100g 33.3 ;
+    ex:fatPer100g 0.0 ;
+    ex:kcalPer100g 167.0 ;
+    ex:proteinPer100g 0.0 ;
+    ex:sodiumMgPer100g 0.0 .
+
+ex:nutr_pork-ragu_6 a ex:Nutrition ;
+    ex:carbsPer100g 11.7 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 0.0 ;
+    ex:fibrePer100g 0.0 ;
+    ex:kcalPer100g 152.0 ;
+    ex:proteinPer100g 0.2 ;
+    ex:saturatedFatPer100g 0.0 ;
+    ex:sodiumMgPer100g 9.0 ;
+    ex:sugarPer100g 1.09 .
+
+ex:nutr_pork-ragu_7 a ex:Nutrition ;
+    ex:carbsPer100g 2.95 ;
+    ex:fatPer100g 0.178 ;
+    ex:kcalPer100g 0.0 ;
+    ex:proteinPer100g 0.625 ;
+    ex:sodiumMgPer100g 1.52 .
+
+ex:nutr_pork-ragu_8 a ex:Nutrition ;
+    ex:carbsPer100g 1.77 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 0.0 ;
+    ex:fibrePer100g 0.9 ;
+    ex:kcalPer100g 13.0 ;
+    ex:proteinPer100g 0.0 ;
+    ex:saturatedFatPer100g 0.0 ;
+    ex:sodiumMgPer100g 398.0 ;
+    ex:sugarPer100g 0.88 .
+
+ex:nutr_pork-ragu_9 a ex:Nutrition ;
+    ex:carbsPer100g 0.0 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 0.0 ;
+    ex:kcalPer100g 0.0 ;
+    ex:proteinPer100g 0.0 ;
+    ex:sodiumMgPer100g 0.0 ;
+    ex:sugarPer100g 0.0 .
+
+ex:nutr_pytt-i-panne_0 a ex:Nutrition ;
+    ex:carbsPer100g 25.0 ;
+    ex:cholesterolMgPer100g 70.0 ;
+    ex:fatPer100g 6.25 ;
+    ex:fibrePer100g 3.1 ;
+    ex:kcalPer100g 188.0 ;
+    ex:proteinPer100g 7.81 ;
+    ex:saturatedFatPer100g 3.12 ;
+    ex:sodiumMgPer100g 328.0 ;
+    ex:sugarPer100g 2.34 .
+
+ex:nutr_pytt-i-panne_1 a ex:Nutrition ;
+    ex:carbsPer100g 0.0 ;
+    ex:cholesterolMgPer100g 100.0 ;
+    ex:fatPer100g 46.7 ;
+    ex:kcalPer100g 600.0 ;
+    ex:proteinPer100g 33.3 ;
+    ex:saturatedFatPer100g 16.7 ;
+    ex:sodiumMgPer100g 1800.0 .
+
+ex:nutr_pytt-i-panne_2 a ex:Nutrition ;
+    ex:carbsPer100g 13.49 ;
+    ex:cholesterolMgPer100g 74.0 ;
+    ex:fatPer100g 11.32 ;
+    ex:fibrePer100g 1.5 ;
+    ex:kcalPer100g 171.0 ;
+    ex:proteinPer100g 3.89 ;
+    ex:saturatedFatPer100g 3.112 ;
+    ex:sodiumMgPer100g 219.0 ;
+    ex:sugarPer100g 1.48 .
+
+ex:nutr_pytt-i-panne_3 a ex:Nutrition ;
+    ex:carbsPer100g 9.34 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 0.1 ;
+    ex:fibrePer100g 1.7 ;
+    ex:kcalPer100g 40.0 ;
+    ex:proteinPer100g 1.1 ;
+    ex:saturatedFatPer100g 0.042 ;
+    ex:sodiumMgPer100g 4.0 ;
+    ex:sugarPer100g 4.24 .
+
+ex:nutr_pytt-i-panne_4 a ex:Nutrition ;
     ex:carbsPer100g 27.1 ;
     ex:cholesterolMgPer100g 0.0 ;
     ex:fatPer100g 0.32 ;
@@ -1018,16 +5211,153 @@ ex:nutr_tahini-chicken-with-butternut-hummus-and-bulgur-salad_1 a ex:Nutrition ;
     ex:sodiumMgPer100g 928.0 ;
     ex:sugarPer100g 21.54 .
 
-ex:nutr_tahini-chicken-with-butternut-hummus-and-bulgur-salad_10 a ex:Nutrition ;
-    ex:carbsPer100g 11.8 ;
+ex:nutr_souvlaki_0 a ex:Nutrition ;
+    ex:carbsPer100g 0.0 ;
+    ex:cholesterolMgPer100g 60.0 ;
+    ex:fatPer100g 3.4 ;
+    ex:fibrePer100g 0.0 ;
+    ex:kcalPer100g 127.0 ;
+    ex:proteinPer100g 22.5 ;
+    ex:saturatedFatPer100g 1.07 ;
+    ex:sodiumMgPer100g 54.0 ;
+    ex:sugarPer100g 0.0 .
+
+ex:nutr_souvlaki_1 a ex:Nutrition ;
+    ex:carbsPer100g 0.0 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 100.0 ;
+    ex:fibrePer100g 0.0 ;
+    ex:kcalPer100g 900.0 ;
+    ex:proteinPer100g 0.0 ;
+    ex:saturatedFatPer100g 15.52 ;
+    ex:sodiumMgPer100g 2.0 ;
+    ex:sugarPer100g 0.0 .
+
+ex:nutr_souvlaki_10 a ex:Nutrition ;
+    ex:carbsPer100g 3.33 ;
+    ex:cholesterolMgPer100g 17.0 ;
+    ex:fatPer100g 3.33 ;
+    ex:fibrePer100g 0.0 ;
+    ex:kcalPer100g 50.0 ;
+    ex:proteinPer100g 3.33 ;
+    ex:saturatedFatPer100g 1.67 ;
+    ex:sodiumMgPer100g 67.0 ;
+    ex:sugarPer100g 3.33 .
+
+ex:nutr_souvlaki_11 a ex:Nutrition ;
+    ex:carbsPer100g 22.2 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 7.47 ;
+    ex:fibrePer100g 2.4 ;
+    ex:kcalPer100g 162.0 ;
+    ex:proteinPer100g 2.56 ;
+    ex:saturatedFatPer100g 1.84 ;
+    ex:sodiumMgPer100g 380.0 ;
+    ex:sugarPer100g 0.34 .
+
+ex:nutr_souvlaki_2 a ex:Nutrition ;
+    ex:carbsPer100g 6.9 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 0.24 ;
+    ex:fibrePer100g 0.3 ;
+    ex:kcalPer100g 22.0 ;
+    ex:proteinPer100g 0.35 ;
+    ex:saturatedFatPer100g 0.04 ;
+    ex:sodiumMgPer100g 1.0 ;
+    ex:sugarPer100g 2.52 .
+
+ex:nutr_souvlaki_3 a ex:Nutrition ;
+    ex:carbsPer100g 0.0 ;
     ex:cholesterolMgPer100g 0.0 ;
     ex:fatPer100g 0.0 ;
-    ex:fibrePer100g 2.4 ;
-    ex:kcalPer100g 47.0 ;
-    ex:proteinPer100g 1.18 ;
-    ex:saturatedFatPer100g 0.0 ;
+    ex:kcalPer100g 0.0 ;
+    ex:proteinPer100g 0.0 ;
     ex:sodiumMgPer100g 0.0 ;
-    ex:sugarPer100g 2.35 .
+    ex:sugarPer100g 0.0 .
+
+ex:nutr_souvlaki_4 a ex:Nutrition ;
+    ex:carbsPer100g 33.3 ;
+    ex:fatPer100g 0.0 ;
+    ex:kcalPer100g 167.0 ;
+    ex:proteinPer100g 0.0 ;
+    ex:sodiumMgPer100g 0.0 .
+
+ex:nutr_souvlaki_5 a ex:Nutrition ;
+    ex:carbsPer100g 1330.0 ;
+    ex:fatPer100g 0.0 ;
+    ex:kcalPer100g 0.0 ;
+    ex:proteinPer100g 0.0 ;
+    ex:sodiumMgPer100g 39300.0 .
+
+ex:nutr_souvlaki_6 a ex:Nutrition ;
+    ex:carbsPer100g 64.0 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 3.26 ;
+    ex:fibrePer100g 25.3 ;
+    ex:kcalPer100g 251.0 ;
+    ex:proteinPer100g 10.4 ;
+    ex:saturatedFatPer100g 1.39 ;
+    ex:sodiumMgPer100g 20.0 ;
+    ex:sugarPer100g 0.64 .
+
+ex:nutr_souvlaki_7 a ex:Nutrition ;
+    ex:carbsPer100g 55.7 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 1.2 ;
+    ex:fibrePer100g 2.2 ;
+    ex:kcalPer100g 275.0 ;
+    ex:proteinPer100g 9.1 ;
+    ex:saturatedFatPer100g 0.166 ;
+    ex:sodiumMgPer100g 536.0 ;
+    ex:sugarPer100g 1.3 .
+
+ex:nutr_souvlaki_8 a ex:Nutrition ;
+    ex:carbsPer100g 9.93 ;
+    ex:fatPer100g 0.1 ;
+    ex:fibrePer100g 2.2 ;
+    ex:kcalPer100g 44.0 ;
+    ex:proteinPer100g 0.94 ;
+    ex:sodiumMgPer100g 1.0 .
+
+ex:nutr_souvlaki_9 a ex:Nutrition ;
+    ex:carbsPer100g 35.7 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 0.0 ;
+    ex:fibrePer100g 14.3 ;
+    ex:kcalPer100g 71.0 ;
+    ex:proteinPer100g 14.3 ;
+    ex:saturatedFatPer100g 0.0 ;
+    ex:sodiumMgPer100g 179.0 ;
+    ex:sugarPer100g 14.3 .
+
+ex:nutr_tahini-chicken-with-butternut-hummus-and-bulgur-salad_0 a ex:Nutrition ;
+    ex:carbsPer100g 0.0 ;
+    ex:cholesterolMgPer100g 45.0 ;
+    ex:fatPer100g 1.79 ;
+    ex:fibrePer100g 0.0 ;
+    ex:kcalPer100g 107.0 ;
+    ex:proteinPer100g 21.4 ;
+    ex:saturatedFatPer100g 0.89 ;
+    ex:sodiumMgPer100g 179.0 ;
+    ex:sugarPer100g 0.0 .
+
+ex:nutr_tahini-chicken-with-butternut-hummus-and-bulgur-salad_1 a ex:Nutrition ;
+    ex:carbsPer100g 14.18 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 62.4 ;
+    ex:fibrePer100g 8.4 ;
+    ex:kcalPer100g 697.0 ;
+    ex:proteinPer100g 19.71 ;
+    ex:saturatedFatPer100g 8.97 ;
+    ex:sodiumMgPer100g 64.0 ;
+    ex:sugarPer100g 0.49 .
+
+ex:nutr_tahini-chicken-with-butternut-hummus-and-bulgur-salad_10 a ex:Nutrition ;
+    ex:carbsPer100g 33.3 ;
+    ex:fatPer100g 0.0 ;
+    ex:kcalPer100g 167.0 ;
+    ex:proteinPer100g 0.0 ;
+    ex:sodiumMgPer100g 0.0 .
 
 ex:nutr_tahini-chicken-with-butternut-hummus-and-bulgur-salad_11 a ex:Nutrition ;
     ex:carbsPer100g 0.0 ;
@@ -1041,46 +5371,6 @@ ex:nutr_tahini-chicken-with-butternut-hummus-and-bulgur-salad_11 a ex:Nutrition 
     ex:sugarPer100g 0.0 .
 
 ex:nutr_tahini-chicken-with-butternut-hummus-and-bulgur-salad_12 a ex:Nutrition ;
-    ex:carbsPer100g 20.8 ;
-    ex:cholesterolMgPer100g 0.0 ;
-    ex:fatPer100g 1.6 ;
-    ex:fibrePer100g 4.0 ;
-    ex:kcalPer100g 128.0 ;
-    ex:proteinPer100g 8.0 ;
-    ex:saturatedFatPer100g 0.0 ;
-    ex:sodiumMgPer100g 232.0 ;
-    ex:sugarPer100g 0.8 .
-
-ex:nutr_tahini-chicken-with-butternut-hummus-and-bulgur-salad_13 a ex:Nutrition ;
-    ex:carbsPer100g 27.1 ;
-    ex:cholesterolMgPer100g 0.0 ;
-    ex:fatPer100g 0.32 ;
-    ex:fibrePer100g 0.3 ;
-    ex:kcalPer100g 109.0 ;
-    ex:proteinPer100g 1.08 ;
-    ex:saturatedFatPer100g 0.014 ;
-    ex:sodiumMgPer100g 928.0 ;
-    ex:sugarPer100g 21.54 .
-
-ex:nutr_tahini-chicken-with-butternut-hummus-and-bulgur-salad_14 a ex:Nutrition ;
-    ex:carbsPer100g 7.2 ;
-    ex:cholesterolMgPer100g 15.0 ;
-    ex:fatPer100g 5.08 ;
-    ex:fibrePer100g 0.8 ;
-    ex:kcalPer100g 102.0 ;
-    ex:proteinPer100g 6.78 ;
-    ex:saturatedFatPer100g 1.69 ;
-    ex:sodiumMgPer100g 419.0 ;
-    ex:sugarPer100g 1.27 .
-
-ex:nutr_tahini-chicken-with-butternut-hummus-and-bulgur-salad_15 a ex:Nutrition ;
-    ex:carbsPer100g 33.3 ;
-    ex:fatPer100g 0.0 ;
-    ex:kcalPer100g 167.0 ;
-    ex:proteinPer100g 0.0 ;
-    ex:sodiumMgPer100g 0.0 .
-
-ex:nutr_tahini-chicken-with-butternut-hummus-and-bulgur-salad_16 a ex:Nutrition ;
     ex:carbsPer100g 5.66 ;
     ex:fatPer100g 0.07 ;
     ex:fibrePer100g 0.7 ;
@@ -1089,6 +5379,43 @@ ex:nutr_tahini-chicken-with-butternut-hummus-and-bulgur-salad_16 a ex:Nutrition 
     ex:saturatedFatPer100g 0.027 ;
     ex:sodiumMgPer100g 26.0 ;
     ex:sugarPer100g 1.59 .
+
+ex:nutr_tahini-chicken-with-butternut-hummus-and-bulgur-salad_13 a ex:Nutrition ;
+    ex:carbsPer100g 14.18 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 62.4 ;
+    ex:fibrePer100g 8.4 ;
+    ex:kcalPer100g 697.0 ;
+    ex:proteinPer100g 19.71 ;
+    ex:saturatedFatPer100g 8.97 ;
+    ex:sodiumMgPer100g 64.0 ;
+    ex:sugarPer100g 0.49 .
+
+ex:nutr_tahini-chicken-with-butternut-hummus-and-bulgur-salad_14 a ex:Nutrition ;
+    ex:carbsPer100g 1330.0 ;
+    ex:fatPer100g 0.0 ;
+    ex:kcalPer100g 0.0 ;
+    ex:proteinPer100g 0.0 ;
+    ex:sodiumMgPer100g 39300.0 .
+
+ex:nutr_tahini-chicken-with-butternut-hummus-and-bulgur-salad_15 a ex:Nutrition ;
+    ex:carbsPer100g 18.6 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 0.24 ;
+    ex:fibrePer100g 4.5 ;
+    ex:kcalPer100g 83.0 ;
+    ex:proteinPer100g 3.08 ;
+    ex:saturatedFatPer100g 0.042 ;
+    ex:sodiumMgPer100g 5.0 ;
+    ex:sugarPer100g 0.1 .
+
+ex:nutr_tahini-chicken-with-butternut-hummus-and-bulgur-salad_16 a ex:Nutrition ;
+    ex:carbsPer100g 9.93 ;
+    ex:fatPer100g 0.1 ;
+    ex:fibrePer100g 2.2 ;
+    ex:kcalPer100g 44.0 ;
+    ex:proteinPer100g 0.94 ;
+    ex:sodiumMgPer100g 1.0 .
 
 ex:nutr_tahini-chicken-with-butternut-hummus-and-bulgur-salad_17 a ex:Nutrition ;
     ex:carbsPer100g 0.0 ;
@@ -1100,15 +5427,14 @@ ex:nutr_tahini-chicken-with-butternut-hummus-and-bulgur-salad_17 a ex:Nutrition 
     ex:sugarPer100g 0.0 .
 
 ex:nutr_tahini-chicken-with-butternut-hummus-and-bulgur-salad_18 a ex:Nutrition ;
-    ex:carbsPer100g 20.8 ;
-    ex:cholesterolMgPer100g 0.0 ;
-    ex:fatPer100g 1.6 ;
-    ex:fibrePer100g 4.0 ;
-    ex:kcalPer100g 128.0 ;
-    ex:proteinPer100g 8.0 ;
-    ex:saturatedFatPer100g 0.0 ;
-    ex:sodiumMgPer100g 232.0 ;
-    ex:sugarPer100g 0.8 .
+    ex:carbsPer100g 5.66 ;
+    ex:fatPer100g 0.07 ;
+    ex:fibrePer100g 0.7 ;
+    ex:kcalPer100g 17.0 ;
+    ex:proteinPer100g 0.47 ;
+    ex:saturatedFatPer100g 0.027 ;
+    ex:sodiumMgPer100g 26.0 ;
+    ex:sugarPer100g 1.59 .
 
 ex:nutr_tahini-chicken-with-butternut-hummus-and-bulgur-salad_19 a ex:Nutrition ;
     ex:carbsPer100g 0.0 ;
@@ -1122,39 +5448,6 @@ ex:nutr_tahini-chicken-with-butternut-hummus-and-bulgur-salad_19 a ex:Nutrition 
     ex:sugarPer100g 0.0 .
 
 ex:nutr_tahini-chicken-with-butternut-hummus-and-bulgur-salad_2 a ex:Nutrition ;
-    ex:carbsPer100g 0.0 ;
-    ex:cholesterolMgPer100g 45.0 ;
-    ex:fatPer100g 1.79 ;
-    ex:fibrePer100g 0.0 ;
-    ex:kcalPer100g 107.0 ;
-    ex:proteinPer100g 21.4 ;
-    ex:saturatedFatPer100g 0.89 ;
-    ex:sodiumMgPer100g 179.0 ;
-    ex:sugarPer100g 0.0 .
-
-ex:nutr_tahini-chicken-with-butternut-hummus-and-bulgur-salad_20 a ex:Nutrition ;
-    ex:carbsPer100g 7.2 ;
-    ex:cholesterolMgPer100g 15.0 ;
-    ex:fatPer100g 5.08 ;
-    ex:fibrePer100g 0.8 ;
-    ex:kcalPer100g 102.0 ;
-    ex:proteinPer100g 6.78 ;
-    ex:saturatedFatPer100g 1.69 ;
-    ex:sodiumMgPer100g 419.0 ;
-    ex:sugarPer100g 1.27 .
-
-ex:nutr_tahini-chicken-with-butternut-hummus-and-bulgur-salad_3 a ex:Nutrition ;
-    ex:carbsPer100g 14.18 ;
-    ex:cholesterolMgPer100g 0.0 ;
-    ex:fatPer100g 62.4 ;
-    ex:fibrePer100g 8.4 ;
-    ex:kcalPer100g 697.0 ;
-    ex:proteinPer100g 19.71 ;
-    ex:saturatedFatPer100g 8.97 ;
-    ex:sodiumMgPer100g 64.0 ;
-    ex:sugarPer100g 0.49 .
-
-ex:nutr_tahini-chicken-with-butternut-hummus-and-bulgur-salad_4 a ex:Nutrition ;
     ex:carbsPer100g 82.4 ;
     ex:cholesterolMgPer100g 0.0 ;
     ex:fatPer100g 0.0 ;
@@ -1165,7 +5458,14 @@ ex:nutr_tahini-chicken-with-butternut-hummus-and-bulgur-salad_4 a ex:Nutrition ;
     ex:sodiumMgPer100g 4.0 ;
     ex:sugarPer100g 82.1 .
 
-ex:nutr_tahini-chicken-with-butternut-hummus-and-bulgur-salad_5 a ex:Nutrition ;
+ex:nutr_tahini-chicken-with-butternut-hummus-and-bulgur-salad_20 a ex:Nutrition ;
+    ex:carbsPer100g 1330.0 ;
+    ex:fatPer100g 0.0 ;
+    ex:kcalPer100g 0.0 ;
+    ex:proteinPer100g 0.0 ;
+    ex:sodiumMgPer100g 39300.0 .
+
+ex:nutr_tahini-chicken-with-butternut-hummus-and-bulgur-salad_3 a ex:Nutrition ;
     ex:carbsPer100g 4.93 ;
     ex:cholesterolMgPer100g 0.0 ;
     ex:fatPer100g 0.57 ;
@@ -1176,7 +5476,7 @@ ex:nutr_tahini-chicken-with-butternut-hummus-and-bulgur-salad_5 a ex:Nutrition ;
     ex:sodiumMgPer100g 5493.0 ;
     ex:sugarPer100g 0.4 .
 
-ex:nutr_tahini-chicken-with-butternut-hummus-and-bulgur-salad_6 a ex:Nutrition ;
+ex:nutr_tahini-chicken-with-butternut-hummus-and-bulgur-salad_4 a ex:Nutrition ;
     ex:carbsPer100g 0.93 ;
     ex:cholesterolMgPer100g 0.0 ;
     ex:fatPer100g 0.0 ;
@@ -1187,7 +5487,7 @@ ex:nutr_tahini-chicken-with-butternut-hummus-and-bulgur-salad_6 a ex:Nutrition ;
     ex:sodiumMgPer100g 5.0 ;
     ex:sugarPer100g 0.4 .
 
-ex:nutr_tahini-chicken-with-butternut-hummus-and-bulgur-salad_7 a ex:Nutrition ;
+ex:nutr_tahini-chicken-with-butternut-hummus-and-bulgur-salad_5 a ex:Nutrition ;
     ex:carbsPer100g 7.2 ;
     ex:cholesterolMgPer100g 15.0 ;
     ex:fatPer100g 5.08 ;
@@ -1198,17 +5498,131 @@ ex:nutr_tahini-chicken-with-butternut-hummus-and-bulgur-salad_7 a ex:Nutrition ;
     ex:sodiumMgPer100g 419.0 ;
     ex:sugarPer100g 1.27 .
 
-ex:nutr_tahini-chicken-with-butternut-hummus-and-bulgur-salad_8 a ex:Nutrition ;
+ex:nutr_tahini-chicken-with-butternut-hummus-and-bulgur-salad_6 a ex:Nutrition ;
     ex:carbsPer100g 33.3 ;
     ex:fatPer100g 0.0 ;
     ex:kcalPer100g 167.0 ;
     ex:proteinPer100g 0.0 ;
     ex:sodiumMgPer100g 0.0 .
 
-ex:nutr_tahini-chicken-with-butternut-hummus-and-bulgur-salad_9 a ex:Nutrition ;
+ex:nutr_tahini-chicken-with-butternut-hummus-and-bulgur-salad_7 a ex:Nutrition ;
     ex:carbsPer100g 1330.0 ;
     ex:fatPer100g 0.0 ;
     ex:kcalPer100g 0.0 ;
     ex:proteinPer100g 0.0 ;
     ex:sodiumMgPer100g 39300.0 .
+
+ex:nutr_tahini-chicken-with-butternut-hummus-and-bulgur-salad_8 a ex:Nutrition ;
+    ex:carbsPer100g 11.8 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 0.0 ;
+    ex:fibrePer100g 2.4 ;
+    ex:kcalPer100g 47.0 ;
+    ex:proteinPer100g 1.18 ;
+    ex:saturatedFatPer100g 0.0 ;
+    ex:sodiumMgPer100g 0.0 ;
+    ex:sugarPer100g 2.35 .
+
+ex:nutr_tahini-chicken-with-butternut-hummus-and-bulgur-salad_9 a ex:Nutrition ;
+    ex:carbsPer100g 20.8 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 1.6 ;
+    ex:fibrePer100g 4.0 ;
+    ex:kcalPer100g 128.0 ;
+    ex:proteinPer100g 8.0 ;
+    ex:saturatedFatPer100g 0.0 ;
+    ex:sodiumMgPer100g 232.0 ;
+    ex:sugarPer100g 0.8 .
+
+ex:nutr_teriyaki-chicken_0 a ex:Nutrition ;
+    ex:carbsPer100g 0.88 ;
+    ex:cholesterolMgPer100g 83.0 ;
+    ex:fatPer100g 16.7 ;
+    ex:fibrePer100g 0.0 ;
+    ex:kcalPer100g 193.0 ;
+    ex:proteinPer100g 14.0 ;
+    ex:saturatedFatPer100g 3.95 ;
+    ex:sodiumMgPer100g 66.0 ;
+    ex:sugarPer100g 0.88 .
+
+ex:nutr_teriyaki-chicken_1 a ex:Nutrition ;
+    ex:carbsPer100g 0.0 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 100.0 ;
+    ex:fibrePer100g 0.0 ;
+    ex:kcalPer100g 884.0 ;
+    ex:proteinPer100g 0.0 ;
+    ex:saturatedFatPer100g 7.36 ;
+    ex:sodiumMgPer100g 0.0 ;
+    ex:sugarPer100g 0.0 .
+
+ex:nutr_teriyaki-chicken_2 a ex:Nutrition ;
+    ex:carbsPer100g 4.93 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 0.57 ;
+    ex:fibrePer100g 0.8 ;
+    ex:kcalPer100g 53.0 ;
+    ex:proteinPer100g 8.14 ;
+    ex:saturatedFatPer100g 0.073 ;
+    ex:sodiumMgPer100g 5493.0 ;
+    ex:sugarPer100g 0.4 .
+
+ex:nutr_teriyaki-chicken_3 a ex:Nutrition ;
+    ex:carbsPer100g 60.0 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 0.0 ;
+    ex:kcalPer100g 300.0 ;
+    ex:proteinPer100g 0.0 ;
+    ex:saturatedFatPer100g 0.0 ;
+    ex:sodiumMgPer100g 667.0 ;
+    ex:sugarPer100g 33.3 .
+
+ex:nutr_teriyaki-chicken_4 a ex:Nutrition ;
+    ex:carbsPer100g 5.0 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 0.0 ;
+    ex:fibrePer100g 0.0 ;
+    ex:kcalPer100g 134.0 ;
+    ex:proteinPer100g 0.5 ;
+    ex:saturatedFatPer100g 0.0 ;
+    ex:sodiumMgPer100g 2.0 ;
+    ex:sugarPer100g 0.0 .
+
+ex:nutr_teriyaki-chicken_5 a ex:Nutrition ;
+    ex:carbsPer100g 100.0 ;
+    ex:fatPer100g 0.0 ;
+    ex:kcalPer100g 375.0 ;
+    ex:proteinPer100g 0.0 ;
+    ex:sodiumMgPer100g 0.0 ;
+    ex:sugarPer100g 100.0 .
+
+ex:nutr_teriyaki-chicken_6 a ex:Nutrition ;
+    ex:carbsPer100g 33.9 ;
+    ex:fatPer100g 0.27 ;
+    ex:fibrePer100g 0.9 ;
+    ex:kcalPer100g 151.0 ;
+    ex:proteinPer100g 3.2 ;
+    ex:sodiumMgPer100g 5.0 .
+
+ex:nutr_teriyaki-chicken_7 a ex:Nutrition ;
+    ex:carbsPer100g 3.44 ;
+    ex:cholesterolMgPer100g 51.0 ;
+    ex:fatPer100g 2.16 ;
+    ex:fibrePer100g 0.0 ;
+    ex:kcalPer100g 65.0 ;
+    ex:proteinPer100g 7.23 ;
+    ex:saturatedFatPer100g 0.6 ;
+    ex:sodiumMgPer100g 108.0 ;
+    ex:sugarPer100g 0.78 .
+
+ex:nutr_teriyaki-chicken_8 a ex:Nutrition ;
+    ex:carbsPer100g 11.73 ;
+    ex:cholesterolMgPer100g 0.0 ;
+    ex:fatPer100g 61.21 ;
+    ex:fibrePer100g 11.6 ;
+    ex:kcalPer100g 631.0 ;
+    ex:proteinPer100g 20.45 ;
+    ex:saturatedFatPer100g 9.055 ;
+    ex:sodiumMgPer100g 47.0 ;
+    ex:sugarPer100g 0.48 .
 

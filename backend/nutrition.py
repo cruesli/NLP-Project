@@ -61,7 +61,7 @@ def _search(ingredient: str, session: requests.Session) -> dict:
 
 
 def _has_nonzero_macros(food: dict) -> bool:
-    nutrients = {n["nutrientId"]: n["value"] for n in food.get("foodNutrients", [])}
+    nutrients = {n["nutrientId"]: n.get("value", 0.0) for n in food.get("foodNutrients", []) if "nutrientId" in n}
     macro_ids = [NUTRIENT_IDS["protein"], NUTRIENT_IDS["fat"], NUTRIENT_IDS["carbohydrates"]]
     return any(nutrients.get(nid, 0.0) != 0.0 for nid in macro_ids)
 
@@ -89,7 +89,7 @@ def _pick_best(foods: list) -> Optional[dict]:
 
 
 def _extract_nutrition(food: dict) -> NutritionPer100g:
-    nutrients = {n["nutrientId"]: n["value"] for n in food.get("foodNutrients", [])}
+    nutrients = {n["nutrientId"]: n.get("value", 0.0) for n in food.get("foodNutrients", []) if "nutrientId" in n}
     ids = NUTRIENT_IDS
     return NutritionPer100g(
         protein_per_100g=nutrients.get(ids["protein"], 0.0),

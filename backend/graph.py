@@ -82,18 +82,34 @@ class RecipeKnowledgeGraph:
                 self.graph.add((ing_node, EX.hasNutrition, nutr_node))
                 self.graph.add((nutr_node, RDF.type, EX.Nutrition))
                 self._add_nutrition_triples(nutr_node, nutrition)
-
-        # approx per-serving nutrition stored on the recipe node for filtering
+                
+        # approx per-serving nutrition stored on recipe node for filtering
         if ing_nutritions and recipe.servings:
             s = recipe.servings
-            total_protein = 0.0
-            total_kcal = 0.0
+            totals = {"protein": 0.0, "kcal": 0.0, "fat": 0.0,
+                      "carbs": 0.0, "sodium": 0.0, "fibre": 0.0}
             for n, qty in ing_nutritions:
                 factor = (qty / 100) if qty is not None else 1.0
-                total_protein += factor * n.protein_per_100g
-                total_kcal += factor * n.kcal_per_100g
-            self.graph.add((r, EX.approxProteinPerServing, Literal(total_protein / s, datatype=XSD.decimal)))
-            self.graph.add((r, EX.approxKcalPerServing, Literal(total_kcal / s, datatype=XSD.decimal)))
+                totals["protein"] += factor * n.protein_per_100g
+                totals["kcal"]    += factor * n.kcal_per_100g
+                totals["fat"]     += factor * n.fat_per_100g
+                totals["carbs"]   += factor * n.carbs_per_100g
+                if n.sodium_mg_per_100g is not None:
+                    totals["sodium"] += factor * n.sodium_mg_per_100g
+                if n.fibre_per_100g is not None:
+                    totals["fibre"] += factor * n.fibre_per_100g
+ 
+            def _store(prop, value):
+                self.graph.add((r, prop, Literal(value / s, datatype=XSD.decimal)))
+ 
+            _store(EX.approxProteinPerServing, totals["protein"])
+            _store(EX.approxKcalPerServing,    totals["kcal"])
+            _store(EX.approxFatPerServing,     totals["fat"])
+            _store(EX.approxCarbsPerServing,   totals["carbs"])
+            if totals["sodium"] > 0:
+                _store(EX.approxSodiumPerServing, totals["sodium"])
+            if totals["fibre"] > 0:
+                _store(EX.approxFibrePerServing, totals["fibre"])
 
     def _add_nutrition_triples(self, node: URIRef, n: NutritionPer100g) -> None:
         self.graph.add((node, EX.proteinPer100g, Literal(n.protein_per_100g, datatype=XSD.decimal)))
@@ -229,42 +245,43 @@ class RecipeKnowledgeGraph:
         max_time: Optional[int] = None,
         cuisine: Optional[str] = None,
         dietary: Optional[str] = None,
+        max_fat: Optional[float] = None,
+        max_carbs: Optional[float] = None,
+        max_sodium: Optional[float] = None,
+        min_fibre: Optional[float] = None,
+        origin_country: Optional[str] = None,
+        food_category: Optional[str] = None,
     ) -> FilterResponse:
-        filters_applied = {}
-        if min_protein is not None:
-            filters_applied["min_protein"] = min_protein
-        if max_kcal is not None:
-            filters_applied["max_kcal"] = max_kcal
-        if max_time is not None:
-            filters_applied["max_time"] = max_time
-        if cuisine is not None:
-            filters_applied["cuisine"] = cuisine
-        if dietary is not None:
-            filters_applied["dietary"] = dietary
-
+        # record only the filters actually provided
+        filters_applied = {k: v for k, v in {
+            "min_protein": min_protein, "max_kcal": max_kcal,
+            "max_time": max_time, "cuisine": cuisine, "dietary": dietary,
+            "max_fat": max_fat, "max_carbs": max_carbs,
+            "max_sodium": max_sodium, "min_fibre": min_fibre,
+            "origin_country": origin_country, "food_category": food_category,
+        }.items() if v is not None}
+ 
         results = []
         for recipe_node in self.graph.subjects(RDF.type, EX.Recipe):
-            if not self._matches_filter(recipe_node, min_protein, max_kcal, max_time, cuisine, dietary):
+            if not self._matches_filter(
+                recipe_node, min_protein, max_kcal, max_time, cuisine, dietary,
+                max_fat, max_carbs, max_sodium, min_fibre, origin_country, food_category,
+            ):
                 continue
-            slug = next(self.graph.objects(recipe_node, EX.slug), None)
+            slug  = next(self.graph.objects(recipe_node, EX.slug), None)
             title = next(self.graph.objects(recipe_node, EX.title), None)
             cuisine_val = next(self.graph.objects(recipe_node, EX.cuisine), None)
             if slug is None or title is None or cuisine_val is None:
                 continue
             tags = [str(t) for t in self.graph.objects(recipe_node, EX.tag)]
             time_vals = list(self.graph.objects(recipe_node, EX.totalTimeMinutes))
-            total_time = int(time_vals[0]) if time_vals else None
             results.append(RecipeSummary(
                 slug=str(slug), title=str(title), cuisine=str(cuisine_val),
-                tags=tags, total_time_minutes=total_time,
+                tags=tags, total_time_minutes=int(time_vals[0]) if time_vals else None,
             ))
-
-        return FilterResponse(
-            filters_applied=filters_applied,
-            count=len(results),
-            results=results,
-        )
-
+ 
+        return FilterResponse(filters_applied=filters_applied, count=len(results), results=results)
+ 
     def _matches_filter(
         self,
         recipe_node: URIRef,
@@ -273,37 +290,93 @@ class RecipeKnowledgeGraph:
         max_time: Optional[int],
         cuisine: Optional[str],
         dietary: Optional[str],
+        max_fat: Optional[float],
+        max_carbs: Optional[float],
+        max_sodium: Optional[float],
+        min_fibre: Optional[float],
+        origin_country: Optional[str],
+        food_category: Optional[str],
     ) -> bool:
+ 
+        # --- scalar recipe-level filters ---
+ 
+        def _recipe_val(prop):
+            vals = list(self.graph.objects(recipe_node, prop))
+            return float(vals[0]) if vals else None
+ 
         if cuisine is not None:
             vals = list(self.graph.objects(recipe_node, EX.cuisine))
-            if not vals or str(vals[0]) != cuisine:
+            if not vals or str(vals[0]).lower() != cuisine.lower():
                 return False
-
+ 
         if max_time is not None:
             vals = list(self.graph.objects(recipe_node, EX.totalTimeMinutes))
             if not vals or int(vals[0]) > max_time:
                 return False
-
+ 
         if min_protein is not None:
-            vals = list(self.graph.objects(recipe_node, EX.approxProteinPerServing))
-            protein = float(vals[0]) if vals else 0.0
-            if protein < min_protein:
+            v = _recipe_val(EX.approxProteinPerServing)
+            if v is None or v < min_protein:
                 return False
-
+ 
         if max_kcal is not None:
-            vals = list(self.graph.objects(recipe_node, EX.approxKcalPerServing))
-            kcal = float(vals[0]) if vals else 0.0
-            if kcal > max_kcal:
+            v = _recipe_val(EX.approxKcalPerServing)
+            if v is None or v > max_kcal:
                 return False
-
+ 
+        if max_fat is not None:
+            v = _recipe_val(EX.approxFatPerServing)
+            if v is None or v > max_fat:
+                return False
+ 
+        if max_carbs is not None:
+            v = _recipe_val(EX.approxCarbsPerServing)
+            if v is None or v > max_carbs:
+                return False
+ 
+        if max_sodium is not None:
+            v = _recipe_val(EX.approxSodiumPerServing)
+            # no sodium data → assume passes (not penalise missing data)
+            if v is not None and v > max_sodium:
+                return False
+ 
+        if min_fibre is not None:
+            v = _recipe_val(EX.approxFibrePerServing)
+            if v is None or v < min_fibre:
+                return False
+ 
+        # --- ingredient-level filters (any ingredient must match) ---
+ 
         if dietary is not None:
-            all_flags = set()
-            for ing_node in self.graph.objects(recipe_node, EX.hasIngredient):
-                for flag in self.graph.objects(ing_node, EX.dietaryFlag):
-                    all_flags.add(str(flag))
+            all_flags = {
+                str(flag)
+                for ing in self.graph.objects(recipe_node, EX.hasIngredient)
+                for flag in self.graph.objects(ing, EX.dietaryFlag)
+            }
             if dietary not in all_flags:
                 return False
-
+ 
+        if origin_country is not None:
+            needle = origin_country.lower()
+            countries = {
+                str(c).lower()
+                for ing in self.graph.objects(recipe_node, EX.hasIngredient)
+                for c in self.graph.objects(ing, EX.originCountry)
+            }
+            # flexible match: "italy" matches "Italy", "italian" also matches
+            if not any(needle in c or c in needle for c in countries):
+                return False
+ 
+        if food_category is not None:
+            needle = food_category.lower()
+            categories = {
+                str(c).lower()
+                for ing in self.graph.objects(recipe_node, EX.hasIngredient)
+                for c in self.graph.objects(ing, EX.foodCategory)
+            }
+            if not any(needle in c or c in needle for c in categories):
+                return False
+ 
         return True
 
 

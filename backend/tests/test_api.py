@@ -10,7 +10,6 @@ from backend.main import (
     _BASE_SYSTEM_PROMPT,
     _EXAMPLES,
     _build_prompt,
-    _keyword_overlap,
     _select_examples,
     app,
     get_kg,
@@ -328,35 +327,6 @@ def test_nl_query_returns_interpreted_filters(client_with_mock_llm):
 
 
 # ---------------------------------------------------------------------------
-# _keyword_overlap
-# ---------------------------------------------------------------------------
-
-
-def test_keyword_overlap_counts_shared_content_words():
-    assert _keyword_overlap("high protein recipe", "high protein dinner") == 2
-
-
-def test_keyword_overlap_zero_when_no_shared_words():
-    assert _keyword_overlap("quick meal", "vegan dinner") == 0
-
-
-def test_keyword_overlap_case_insensitive():
-    assert _keyword_overlap("High Protein", "high protein") == 2
-
-
-def test_keyword_overlap_filters_stopwords():
-    # stopwords like "a" should not contribute to overlap
-    overlap = _keyword_overlap("a high protein dish", "a low calorie dish")
-    assert overlap == 1  # only "dish"
-
-
-def test_keyword_overlap_symmetric():
-    assert _keyword_overlap("italian quick dinner", "quick italian") == _keyword_overlap(
-        "quick italian", "italian quick dinner"
-    )
-
-
-# ---------------------------------------------------------------------------
 # _select_examples
 # ---------------------------------------------------------------------------
 
@@ -421,24 +391,10 @@ import pytest
 
 from backend.main import (
     _EXAMPLES,
-    _keyword_overlap,
     _select_examples,
     _build_prompt,
     _BASE_SYSTEM_PROMPT,
 )
-
-
-# --- _keyword_overlap (kept for backward compat) --------------------------
-
-def test_keyword_overlap_exact_match():
-    assert _keyword_overlap("quick italian", "quick italian dinner") == 2
-
-def test_keyword_overlap_stopwords_ignored():
-    assert _keyword_overlap("give me a recipe", "show me a recipe") == 1
-
-def test_keyword_overlap_symmetric():
-    assert _keyword_overlap("quick italian", "italian quick dinner") == \
-           _keyword_overlap("italian quick dinner", "quick italian")
 
 
 # --- _select_examples (embedding-based) -----------------------------------

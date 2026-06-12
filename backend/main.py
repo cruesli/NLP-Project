@@ -47,11 +47,18 @@ _BASE_SYSTEM_PROMPT = (
     "You are a recipe filter assistant. Extract structured filter criteria from a "
     "natural language question about recipes.\n\n"
     "Return a JSON object with zero or more of these fields:\n"
-    '- "min_protein": minimum protein per serving in grams (number)\n'
-    '- "max_kcal": maximum calories per serving (number)\n'
-    '- "max_time": maximum total cook time in minutes (integer)\n'
-    '- "cuisine": cuisine type string (e.g. "middle-eastern", "italian")\n'
-    '- "dietary": dietary restriction (e.g. "vegan", "vegetarian", "halal")\n\n'
+    '- "min_protein"    : minimum protein per serving in grams (number)\n'
+    '- "max_kcal"       : maximum calories per serving (number)\n'
+    '- "max_time"       : maximum total cook time in minutes (integer)\n'
+    '- "max_fat"        : maximum fat per serving in grams (number)\n'
+    '- "max_carbs"      : maximum carbohydrates per serving in grams (number)\n'
+    '- "max_sodium"     : maximum sodium per serving in milligrams (number)\n'
+    '- "min_fibre"      : minimum dietary fibre per serving in grams (number)\n'
+    '- "cuisine"        : cuisine type string (e.g. "italian", "middle-eastern", "asian")\n'
+    '- "dietary"        : dietary restriction — one of "vegan", "vegetarian", "halal", "kosher"\n'
+    '- "origin_country" : country name — recipe must contain at least one ingredient from this country\n'
+    '- "food_category"  : ingredient category — recipe must contain at least one ingredient of this type '
+    '(e.g. "seafood", "poultry", "legume")\n\n'
     "Include only the fields explicitly mentioned or strongly implied. "
     "Return ONLY valid JSON, no other text."
 )
@@ -120,18 +127,6 @@ _EXAMPLE_QUESTIONS = [q for q, _ in _EXAMPLES]
 _EXAMPLE_EMBEDDINGS: np.ndarray = _EMBED_MODEL.encode(
     _EXAMPLE_QUESTIONS, normalize_embeddings=True
 )
- 
- 
-def _keyword_overlap(q1: str, q2: str) -> int:
-    """Kept for backward compatibility and tests. Not used by _select_examples."""
-    stopwords = frozenset({
-        "a", "an", "the", "for", "me", "i", "can", "make", "want", "give",
-        "show", "something", "some", "with", "and", "or", "that", "is", "are",
-        "please", "tonight", "today", "under", "over",
-    })
-    words1 = {w for w in q1.lower().split() if w not in stopwords}
-    words2 = {w for w in q2.lower().split() if w not in stopwords}
-    return len(words1 & words2)
  
  
 def _select_examples(
@@ -204,14 +199,19 @@ def filter_recipes(
     max_time: Optional[int] = None,
     cuisine: Optional[str] = None,
     dietary: Optional[str] = None,
+    max_fat: Optional[float] = None,
+    max_carbs: Optional[float] = None,
+    max_sodium: Optional[float] = None,
+    min_fibre: Optional[float] = None,
+    origin_country: Optional[str] = None,
+    food_category: Optional[str] = None,
     kg: RecipeKnowledgeGraph = Depends(get_kg),
 ):
     return kg.filter_recipes(
-        min_protein=min_protein,
-        max_kcal=max_kcal,
-        max_time=max_time,
-        cuisine=cuisine,
-        dietary=dietary,
+        min_protein=min_protein, max_kcal=max_kcal, max_time=max_time,
+        cuisine=cuisine, dietary=dietary, max_fat=max_fat, max_carbs=max_carbs,
+        max_sodium=max_sodium, min_fibre=min_fibre,
+        origin_country=origin_country, food_category=food_category,
     )
 
 
@@ -239,6 +239,13 @@ def get_ingredient_wikidata(ingredient: str, kg: RecipeKnowledgeGraph = Depends(
     return result
 
 
+_KNOWN_FILTER_KEYS = frozenset({
+    "min_protein", "max_kcal", "max_time", "cuisine", "dietary",
+    "max_fat", "max_carbs", "max_sodium", "min_fibre",
+    "origin_country", "food_category",
+})
+ 
+ 
 @app.post("/api/v1/query", response_model=QueryResponse)
 def nl_query(
     body: QueryRequest,
@@ -246,8 +253,7 @@ def nl_query(
     llm: openai.OpenAI = Depends(get_openai_client),
 ):
     raw_filters = interpret_query(body.question, llm)
-    known_keys = {"min_protein", "max_kcal", "max_time", "cuisine", "dietary"}
-    filters = {k: v for k, v in raw_filters.items() if k in known_keys}
+    filters = {k: v for k, v in raw_filters.items() if k in _KNOWN_FILTER_KEYS}
     result = kg.filter_recipes(**filters)
     return QueryResponse(
         question=body.question,
